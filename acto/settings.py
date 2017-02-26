@@ -27,7 +27,7 @@ DEBUG = True
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
-ALLOWED_HOSTS = ['silag-acto-back-server3.herokuapp.com']
+ALLOWED_HOSTS = ['silag-acto-back-server3.herokuapp.com','localhost']
 
 
 # Application definition
