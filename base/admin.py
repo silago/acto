@@ -8,14 +8,32 @@ admin.site.register(TopPage, SingletonModelAdmin)
 admin.site.register(FaqPage, SingletonModelAdmin)
 admin.site.register(MintPage, SingletonModelAdmin)
 admin.site.register(FactsPage, SingletonModelAdmin)
-class GreenPageTextImageItemInline(admin.TabularInline):
+
+class GreenPageItems(admin.TabularInline):
+    verbose_name = "Элемент"
+    verbose_name_plural  = "Элементы"
     model =  GreenPage.items.through
+
 class GreenPageAdmin(SingletonModelAdmin):
-    inlines = [
-        GreenPageTextImageItemInline,
-    ]
+    exclude = "items" ,
+    inlines = (
+        GreenPageItems,
+    )
+
+class WhyPageItems(admin.TabularInline):
+    verbose_name = "Элемент"
+    verbose_name_plural  = "Элементы"
+    model =  WhyPage.items.through
+
+class WhyPageAdmin(SingletonModelAdmin):
+    exclude = "items" , "title"
+    inlines = (
+        WhyPageItems,
+    )
+
+
 admin.site.register(GreenPage, GreenPageAdmin)
-admin.site.register(WhyPage, SingletonModelAdmin)
+admin.site.register(WhyPage, WhyPageAdmin)
 admin.site.register(HowPage, SingletonModelAdmin)
 admin.site.register(ForPage, SingletonModelAdmin)
 admin.site.register(DocsPage, SingletonModelAdmin)

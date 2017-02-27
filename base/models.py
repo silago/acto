@@ -27,6 +27,9 @@ class ImageItem(models.Model):
     order  = models.IntegerField()
     def __str__(this):
         return this.image.url
+    class Meta:
+        verbose_name = "Изображения"
+        verbose_name_plural = "Изображения"
 
 
 class DoubleTextDoubleImageItem(models.Model):
@@ -38,6 +41,9 @@ class DoubleTextDoubleImageItem(models.Model):
     def __str__(this):
         return this.image.url + ' ' + this.text
 
+    class Meta:
+        verbose_name = "Текст с заголовком и двумя изображениями"
+
 class TextDoubleImageItem(models.Model):
     image  = models.ImageField()
     subimage  = models.ImageField()
@@ -45,13 +51,19 @@ class TextDoubleImageItem(models.Model):
     order = models.IntegerField()
     def __str__(this):
         return this.image.url + ' ' + this.text
+    class Meta:
+        verbose_name = ""
+        verbose_name_plural = "Текст с двумя изображениями"
 
 class TextImageItem(models.Model):
-    image  = models.ImageField()
-    text     = HTMLField()
-    order  = models.IntegerField()
+    image  = models.ImageField(verbose_name="Изображение")
+    text     = HTMLField(verbose_name="Текст")
+    order  = models.IntegerField(verbose_name="Порядок отображения")
     def __str__(this):
         return this.image.url
+    class Meta:
+        verbose_name = "Текст с изображениями"
+        verbose_name_plural = ""
 # Create your models here.
 
 
@@ -62,12 +74,12 @@ class BaseSingletonModel(SingletonModel):
         tdir = settings.TEMPLATES[0]['DIRS'][0]
         result =  ((i,i) for i in os.listdir(tdir))
         return result
-    logo   = models.ImageField(blank=True, null=True,default='')
-    active = models.BooleanField(default=True)
-    title  = models.CharField(max_length=255,blank=True, null=True, default="")
-    slug   = models.CharField(max_length=255,blank=True, null=True, default="")
-    template = models.CharField(max_length=255,blank=True, null=True,default="",choices = TemplatesList())
-    order   = models.IntegerField(default=1)
+    logo   = models.ImageField(blank=True, null=True,default='', verbose_name="Изображение")
+    active = models.BooleanField(default=True, verbose_name="Активно" )
+    title  = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Заголовок")
+    slug   = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Псевдоним")
+    template = models.CharField(max_length=255,blank=True, null=True,default="",verbose_name="Шаблон", choices = TemplatesList())
+    order   = models.IntegerField(default=1, verbose_name="Приоритет отображения (порядок)")
 
     class Meta:
         abstract = True
@@ -80,53 +92,75 @@ class TopPage(BaseSingletonModel):
     banner= models.ImageField(blank=True, null=True,default='')
     free_delivery_button =  models.ImageField(blank=True, null=True,default='')
     no_delivery_button   =  models.ImageField(blank=True, null=True,default='')
+    class Meta:
+        verbose_name = "Верх"
 
 class ForPage(BaseSingletonModel):
     items = models.ManyToManyField(ImageItem)
+    class Meta:
+        verbose_name = "Для чего применяется"
 
 class OrangePage(BaseSingletonModel):
     items = models.ManyToManyField(ImageItem)
+    class Meta:
+        verbose_name = "Галерея"
 
 class YellowPage(BaseSingletonModel):
     #text  = HTMLField(blank=True, null=True,default='')
     items = models.ManyToManyField(TripleTextItem)
+    class Meta:
+        verbose_name = "Отзывы покупателей"
 
 
 class MintPage(BaseSingletonModel):
     left_image = models.ImageField()
     right_image = models.ImageField()
     caption = HTMLField()
+    class Meta:
+        verbose_name = "Как работает"
 
 
 class FactsPage(BaseSingletonModel):
     items = models.ManyToManyField(TextImageItem)
+    class Meta:
+        verbose_name = "Только факты"
 
 
 class GreenPage(BaseSingletonModel):
-    caption = HTMLField()
-    items = models.ManyToManyField(TextImageItem)
-    free_delivery_button = models.ImageField()
-    no_delivery_button  = models.ImageField()
+    items = models.ManyToManyField(TextImageItem, verbose_name="Элементы")
+    free_delivery_button = models.ImageField( verbose_name="С бесплатной доставкой")
+    no_delivery_button  = models.ImageField(  verbose_name="Без бесплатной доствки")
+    class Meta:
+        verbose_name = "Кому подходит"
 
 class WhyPage(BaseSingletonModel):
-    items = models.ManyToManyField(TextImageItem)
+    items = models.ManyToManyField(TextImageItem, verbose_name="Элементы")
+    class Meta:
+        verbose_name = "Почему Актовитдерм"
 
 
 class HowPage(BaseSingletonModel):
     caption = HTMLField()
     items = models.ManyToManyField(DoubleTextDoubleImageItem)
+    class Meta:
+        verbose_name = "Как применять"
 
 class FaqPage(BaseSingletonModel):
     items = models.ManyToManyField(TextItem)
+    class Meta:
+        verbose_name = "Ответы на вопросы"
 
 class DocsPage(BaseSingletonModel):
     items = models.ManyToManyField(ImageItem)
+    class Meta:
+        verbose_name = "Документы"
 
 class FooterPage(BaseSingletonModel):
     items = models.ManyToManyField(TextImageItem)
     link = models.CharField(max_length=255)
     image = models.ImageField()
-    pass
+    class Meta:
+        verbose_name = "Подвал"
 
 
 class BottomPage(BaseSingletonModel):
@@ -134,6 +168,8 @@ class BottomPage(BaseSingletonModel):
     free_delivery_button = models.ImageField()
     no_delivery_button   = models.ImageField()
     image   = models.ImageField()
+    class Meta:
+        verbose_name = "Карта"
     #def getCities():
     #    City.get.all()
     #    pass
