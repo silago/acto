@@ -8,6 +8,12 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
         <style type='text/css'>
+            .anchor {
+                display:block;
+                padding:0px;
+                margin:0px;
+                height:0px;
+            }
             .non-free {
                 display:none;
             }
@@ -53,6 +59,13 @@
                 right:18px;
                 position:absolute;
             }
+            #head #menu li a {
+                padding:0px;
+                color:inherit;
+                text-decoration:inherit;
+                font-size:inherit;
+                margin:0px;
+            }       
             #head #menu {
                 margin-top: 22px;
                 padding-left: 0px;
@@ -120,7 +133,7 @@
             @media screen and (max-width: 1350px) {
                 #head #menu li {
                     overflow-x:auto!important;
-                    margin-right:1.8em;
+                    margin-right:1.75em;
                 }
             }
             #head #menu .buy-somewhere {
@@ -440,6 +453,7 @@
 
 
             div#page-green .arrow-right, div#page-green .arrow-left {
+                cursor:pointer;
                 color:#fff;
                 font-size:52px;
 				position: absolute;
@@ -530,6 +544,7 @@ left: 27%;
                 margin-left:100px;
             }
             div#page-green ul li{
+                cursor:pointer;
             }
             div#page-green div.banner{
                 position:absolute;
@@ -540,14 +555,15 @@ left: 27%;
                 width:30%;
             
             }
-            div#page-green ul li.active span:before {
+            div#page-green ul li.active:after {
                 content: "";
-                position: absolute;
+                position: relative;
                 height: 30px;
                 width: 90px;
                 background-image: url(static/green/arrow-up.png);
-                left: 130px;
-                top: -27px;
+                left: 60px;
+                top: 24px;
+                display: block;
             }
 
             div#page-green .starts {
@@ -1144,9 +1160,16 @@ width: 0;
             <span id="menu">
                 <ul>
                     <li><img src="static/./logo.png" id="logo"></li>
+                    {% for page in pages|dictsort:"order" %}
+                        {% if page.menu_title %}
+                            <li><a href="#{{page.slug}}">{{page.menu_title}}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    <!-- 
                     <li>когда применяется?</li>
                     <li>как  работает?</li>
                     <li>кому подходит</li>
+                    -->
                     <li class="nowrap">
                         <span class="buy-somewhere">
                             купить в аптеке
@@ -1166,7 +1189,7 @@ width: 0;
         </div>
         <div class="clear"></div>
         {% for page in pages|dictsort:"order" %}
-            <span style="display:none;"> {{page.template}} </span>
+        <a name="{{page.slug}}" class="anchor"> {{page.template}} </a>
             {% include page.template %}
         {% endfor %}
 

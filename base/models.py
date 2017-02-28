@@ -83,6 +83,7 @@ class BaseSingletonModel(SingletonModel):
     slug   = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Псевдоним")
     template = models.CharField(max_length=255,blank=True, null=True,default="",verbose_name="Шаблон", choices = TemplatesList())
     order   = models.IntegerField(default=1, verbose_name="Приоритет отображения (порядок)")
+    menu_title = models.CharField(max_length=255,default="", verbose_name="Название в меню")
 
     class Meta:
         abstract = True
@@ -180,7 +181,8 @@ class BottomPage(BaseSingletonModel):
 
 class City(models.Model):
     name = models.CharField(max_length=255)
-    active = models.BooleanField(default=False)
+    active       = models.BooleanField(default=False)
+    has_delivery = models.BooleanField(default=False)
     x    = models.FloatField()
     y    = models.FloatField()
 

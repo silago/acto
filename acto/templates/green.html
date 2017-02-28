@@ -7,12 +7,11 @@
                 </div>
                 <img class="logo" src="{{page.logo.url}}" />
             <span class="starts"> </span>
-
             <span class="arrow-left">
                 <img src="static/green/arrow-left.png" />
             </span>
 
-            <ul>
+            <ul id="">
               {% for item in page.items.all %}
                 <li>
                     <img  src="{{ item.image.url }}" />
@@ -22,12 +21,36 @@
                 </li>
               {% endfor %}
             </uL>
-            <script>
-                $('#page-green ul li').first().addClass('active');
-            </script>
+
             <span class="arrow-right">
 				<img src="static/green/arrow-right.png" />
 			</span>
+
+            <script type="text/javascript">
+                var pageGreenGalleryIndex = 0;
+                var pageGreenGalleryIndexMax = 2;
+                $('#page-green ul li').first().addClass('active');
+                $('#page-green .arrow-left').click(function() {
+                    if (pageGreenGalleryIndex==0) {
+                       return; 
+                    }
+                    $('#page-green ul li').removeClass('active');
+                    $($('#page-green ul li')[--pageGreenGalleryIndex]).addClass('active');
+                    
+                });
+                $('#page-green .arrow-right').click(function() {
+                    if (pageGreenGalleryIndex==pageGreenGalleryIndexMax) {
+                       return; 
+                    }
+                    $('#page-green ul li').removeClass('active');
+                    $($('#page-green ul li')[++pageGreenGalleryIndex]).addClass('active');
+                });
+
+                $('#page-green ul li').click(function() {
+                    $('#page-green ul li').removeClass('active');
+                    $(this).addClass('active');
+                });
+            </script>
             <div class="banner">
                <!-- <img src="green/buy-now.png" /> -->
                <img src="{{page.free_delivery_button.url}}" />
