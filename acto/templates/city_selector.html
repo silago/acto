@@ -1,0 +1,29 @@
+        <script type="text">
+           function (code,name) {
+                alert(code,name);
+           } 
+           window.localStorage.setItem("ChosenCode", code);
+           window.localStorage.setItem("ChosenName", name);
+        </script>
+        <div id="float-city-selector">
+                <div class="holder">
+                    <div class="left">
+                            <img src="akto-box-photo.png" />
+                    </div>
+                    <div class="right">
+                        <div class="title">
+                            Ваш регион Москва
+                            <br />
+                            <br />
+                            Выберите ваш регион из списка
+                        </div>
+                        <div class="city-list">
+                            {% for city in cities %}
+                                <span onclick="choose_city('{{city.code}}','{{city.name}}');" >
+                                    {{ city.name }}
+                                </span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+        </div>

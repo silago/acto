@@ -180,14 +180,25 @@ class BottomPage(BaseSingletonModel):
 
 
 class City(models.Model):
+    code = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
     active       = models.BooleanField(default=False)
     has_delivery = models.BooleanField(default=False)
     x    = models.FloatField()
     y    = models.FloatField()
+    #shops= models.OneToMany(to=Shop)
+
+class Orders(models.Model):
+    phone = models.CharField(max_length=255)
+    time = models.CharField(max_length=255)
+    date = models.CharField(max_length=255)
+    count = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)
+    class Meta:
+        verbose_name="Заказы"
 
 class Shop(models.Model):
     name = models.CharField(max_length=255)
     x    = models.FloatField()
     y    = models.FloatField()
-
+    city = models.ForeignKey('City', related_name='shops')

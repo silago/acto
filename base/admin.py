@@ -5,7 +5,7 @@ from django.contrib import admin
 from solo.admin import SingletonModelAdmin
 #from config.models import SiteConfiguration
 
-from .models import TripleTextItem, TextImageItem, TextItem,DoubleTextDoubleImageItem, TextDoubleImageItem, ImageItem, TopPage, FaqPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, ForPage, DocsPage, OrangePage, YellowPage,BottomPage, FooterPage
+from .models import TripleTextItem, TextImageItem, TextItem,DoubleTextDoubleImageItem, TextDoubleImageItem, ImageItem, TopPage, FaqPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, ForPage, DocsPage, OrangePage, YellowPage,BottomPage, FooterPage, City, Shop, Orders
 
 admin.site.register(TopPage, SingletonModelAdmin)
 admin.site.register(FaqPage, SingletonModelAdmin)
@@ -52,5 +52,9 @@ admin.site.register(DoubleTextDoubleImageItem, admin.ModelAdmin)
 admin.site.register(TextImageItem, admin.ModelAdmin)
 admin.site.register(TextItem, admin.ModelAdmin)
 admin.site.register(TripleTextItem, admin.ModelAdmin)
+
+admin.site.register(City, admin.ModelAdmin)
+admin.site.register(Shop, admin.ModelAdmin)
+admin.site.register(Orders, admin.ModelAdmin)
 
 

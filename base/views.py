@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from .models import TopPage, ForPage, OrangePage, YellowPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, FaqPage, DocsPage, BottomPage, FooterPage#, City, Shop
-
+from .models import TopPage, ForPage, OrangePage, YellowPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, FaqPage, DocsPage, BottomPage, FooterPage, City, Shop
 
 def main(request):
     pages = (TopPage, ForPage, OrangePage, YellowPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, FaqPage, DocsPage, BottomPage, FooterPage)
@@ -9,5 +8,6 @@ def main(request):
         page_object = page.objects.get()
         if page_object.active:
             _result += page_object,
-    return render(request, 'index.html', {'pages':_result})
+    cities = City.objects.all()
+    return render(request, 'index.html', {'pages':_result,'cities':cities})
 # Create your views here.

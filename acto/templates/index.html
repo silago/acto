@@ -7,6 +7,26 @@
         <link rel="stylesheet" type="text/css" href="static/sf-webfont.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
+        <script>
+
+        window.cities = {
+        {% for c in cities %} 
+            '{{c.name}}':{
+                'x':'{{c.x}}',
+                'y':'{{c.y}}',
+                'name':'{{c.name}}',
+                'shops':[{% for s in c.shops.all %}
+                   {
+                       'name':'{{s.name}}',
+                       'x':'{{s.x}}',
+                       'y':'{{s.y}}'
+                   }, 
+                {% endfor %}
+                ]
+        },
+        {% endfor %}
+        };
+        </script>
         <style type='text/css'>
             .anchor {
                 display:block;
@@ -121,7 +141,7 @@
                 color:#748bb2;
                 height:32px;
                 x-margin-right:6%;
-                margin-right:2.7em;
+                margin-right:2.6em;
             }
 
             @media screen and (max-width: 1383px) {
@@ -858,6 +878,7 @@ left: 27%;
             div#page-yellow .arrow-holder {
                 width:100%;
                 overflow:hidden;
+
             }
             div#page-yellow .triangle-up {
                 width: 0;
@@ -1024,6 +1045,7 @@ list-style: none;
             div#page-bottom .content .banner-left .city-selector {
                 text-decoration:none;
                 font-weight:bold;
+                color:inherit;
             }
 
             div#page-bottom .content .banner-left .city-selector:before {
@@ -1149,6 +1171,190 @@ width: 0;
             }
 
 
+        div.float-city-selector.bg {
+                position:fixed;
+                width:100%; height:100%; background-color:blue; opacity:0.6;
+                left:0; top:0;
+        }
+        div.float-city-selector {
+            display:none;
+        }
+        div#float-city-selector .holder{
+            padding-bottom:20px;
+        }
+        div#float-city-selector {
+            
+            position:absolute;
+            position:fixed;
+            width:100%;
+            z-index:9999;
+            left:0px;
+            top:0px;
+            x-background-color:blue;
+        }
+
+        div#float-city-selector .holder .right {
+            display:inline-block;
+        }
+        div#float-city-selector .holder .left {
+            display:inline-block;
+            width:300px;
+        }
+        div#float-city-selector .holder .left img {
+            padding:36px 81px;
+        }
+        div#float-city-selector  .right {
+                font-size:18px;
+                color:#2c4f8b;
+                vertical-align:top;
+                padding-top:36px;;
+                width:900px;
+                padding-left:140px;
+        }
+        div#float-city-selector > div {
+                margin:20px;
+                background-color:white;
+        }
+
+        div#float-city-selector > div .title {
+            margin-bottom:16px;
+            padding-bottom:16px;
+            border-bottom:1px solid #5a5758;
+        }
+        div#float-city-selector .right .city-list {
+            columns:3;
+            -moz-columns:3;
+        }
+        div#float-city-selector .right .city-list span {
+            display:block;
+        }
+
+
+
+        div#order-done{
+            display:none;
+            position:fixed;
+            z-index:999;
+            width:100%;
+            left:0px;
+            top:28px;
+            padding-top:130px;
+            box-sizing:border-box;
+
+        }
+        div#order-done> div > div {
+            min-height:200px;
+            background-color:white;
+        }
+        div#order-done> div img {
+            position:absolute;
+                top:103px;
+                left:138px;
+        }
+        div#order-done> div {
+                min-height:431px;
+                margin:0 auto;
+                max-width:1266px;
+                min-width:1152px;
+        }
+        div#order-done div.holder  {
+            margin-left:30px;
+            padding-left:300px;
+            padding-top:20px;
+            padding-bottom:20px;
+        }
+        div#order-done div.holder .left  {
+            width:300px;
+            color:#2c4f8b;
+                display:inline-block;
+        }
+        div#order-done div.holder .left .title {
+            width:160px;
+            font-size:18px;
+            font-weight:bolder;
+            display:block;
+        }
+        div#order-done div.holder .left .cost {
+            color:black;
+            font-size:42px;
+            display:block;
+
+        }
+        div#order-done div.holder .left .count .minus {
+            background-color:#ccebfb;
+            color:#2c4f8b;
+            padding:10px;
+            text-align:center;
+        }
+        div#order-done div.holder .left .count .plus {
+            background-color:#ccebfb;
+            color:#2c4f8b;
+            padding:10px;
+            text-align:center;
+        
+        }
+        div#order-done div.holder .left .count > span {
+            margin:auto 8px;
+        }
+        div#order-done div.holder .left .count {
+            font-weight:18px;
+            font-weight:bolder;
+            margin:10px 0;
+            display:block;
+        }
+        div#order-done div.holder .left .total {
+            font-weight:18px;
+            font-weight:bolder;
+            display:block;
+            margin-bottom:10px;
+        }
+        div#order-done .left .info {
+            font-size:18px;
+        }
+        
+        div#order-done .right h4 {
+                text-transform:uppercase;
+                font-weight:normal;
+        }
+        div#order-done .right {
+            font-size:18px;
+            color:#2c4f8b;
+                display:inline-block;
+                    vertical-align:top;
+        }
+
+        div#order-done .right .form a:last-child {
+            margin-right:0px;
+        }
+        div#order-done .right .form a {
+            text-transform:uppercase;
+            display:inline-block;
+            color:#2c4f8b;
+            padding:10px;
+            margin-right:3px;
+            background-color:#ccebfb;
+            text-decoration:none;
+        }
+        div#order-done .right .form input {
+            text-transform:uppercase;
+            color:#2c4f8b;
+                margin-bottom:2px;
+                    
+        }
+        div#order-done .right .form .date{
+            border-bottom:2px solid gray;
+                padding-bottom:2px;
+        }
+        div#order-done .right .form {
+            margin-top:45px;
+        }
+        div#order-done .right .form a:hover{
+            background-color:#e6e7e8;
+        }
+
+        div#float-city-selector .city-list span {
+                cursor:pointer;
+        }
         </style>
     </head>
     <body>
@@ -1177,8 +1383,8 @@ width: 0;
                     </li>
                     <li class="nowrap">
                         <span class="select-city">
-                           <span style="color:#2c4f8a">▼</span>
-                           <span class="selector">Комсомольск на амуре</span>
+                           <span onclick="$('.float-city-selector').show();" style="color:#2c4f8a">▼</span>
+                           <span class="selector">Москва</span>
                         </span>
                     </li>
                 </ul>
@@ -1186,6 +1392,150 @@ width: 0;
                  style="position:absolute; right:0px; top:-7px; x-width:190px;"
                  src="{% static "contact.png" %}" />
             </span>
+        </div>
+
+
+        <script type="text/javascript">
+           function choose_city(code,city) {
+                //alert(code+' '+city)))ii;;;
+                map.panTo({lat:toDot(cities[city].x),lng:toDot(cities[city].y)});
+                window.localStorage.setItem("ChosenCode", code);
+                window.localStorage.setItem("ChosenName", city);
+                $('.float-city-selector').hide();
+                $('select-city .selector').text(name);
+                var items = '';
+                var shops = cities[city].shops;
+                for (var i =0; i<shops.length; i++) {
+
+                    items+='<li style="cursor:pointer;" onclick="map.panTo({lat:'+toDot(shops[i].x)+',lng:'+toDot(shops[i].y)+'})">'+shops[i].name+'</li>';
+                }
+                $('#shops-list').html(items);
+           } 
+        </script>
+
+        <div id="order-done">
+                <script>
+                    window.order_form = {
+                        count:1,
+                        base_cost:580,
+                        cost:580,
+                        plus:function() {
+                            this.count++;
+                            this.update();
+                        },
+                        minus:function() {
+                            this.count--;
+                            this.update();
+                        },
+                        when:'',
+                        time:'',
+                        update: function() {
+                            if (!this.count) {
+                                this.count=1;
+                            }
+                            this.cost = this.base_cost * this.count;
+                            $('.quantity').html(this.count);
+                            $('.cost').html(this.cost+'РУБ');
+                            this.when = $('.when.active').html();
+                            this.time = $('.time').val();
+                        },
+                        submit: function() {
+                            $.post('/order/',{
+                                count:this.count,
+                                city:localStorage.getItem('ChosenName'),
+                                time:this.time
+                            },(function(d) {console.log(d);})
+                            );
+                            $('#order-done').hide();
+                        }
+                    };
+
+                </script>
+                <div>
+                    <img src="static/akto-box-photo.png" />
+                    <div class="holder">
+                        <div class="left">
+                            <span class="title">
+                            Жидкая аэрозольная повязка актовитдерм
+                            </span>
+                            <br/>
+                            <span class="cost">
+                                580
+                            </span>
+                            <br/>
+                            <span class="count">
+                                <a onclick="order_form.minus();" class="minus">
+                                    -
+                                </a>   
+                                <span>
+                                    <span class="quantity">1</span> Упаковка
+                                </span>
+                                <a onclick="order_form.plus();" class="plus">
+                                    +
+                                </a>
+                            </span>
+                            <br/>
+                            <span class="total">
+                                Итого: <span class="cost">550</span> 
+                            </span>
+                            <span class="info">
+                                Стоимость доставки расчитывается
+                            </span>
+                        </div>
+                        <div class="right">
+                            <h4>
+                                Спасибо, ваша заявка принята
+                            </h4>
+                            <p>
+                                Спасибо, ваша заявка принята
+                            </p>
+                            <div class="form">
+                                <div class="date">
+                                    <a onclick="order_form.when='Сегодня';" href="javascript:void(0);">
+                                        Сегодня
+                                    </a>
+                                    <a onclick="order_form.when='Завтра';"  href="javascript:void(0);">
+                                        Завтра
+                                    </a>
+                                    <a onclick="order_form.when='Послезавтра';" href="javascript:void(0);">
+                                        Послезавтра
+                                    </a>
+                                </div>
+                            <hr />
+                            <input  class="time" type="text" placeholder="Укажите время" />
+                            <br/>
+                            <a onclick="$('#order-done').hide();" href="javascript:void(0);">Назад</a>
+                            <a onclick="order_form.submit();" href="javascript:void(0);">Подтвердить</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <div class="float-city-selector bg" style="">
+        </div>
+        <div class="float-city-selector" id="float-city-selector">
+                <div class="holder">
+                    <div class="left">
+                            <img src="static/akto-box-photo.png" />
+                    </div>
+                    <div class="right">
+                        <div class="title">
+                            Ваш регион Москва
+                            <br />
+                            <br />
+                            Выберите ваш регион из списка
+                        </div>
+                        <div class="city-list">
+                            {% for city in cities %}
+                                <span onclick="choose_city('{{city.code}}','{{city.name}}');" >
+                                    {{ city.name }}
+                                </span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
         </div>
         <div class="clear"></div>
         {% for page in pages|dictsort:"order" %}
@@ -1205,9 +1555,18 @@ width: 0;
             });
         </script>
         <script type="text/javascript">
-         // window.onload = function () {
-         //     jQuery(".select-city span.selector").text(ymaps.geolocation.city);
-         // }
+          window.onload = function () {
+              var c = window.localStorage.getItem('ChosenName');
+              if (!c) {
+                c = ymaps.geolocation.city;
+              }
+              jQuery(".select-city span.selector").text(c);
+              choose_city('',c);
+          }
+         function showForm() {
+             $('#order-done').show();
+            
+         }
         </script>
     </body>
 </html>
