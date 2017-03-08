@@ -15,6 +15,7 @@
                 'x':'{{c.x}}',
                 'y':'{{c.y}}',
                 'name':'{{c.name}}',
+                'delivery':'{{c.has_delivery}}',
                 'shops':[{% for s in c.shops.all %}
                    {
                        'name':'{{s.name}}',
@@ -1231,6 +1232,12 @@ width: 0;
 
 
 
+        div#order-done input{
+            border:0;
+            padding:8px;
+            margin-bottom:8px;
+            margin-top:8px;
+        }
         div#order-done{
             display:none;
             position:fixed;
@@ -1246,19 +1253,21 @@ width: 0;
             min-height:200px;
             background-color:white;
         }
-        div#order-done> div img {
+        div#order-done > div img {
             position:absolute;
-                top:103px;
-                left:138px;
+                top:-30px;
+                left:47px;
         }
         div#order-done> div {
                 min-height:431px;
                 margin:0 auto;
-                max-width:1266px;
+                max-width:1366px;
                 min-width:1152px;
+                position:relative;
+                left:7px;
         }
         div#order-done div.holder  {
-            margin-left:30px;
+            margin-left:70px;
             padding-left:300px;
             padding-top:20px;
             padding-bottom:20px;
@@ -1348,6 +1357,9 @@ width: 0;
         div#order-done .right .form {
             margin-top:45px;
         }
+        div#order-done .right .form a.active{
+            background-color:#e6e7e8;
+        }
         div#order-done .right .form a:hover{
             background-color:#e6e7e8;
         }
@@ -1404,6 +1416,13 @@ width: 0;
                 $('.float-city-selector').hide();
                 $('select-city .selector').text(name);
                 var items = '';
+                if (cities[city].delivery == 'True') {
+                    $('.banner.free').show();
+                    $('.banner.non-free').hide();
+                } else {
+                    $('.banner.free').hide();
+                    $('.banner.non-free').show();
+                }
                 var shops = cities[city].shops;
                 for (var i =0; i<shops.length; i++) {
 
@@ -1412,8 +1431,8 @@ width: 0;
                 $('#shops-list').html(items);
            } 
         </script>
-
-        <div id="order-done">
+        <div class="order-done" style="position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; left:0; top:0; z-index:1; display:none;"> </div>
+        <div class="order-done" id="order-done">
                 <script>
                     window.order_form = {
                         count:1,
@@ -1430,23 +1449,39 @@ width: 0;
                         when:'',
                         time:'',
                         update: function() {
+                            $('#order-done .error').hide();
                             if (!this.count) {
                                 this.count=1;
                             }
                             this.cost = this.base_cost * this.count;
-                            $('.quantity').html(this.count);
-                            $('.cost').html(this.cost+'РУБ');
-                            this.when = $('.when.active').html();
-                            this.time = $('.time').val();
+                            $('#order-done .quantity').html(this.count);
+                            $('#order-done .cost').html(this.cost+'РУБ');
+                            this.when = $('#order-done .when .active').html();
+                            this.time = $('#order-done .time').val();
+                            this.phone = $('#order-done .phone').val();
+                            console.log(this);
+                            if (!this.when || !this.time || !this.phone) {
+                                $('#order-done .error').show();
+                                $('#order-done .error').html('Все поля необходимы для заполнения');
+                                return false;
+                            }
+                            return true;
                         },
                         submit: function() {
+
+                            if (!this.update()) return;
                             $.post('/order/',{
                                 count:this.count,
                                 city:localStorage.getItem('ChosenName'),
-                                time:this.time
-                            },(function(d) {console.log(d);})
-                            );
-                            $('#order-done').hide();
+                                time:this.time,
+                                when:this.when,
+                                phone:this.phone
+                            }).fail(function(d) {
+                                $('#order-done .error').show();
+                                $('#order-done .error').html('При выполнении запроса произошла ошибка');
+                            }).done(function(d){
+                                $('.order-done').hide();
+                            });
                         }
                     };
 
@@ -1490,21 +1525,18 @@ width: 0;
                                 Спасибо, ваша заявка принята
                             </p>
                             <div class="form">
-                                <div class="date">
-                                    <a onclick="order_form.when='Сегодня';" href="javascript:void(0);">
-                                        Сегодня
-                                    </a>
-                                    <a onclick="order_form.when='Завтра';"  href="javascript:void(0);">
-                                        Завтра
-                                    </a>
-                                    <a onclick="order_form.when='Послезавтра';" href="javascript:void(0);">
-                                        Послезавтра
-                                    </a>
+                                <div class="when date">
+                                    <a onclick="$('.form .date a').removeClass('active'); $(this).addClass('active'); order_form.when='Сегодня';" href="javascript:void(0);">Сегодня</a>
+                                    <a onclick="$('.form .date a').removeClass('active'); $(this).addClass('active');order_form.when='Завтра';"  href="javascript:void(0);">Завтра</a>
+                                    <a onclick="$('.form .date a').removeClass('active'); $(this).addClass('active');order_form.when='Послезавтра';" href="javascript:void(0);">Послезавтра</a>
                                 </div>
                             <hr />
-                            <input  class="time" type="text" placeholder="Укажите время" />
+                            <input  class="phone" name="phone" type="text" placeholder="Телефон для обратной связи" />
                             <br/>
-                            <a onclick="$('#order-done').hide();" href="javascript:void(0);">Назад</a>
+                            <input  class="time" name="time" type="text" placeholder="Укажите время" />
+                            <br/>
+                            <div style="color:red; margin:20px; display:none;" class="error"></div>
+                            <a onclick="$('.order-done').hide();" href="javascript:void(0);">Назад</a>
                             <a onclick="order_form.submit();" href="javascript:void(0);">Подтвердить</a>
                             </div>
 
@@ -1564,9 +1596,38 @@ width: 0;
               choose_city('',c);
           }
          function showForm() {
-             $('#order-done').show();
+             $('.order-done').show();
             
          }
+
+        function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+var csrftoken = getCookie('csrftoken');
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+});
+
         </script>
     </body>
 </html>

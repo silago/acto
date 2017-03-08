@@ -25,14 +25,49 @@
             <div class="side">
                 <h4> Не нашли ответ? </h4>
                 <h5> Задайте вопрос! </h5>
-                <form>
-                    <input type=text placeholder="ВАШЕ ИМЯ" />
-                    <input type=text placeholder="ВАШЕ ИМЯ" />
-                    <input type=text placeholder="ВАШЕ ИМЯ" />
-                    <textarea placeholder="ВАШЕ ВОПРОС"></textarea>
-                    <input type=text placeholder="АНТИ СПАМ КОД" />
-                <button><img src="static/faq/button.png" /> </button>
+                <form class="ask_form" action="#ask_form" name="ask_form">
+                    <div style="display:none;" class="ask_complete">
+                    </div>
+                    <input type=text class="name" name="name" placeholder="ВАШЕ ИМЯ" />
+                    <input type=text class="mail" name="mail" placeholder="ЭЛЕКТРОННЫЙ АДРЕС" />
+                    <input type=text class="phone" name="phone" placeholder="ТЕЛЕФОН" />
+                    <textarea class="question"  name="question" placeholder="ВАШЕ ВОПРОС"></textarea>
+                    <!--
+                        <input name="" type=text placeholder="АНТИ СПАМ КОД" />
+                    -->
+                <button style="cursor:pointer;"  onclick="ask(); return false;"><img src="static/faq/button.png" /> </button>
                 </form>
             </div>
+<style>
+#page-faq .side h4 {
+    padding: 20px;
+    font-size: 24px;
+    margin-top: 100px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 120px;
+}
+</style>
+
+                <script>
+                    function ask() {
+                            var name = $('.ask_form .name').val();
+                            var mail = $('.ask_form .mail').val();
+                            var phone = $('.ask_form .name').val();
+                            var question = $('.ask_form .question').val();
+                            if (!name || !mail || !phone || !question) {
+                                return;
+                            }
+                        $.post('/ask/',{
+                           name:name,
+                            mail:mail,
+                            phone:phone,
+                            question:question
+                        }).done(function(d){
+                            $('#page-faq .side').html('                        <h4    >Вопрос отправлен</h4>       ');
+                        });
+                    }
+                            
+                </script>
         </div>
 

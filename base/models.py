@@ -72,6 +72,12 @@ class TextImageItem(models.Model):
 
 # django singleton
 
+class SiteSettings(SingletonModel):
+    title               = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Заголовок")
+    meta_description    = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Описание")
+    meta_keywords       = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Ключевые слова")
+    cost                = models.IntegerField(default=1, verbose_name="Цена")
+
 class BaseSingletonModel(SingletonModel):
     def TemplatesList():
         tdir = settings.TEMPLATES[0]['DIRS'][0]
@@ -187,6 +193,12 @@ class City(models.Model):
     x    = models.FloatField()
     y    = models.FloatField()
     #shops= models.OneToMany(to=Shop)
+
+class Questions(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+    phone = models.CharField(max_length=255)
+    text = models.CharField(max_length=255)
 
 class Orders(models.Model):
     phone = models.CharField(max_length=255)

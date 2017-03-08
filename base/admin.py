@@ -5,12 +5,13 @@ from django.contrib import admin
 from solo.admin import SingletonModelAdmin
 #from config.models import SiteConfiguration
 
-from .models import TripleTextItem, TextImageItem, TextItem,DoubleTextDoubleImageItem, TextDoubleImageItem, ImageItem, TopPage, FaqPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, ForPage, DocsPage, OrangePage, YellowPage,BottomPage, FooterPage, City, Shop, Orders
+from .models import TripleTextItem, TextImageItem, TextItem,DoubleTextDoubleImageItem, TextDoubleImageItem, ImageItem, TopPage, FaqPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, ForPage, DocsPage, OrangePage, YellowPage,BottomPage, FooterPage, City, Shop, Orders, Questions, SiteSettings
 
 admin.site.register(TopPage, SingletonModelAdmin)
 admin.site.register(FaqPage, SingletonModelAdmin)
 admin.site.register(MintPage, SingletonModelAdmin)
 admin.site.register(FactsPage, SingletonModelAdmin)
+admin.site.register(SiteSettings, SingletonModelAdmin)
 
 class GreenPageItems(admin.TabularInline):
     verbose_name = "Элемент"
@@ -56,5 +57,6 @@ admin.site.register(TripleTextItem, admin.ModelAdmin)
 admin.site.register(City, admin.ModelAdmin)
 admin.site.register(Shop, admin.ModelAdmin)
 admin.site.register(Orders, admin.ModelAdmin)
+admin.site.register(Questions, admin.ModelAdmin)
 
 
