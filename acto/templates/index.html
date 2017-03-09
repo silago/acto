@@ -29,6 +29,21 @@
         };
         </script>
         <style type='text/css'>
+.city_list_holder  ul {
+
+    position:absolute; left:0px; top:0px;
+}
+.city_list_holder {
+    position:relative;
+}
+.city_list_holder li {
+    list-style:none;
+        cursor:pointer;
+}
+            #order-done .step2  {
+            }
+            #order-done .step3  {
+            }
             .anchor {
                 display:block;
                 padding:0px;
@@ -1232,11 +1247,21 @@ width: 0;
 
 
 
+        div#order-done input.city,
+        div#order-done input.street {
+            border-bottom:1px solid #bcbec0;
+            width:100%;
+
+        }
         div#order-done input{
             border:0;
+            
             padding:8px;
             margin-bottom:8px;
             margin-top:8px;
+                padding-left:0px;
+                    font-size:16px;
+                        color: #bcbec0;
         }
         div#order-done{
             display:none;
@@ -1334,15 +1359,22 @@ width: 0;
 
         div#order-done .right .form a:last-child {
             margin-right:0px;
+            border:0;
         }
-        div#order-done .right .form a {
+        div#order-done .right  .form a {
             text-transform:uppercase;
             display:inline-block;
             color:#2c4f8b;
             padding:10px;
-            margin-right:3px;
             background-color:#ccebfb;
             text-decoration:none;
+            box-sizing:border-box;
+            text-align:center;
+            border-right:3px solid white;
+        }
+
+        div#order-done .right  .step1 .form a {
+            width:49.5%;
         }
         div#order-done .right .form input {
             text-transform:uppercase;
@@ -1514,10 +1546,82 @@ width: 0;
                                 Итого: <span class="cost">550</span> 
                             </span>
                             <span class="info">
-                                Стоимость доставки расчитывается
+                                Стоимость доставки<br />расчитывается
                             </span>
                         </div>
-                        <div class="right">
+                        <div class="right step1">
+                            <h4>
+                                ОФОРМЛЕНИЕ ЗАКАЗА / Адрес доставки
+                            </h4>
+                            <div class="form">
+                            <hr />
+                            <br/>
+                            <br/>
+                            <script type="text/javascript"> 
+                                function appendClear(val) {
+                                    $('.city_list_holder').html('');
+                                    $('#order-done input.city').val(val);
+                                }
+
+function ahead(val) {
+    if (val.length<=2) {
+        return '';
+    }
+    result = '';
+    var cities = Object.keys(window.cities);
+    for (var i = 0; i<cities.length; i++) {
+
+        return (cities[i].toLowerCase())
+        if (cities[i].toLowerCase().indexOf(val.toLowerCase())!=-1) {
+            result+="<li onclick='appendClear($(this).html())'>"+cities[i]+"</li>";
+        }
+    }       
+    result="<ul>"+result+"</ul>"
+    $('.city_list_holder').html(result);
+    return result;
+}
+                            </script>
+                            <input  class="city" name="city" onkeyup="ahead($(this).val())" type="text" placeholder="Наслеленный пункт" />
+                            <div class="city_list_holder">
+                            </div>
+                            <br/>
+                            <input  class="street" name="time" type="text" placeholder="Улица" />
+                            <br/>
+                            <input  class="time" name="time" type="text" placeholder="Дом" />
+                            <input  class="time" name="time" type="text" placeholder="Квартира" />
+                            <br />
+                            <div style="color:red; margin:20px; display:none;" class="error"></div>
+                            <br/>
+                            <br/>
+                            <a onclick="$('.order-done').hide();" href="javascript:void(0);">Отменить</a>
+                            <a onclick="$('.step1').hide(); $('.step2').show(); " href="javascript:void(0);">Отправить</a>
+                            </div>
+                        </div>
+                        <div class="right step2" style="display:none;">
+                            <h4>
+                                ОФОРМЛЕНИЕ ЗАКАЗА / Ваши контактные данные
+                            </h4>
+                            <div class="form">
+                            <hr />
+                            <input  class="phone" name="phone" type="text" placeholder="Имя и фамилия*" />
+                            <br/>
+                            <input  class="time" name="time" type="text" placeholder="Телефонi*" />
+                            <br/>
+                            <input  class="time" name="time" type="text" placeholder="E-mail" />
+                            <div>
+                            * - Поля обязательные для заполнения 
+                            </div>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <div style="color:red; margin:20px; display:none;" class="error"></div>
+                            <a onclick="$('.step2').hide(); $('.step1').show();" href="javascript:void(0);">Отменить</a>
+                            <a onclick="$('.step2').hide(); $('.step3').show();" href="javascript:void(0);">Далее</a>
+                            </div>
+
+                        </div>
+                        <div class="right step3" style="display:none;">
                             <h4>
                                 Спасибо, ваша заявка принята
                             </h4>
@@ -1536,7 +1640,11 @@ width: 0;
                             <input  class="time" name="time" type="text" placeholder="Укажите время" />
                             <br/>
                             <div style="color:red; margin:20px; display:none;" class="error"></div>
-                            <a onclick="$('.order-done').hide();" href="javascript:void(0);">Назад</a>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <a onclick="$('.step3').hide(); $('.step2').show();" href="javascript:void(0);">Назад</a>
                             <a onclick="order_form.submit();" href="javascript:void(0);">Подтвердить</a>
                             </div>
 
