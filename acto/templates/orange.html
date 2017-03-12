@@ -4,22 +4,22 @@
                 <div class="text-info">
                     {{ page.title|striptags}}
                 </div>
-                <img class="logo" src="{{page.logo.url}}" />
+                <img class="logo" alt="{{page.title|striptags}}" src="{{page.logo.url}}" />
                 {% with items=page.items.all|dictsort:"order" %}
                 <table class="border shadow">
                     <tr>
-                        <td><img src="{{items.0.image.url}}" /></td>
-                        <td colspan=3 rowspan=3><img src="{{items.1.image.url}}" /> </td>
-                        <td colspan=2 rowspan=2><img src="{{items.2.image.url}}" />
+                        <td><img alt="{{item.0.alt}}" src="{{items.0.image.url}}" /></td>
+                        <td colspan=3 rowspan=3><img alt="{{item.1.alt}}" src="{{items.1.image.url}}" /> </td>
+                        <td colspan=2 rowspan=2><img alt="{{item.2.alt}}" src="{{items.2.image.url}}" />
                         </td>
                     </tr>
                     <tr>
-                        <td><img src="{{items.3.image.url}}" /></td>
+                        <td><img alt="{{item.3.alt}}" src="{{items.3.image.url}}" /></td>
                     </tr>
                     <tr>
-                        <td> <img src="{{items.4.image.url}}" /></td>
-                        <td> <img src="{{items.5.image.url}}" /></td>
-                        <td> <img src="{{items.6.image.url}}" /></td>
+                        <td> <img alt="{{item.4.alt}}" src="{{items.4.image.url}}" /></td>
+                        <td> <img alt="{{item.5.alt}}" src="{{items.5.image.url}}" /></td>
+                        <td> <img alt="{{item.6.alt}}" src="{{items.6.image.url}}" /></td>
                     </tr>
                 </table>
                 {% endwith %}

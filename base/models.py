@@ -14,20 +14,30 @@ class TemplateItem(models.Model):
         return this.name
 #base blocks
 class TripleTextItem(models.Model):
-    text    = HTMLField()
-    name  = models.CharField(max_length=255,blank=True, null=True, default="")
-    subtext  = models.CharField(max_length=255,blank=True, null=True, default="")
+    text     = HTMLField(verbose_name="Текст")
+    name     = models.CharField(verbose_name="Имя",max_length=255,blank=True, null=True, default="")
+    subtext  = models.CharField(verbose_name="Город",max_length=255,blank=True, null=True, default="")
     def __str__(this):
         return this.name+ ' ' + this.text
+    class Meta:
+        verbose_name = "Отзыв"
+        verbose_name_plural = "Отзывы"
 
 class TextItem(models.Model):
-    order   = models.IntegerField()
-    caption = HTMLField()
-    text    = HTMLField()
+    order   = models.IntegerField(verbose_name="Порядок")
+    caption = HTMLField(verbose_name="Заголовок")
+    text    = HTMLField(verbose_name="Текст")
+    def __str__(this):
+        return this.caption
+    class Meta:
+        verbose_name = "Вопрос"
+        verbose_name_plural = "Вопросы"
+
 
 class ImageItem(models.Model):
-    image  = models.ImageField()
-    order  = models.IntegerField()
+    image  = models.ImageField(  verbose_name="Изображение")
+    alt     = models.CharField(verbose_name="Имя",max_length=255,blank=True, null=True, default="")
+    order  = models.IntegerField(verbose_name="Порядок")
     def __str__(this):
         return this.image.url
     class Meta:
@@ -36,19 +46,21 @@ class ImageItem(models.Model):
 
 
 class DoubleTextDoubleImageItem(models.Model):
-    image  = models.ImageField()
-    subimage  = models.ImageField()
-    caption  = models.CharField(max_length=255,blank=True, null=True, default="")
-    text  = models.CharField(max_length=255,blank=True, null=True, default="")
-    order = models.IntegerField()
+    image  = models.ImageField(verbose_name="Изображение")
+    alt     = models.CharField(verbose_name="Имя",max_length=255,blank=True, null=True, default="")
+    subimage  = models.ImageField(verbose_name="Изображение")
+    caption  = models.CharField(verbose_name="Заголовок", max_length=255,blank=True, null=True, default="")
+    text  = models.CharField(verbose_name="Текст",max_length=255,blank=True, null=True, default="")
+    order = models.IntegerField(verbose_name="Порядок")
     def __str__(this):
-        return this.image.url + ' ' + this.text
-
+        return this.image.url + ' ' + ' ' +this.caption+ ' ' + this.text
     class Meta:
-        verbose_name = "Текст с заголовком и двумя изображениями"
+        verbose_name = "Как применять"
+        verbose_name_plural = "Как применять"
 
 class TextDoubleImageItem(models.Model):
     image  = models.ImageField()
+    alt     = models.CharField(verbose_name="Имя",max_length=255,blank=True, null=True, default="")
     subimage  = models.ImageField()
     text     = HTMLField()
     order = models.IntegerField()
@@ -60,13 +72,14 @@ class TextDoubleImageItem(models.Model):
 
 class TextImageItem(models.Model):
     image  = models.ImageField(verbose_name="Изображение")
+    alt     = models.CharField(verbose_name="Имя",max_length=255,blank=True, null=True, default="")
     text     = HTMLField(verbose_name="Текст")
     order  = models.IntegerField(verbose_name="Порядок отображения")
     def __str__(this):
         return this.image.url
     class Meta:
         verbose_name = "Текст с изображениями"
-        verbose_name_plural = ""
+        verbose_name_plural = "Текст с изображениями"
 # Create your models here.
 
 
@@ -77,6 +90,9 @@ class SiteSettings(SingletonModel):
     meta_description    = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Описание")
     meta_keywords       = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Ключевые слова")
     cost                = models.IntegerField(default=1, verbose_name="Цена")
+    class Meta:
+        verbose_name = "Настройка сайта"
+        verbose_name_plural = "Настройки сайта"
 
 class BaseSingletonModel(SingletonModel):
     def TemplatesList():
@@ -96,12 +112,12 @@ class BaseSingletonModel(SingletonModel):
 
 
 class TopPage(BaseSingletonModel):
-    backgound = models.ImageField(blank=True, null=True,default='')
-    image = models.ImageField(blank=True, null=True,default='')
-    text  = HTMLField(blank=True, null=True,default='')
-    banner= models.ImageField(blank=True, null=True,default='')
-    free_delivery_button =  models.ImageField(blank=True, null=True,default='')
-    no_delivery_button   =  models.ImageField(blank=True, null=True,default='')
+    backgound = models.ImageField(blank=True, null=True,default='', verbose_name="Фон")
+    image = models.ImageField(blank=True, null=True,default='', verbose_name="Изображение")
+    text  = HTMLField(blank=True, null=True,default='', verbose_name="текст")
+    banner= models.ImageField(blank=True, null=True,default='', verbose_name="Баннер")
+    free_delivery_button =  models.ImageField(blank=True, null=True,default='', verbose_name="Баннер бесплатной доставки")
+    no_delivery_button   =  models.ImageField(blank=True, null=True,default='', verbose_name="Баннер без доставки")
     class Meta:
         verbose_name = "Верх"
 
@@ -123,8 +139,8 @@ class YellowPage(BaseSingletonModel):
 
 
 class MintPage(BaseSingletonModel):
-    left_image = models.ImageField()
-    right_image = models.ImageField()
+    left_image = models.ImageField(verbose_name="Изображение слева")
+    right_image = models.ImageField(verbose_name="Изображение справа")
     caption = HTMLField()
     class Meta:
         verbose_name = "Как работает"
@@ -168,16 +184,16 @@ class DocsPage(BaseSingletonModel):
 class FooterPage(BaseSingletonModel):
     items = models.ManyToManyField(TextImageItem)
     link = models.CharField(max_length=255)
-    image = models.ImageField()
+    image = models.ImageField(verbose_name="Изображение")
     class Meta:
         verbose_name = "Подвал"
 
 
 class BottomPage(BaseSingletonModel):
     #map page
-    free_delivery_button = models.ImageField()
-    no_delivery_button   = models.ImageField()
-    image   = models.ImageField()
+    free_delivery_button = models.ImageField(verbose_name="Баннер бесплатной доставки")
+    no_delivery_button   = models.ImageField(verbose_name="Банер  без доставки")
+    image   = models.ImageField(verbose_name="Изображение")
     class Meta:
         verbose_name = "Карта"
     #def getCities():
@@ -186,31 +202,58 @@ class BottomPage(BaseSingletonModel):
 
 
 class City(models.Model):
-    code = models.CharField(max_length=255)
-    name = models.CharField(max_length=255)
-    active       = models.BooleanField(default=False)
-    has_delivery = models.BooleanField(default=False)
+    name = models.CharField(verbose_name="Город",max_length=255)
+    active       = models.BooleanField(verbose_name="Активен",default=False)
+    has_delivery = models.BooleanField(verbose_name="Бесплатная доставка",default=False)
     x    = models.FloatField()
     y    = models.FloatField()
+    def __str__(this):
+        return this.name
     #shops= models.OneToMany(to=Shop)
+    class Meta:
+        verbose_name="Город"
+        verbose_name_plural="Города"
 
 class Questions(models.Model):
-    name = models.CharField(max_length=255)
-    email = models.CharField(max_length=255)
-    phone = models.CharField(max_length=255)
-    text = models.CharField(max_length=255)
+    name = models.CharField( verbose_name="Имя", max_length=255)
+    email = models.CharField(verbose_name="Email", max_length=255)
+    phone = models.CharField(verbose_name="Телефон", max_length=255)
+    text = models.CharField( verbose_name="Текст", max_length=255)
+    def __str__(this):
+        return this.name+ ' '+this.text
+    class Meta:
+        verbose_name="Вопрос"
+        verbose_name_plural="Вопросы"
 
 class Orders(models.Model):
-    phone = models.CharField(max_length=255)
-    time = models.CharField(max_length=255)
-    date = models.CharField(max_length=255)
-    count = models.CharField(max_length=255)
-    city = models.CharField(max_length=255)
+    city   =models.CharField(verbose_name="Город",max_length=255)
+    street =models.CharField(verbose_name="Улица",max_length=255)
+    house  =models.CharField(verbose_name="Дом",max_length=255)
+    flat   =models.CharField(verbose_name="Квартира",max_length=255)
+
+    phone  =models.CharField(verbose_name="Телефон",max_length=255)
+    email  =models.CharField(verbose_name="Email",max_length=255)
+    name   =models.CharField(verbose_name="Имя",max_length=255)
+
+    ts     =models.DateTimeField(verbose_name="Дата оформления", null=True, auto_now_add=True, blank=True)
+
+    date  =models.CharField(verbose_name="Дата доставки",max_length=255)
+    time  =models.CharField(verbose_name="Время",max_length=255)
+    def __str__(this):
+        return this.name + ' '+this.date
+
     class Meta:
-        verbose_name="Заказы"
+        verbose_name="Заказ"
+        verbose_name_plural="Заказы"
 
 class Shop(models.Model):
     name = models.CharField(max_length=255)
     x    = models.FloatField()
     y    = models.FloatField()
     city = models.ForeignKey('City', related_name='shops')
+    def __str__(this):
+        return this.city+' '+this.name
+
+    class Meta:
+        verbose_name="Магазин"
+        verbose_name_plural="Магазины"

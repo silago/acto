@@ -25,14 +25,14 @@
             <div class="side">
                 <h4> Не нашли ответ? </h4>
                 <h5> Задайте вопрос! </h5>
+                <div class="error" style="color:red; font-weight:bold;"> </div>
                 <form class="ask_form" action="#ask_form" name="ask_form">
                     <input type=text class="name" name="name" placeholder="ВАШЕ ИМЯ" />
                     <input type=text class="mail" name="mail" placeholder="ЭЛЕКТРОННЫЙ АДРЕС" />
                     <input type=text class="phone" name="phone" placeholder="ТЕЛЕФОН" />
                     <textarea class="question"  name="question" placeholder="ВАШЕ ВОПРОС"></textarea>
-                    <!--
-                        <input name="" type=text placeholder="АНТИ СПАМ КОД" />
-                    -->
+                    <img src="/capcha" />
+                        <input class="capcha" name="capcha" type=text placeholder="АНТИ СПАМ КОД" />
                 <button style="cursor:pointer;"  onclick="ask(); return false;"><img src="static/faq/button.png" /> </button>
                 </form>
             </div>
@@ -50,19 +50,26 @@
                 <script>
                     function ask() {
                             var name = $('.ask_form .name').val();
+                            var capcha = $('.ask_form .capcha').val();
                             var mail = $('.ask_form .mail').val();
                             var phone = $('.ask_form .name').val();
                             var question = $('.ask_form .question').val();
-                            if (!name || !mail || !phone || !question) {
+                            if (!capcha || !name || !mail || !phone || !question) {
                                 return;
                             }
                         $.post('/ask/',{
                            name:name,
                             mail:mail,
+                            capcha:capcha,
                             phone:phone,
                             question:question
                         }).done(function(d){
+                            if (d=="OK") {
+                                $('.ask_form .error').html('');
                             $('#page-faq .side').html('                        <h4    class="done"  >Вопрос отправлен</h4>       ');
+                            } else {
+                                $('#page-faq .error').html(d);
+                            }
                         });
                     }
                             

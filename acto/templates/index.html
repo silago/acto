@@ -3,12 +3,19 @@
 <html>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
     <head>
+        <title>{{settings.title}}</title>
+        <meta name="description" content="{{settings.meta_description}}"/>
+        <meta name="keywords" content="{{settings.keywords}}"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="static/sf-webfont.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
-        <script>
 
+        <script>
+            window.BASE_COST={{settings.cost}};
+        </script>
+
+        <script>
         window.cities = {
         {% for c in cities %} 
             '{{c.name}}':{
@@ -29,6 +36,9 @@
         };
         </script>
         <style type='text/css'>
+        .order-done input.error {
+            border:1px solid red!important;
+        }
 .city_list_holder  ul {
 
     position:absolute; left:0px; top:0px;
@@ -328,7 +338,7 @@
                 border:0px;
                 padding:5px;
                 border-top:1px solid #918f8f;
-                height:160px;
+                height:100px;
                 background:transparent;
                 width:250px;
             }
@@ -464,6 +474,7 @@
             div#page-facts ul li {
                 display:inline-block;
                 width:24%;
+                vertical-align:top;
             }
             div#page-facts ul li > div > div {
                 text-align:center;
@@ -974,26 +985,25 @@ left: 27%;
                 min-width:138px;
             }
 
-    
-
             div#page-docs .content .logo {
                 position:absolute;
                 top:35px;
                 left:102px;
+                
             }
-            div#page-docs .content ul:after {
-                content: "▶";
+            div#page-docs .content .larrow {
                 position: absolute;
                 right: 3%;
                 top: 300px;
                 font-size: 32px;
+                cursor:pointer;
             }
-            div#page-docs .content ul:before {
-                content: "◀";
+            div#page-docs .content .rarrow {
                 position: absolute;
                 left: 3%;
                 top: 300px;
                 font-size: 32px;
+                cursor:pointer;
             }
 
             div#page-docs .content ul {
@@ -1188,6 +1198,7 @@ width: 0;
 
 
         div.float-city-selector.bg {
+            z-index:1;
                 position:fixed;
                 width:100%; height:100%; background-color:blue; opacity:0.6;
                 left:0; top:0;
@@ -1201,12 +1212,14 @@ width: 0;
         div#float-city-selector {
             
             position:absolute;
-            position:fixed;
+            x-position:fixed;
             width:100%;
             z-index:9999;
             left:0px;
             top:0px;
             x-background-color:blue;
+
+            min-width: 1317px;
         }
 
         div#float-city-selector .holder .right {
@@ -1224,7 +1237,8 @@ width: 0;
                 color:#2c4f8b;
                 vertical-align:top;
                 padding-top:36px;;
-                width:900px;
+                width:800px;
+
                 padding-left:140px;
         }
         div#float-city-selector > div {
@@ -1265,7 +1279,8 @@ width: 0;
         }
         div#order-done{
             display:none;
-            position:fixed;
+            x-position:fixed;
+            position:absolute;
             z-index:999;
             width:100%;
             left:0px;
@@ -1463,7 +1478,7 @@ width: 0;
                 $('#shops-list').html(items);
            } 
         </script>
-        <div class="order-done" style="position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; left:0; top:0; z-index:1; display:none;"> </div>
+        <div class="order-done" style="position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; left:0; top:0; z-index:20; display:none;"> </div>
         <div class="order-done" id="order-done">
                 <script>
                     window.order_form = {
@@ -1478,42 +1493,121 @@ width: 0;
                             this.count--;
                             this.update();
                         },
-                        when:'',
+                        city:'',
+                        street:'',
+                        house:'',
+                        flat:'',
+                        city:'',
                         time:'',
-                        update: function() {
-                            $('#order-done .error').hide();
-                            if (!this.count) {
-                                this.count=1;
+                        name:'',
+                        phone:'',
+                        email:'',
+                        count:1,
+                        step1:function(next) {
+                            if (next)  {
+                                $('.step1 input').removeClass('error');
+                                var error = false;
+                                this.city = $('.step1 .city').val();
+                                this.street = $('.step1 .street').val();
+                                this.house = $('.step1 .house').val();
+                                this.flat = $('.step1 .falt').val();
+                                if (!this.city) {
+                                    $('.step1 .city').addClass('error');
+                                    error = true;
+                                }
+                                if (!this.street) {
+                                    $('.step1 .street').addClass('error');
+                                    error = true;
+                                }
+                                if (!this.house) {
+                                    $('.step1 .house').addClass('error');
+                                    error = true;
+                                }
+                                if (!error) {
+                                    $('.step1').hide();
+                                    $('.step2').show();
+                                }
+                            } else {
+                                $('.order-done').hide();
+
                             }
-                            this.cost = this.base_cost * this.count;
-                            $('#order-done .quantity').html(this.count);
-                            $('#order-done .cost').html(this.cost+'РУБ');
-                            this.when = $('#order-done .when .active').html();
-                            this.time = $('#order-done .time').val();
-                            this.phone = $('#order-done .phone').val();
-                            console.log(this);
-                            if (!this.when || !this.time || !this.phone) {
+                        },
+                        step2:function(next) {
+                            if (next)  {
+                                $('.step2 input').removeClass('error');
+                                var error = false;
+                                this.name = $('.step2 .name').val();
+                                this.phone = $('.step2 .phone').val();
+                                this.email = $('.step2 .email').val();
+                                if (!this.name) {
+                                    $('.step2 .name').addClass('error');
+                                    error = true;
+                                }
+                                if (!this.phone) {
+                                    $('.step2 .phone').addClass('error');
+                                    error = true;
+                                }
+                                if (!error) {
+                                    $('.step2').hide();
+                                    $('.step3').show();
+                                }
+
+                            } else {
+                                    $('.step2').hide();
+                                    $('.step1').show();
+
+                            }
+                        },
+                        step3: function(next) {
+                            if(!next) {
+                                $('.order-done .step2').show();
+                                $('.order-done .step3').hide();
+                                return;
+                            } 
+
+                            $('#order-done .error').hide();
+
+                            var error = false;
+                            this.date = $('.step3 .date').val();
+                            this.time  = $('.step3 .time').val();
+                            this.count = $('.step3 .count').val();
+                            if (!this.time || !this.date) {
+                                error = true;
+                            }
+
+                            if (error) {
                                 $('#order-done .error').show();
                                 $('#order-done .error').html('Все поля необходимы для заполнения');
-                                return false;
+                                return;
                             }
-                            return true;
-                        },
-                        submit: function() {
-
-                            if (!this.update()) return;
                             $.post('/order/',{
-                                count:this.count,
-                                city:localStorage.getItem('ChosenName'),
-                                time:this.time,
-                                when:this.when,
-                                phone:this.phone
+                                    city:   this.city,
+                                    street: this.street,
+                                    house:  this.house,
+                                    flat:   this.flat,
+                                    time:   this.time,
+                                    date:   this.date,
+                                    phone:  this.phone,
+                                    time:   this.time,
+                                    name:   this.name,
+                                    phone:  this.phone,
+                                    email:  this.email,
+                                    count:  this.count
                             }).fail(function(d) {
                                 $('#order-done .error').show();
                                 $('#order-done .error').html('При выполнении запроса произошла ошибка');
                             }).done(function(d){
                                 $('.order-done').hide();
                             });
+                        },
+                        update: function() {
+                            if (!this.count) {
+                                this.count=1;
+                            }
+                            //this.count = $('.step3 .count').val();
+                            this.cost = window.BASE_COST * this.count;
+                            $('#order-done .quantity').html(this.count);
+                            $('#order-done .cost span').html(this.cost);
                         }
                     };
 
@@ -1527,7 +1621,7 @@ width: 0;
                             </span>
                             <br/>
                             <span class="cost">
-                                580
+                                <span><script>document.write(BASE_COST);</script></span>₽
                             </span>
                             <br/>
                             <span class="count">
@@ -1543,7 +1637,7 @@ width: 0;
                             </span>
                             <br/>
                             <span class="total">
-                                Итого: <span class="cost">550</span> 
+                                Итого: <span class="cost"><span><script>document.write(BASE_COST);</script></span> руб.</span> 
                             </span>
                             <span class="info">
                                 Стоимость доставки<br />расчитывается
@@ -1564,14 +1658,12 @@ width: 0;
                                 }
 
 function ahead(val) {
-    if (val.length<=2) {
+    if (val.length<=1) {
         return '';
     }
     result = '';
     var cities = Object.keys(window.cities);
     for (var i = 0; i<cities.length; i++) {
-
-        return (cities[i].toLowerCase())
         if (cities[i].toLowerCase().indexOf(val.toLowerCase())!=-1) {
             result+="<li onclick='appendClear($(this).html())'>"+cities[i]+"</li>";
         }
@@ -1587,14 +1679,14 @@ function ahead(val) {
                             <br/>
                             <input  class="street" name="time" type="text" placeholder="Улица" />
                             <br/>
-                            <input  class="time" name="time" type="text" placeholder="Дом" />
-                            <input  class="time" name="time" type="text" placeholder="Квартира" />
+                            <input  class="house" name="house" type="text" placeholder="Дом" />
+                            <input  class="flat" name="flat" type="text" placeholder="Квартира" />
                             <br />
                             <div style="color:red; margin:20px; display:none;" class="error"></div>
                             <br/>
                             <br/>
-                            <a onclick="$('.order-done').hide();" href="javascript:void(0);">Отменить</a>
-                            <a onclick="$('.step1').hide(); $('.step2').show(); " href="javascript:void(0);">Отправить</a>
+                            <a onclick="order_form.step1(false);" href="javascript:void(0);">Отменить</a>
+                            <a onclick="order_form.step1(true); " href="javascript:void(0);">Отправить</a>
                             </div>
                         </div>
                         <div class="right step2" style="display:none;">
@@ -1603,11 +1695,11 @@ function ahead(val) {
                             </h4>
                             <div class="form">
                             <hr />
-                            <input  class="phone" name="phone" type="text" placeholder="Имя и фамилия*" />
+                            <input  class="name" name="name" type="text" placeholder="Имя и фамилия*" />
                             <br/>
-                            <input  class="time" name="time" type="text" placeholder="Телефонi*" />
+                            <input  class="phone" name="phone" type="text" placeholder="Телефонi*" />
                             <br/>
-                            <input  class="time" name="time" type="text" placeholder="E-mail" />
+                            <input  class="email" name="email" type="text" placeholder="E-mail" />
                             <div>
                             * - Поля обязательные для заполнения 
                             </div>
@@ -1616,8 +1708,8 @@ function ahead(val) {
                             <br/>
                             <br/>
                             <div style="color:red; margin:20px; display:none;" class="error"></div>
-                            <a onclick="$('.step2').hide(); $('.step1').show();" href="javascript:void(0);">Отменить</a>
-                            <a onclick="$('.step2').hide(); $('.step3').show();" href="javascript:void(0);">Далее</a>
+                            <a onclick="order_form.step2(false);" href="javascript:void(0);">Отменить</a>
+                            <a onclick="order_form.step2(true);" href="javascript:void(0);">Далее</a>
                             </div>
 
                         </div>
@@ -1635,8 +1727,6 @@ function ahead(val) {
                                     <a onclick="$('.form .date a').removeClass('active'); $(this).addClass('active');order_form.when='Послезавтра';" href="javascript:void(0);">Послезавтра</a>
                                 </div>
                             <hr />
-                            <input  class="phone" name="phone" type="text" placeholder="Телефон для обратной связи" />
-                            <br/>
                             <input  class="time" name="time" type="text" placeholder="Укажите время" />
                             <br/>
                             <div style="color:red; margin:20px; display:none;" class="error"></div>
@@ -1644,8 +1734,8 @@ function ahead(val) {
                             <br/>
                             <br/>
                             <br/>
-                            <a onclick="$('.step3').hide(); $('.step2').show();" href="javascript:void(0);">Назад</a>
-                            <a onclick="order_form.submit();" href="javascript:void(0);">Подтвердить</a>
+                            <a onclick="order_form.step3(false);" href="javascript:void(0);">Назад</a>
+                            <a onclick="order_form.step3(true);"  href="javascript:void(0);">Подтвердить</a>
                             </div>
 
                         </div>
@@ -1737,5 +1827,11 @@ $.ajaxSetup({
 });
 
         </script>
+    <script>
+        $(window).scroll(function(){
+        $('#float-city-selector').css('top',parseInt($(window).scrollTop()));
+        $('#order-done').css('top',parseInt($(window).scrollTop()));
+        });
+    </script>
     </body>
 </html>

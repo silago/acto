@@ -10,7 +10,6 @@ from .models import TripleTextItem, TextImageItem, TextItem,DoubleTextDoubleImag
 admin.site.register(TopPage, SingletonModelAdmin)
 admin.site.register(FaqPage, SingletonModelAdmin)
 admin.site.register(MintPage, SingletonModelAdmin)
-admin.site.register(FactsPage, SingletonModelAdmin)
 admin.site.register(SiteSettings, SingletonModelAdmin)
 
 class GreenPageItems(admin.TabularInline):
@@ -34,6 +33,18 @@ class WhyPageAdmin(SingletonModelAdmin):
     inlines = (
         WhyPageItems,
     )
+
+class FactsPageItems(admin.TabularInline):
+    verbose_name = "Элемент"
+    verbose_name_plural  = "Элементы"
+    model =  FactsPage.items.through
+
+class FactsPageAdmin(SingletonModelAdmin):
+    exclude = "items" , "title"
+    inlines = (
+        FactsPageItems,
+    )
+admin.site.register(FactsPage, FactsPageAdmin)
 
 
 admin.site.register(GreenPage, GreenPageAdmin)

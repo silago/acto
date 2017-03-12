@@ -1,8 +1,8 @@
         <div id="page-for">
             <ul>
-                {% for data in page.items.all %}
+                {% for item in page.items.all %}
                 <li>
-                    <img src="{{data.image.url}}" />
+                    <img alt="{{item.alt}}" src="{{item.image.url}}" />
                 </li>
                 {% endfor %}
             </ul>

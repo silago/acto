@@ -1,12 +1,43 @@
         <div id="page-docs">
             <div class="content">
+                <script>
+                    window.DOCS_PAGE_GAL_INDEX=0;
+                    docsLeft = function() {
+                        if (DOCS_PAGE_GAL_INDEX==0) {
+                            return;
+                        }
+                        DOCS_PAGE_GAL_INDEX
+                        var items = $('#page-docs ul li');
+                        $(items[DOCS_PAGE_GAL_INDEX]).show();
+                        $(items[DOCS_PAGE_GAL_INDEX+3]).hide();
+                        DOCS_PAGE_GAL_INDEX++;
+                        
+
+                    }
+                    docsRight = function() {
+                        var items = $('#page-docs ul li');
+                        if (DOCS_PAGE_GAL_INDEX==(items.length-3)) {
+                            return;
+                        }
+                        $(items[DOCS_PAGE_GAL_INDEX]).hide();
+                        $(items[DOCS_PAGE_GAL_INDEX+3]).show();
+                        DOCS_PAGE_GAL_INDEX++;
+
+                    }
+                </script>
                 <img src="{{ page.logo.url }}" class="logo" />
+                <div onclick="docsLeft();"  class="larrow">▶</div>
                 <ul>
                     {% for item in page.items.all %}
-                    <li>
-                        <img src="{{item.url}}" />
+                    <li
+                                               {% if forloop.counter > 3 %}
+                                                    style="display:none;"
+                                               {% endif %}
+                        >
+                        <img alt="{{item.alt}}" src="{{item.image.url}}" />
                     </li>
                     {% endfor %}
                 </ul>
+                <div onclick="docsRight();" class="rarrow">◀</div>
             </div>
         </div>

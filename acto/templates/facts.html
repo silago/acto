@@ -4,7 +4,7 @@
                 {%  for item in page.items.all|dictsort:"order" %}
                 <li>
                     <div>
-                        <img src="{{item.image.url}}" /> 
+                        <img alt="{{item.alt}}" src="{{item.image.url}}" /> 
                         <div class="{{item.page}}">
                             {{ item.text|striptags }}
                         </div>

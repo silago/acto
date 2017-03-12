@@ -14,7 +14,7 @@
             <ul id="">
               {% for item in page.items.all %}
                 <li>
-                    <img  src="{{ item.image.url }}" />
+                    <img alt="{{item.alt}}"  src="{{ item.image.url }}" />
                     <span>
                         {{item.text|striptags}}
                     </span>
@@ -53,11 +53,12 @@
             </script>
             <div class="banner">
                <!-- <img src="green/buy-now.png" /> -->
-               <img src="{{page.free_delivery_button.url}}" />
+               <img class="free" src="{{page.free_delivery_button.url}}" />
+               <img class="non-free"  src="{{page.no_delivery_button.url}}" />
 
                <br />
                <br />
-               <img src="static/green/button.png" />
+               <img  style="cursor:pointer;" onclick="showForm();" src="static/green/button.png" />
             </div>
             </div>
             <div class="triangle-down"></div>

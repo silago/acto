@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 urlpatterns = [
     url(r'^index', views.main),
+    url(r'^capcha', views.capcha),
     url(r'^order', views.order),
     url(r'^ask', views.question),
     url(r'^admin/', admin.site.urls),
