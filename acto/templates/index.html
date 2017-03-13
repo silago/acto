@@ -1362,7 +1362,7 @@ width: 0;
         }
         
         div#order-done .right h4 {
-                text-transform:uppercase;
+                x-text-transform:uppercase;
                 font-weight:normal;
         }
         div#order-done .right {
@@ -1399,7 +1399,7 @@ width: 0;
         }
         div#order-done .right .form .date{
             border-bottom:2px solid gray;
-                padding-bottom:2px;
+                padding-bottom:12px;
         }
         div#order-done .right .form {
             margin-top:45px;
@@ -1643,7 +1643,7 @@ width: 0;
                                 Стоимость доставки<br />расчитывается
                             </span>
                         </div>
-                        <div class="right step1">
+                        <div class="right step2" style="display:none;">
                             <h4>
                                 ОФОРМЛЕНИЕ ЗАКАЗА / Адрес доставки
                             </h4>
@@ -1685,11 +1685,11 @@ function ahead(val) {
                             <div style="color:red; margin:20px; display:none;" class="error"></div>
                             <br/>
                             <br/>
-                            <a onclick="order_form.step1(false);" href="javascript:void(0);">Отменить</a>
-                            <a onclick="order_form.step1(true); " href="javascript:void(0);">Отправить</a>
+                            <a onclick="order_form.step2(false);" href="javascript:void(0);">Отменить</a>
+                            <a onclick="order_form.step2(true); " href="javascript:void(0);">Отправить</a>
                             </div>
                         </div>
-                        <div class="right step2" style="display:none;">
+                        <div class="right step1">
                             <h4>
                                 ОФОРМЛЕНИЕ ЗАКАЗА / Ваши контактные данные
                             </h4>
@@ -1708,29 +1708,35 @@ function ahead(val) {
                             <br/>
                             <br/>
                             <div style="color:red; margin:20px; display:none;" class="error"></div>
-                            <a onclick="order_form.step2(false);" href="javascript:void(0);">Отменить</a>
-                            <a onclick="order_form.step2(true);" href="javascript:void(0);">Далее</a>
+                            <a onclick="order_form.step1(false);" href="javascript:void(0);">Отменить</a>
+                            <a onclick="order_form.step1(true);" href="javascript:void(0);">Далее</a>
                             </div>
 
                         </div>
                         <div class="right step3" style="display:none;">
                             <h4>
                                 Спасибо, ваша заявка принята
-                            </h4>
-                            <p>
-                                Спасибо, ваша заявка принята
-                            </p>
+                            <<span style="
+    /* max-width: 600px; */
+    position: relative;
+    /* height: 200px; */
+    padding-top: 10px!important;
+    display: inline-block;
+">                                Вближайшее время с вами свяжется наш менеджер для подтверждения даты и времени доставки, а также расчета общей стоимости заказа с  учетом доставки до вашего города.
+                            </br>
+                                Пожалуйта, выберите время, когда вам удобно принять звонок:
+
+</span>/h4>
                             <div class="form">
                                 <div class="when date">
                                     <a onclick="$('.form .date a').removeClass('active'); $(this).addClass('active'); order_form.when='Сегодня';" href="javascript:void(0);">Сегодня</a>
                                     <a onclick="$('.form .date a').removeClass('active'); $(this).addClass('active');order_form.when='Завтра';"  href="javascript:void(0);">Завтра</a>
                                     <a onclick="$('.form .date a').removeClass('active'); $(this).addClass('active');order_form.when='Послезавтра';" href="javascript:void(0);">Послезавтра</a>
                                 </div>
-                            <hr />
+                                <br/>
                             <input  class="time" name="time" type="text" placeholder="Укажите время" />
                             <br/>
                             <div style="color:red; margin:20px; display:none;" class="error"></div>
-                            <br/>
                             <br/>
                             <br/>
                             <br/>
