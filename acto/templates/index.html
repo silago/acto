@@ -36,6 +36,17 @@
         };
         </script>
         <style type='text/css'>
+.form-button {
+    cursor:pointer; 
+    width:206px;
+    height:67px;
+    background-image: url('static/regular_button.png');
+}
+.form-button:hover {
+    background-image: url('static/active_button.png');
+}
+
+
 .order-done.bg {
 position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; left:0; top:0; z-index:20; display:none;
 }
@@ -227,7 +238,7 @@ position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; lef
                 padding-bottom:100px;
             }
 
-            #banner-top .right img {
+            #banner-top .right .button {
                 margin-top:28px;
                 x-margin-right:18px;
             }
