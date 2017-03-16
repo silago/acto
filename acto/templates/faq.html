@@ -31,7 +31,7 @@
                     <input type=text class="mail" name="mail" placeholder="ЭЛЕКТРОННЫЙ АДРЕС" />
                     <input type=text class="phone" name="phone" placeholder="ТЕЛЕФОН" />
                     <textarea class="question"  name="question" placeholder="ВАШЕ ВОПРОС"></textarea>
-                    <img src="/capcha" />
+                    <img class="capcha" src="/capcha" />
                         <input class="capcha" name="capcha" type=text placeholder="АНТИ СПАМ КОД" />
                 <button style="cursor:pointer;"  onclick="ask(); return false;"><img src="static/faq/button.png" /> </button>
                 </form>
@@ -68,6 +68,7 @@
                                 $('.ask_form .error').html('');
                             $('#page-faq .side').html('                        <h4    class="done"  >Вопрос отправлен</h4>       ');
                             } else {
+                                $('.ask_form img.capcha').attr('src','/capcha?q='+(new Date()));
                                 $('#page-faq .error').html(d);
                             }
                         });

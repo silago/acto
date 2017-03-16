@@ -1510,26 +1510,26 @@ width: 0;
                             if (next)  {
                                 $('.step1 input').removeClass('error');
                                 var error = false;
-
-
-                                this.name = $('.step1 .name').val();
-                                this.phone = $('.step1 .phone').val();
-                                this.email = $('.step1 .email').val();
-                                if (!this.name) {
-                                    $('.step1 .name').addClass('error');
+                                this.city = $('.step1 .city').val();
+                                this.street = $('.step1 .street').val();
+                                this.house = $('.step1 .house').val();
+                                this.flat = $('.step1 .falt').val();
+                                if (!this.city) {
+                                    $('.step1 .city').addClass('error');
                                     error = true;
                                 }
-                                if (!this.phone) {
-                                    $('.step1 .phone').addClass('error');
+                                if (!this.street) {
+                                    $('.step1 .street').addClass('error');
                                     error = true;
                                 }
-
+                                if (!this.house) {
+                                    $('.step1 .house').addClass('error');
+                                    error = true;
+                                }
                                 if (!error) {
                                     $('.step1').hide();
                                     $('.step2').show();
                                 }
-
-
                             } else {
                                 $('.order-done').hide();
 
@@ -1537,28 +1537,19 @@ width: 0;
                         },
                         step2:function(next) {
                             if (next)  {
-
-                                this.city = $('.step2 .city').val();
-                                this.street = $('.step2 .street').val();
-                                this.house = $('.step2 .house').val();
-                                this.flat = $('.step2 .falt').val();
-                                if (!this.city) {
-                                    $('.step2 .city').addClass('error');
-                                    error = true;
-                                }
-                                if (!this.street) {
-                                    $('.step2 .street').addClass('error');
-                                    error = true;
-                                }
-                                if (!this.house) {
-                                    $('.step2 .house').addClass('error');
-                                    error = true;
-                                }
-
-
-
                                 $('.step2 input').removeClass('error');
                                 var error = false;
+                                this.name = $('.step2 .name').val();
+                                this.phone = $('.step2 .phone').val();
+                                this.email = $('.step2 .email').val();
+                                if (!this.name) {
+                                    $('.step2 .name').addClass('error');
+                                    error = true;
+                                }
+                                if (!this.phone) {
+                                    $('.step2 .phone').addClass('error');
+                                    error = true;
+                                }
                                 if (!error) {
                                     $('.step2').hide();
                                     $('.step3').show();
@@ -1619,7 +1610,7 @@ width: 0;
                             //this.count = $('.step3 .count').val();
                             this.cost = window.BASE_COST * this.count;
                             $('#order-done .quantity').html(this.count);
-                            $('#order-done .cost span.q').html(this.cost);
+                            $('#order-done .cost span').html(this.cost);
                         }
                     };
 
@@ -1649,7 +1640,7 @@ width: 0;
                             </span>
                             <br/>
                             <span class="total">
-                                Итого: <span class="cost"><span class="q"><script>document.write(BASE_COST);</script></span> руб.</span> 
+                                Итого: <span class="cost"><span><script>document.write(BASE_COST);</script></span> руб.</span> 
                             </span>
                             <span class="info">
                                 Стоимость доставки<br />расчитывается
@@ -1849,16 +1840,13 @@ $.ajaxSetup({
 $('.float-city-selector.bg').click(function() {
     $('.float-city-selector').hide();
 });
-$('.order-done.bg').click(function() {
-    $('.order-done').hide();
+$('.float-city-selector.bg').click(function() {
+    $('.float-city-selector').hide();
 });
         $(window).scroll(function(){
         $('#float-city-selector').css('top',parseInt($(window).scrollTop()));
         $('#order-done').css('top',parseInt($(window).scrollTop()));
         });
-    </script>
-    <script>
-        
     </script>
     </body>
 </html>

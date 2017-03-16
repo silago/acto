@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import TopPage, ForPage, OrangePage, YellowPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, FaqPage, DocsPage, BottomPage, FooterPage, City, Orders, Questions, SiteSettings#, Shop
@@ -44,23 +47,23 @@ def question(request):
 
 def capcha(request):
     ''' A View that Returns a PNG Image generated using PIL'''
-    from PIL import Image, ImageDraw
+    from PIL import Image, ImageDraw, ImageFont
     import random
     import string
     size = (100,50)             # size of the image to create
     im = Image.new('RGB', size, (255,255,255)) # create the image
     draw = ImageDraw.Draw(im)   # create a drawing object that is
                                 # used to draw on the new image
+    font = ImageFont.truetype('./font.ttf',size=36)
     black = (0,0,0)    # color of our text
     text = "Hello World!" # text to draw
-    text = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(6))
+    text = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(4))
     request.session['capcha'] = text
     i = 0
     for c in text:
-        pass
-        i+=1
-        text_pos = (i*10,10+random.randint(0,16)) # top-left position of our text
-        draw.text(text_pos, c, fill=black)
+        i+=2
+        text_pos = (i*10,1+random.randint(0,16)) # top-left position of our text
+        draw.text(text_pos, c, font=font,fill=black)
 
     # Now, we'll do the drawing:
 
