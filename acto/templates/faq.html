@@ -22,7 +22,15 @@
                 <!--     </span> -->
                 <!-- </li> -->
             </ul>
-            <div class="side">
+            <div style="x-display:none;" class="side done">
+                <h4    class="done"  >СПАСИБО, мы получили Ваш вопрос и ответим на него в ближайшее время!</h4>
+
+                <br/>
+                <button onclick="$(this).parent().hide();">
+                    ЗАКРЫТЬ
+                </button>
+            </div>
+            <div class="side active" style="display:none;">
                 <h4> Не нашли ответ? </h4>
                 <h5> Задайте вопрос! </h5>
                 <div class="error" style="color:red; font-weight:bold;"> </div>
@@ -33,18 +41,12 @@
                     <textarea class="question"  name="question" placeholder="ВАШЕ ВОПРОС"></textarea>
                     <img class="capcha" src="/capcha" />
                         <input class="capcha" name="capcha" type=text placeholder="АНТИ СПАМ КОД" />
-                <button style="cursor:pointer;"  onclick="ask(); return false;"><img src="static/faq/button.png" /> </button>
+                <button style="cursor:pointer;"  onclick="ask(); return false;">
+                </button>
                 </form>
             </div>
 <style>
-#page-faq .side h4.done {
-    padding: 20px;
-    font-size: 24px;
-    margin-top: 100px;
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 120px;
-}
+
 </style>
 
                 <script>
@@ -66,7 +68,8 @@
                         }).done(function(d){
                             if (d=="OK") {
                                 $('.ask_form .error').html('');
-                            $('#page-faq .side').html('                        <h4    class="done"  >Вопрос отправлен</h4>       ');
+                            $('#page-faq .side').hide();
+                            $('#page-faq .side.done').show();
                             } else {
                                 $('.ask_form img.capcha').attr('src','/capcha?q='+(new Date()));
                                 $('#page-faq .error').html(d);

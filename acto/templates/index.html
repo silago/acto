@@ -36,7 +36,57 @@
         };
         </script>
         <style type='text/css'>
+
+#page-faq .side.done button {
+    background-color: #ccebfb;
+    color: #5476a7;
+    display: block;
+    font-size: 18px;
+    margin: 0 auto;
+    padding: 5px;
+    position: relative;
+    text-align: center;
+    width: 250px;
+        margin-top:20px;
+            cursor:pointer;
+}
+#page-faq .side h4.done {
+    padding: 20px;
+    font-size: 18px;
+    margin: 0 auto;
+    margin-top: 60px;
+    text-align: left;
+                color:#2c4f8b;
+                font-size:17px;
+                    text-transform:none;
+                        font-weight:normal;
+                            padding:0px;
+
+}
+
+a.anchor.when_apply {
+    position:relative;
+    top:-20px;
+}
+            #page-faq .side form button {
+                border: 0px;
+                position: absolute;
+                top:490px;
+                left: 0px;
+            }
+
+            #page-faq .side form button {
+    background-color:transparent;
+    cursor:pointer; 
+    width:185px;
+    height:60px;
+    background-image: url('static/faq/button.png');
+}
+            #page-faq .side form button:hover {
+    background-image: url('static/faq/active_button.png');
+}
 .form-button {
+    background-color:transparent;
     cursor:pointer; 
     width:206px;
     height:67px;
@@ -355,13 +405,6 @@ position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; lef
                 height:100px;
                 background:transparent;
                 width:250px;
-            }
-            #page-faq .side form button {
-                background: transparent;
-                border: 0px;
-                position: absolute;
-                top:490px;
-                left: 0px;
             }
 
             #banner-top .left {
@@ -1139,8 +1182,9 @@ width: 0;
                 padding-bottom:5px;
                 padding-top:70px;
             }
-            div#page-bottom .content .banner-right img {
-                margin-bottom:16px;
+            div#page-bottom .content .banner-right .button {
+                margin-top:20px;
+                margin-bottom:26px;
             }
 
 
@@ -1455,8 +1499,8 @@ width: 0;
                         </span>
                     </li>
                     <li class="nowrap">
-                        <span class="select-city">
-                           <span onclick="$('.float-city-selector').show();" style="color:#2c4f8a">▼</span>
+                        <span onclick="$('.float-city-selector').show();" class="select-city">
+                           <span style="color:#2c4f8a">▼</span>
                            <span class="selector">Москва</span>
                         </span>
                     </li>
@@ -1469,13 +1513,13 @@ width: 0;
 
 
         <script type="text/javascript">
-           function choose_city(code,city) {
+           function choose_city(city) {
+               console.log(city);
                 //alert(code+' '+city)))ii;;;
                 map.panTo({lat:toDot(cities[city].x),lng:toDot(cities[city].y)});
-                window.localStorage.setItem("ChosenCode", code);
                 window.localStorage.setItem("ChosenName", city);
                 $('.float-city-selector').hide();
-                $('select-city .selector').text(name);
+                $('.select-city .selector').text(city);
                 var items = '';
                 if (cities[city].delivery == 'True') {
                     $('.banner.free').show();
@@ -1486,7 +1530,6 @@ width: 0;
                 }
                 var shops = cities[city].shops;
                 for (var i =0; i<shops.length; i++) {
-
                     items+='<li style="cursor:pointer;" onclick="map.panTo({lat:'+toDot(shops[i].x)+',lng:'+toDot(shops[i].y)+'})">'+shops[i].name+'</li>';
                 }
                 $('#shops-list').html(items);
@@ -1788,7 +1831,7 @@ function ahead(val) {
                         </div>
                         <div class="city-list">
                             {% for city in cities %}
-                                <span onclick="choose_city('{{city.code}}','{{city.name}}');" >
+                                <span onclick="choose_city('{{city.name}}');" >
                                     {{ city.name }}
                                 </span>
                             {% endfor %}
@@ -1798,7 +1841,7 @@ function ahead(val) {
         </div>
         <div class="clear"></div>
         {% for page in pages|dictsort:"order" %}
-        <a name="{{page.slug}}" class="anchor"> {{page.template}} </a>
+        <a name="{{page.slug}}" class="{{page.slug}} anchor"> {{page.template}} </a>
             {% include page.template %}
         {% endfor %}
 
@@ -1819,8 +1862,8 @@ function ahead(val) {
               if (!c) {
                 c = ymaps.geolocation.city;
               }
-              jQuery(".select-city span.selector").text(c);
-              choose_city('',c);
+              //jQuery(".select-city span.selector").text(c);
+              choose_city(c);
           }
          function showForm() {
              $('.order-done').show();
