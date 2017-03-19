@@ -6,13 +6,10 @@
                         if (DOCS_PAGE_GAL_INDEX==0) {
                             return;
                         }
-                        DOCS_PAGE_GAL_INDEX
                         var items = $('#page-docs ul li');
+                        DOCS_PAGE_GAL_INDEX--;
                         $(items[DOCS_PAGE_GAL_INDEX]).show();
                         $(items[DOCS_PAGE_GAL_INDEX+3]).hide();
-                        DOCS_PAGE_GAL_INDEX++;
-                        
-
                     }
                     docsRight = function() {
                         var items = $('#page-docs ul li');
@@ -26,7 +23,7 @@
                     }
                 </script>
                 <img src="{{ page.logo.url }}" class="logo" />
-                <div onclick="docsLeft();"  class="larrow">▶</div>
+                <div onclick="docsRight();"  class="larrow">▶</div>
                 <ul>
                     {% for item in page.items.all %}
                     <li
@@ -34,10 +31,12 @@
                                                     style="display:none;"
                                                {% endif %}
                         >
-                        <img alt="{{item.alt}}" src="{{item.image.url}}" />
+                        <a target=_blank href="{{item.image.url}}"> 
+                            <img alt="{{item.alt}}" src="{{item.image.url}}" />
+                        </a>
                     </li>
                     {% endfor %}
                 </ul>
-                <div onclick="docsRight();" class="rarrow">◀</div>
+                <div onclick="docsLeft();" class="rarrow">◀</div>
             </div>
         </div>

@@ -105,7 +105,7 @@ class BaseSingletonModel(SingletonModel):
     slug   = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Псевдоним")
     template = models.CharField(max_length=255,blank=True, null=True,default="",verbose_name="Шаблон", choices = TemplatesList())
     order   = models.IntegerField(default=1, verbose_name="Приоритет отображения (порядок)")
-    menu_title = models.CharField(max_length=255,default="", verbose_name="Название в меню")
+    menu_title = models.CharField(max_length=255,default="", verbose_name="Название в меню", blank=True, null=True)
 
     class Meta:
         abstract = True

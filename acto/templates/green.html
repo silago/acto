@@ -28,11 +28,11 @@
 
             <script type="text/javascript">
                 var pageGreenGalleryIndex = 0;
-                var pageGreenGalleryIndexMax = 2;
+                var pageGreenGalleryIndexMax = $('#page-green ul li').length-1;
                 $('#page-green ul li').first().addClass('active');
                 $('#page-green .arrow-left').click(function() {
                     if (pageGreenGalleryIndex==0) {
-                       return; 
+                       pageGreenGalleryIndex = pageGreenGalleryIndexMax+1; 
                     }
                     $('#page-green ul li').removeClass('active');
                     $($('#page-green ul li')[--pageGreenGalleryIndex]).addClass('active');
@@ -40,7 +40,7 @@
                 });
                 $('#page-green .arrow-right').click(function() {
                     if (pageGreenGalleryIndex==pageGreenGalleryIndexMax) {
-                       return; 
+                        pageGreenGalleryIndex = -1;
                     }
                     $('#page-green ul li').removeClass('active');
                     $($('#page-green ul li')[++pageGreenGalleryIndex]).addClass('active');

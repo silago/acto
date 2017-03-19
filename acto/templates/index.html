@@ -37,6 +37,7 @@
         </script>
         <style type='text/css'>
 
+
 #page-faq .side.done button {
     background-color: #ccebfb;
     color: #5476a7;
@@ -98,6 +99,7 @@ a.anchor.when_apply {
 
 
 .order-done.bg {
+    cursor:pointer;
 position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; left:0; top:0; z-index:20; display:none;
 }
         .order-done input.error {
@@ -188,6 +190,9 @@ position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; lef
                 position:relative;
                 height:33px;
             }
+            #head .select-city .selector:hover{
+                color:#2c4f8a;
+            }
             #head .select-city {
                 font-weight:bold;
                 cursor:pointer;
@@ -196,7 +201,7 @@ position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; lef
                 position: relative;
                 x-top: -3px;
             }
-            #head .buy-somewhere {
+            #head #menu li:nth-last-child(2) { 
                 x-float:left;
                 display:inline-block;
                 font-weight:bold;
@@ -417,13 +422,16 @@ position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; lef
                 x-height:388px;
                 width:70%;
             }
+            #banner-top .left > .text-info > span:first-line {
+                color: red!important;
+            }
             #banner-top .left > .text-info > span {
                 display:block;
                 position: absolute;
                 left: 290px;
                 bottom: 85px;
                 color: white;
-                width: 175px;
+                width: 245px;
                 font-size: 22px;
                 font-weight: bold;
             }
@@ -620,7 +628,7 @@ left: 27%;
 
             div#page-green .content .logo {
                 position:absolute;
-                top:35px;
+                top:36px;
                 left:45px;
 
             }
@@ -1071,7 +1079,17 @@ left: 27%;
     padding-right: 3%;
 
             }
+            div#page-docs .content ul li img {
+                position:relative;
+                width:100%;
+                width: 100%;
+                padding-left: 80px;
+                padding-top: 35px;
+                box-sizing: border-box;
+                padding-right: 80px;
+            }
             div#page-docs .content ul li {
+                overflow:hidden;
 list-style: none;
     /* float: left; */
     background-position:center center;
@@ -1256,6 +1274,7 @@ width: 0;
 
 
         div.float-city-selector.bg {
+            cursor:pointer;
             z-index:1;
                 position:fixed;
                 width:100%; height:100%; background-color:blue; opacity:0.6;
@@ -1493,11 +1512,13 @@ width: 0;
                     <li>как  работает?</li>
                     <li>кому подходит</li>
                     -->
+                    <!--
                     <li class="nowrap">
                         <span class="buy-somewhere" style="cursor:poiner;" onclick="showForm();">
                             купить в аптеке
                         </span>
                     </li>
+                    -->
                     <li class="nowrap">
                         <span onclick="$('.float-city-selector').show();" class="select-city">
                            <span style="color:#2c4f8a">▼</span>
@@ -1517,7 +1538,7 @@ width: 0;
                console.log(city);
                 //alert(code+' '+city)))ii;;;
                 map.panTo({lat:toDot(cities[city].x),lng:toDot(cities[city].y)});
-                window.localStorage.setItem("ChosenName", city);
+                window.lc.setItem("ChosenName", city);
                 $('.float-city-selector').hide();
                 $('.select-city .selector').text(city);
                 var items = '';
@@ -1847,18 +1868,38 @@ function ahead(val) {
 
 
         <script>
-            $('#page-faq .list li h5').click(function(ev,el){
-                //console.log(this);
-                var el = $(this);
-                if (!el.parent().hasClass('active')) {
+
+
+try {
+  window.lc = localStorage;
+  localStorage.setItem('test','test');
+} catch(e) {
+  var lc = function() {
+    this.data = {};
+    this.setItem =  function(k,v) {this.data[k]=v;}
+    this.getItem =  function(k) { return this.data[k];}
+  }
+  window.lc = new lc();
+}
+
+
+            switchGal = function(obj) {
+                var el = $(obj);
+                if (!$(el).parent().hasClass('active')) {
                     $(el).parent().parent().find('.active').removeClass('active');
-                    el.parent().addClass('active')
+                    $(el).parent().addClass('active')
                 }
+
+            }
+            $('#page-faq .list li h5').click(function(){
+                switchGal(this);
+                //console.log(this);
             });
+            $('#page-faq .list li').first().addClass('active');
         </script>
         <script type="text/javascript">
           window.onload = function () {
-              var c = window.localStorage.getItem('ChosenName');
+              var c = window.lc.getItem('ChosenName');
               if (!c) {
                 c = ymaps.geolocation.city;
               }
@@ -1903,6 +1944,13 @@ $.ajaxSetup({
 $('.float-city-selector.bg').click(function() {
     $('.float-city-selector').hide();
 });
+
+$('#order-done').click(function(e) {
+      if (e.target !== this)
+        return;
+    $('.order-done').hide();
+});
+
 $('.order-done.bg').click(function() {
     $('.order-done').hide();
 });
