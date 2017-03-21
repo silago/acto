@@ -5,7 +5,7 @@ from django.contrib import admin
 from solo.admin import SingletonModelAdmin
 #from config.models import SiteConfiguration
 
-from .models import TripleTextItem, TextImageItem, TextItem,DoubleTextDoubleImageItem, TextDoubleImageItem, ImageItem, TopPage, FaqPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, ForPage, DocsPage, OrangePage, YellowPage,BottomPage, FooterPage, City, Shop, Orders, Questions, SiteSettings
+from .models import TripleTextItem, TextImageItem, TextItem,DoubleTextDoubleImageItem, TextDoubleImageItem, ImageItem, TopPage, FaqPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, ForPage, DocsPage, OrangePage, YellowPage,BottomPage, FooterPage, City, Shop, Orders, Questions, SiteSettings, GalleryImageItem, LinkImageItem
 
 admin.site.register(TopPage, SingletonModelAdmin)
 admin.site.register(FaqPage, SingletonModelAdmin)
@@ -34,6 +34,19 @@ class WhyPageAdmin(SingletonModelAdmin):
         WhyPageItems,
     )
 
+class OrangePageItems(admin.TabularInline):
+    verbose_name = "Элемент"
+    verbose_name_plural  = "Элементы"
+    model =  OrangePage.items.through
+
+class OrangePageAdmin(SingletonModelAdmin):
+    exclude = "items" , "title"
+    inlines = (
+        OrangePageItems,
+    )
+admin.site.register(OrangePage, OrangePageAdmin)
+
+
 class FactsPageItems(admin.TabularInline):
     verbose_name = "Элемент"
     verbose_name_plural  = "Элементы"
@@ -47,19 +60,33 @@ class FactsPageAdmin(SingletonModelAdmin):
 admin.site.register(FactsPage, FactsPageAdmin)
 
 
+class FooterPageItems(admin.TabularInline):
+    verbose_name = "Элемент"
+    verbose_name_plural  = "Элементы"
+    model =  FooterPage.items.through
+
+class FooterPageAdmin(SingletonModelAdmin):
+    exclude = "items" , "title"
+    inlines = (
+        FooterPageItems,
+    )
+
+admin.site.register(FooterPage, FooterPageAdmin)
+admin.site.register(LinkImageItem, admin.ModelAdmin)
+
+
 admin.site.register(GreenPage, GreenPageAdmin)
 admin.site.register(WhyPage, WhyPageAdmin)
 admin.site.register(HowPage, SingletonModelAdmin)
 admin.site.register(ForPage, SingletonModelAdmin)
 admin.site.register(DocsPage, SingletonModelAdmin)
-admin.site.register(OrangePage, SingletonModelAdmin)
 admin.site.register(YellowPage, SingletonModelAdmin)
 admin.site.register(BottomPage, SingletonModelAdmin)
-admin.site.register(FooterPage, SingletonModelAdmin)
 
 
 admin.site.register(ImageItem, admin.ModelAdmin)
 admin.site.register(TextDoubleImageItem, admin.ModelAdmin)
+admin.site.register(GalleryImageItem, admin.ModelAdmin)
 admin.site.register(DoubleTextDoubleImageItem, admin.ModelAdmin)
 admin.site.register(TextImageItem, admin.ModelAdmin)
 admin.site.register(TextItem, admin.ModelAdmin)

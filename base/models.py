@@ -33,7 +33,6 @@ class TextItem(models.Model):
         verbose_name = "Вопрос"
         verbose_name_plural = "Вопросы"
 
-
 class ImageItem(models.Model):
     image  = models.ImageField(  verbose_name="Изображение")
     alt     = models.CharField(verbose_name="Имя",max_length=255,blank=True, null=True, default="")
@@ -58,6 +57,19 @@ class DoubleTextDoubleImageItem(models.Model):
         verbose_name = "Как применять"
         verbose_name_plural = "Как применять"
 
+
+class GalleryImageItem(models.Model):
+    image  = models.ImageField()
+    alt     = models.CharField(verbose_name="alt",max_length=255,blank=True, null=True, default="")
+    subimage  = models.ImageField()
+    text     = HTMLField()
+    order = models.IntegerField()
+    def __str__(this):
+        return this.image.url + ' ' + this.text
+    class Meta:
+        verbose_name = ""
+        verbose_name_plural = "Текст с двумя изображениями"
+
 class TextDoubleImageItem(models.Model):
     image  = models.ImageField()
     alt     = models.CharField(verbose_name="Имя",max_length=255,blank=True, null=True, default="")
@@ -69,6 +81,18 @@ class TextDoubleImageItem(models.Model):
     class Meta:
         verbose_name = ""
         verbose_name_plural = "Текст с двумя изображениями"
+
+
+class LinkImageItem(models.Model):
+    image  = models.ImageField(verbose_name="Изображение")
+    alt     = models.CharField(verbose_name="Имя",max_length=255,blank=True, null=True, default="")
+    link     = models.CharField(verbose_name="Ссылка",max_length=255,blank=True, null=True, default="")
+    order  = models.IntegerField(verbose_name="Порядок отображения")
+    def __str__(this):
+        return this.image.url
+    class Meta:
+        verbose_name = "Текст с изображениями"
+        verbose_name_plural = "Текст с изображениями"
 
 class TextImageItem(models.Model):
     image  = models.ImageField(verbose_name="Изображение")
@@ -127,7 +151,7 @@ class ForPage(BaseSingletonModel):
         verbose_name = "Для чего применяется"
 
 class OrangePage(BaseSingletonModel):
-    items = models.ManyToManyField(ImageItem)
+    items = models.ManyToManyField(GalleryImageItem)
     class Meta:
         verbose_name = "Галерея"
 
@@ -173,6 +197,11 @@ class HowPage(BaseSingletonModel):
 
 class FaqPage(BaseSingletonModel):
     items = models.ManyToManyField(TextItem)
+    name_caption  = models.CharField(max_length=255)
+    mail_caption  = models.CharField(max_length=255)
+    phone_caption  = models.CharField(max_length=255)
+    question_caption  = models.CharField(max_length=255)
+
     class Meta:
         verbose_name = "Ответы на вопросы"
 
@@ -182,7 +211,10 @@ class DocsPage(BaseSingletonModel):
         verbose_name = "Документы"
 
 class FooterPage(BaseSingletonModel):
-    items = models.ManyToManyField(TextImageItem)
+    items = models.ManyToManyField(LinkImageItem)
+    caption  = models.CharField(max_length=255)
+    info  = models.CharField(max_length=255)
+    copy  = models.CharField(max_length=255)
     link = models.CharField(max_length=255)
     image = models.ImageField(verbose_name="Изображение")
     class Meta:

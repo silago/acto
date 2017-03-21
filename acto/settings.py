@@ -28,7 +28,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
 ALLOWED_HOSTS = ['silag-acto-back-server3.herokuapp.com','localhost']
-
+SITE_ID = 1
 
 # Application definition
 
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'base',

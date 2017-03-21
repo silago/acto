@@ -26,5 +26,6 @@ urlpatterns = [
     url(r'^ask', views.question),
     url(r'^admin/', admin.site.urls),
     url(r'^tinymce/', include('tinymce.urls')),
+    url(r'^pages/', include('django.contrib.flatpages.urls')),
     url(r'^$', views.main),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

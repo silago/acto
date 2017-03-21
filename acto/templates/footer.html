@@ -3,19 +3,19 @@
                 <img src="{{page.logo.url}}" />
             </div>
             <div class="title">
-                Следите за  Актовитдерм <br/> в социальных сетях
+                {{page.caption}}
             </div>
             <div class="icons">
                 {% for item in page.items.all %}
-                <div>  <img alt="{{item.alt}}" src="{{item.image.url}}" /> </div>  
+                <div><a href="{{item.url}}"><img alt="{{item.alt}}" src="{{item.image.url}}" /></a></div>  
                 {% endfor %}
             </div>
             <div class="info">
-                Данный сайт не является </br> публичной офертой
+                {{page.info}}
             </div>
             <br/>
             <div class="copy">
-                {{ page.title }}
+                {{ page.copy }}
             </div>
             <div class="warring">
                 <img src="{{ page.image.url }}" />

@@ -57,7 +57,7 @@ def capcha(request):
     font = ImageFont.truetype('./font.ttf',size=36)
     black = (0,0,0)    # color of our text
     text = "Hello World!" # text to draw
-    text = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(4))
+    text = ''.join(random.choice( string.digits) for _ in range(4))
     request.session['capcha'] = text
     i = 0
     for c in text:
