@@ -37,6 +37,9 @@
         </script>
         <style type='text/css'>
 
+.ask_form input.error, .ask_form textarea.error {
+    border:1px solid red!important;
+}
 
 #page-faq .side.done button {
     background-color: #ccebfb;
@@ -423,9 +426,6 @@ position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; lef
                 x-width:960px;
                 x-height:388px;
                 width:70%;
-            }
-            #banner-top .left > .text-info > span:first-line {
-                color: red!important;
             }
             #banner-top .left > .text-info > span {
                 display:block;
@@ -1616,6 +1616,7 @@ width: 0;
                         step2:function(next) {
                             if (next)  {
 
+                                var error = false;
                                 this.city = $('.step2 .city').val();
                                 this.street = $('.step2 .street').val();
                                 this.house = $('.step2 .house').val();
@@ -1636,7 +1637,6 @@ width: 0;
 
 
                                 $('.step2 input').removeClass('error');
-                                var error = false;
                                 if (!error) {
                                     $('.step2').hide();
                                     $('.step3').show();
@@ -1658,7 +1658,7 @@ width: 0;
                             $('#order-done .error').hide();
 
                             var error = false;
-                            this.date = $('.step3 .date').val();
+                            this.date =  $('.step3 .date .active').html();
                             this.time  = $('.step3 .time').val();
                             this.count = $('.step3 .count').val();
                             if (!this.time || !this.date) {
@@ -1707,7 +1707,9 @@ width: 0;
                     <div class="holder">
                         <div class="left">
                             <span class="title">
-                            Жидкая аэрозольная повязка актовитдерм
+                                <!--
+                                -->
+                            {{settings.form_title}}
                             </span>
                             <br/>
                             <span class="cost">
@@ -1735,7 +1737,9 @@ width: 0;
                         </div>
                         <div class="right step2" style="display:none;">
                             <h4>
-                                ОФОРМЛЕНИЕ ЗАКАЗА / Адрес доставки
+                                <!--
+                                -->
+                                {{settings.form_header_1}}
                             </h4>
                             <div class="form">
                             <hr />
@@ -1781,7 +1785,9 @@ function ahead(val) {
                         </div>
                         <div class="right step1">
                             <h4>
-                                ОФОРМЛЕНИЕ ЗАКАЗА / Ваши контактные данные
+                                <!--
+                                -->
+                                {{settings.form_header_2}}
                             </h4>
                             <div class="form">
                             <hr />
@@ -1804,19 +1810,22 @@ function ahead(val) {
 
                         </div>
                         <div class="right step3" style="display:none;">
-                            <h4>
-                                Спасибо, ваша заявка принята
-                            <<span style="
-    /* max-width: 600px; */
+                            <h4 style="">
+                                <!--
+                                -->
+                                {{settings.form_header_3}}
+</h4>
+                            <span style="
+    max-width: 600px; 
     position: relative;
-    /* height: 200px; */
+    height: 200px; 
     padding-top: 10px!important;
     display: inline-block;
-">                                Вближайшее время с вами свяжется наш менеджер для подтверждения даты и времени доставки, а также расчета общей стоимости заказа с  учетом доставки до вашего города.
-                            </br>
-                                Пожалуйта, выберите время, когда вам удобно принять звонок:
+    "> {{settings.order_complete|linebreaksbr}}                              
+    <!--
+    -->
 
-</span>/h4>
+</span>
                             <div class="form">
                                 <div class="when date">
                                     <a onclick="$('.form .date a').removeClass('active'); $(this).addClass('active'); order_form.when='Сегодня';" href="javascript:void(0);">Сегодня</a>
@@ -1865,7 +1874,7 @@ function ahead(val) {
         </div>
         <div class="clear"></div>
         {% for page in pages|dictsort:"order" %}
-        <a name="{{page.slug}}" class="{{page.slug}} anchor"> {{page.template}} </a>
+        <a name="{{page.slug}}" class="{{page.slug}} anchor"> <!--{{page.template}}--> </a>
             {% include page.template %}
         {% endfor %}
 

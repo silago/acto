@@ -114,6 +114,12 @@ class SiteSettings(SingletonModel):
     meta_description    = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Описание")
     meta_keywords       = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Ключевые слова")
     cost                = models.IntegerField(default=1, verbose_name="Цена")
+    form_title       = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Заголовок формы")
+    form_header_1       = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Заголовок 1й страницы формы")
+    form_header_2       = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Заголовок 2й страницы формы")
+    form_header_3       = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Заголовок 3й страницы формы")
+    order_complete       = models.TextField(blank=True, null=True, default="", verbose_name="Текст формы")
+
     class Meta:
         verbose_name = "Настройка сайта"
         verbose_name_plural = "Настройки сайта"
@@ -138,7 +144,7 @@ class BaseSingletonModel(SingletonModel):
 class TopPage(BaseSingletonModel):
     backgound = models.ImageField(blank=True, null=True,default='', verbose_name="Фон")
     image = models.ImageField(blank=True, null=True,default='', verbose_name="Изображение")
-    text  = HTMLField(blank=True, null=True,default='', verbose_name="текст")
+    title  = HTMLField(blank=True, null=True,default='', verbose_name="текст")
     banner= models.ImageField(blank=True, null=True,default='', verbose_name="Баннер")
     free_delivery_button =  models.ImageField(blank=True, null=True,default='', verbose_name="Баннер бесплатной доставки")
     no_delivery_button   =  models.ImageField(blank=True, null=True,default='', verbose_name="Баннер без доставки")
@@ -266,9 +272,7 @@ class Orders(models.Model):
     phone  =models.CharField(verbose_name="Телефон",max_length=255)
     email  =models.CharField(verbose_name="Email",max_length=255)
     name   =models.CharField(verbose_name="Имя",max_length=255)
-
     ts     =models.DateTimeField(verbose_name="Дата оформления", null=True, auto_now_add=True, blank=True)
-
     date  =models.CharField(verbose_name="Дата доставки",max_length=255)
     time  =models.CharField(verbose_name="Время",max_length=255)
     def __str__(this):

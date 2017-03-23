@@ -51,11 +51,18 @@
 
                 <script>
                     function ask() {
+                            $('.ask_form input').removeClass('error');
+                            $('.ask_form textarea').removeClass('error');
                             var name = $('.ask_form .name').val();
-                            var capcha = $('.ask_form .capcha').val();
+                            if (!name) $('.ask_form .name').addClass('error');
+                            var capcha = $('.ask_form input.capcha').val();
+                            if (!capcha) $('.ask_form input.capcha').addClass('error');
                             var mail = $('.ask_form .mail').val();
-                            var phone = $('.ask_form .name').val();
+                            if (!mail) $('.ask_form .mail').addClass('error');
+                            var phone = $('.ask_form .phone').val();
+                            if (!phone) $('.ask_form .phone').addClass('error');
                             var question = $('.ask_form .question').val();
+                            if (!question) $('.ask_form .question').addClass('error');
                             if (!capcha || !name || !mail || !phone || !question) {
                                 return;
                             }
@@ -73,6 +80,7 @@
                             } else {
                                 $('.ask_form img.capcha').attr('src','/capcha?q='+(new Date()));
                                 $('#page-faq .error').html(d);
+                                console.log(d);
                             }
                         });
                     }
