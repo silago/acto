@@ -249,6 +249,8 @@ class City(models.Model):
     has_delivery = models.BooleanField(verbose_name="Бесплатная доставка",default=False)
     x    = models.FloatField()
     y    = models.FloatField()
+    def __unicode__(self):
+       return u'%s' % (self.name)
     def __str__(self):
         return self.name
     #shops= models.OneToMany(to=Shop)
