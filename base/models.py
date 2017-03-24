@@ -10,6 +10,8 @@ import os
 class TemplateItem(models.Model):
     name  = models.CharField(max_length=255,blank=True, null=True, default="")
     template  = models.FileField()
+    def __unicode__(self):
+       return u'%s' % (self.name)
     def __str__(self):
         return self.name
 #base blocks
@@ -19,6 +21,8 @@ class TripleTextItem(models.Model):
     subtext  = models.CharField(verbose_name="Город",max_length=255,blank=True, null=True, default="")
     def __str__(self):
         return self.name+ ' ' + self.text
+    def __unicode__(self):
+       return u'%s' % (self.name)
     class Meta:
         verbose_name = "Отзыв"
         verbose_name_plural = "Отзывы"
@@ -41,6 +45,8 @@ class ImageItem(models.Model):
     image  = models.ImageField(  verbose_name="Изображение")
     alt     = models.CharField(verbose_name="Имя",max_length=255,blank=True, null=True, default="")
     order  = models.IntegerField(verbose_name="Порядок")
+    def __unicode__(self):
+       return u'%s' % (self.image.url)
     def __str__(self):
         return self.image.url
     class Meta:
@@ -55,6 +61,8 @@ class DoubleTextDoubleImageItem(models.Model):
     caption  = models.CharField(verbose_name="Заголовок", max_length=255,blank=True, null=True, default="")
     text  = models.CharField(verbose_name="Текст",max_length=255,blank=True, null=True, default="")
     order = models.IntegerField(verbose_name="Порядок")
+    def __unicode__(self):
+       return u'%s' % (self.image.url)
     def __str__(self):
         return self.image.url + ' ' + ' ' +self.caption+ ' ' + self.text
     class Meta:
@@ -68,6 +76,8 @@ class GalleryImageItem(models.Model):
     subimage  = models.ImageField()
     text     = HTMLField()
     order = models.IntegerField()
+    def __unicode__(self):
+       return u'%s' % (self.image.url)
     def __str__(self):
         return self.image.url + ' ' + self.text
     class Meta:
@@ -80,6 +90,8 @@ class TextDoubleImageItem(models.Model):
     subimage  = models.ImageField()
     text     = HTMLField()
     order = models.IntegerField()
+    def __unicode__(self):
+       return u'%s' % (self.image.url)
     def __str__(self):
         return self.image.url + ' ' + self.text
     class Meta:
@@ -92,6 +104,8 @@ class LinkImageItem(models.Model):
     alt     = models.CharField(verbose_name="Имя",max_length=255,blank=True, null=True, default="")
     link     = models.CharField(verbose_name="Ссылка",max_length=255,blank=True, null=True, default="")
     order  = models.IntegerField(verbose_name="Порядок отображения")
+    def __unicode__(self):
+       return u'%s' % (self.image.url)
     def __str__(self):
         return self.image.url
     class Meta:
@@ -103,6 +117,8 @@ class TextImageItem(models.Model):
     alt     = models.CharField(verbose_name="Имя",max_length=255,blank=True, null=True, default="")
     text     = HTMLField(verbose_name="Текст")
     order  = models.IntegerField(verbose_name="Порядок отображения")
+    def __unicode__(self):
+       return u'%s' % (self.image.url)
     def __str__(self):
         return self.image.url
     class Meta:
@@ -263,6 +279,8 @@ class Questions(models.Model):
     email = models.CharField(verbose_name="Email", max_length=255)
     phone = models.CharField(verbose_name="Телефон", max_length=255)
     text = models.CharField( verbose_name="Текст", max_length=255)
+    def __unicode__(self):
+       return u'%s' % (self.name)
     def __str__(self):
         return self.name+ ' '+self.text
     class Meta:
@@ -281,6 +299,8 @@ class Orders(models.Model):
     ts     =models.DateTimeField(verbose_name="Дата оформления", null=True, auto_now_add=True, blank=True)
     date  =models.CharField(verbose_name="Дата доставки",max_length=255)
     time  =models.CharField(verbose_name="Время",max_length=255)
+    def __unicode__(self):
+       return u'%s' % (self.name)
     def __str__(self):
         return self.name + ' '+self.date
 
@@ -293,6 +313,8 @@ class Shop(models.Model):
     x    = models.FloatField()
     y    = models.FloatField()
     city = models.ForeignKey('City', related_name='shops')
+    def __unicode__(self):
+       return u'%s' % (self.name)
     def __str__(self):
         return self.city.name+' '+self.name
 
