@@ -10,15 +10,15 @@ import os
 class TemplateItem(models.Model):
     name  = models.CharField(max_length=255,blank=True, null=True, default="")
     template  = models.FileField()
-    def __str__(this):
-        return this.name
+    def __str__(self):
+        return self.name
 #base blocks
 class TripleTextItem(models.Model):
     text     = HTMLField(verbose_name="Текст")
     name     = models.CharField(verbose_name="Имя",max_length=255,blank=True, null=True, default="")
     subtext  = models.CharField(verbose_name="Город",max_length=255,blank=True, null=True, default="")
-    def __str__(this):
-        return this.name+ ' ' + this.text
+    def __str__(self):
+        return self.name+ ' ' + self.text
     class Meta:
         verbose_name = "Отзыв"
         verbose_name_plural = "Отзывы"
@@ -27,8 +27,12 @@ class TextItem(models.Model):
     order   = models.IntegerField(verbose_name="Порядок")
     caption = HTMLField(verbose_name="Заголовок")
     text    = HTMLField(verbose_name="Текст")
-    def __str__(this):
-        return this.caption
+    def __unicode__(self):
+       return u'%s' % (self.caption)
+
+    def __str__(self):
+        return self.caption
+
     class Meta:
         verbose_name = "Вопрос"
         verbose_name_plural = "Вопросы"
@@ -37,8 +41,8 @@ class ImageItem(models.Model):
     image  = models.ImageField(  verbose_name="Изображение")
     alt     = models.CharField(verbose_name="Имя",max_length=255,blank=True, null=True, default="")
     order  = models.IntegerField(verbose_name="Порядок")
-    def __str__(this):
-        return this.image.url
+    def __str__(self):
+        return self.image.url
     class Meta:
         verbose_name = "Изображения"
         verbose_name_plural = "Изображения"
@@ -51,8 +55,8 @@ class DoubleTextDoubleImageItem(models.Model):
     caption  = models.CharField(verbose_name="Заголовок", max_length=255,blank=True, null=True, default="")
     text  = models.CharField(verbose_name="Текст",max_length=255,blank=True, null=True, default="")
     order = models.IntegerField(verbose_name="Порядок")
-    def __str__(this):
-        return this.image.url + ' ' + ' ' +this.caption+ ' ' + this.text
+    def __str__(self):
+        return self.image.url + ' ' + ' ' +self.caption+ ' ' + self.text
     class Meta:
         verbose_name = "Как применять"
         verbose_name_plural = "Как применять"
@@ -64,8 +68,8 @@ class GalleryImageItem(models.Model):
     subimage  = models.ImageField()
     text     = HTMLField()
     order = models.IntegerField()
-    def __str__(this):
-        return this.image.url + ' ' + this.text
+    def __str__(self):
+        return self.image.url + ' ' + self.text
     class Meta:
         verbose_name = ""
         verbose_name_plural = "Текст с двумя изображениями"
@@ -76,8 +80,8 @@ class TextDoubleImageItem(models.Model):
     subimage  = models.ImageField()
     text     = HTMLField()
     order = models.IntegerField()
-    def __str__(this):
-        return this.image.url + ' ' + this.text
+    def __str__(self):
+        return self.image.url + ' ' + self.text
     class Meta:
         verbose_name = ""
         verbose_name_plural = "Текст с двумя изображениями"
@@ -88,8 +92,8 @@ class LinkImageItem(models.Model):
     alt     = models.CharField(verbose_name="Имя",max_length=255,blank=True, null=True, default="")
     link     = models.CharField(verbose_name="Ссылка",max_length=255,blank=True, null=True, default="")
     order  = models.IntegerField(verbose_name="Порядок отображения")
-    def __str__(this):
-        return this.image.url
+    def __str__(self):
+        return self.image.url
     class Meta:
         verbose_name = "Текст с изображениями"
         verbose_name_plural = "Текст с изображениями"
@@ -99,8 +103,8 @@ class TextImageItem(models.Model):
     alt     = models.CharField(verbose_name="Имя",max_length=255,blank=True, null=True, default="")
     text     = HTMLField(verbose_name="Текст")
     order  = models.IntegerField(verbose_name="Порядок отображения")
-    def __str__(this):
-        return this.image.url
+    def __str__(self):
+        return self.image.url
     class Meta:
         verbose_name = "Текст с изображениями"
         verbose_name_plural = "Текст с изображениями"
@@ -245,8 +249,8 @@ class City(models.Model):
     has_delivery = models.BooleanField(verbose_name="Бесплатная доставка",default=False)
     x    = models.FloatField()
     y    = models.FloatField()
-    def __str__(this):
-        return this.name
+    def __str__(self):
+        return self.name
     #shops= models.OneToMany(to=Shop)
     class Meta:
         verbose_name="Город"
@@ -257,8 +261,8 @@ class Questions(models.Model):
     email = models.CharField(verbose_name="Email", max_length=255)
     phone = models.CharField(verbose_name="Телефон", max_length=255)
     text = models.CharField( verbose_name="Текст", max_length=255)
-    def __str__(this):
-        return this.name+ ' '+this.text
+    def __str__(self):
+        return self.name+ ' '+self.text
     class Meta:
         verbose_name="Вопрос"
         verbose_name_plural="Вопросы"
@@ -275,8 +279,8 @@ class Orders(models.Model):
     ts     =models.DateTimeField(verbose_name="Дата оформления", null=True, auto_now_add=True, blank=True)
     date  =models.CharField(verbose_name="Дата доставки",max_length=255)
     time  =models.CharField(verbose_name="Время",max_length=255)
-    def __str__(this):
-        return this.name + ' '+this.date
+    def __str__(self):
+        return self.name + ' '+self.date
 
     class Meta:
         verbose_name="Заказ"
@@ -287,8 +291,8 @@ class Shop(models.Model):
     x    = models.FloatField()
     y    = models.FloatField()
     city = models.ForeignKey('City', related_name='shops')
-    def __str__(this):
-        return this.city+' '+this.name
+    def __str__(self):
+        return self.city+' '+self.name
 
     class Meta:
         verbose_name="Магазин"
