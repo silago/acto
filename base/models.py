@@ -294,7 +294,7 @@ class Shop(models.Model):
     y    = models.FloatField()
     city = models.ForeignKey('City', related_name='shops')
     def __str__(self):
-        return self.city+' '+self.name
+        return self.city.name+' '+self.name
 
     class Meta:
         verbose_name="Магазин"
