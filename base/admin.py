@@ -3,6 +3,7 @@
 
 from django.contrib import admin
 from solo.admin import SingletonModelAdmin
+#from django.contrib.contenttypes import admin as gadmin
 #from config.models import SiteConfiguration
 
 from .models import TripleTextItem, TextImageItem, TextItem,DoubleTextDoubleImageItem, TextDoubleImageItem, ImageItem, TopPage, FaqPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, ForPage, DocsPage, OrangePage, YellowPage,BottomPage, FooterPage, City, Shop, Orders, Questions, SiteSettings, GalleryImageItem, LinkImageItem
@@ -29,7 +30,7 @@ class WhyPageItems(admin.TabularInline):
     model =  WhyPage.items.through
 
 class WhyPageAdmin(SingletonModelAdmin):
-    exclude = "items" , "title"
+    exclude = "items" ,
     inlines = (
         WhyPageItems,
     )
@@ -40,7 +41,7 @@ class OrangePageItems(admin.TabularInline):
     model =  OrangePage.items.through
 
 class OrangePageAdmin(SingletonModelAdmin):
-    exclude = "items" , "title"
+    exclude = "items" ,
     inlines = (
         OrangePageItems,
     )
@@ -53,26 +54,37 @@ class FactsPageItems(admin.TabularInline):
     model =  FactsPage.items.through
 
 class FactsPageAdmin(SingletonModelAdmin):
-    exclude = "items" , "title"
+    exclude = "items",
     inlines = (
         FactsPageItems,
     )
 admin.site.register(FactsPage, FactsPageAdmin)
 
+#class FooterPageItemsInline(admin.TabularInline):
+#    model = Group.members.through
 
 class FooterPageItems(admin.TabularInline):
     verbose_name = "Элемент"
     verbose_name_plural  = "Элементы"
     model =  FooterPage.items.through
+    show_change_link = True
+    model._meta.verbose_name = "Foo"
+    model._meta.verbose_name_plural = "Foo"
+    def __unicode__(self):
+        return "foo"
+    def __str__(self):
+        return "foo"
 
 class FooterPageAdmin(SingletonModelAdmin):
-    exclude = "items" , "title"
-    inlines = (
-        FooterPageItems,
-    )
+    exclude = "items", "title"
+    inlines = [
+        FooterPageItems
+    ]
 
 admin.site.register(FooterPage, FooterPageAdmin)
-admin.site.register(LinkImageItem, admin.ModelAdmin)
+
+
+admin.site.register(BottomPage, SingletonModelAdmin)
 
 
 admin.site.register(GreenPage, GreenPageAdmin)
@@ -81,10 +93,10 @@ admin.site.register(HowPage, SingletonModelAdmin)
 admin.site.register(ForPage, SingletonModelAdmin)
 admin.site.register(DocsPage, SingletonModelAdmin)
 admin.site.register(YellowPage, SingletonModelAdmin)
-admin.site.register(BottomPage, SingletonModelAdmin)
 
 
 admin.site.register(ImageItem, admin.ModelAdmin)
+admin.site.register(LinkImageItem)
 admin.site.register(TextDoubleImageItem, admin.ModelAdmin)
 admin.site.register(GalleryImageItem, admin.ModelAdmin)
 admin.site.register(DoubleTextDoubleImageItem, admin.ModelAdmin)
@@ -96,5 +108,6 @@ admin.site.register(City, admin.ModelAdmin)
 admin.site.register(Shop, admin.ModelAdmin)
 admin.site.register(Orders, admin.ModelAdmin)
 admin.site.register(Questions, admin.ModelAdmin)
+
 
 

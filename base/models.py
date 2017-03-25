@@ -237,7 +237,7 @@ class DocsPage(BaseSingletonModel):
         verbose_name = "Документы"
 
 class FooterPage(BaseSingletonModel):
-    items = models.ManyToManyField(LinkImageItem)
+    items = models.ManyToManyField(LinkImageItem, verbose_name="Элемент")
     caption  = models.CharField(max_length=255)
     info  = models.CharField(max_length=255)
     copy  = models.CharField(max_length=255)

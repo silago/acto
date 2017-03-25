@@ -80,16 +80,22 @@ a.anchor.when_apply {
             }
 
             #page-faq .side form button {
-    background-color:transparent;
-    cursor:pointer; 
-    width:185px;
-    height:60px;
-    background-image: url('static/faq/button.png');
-        background-repeat:no-repeat;
-}
+                background-color:transparent;
+                cursor:pointer; 
+                width:185px;
+                height:60px;
+                background-image: url('static/faq/button.png');
+                    background-repeat:no-repeat;
+            }
+
+            #page-faq .side form button:before {
+                background-image: url('static/faq/active_button.png');
+                display:none;
+                content:"";
+            }
             #page-faq .side form button:hover {
-    background-image: url('static/faq/active_button.png');
-}
+                background-image: url('static/faq/active_button.png');
+            }
 .form-button {
     background-color:transparent;
     cursor:pointer; 
@@ -98,6 +104,13 @@ a.anchor.when_apply {
     background-image: url('static/regular_button.png');
         background-repeat:no-repeat;
 }
+
+.form-button:after {
+                display:none;
+                content:"";
+                background-image: url('static/active_button.png?zz');
+}
+
 .form-button:hover {
     background-image: url('static/active_button.png?zz');
 }
@@ -408,8 +421,11 @@ position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; lef
                 padding:5px;
                 border-top:1px solid #918f8f;
                 width:250px;
+                font-family:"San Francisco"!important;
             }
             #page-faq .side form textarea {
+
+                font-family:"San Francisco"!important;
                 font-size:22px;
                 display:block;
                 border:0px;
