@@ -105,12 +105,9 @@ class LinkImageItem(models.Model):
     link     = models.CharField(verbose_name="Ссылка",max_length=255,blank=True, null=True, default="")
     order  = models.IntegerField(verbose_name="Порядок отображения")
     def __unicode__(self):
-       return u'%s' % (self.image.url)
+       return u'%s' % (self.alt)
     def __str__(self):
-        return self.image.url
-    class Meta:
-        verbose_name = "Текст с изображениями"
-        verbose_name_plural = "Текст с изображениями"
+        return self.alt
 
 class TextImageItem(models.Model):
     image  = models.ImageField(verbose_name="Изображение")
@@ -138,7 +135,11 @@ class SiteSettings(SingletonModel):
     form_header_1       = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Заголовок 1й страницы формы")
     form_header_2       = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Заголовок 2й страницы формы")
     form_header_3       = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Заголовок 3й страницы формы")
-    order_complete       = models.TextField(blank=True, null=True, default="", verbose_name="Текст формы")
+
+
+    name_caption   = models.CharField(max_length=255)
+    mail_caption   = models.CharField(max_length=255)
+    phone_caption  = models.CharField(max_length=255)
 
     class Meta:
         verbose_name = "Настройка сайта"

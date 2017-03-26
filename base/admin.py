@@ -63,6 +63,7 @@ admin.site.register(FactsPage, FactsPageAdmin)
 #class FooterPageItemsInline(admin.TabularInline):
 #    model = Group.members.through
 
+#from django.utils.html import mark_safe
 class FooterPageItems(admin.TabularInline):
     verbose_name = "Элемент"
     verbose_name_plural  = "Элементы"
@@ -70,10 +71,13 @@ class FooterPageItems(admin.TabularInline):
     show_change_link = True
     model._meta.verbose_name = "Foo"
     model._meta.verbose_name_plural = "Foo"
-    def __unicode__(self):
-        return "foo"
-    def __str__(self):
-        return "foo"
+    #def __str__(self):
+    #    print(">>")
+    #    print(">>")
+    #    url =  LinkImageItem.objects.get(pk=self.linkimageitem_id).image.url
+    #    print(url)
+    #    return mark_safe("<img src='"+url+"' />")
+    #model.__str__ = __str__
 
 class FooterPageAdmin(SingletonModelAdmin):
     exclude = "items", "title"
