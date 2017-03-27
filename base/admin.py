@@ -67,10 +67,9 @@ admin.site.register(FactsPage, FactsPageAdmin)
 class FooterPageItems(admin.TabularInline):
     verbose_name = "Элемент"
     verbose_name_plural  = "Элементы"
-    model =  FooterPage.items.through
-    show_change_link = True
-    model._meta.verbose_name = "Foo"
-    model._meta.verbose_name_plural = "Foo"
+    model = LinkImageItem
+    #fields = ( 'image_tag', )
+    readonly_fields = ('image_tag',)
     #def __str__(self):
     #    print(">>")
     #    print(">>")
@@ -80,7 +79,7 @@ class FooterPageItems(admin.TabularInline):
     #model.__str__ = __str__
 
 class FooterPageAdmin(SingletonModelAdmin):
-    exclude = "items", "title"
+    exclude = "title" ,
     inlines = [
         FooterPageItems
     ]

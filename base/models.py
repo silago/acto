@@ -99,15 +99,6 @@ class TextDoubleImageItem(models.Model):
         verbose_name_plural = "Текст с двумя изображениями"
 
 
-class LinkImageItem(models.Model):
-    image  = models.ImageField(verbose_name="Изображение")
-    alt     = models.CharField(verbose_name="Имя",max_length=255,blank=True, null=True, default="")
-    link     = models.CharField(verbose_name="Ссылка",max_length=255,blank=True, null=True, default="")
-    order  = models.IntegerField(verbose_name="Порядок отображения")
-    def __unicode__(self):
-       return u'%s' % (self.alt)
-    def __str__(self):
-        return self.alt
 
 class TextImageItem(models.Model):
     image  = models.ImageField(verbose_name="Изображение")
@@ -135,7 +126,7 @@ class SiteSettings(SingletonModel):
     form_header_1       = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Заголовок 1й страницы формы")
     form_header_2       = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Заголовок 2й страницы формы")
     form_header_3       = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Заголовок 3й страницы формы")
-
+    order_complete      = models.TextField(blank=True, null=True, default="", verbose_name="Текст формы ( шаг 3)")
 
     name_caption   = models.CharField(max_length=255)
     mail_caption   = models.CharField(max_length=255)
@@ -237,8 +228,10 @@ class DocsPage(BaseSingletonModel):
     class Meta:
         verbose_name = "Документы"
 
+
+
 class FooterPage(BaseSingletonModel):
-    items = models.ManyToManyField(LinkImageItem, verbose_name="Элемент")
+    #items = models.ManyToManyField(LinkImageItem, verbose_name="Элемент")
     caption  = models.CharField(max_length=255)
     info  = models.CharField(max_length=255)
     copy  = models.CharField(max_length=255)
@@ -246,6 +239,21 @@ class FooterPage(BaseSingletonModel):
     image = models.ImageField(verbose_name="Изображение")
     class Meta:
         verbose_name = "Подвал"
+
+class LinkImageItem(models.Model):
+    image  = models.ImageField(verbose_name="Изображение")
+    alt    = models.CharField(verbose_name="Имя",max_length=255,blank=True, null=True, default="")
+    link   = models.CharField(verbose_name="Ссылка",max_length=255,blank=True, null=True, default="")
+    order  = models.IntegerField(verbose_name="Порядок отображения")
+    page   = models.ForeignKey('FooterPage', related_name="items")
+    def image_tag(self):
+        return u'<img style="backgound-color:#000;" src="%s" />' % self.image.url
+    image_tag.short_description = 'Image'
+    image_tag.allow_tags = True
+    def __unicode__(self):
+       return u'%s' % (self.altitems)
+    def __str__(self):
+        return self.alt
 
 
 class BottomPage(BaseSingletonModel):

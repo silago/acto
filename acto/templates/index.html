@@ -152,6 +152,9 @@ position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; lef
                     overflow-x:auto!important;
                 }
             }
+            body {
+                padding-top:40px;
+            }
 
             .triangle-up {
                 margin-bottom:-1.5px;
@@ -183,6 +186,17 @@ position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; lef
             }
             #head {
                 margin-left:18;
+                position: fixed;
+                z-index: 19;
+                background-color: #fff;
+                width: 100%;
+                box-sizing: border-box;
+                max-width: 1400px;
+                padding-right: 34px;
+                min-width:1316px;
+                top:0px;
+                x-left:90px;
+                margin:0 auto;
             }
             #head #phone {
                 top:18px;
@@ -1384,8 +1398,9 @@ width: 0;
             width:100%;
             left:0px;
             top:28px;
-            padding-top:130px;
+            padding-top:60px;
             box-sizing:border-box;
+            min-width:1152px;
 
         }
         div#order-done> div > div {
@@ -1415,12 +1430,14 @@ width: 0;
             width:300px;
             color:#2c4f8b;
                 display:inline-block;
+                    float:left;
         }
         div#order-done div.holder .left .title {
             width:160px;
             font-size:18px;
             font-weight:bolder;
             display:block;
+            
         }
         div#order-done div.holder .left .cost {
             color:black;
@@ -1467,7 +1484,7 @@ width: 0;
         div#order-done .right {
             font-size:18px;
             color:#2c4f8b;
-                display:inline-block;
+                x-display:inline-block;
                     vertical-align:top;
         }
 
@@ -1502,6 +1519,7 @@ width: 0;
         }
         div#order-done .right .form {
             margin-top:45px;
+            display:inline-block;
         }
         div#order-done .right .form a.active{
             background-color:#e6e7e8;
@@ -1835,12 +1853,15 @@ function ahead(val) {
                                 {{settings.form_header_3}}
 </h4>
                             <span style="
-    max-width: 600px; 
-    position: relative;
-    height: 200px; 
-    padding-top: 10px!important;
-    display: inline-block;
-    "> {{settings.order_complete|linebreaksbr}}                              
+                            display:block;
+                            padding-right:40px;
+    x-max-width: 600px; 
+    x-position: relative;
+    x-height: 200px; 
+    x-padding-top: 10px!important;
+    x-display: inline-block;
+    ">
+                                {{settings.order_complete|linebreaksbr}}                              
     <!--
     -->
 
@@ -1986,8 +2007,9 @@ $('.order-done.bg').click(function() {
     $('.order-done').hide();
 });
         $(window).scroll(function(){
-        $('#float-city-selector').css('top',parseInt($(window).scrollTop()));
-        $('#order-done').css('top',parseInt($(window).scrollTop()));
+            $('#head').css('margin-left',-parseInt($(window).scrollLeft()));
+            $('#float-city-selector').css('top',parseInt($(window).scrollTop()));
+            $('#order-done').css('top',parseInt($(window).scrollTop()));
         });
     </script>
     <script>
