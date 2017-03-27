@@ -127,6 +127,8 @@ class SiteSettings(SingletonModel):
     form_header_2       = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Заголовок 2й страницы формы")
     form_header_3       = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Заголовок 3й страницы формы")
     order_complete      = models.TextField(blank=True, null=True, default="", verbose_name="Текст формы ( шаг 3)")
+    const_info       = models.CharField(max_length=255,blank=True, null=True, default="")
+
 
     name_caption   = models.CharField(max_length=255)
     mail_caption   = models.CharField(max_length=255)

@@ -1429,8 +1429,8 @@ width: 0;
         div#order-done div.holder .left  {
             width:300px;
             color:#2c4f8b;
-                display:inline-block;
-                    float:left;
+            display:inline-block;
+            float:left;
         }
         div#order-done div.holder .left .title {
             width:160px;
@@ -1443,6 +1443,14 @@ width: 0;
             color:black;
             font-size:42px;
             display:block;
+
+        }
+
+        div#order-done div.holder .left .total .cost {
+display: inline;
+font-weight: inherit !important;
+font-size: inherit;
+color: inherit;
 
         }
         div#order-done div.holder .left .count .minus {
@@ -1468,13 +1476,15 @@ width: 0;
             display:block;
         }
         div#order-done div.holder .left .total {
-            font-weight:18px;
+            font-size:18px;
             font-weight:bolder;
             display:block;
             margin-bottom:10px;
         }
         div#order-done .left .info {
             font-size:18px;
+                width:200px;
+                    display:block;
         }
         
         div#order-done .right h4 {
@@ -1769,7 +1779,7 @@ width: 0;
                                 Итого: <span class="cost"><span class="q"><script>document.write(BASE_COST);</script></span> руб.</span> 
                             </span>
                             <span class="info">
-                                Стоимость доставки<br />расчитывается
+                                {{settings.const_info}}
                             </span>
                         </div>
                         <div class="right step2" style="display:none;">
