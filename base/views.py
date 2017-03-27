@@ -21,7 +21,11 @@ def order(request):
     item.city = request.POST['city']
     item.street = request.POST['street']
     item.house = request.POST['house']
-    item.flat = request.POST['flat']
+    try:
+        item.flat = request.POST['flat']
+    except Exception as e:
+        pass
+    item.flat = ""
 
     item.phone = request.POST['phone']
     item.email = request.POST['email']

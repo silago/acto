@@ -45,7 +45,7 @@
     background-color: #ccebfb;
     color: #5476a7;
     display: block;
-    font-size: 18px;
+    font-size: 19px;
     margin: 0 auto;
     padding: 5px;
     position: relative;
@@ -59,9 +59,9 @@
     font-size: 18px;
     margin: 0 auto;
     margin-top: 60px;
-    text-align: left;
+    text-align: center;
                 color:#2c4f8b;
-                font-size:17px;
+                font-size:19px;
                     text-transform:none;
                         font-weight:normal;
                             padding:0px;
@@ -187,7 +187,7 @@ position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; lef
             #head {
                 margin-left:18;
                 position: fixed;
-                z-index: 19;
+                z-index: 29;
                 background-color: #fff;
                 width: 100%;
                 box-sizing: border-box;
@@ -971,7 +971,7 @@ left: 27%;
                 padding-bottom:80px;
                 width:100%;
 
-    z-index: 441;
+    z-index: 19;
     x-border-left: 18px solid white;
     x-border-right: 36px solid white;
     x-margin-left:18px;
@@ -1032,7 +1032,7 @@ left: 27%;
                 z-index: 2;
                 x-height:259px;
                 position: relative;
-                z-index: 888;
+                z-index: 20;
                 margin-left: -16px;
                 margin-right: -16px;
             }
@@ -1667,7 +1667,7 @@ color: inherit;
                                 this.city = $('.step2 .city').val();
                                 this.street = $('.step2 .street').val();
                                 this.house = $('.step2 .house').val();
-                                this.flat = $('.step2 .falt').val();
+                                this.flat = $('.step2 .flat').val();
                                 if (!this.city) {
                                     $('.step2 .city').addClass('error');
                                     error = true;
@@ -1768,9 +1768,9 @@ color: inherit;
                                     -
                                 </a>   
                                 <span>
-                                    <span class="quantity">1</span> Упаковка
+                                    <span class="quantity">1</span> упаковка
                                 </span>
-                                <a onclick="order_form.plus();" class="plus">
+                                <a onclick="order_form.plus();" clasу="plus">
                                     +
                                 </a>
                             </span>
@@ -1844,7 +1844,7 @@ function ahead(val) {
                             <br/>
                             <input  class="email" name="email" type="text" placeholder="{{settings.mail_caption}}" />
                             <div>
-                            * - Поля обязательные для заполнения 
+                            * - Поля, обязательные для заполнения 
                             </div>
                             <br/>
                             <br/>
@@ -1861,6 +1861,7 @@ function ahead(val) {
                                 <!--
                                 -->
                                 {{settings.form_header_3}}
+                                <br/>
 </h4>
                             <span style="
                             display:block;

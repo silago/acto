@@ -26,7 +26,7 @@
                 <h4    class="done"  >СПАСИБО, мы получили Ваш вопрос и ответим на него в ближайшее время!</h4>
 
                 <br/>
-                <button onclick="$(this).parent().hide();">
+                <button onclick="$('.side.active textarea').val(''); $('.side.active').show(); $(this).parent().hide();">
                     ЗАКРЫТЬ
                 </button>
             </div>

@@ -253,7 +253,7 @@ class LinkImageItem(models.Model):
     image_tag.short_description = 'Image'
     image_tag.allow_tags = True
     def __unicode__(self):
-       return u'%s' % (self.altitems)
+       return u'%s' % (self.alt)
     def __str__(self):
         return self.alt
 
