@@ -1587,6 +1587,7 @@ color: inherit;
            function choose_city(city) {
                console.log(city);
                 //alert(code+' '+city)))ii;;;
+                 map.setZoom(17);
                 map.panTo({lat:toDot(cities[city].x),lng:toDot(cities[city].y)});
                 window.lc.setItem("ChosenName", city);
                 $('.float-city-selector').hide();
