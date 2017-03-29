@@ -20,13 +20,15 @@
                     <!-- <img class="map" src="static/bottom/map.png" /> -->
                   <div style="width:100%; height:746px;" id="map"></div>
     <script type="text/javascript">
-    //$('document').ready(function() {
-
     function toDot(s) {
+        console.log(s);
         return Number(s.replace(',','.'));
     }
+    //$('document').ready(function() {
+
     var map;
     window.map = map;
+    window.map_marker = null;
     var x = toDot(cities[localStorage.getItem('ChosenName')].x);  
     var y = toDot(cities[localStorage.getItem('ChosenName')].y);  
     function initMap() {
@@ -35,7 +37,7 @@
         zoom: 8
     });
     }
-    //})length
+    //})
     </script>
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAi3fsw5CM1n-2hPQr0oSTlxoVER0kb_1g&callback=initMap">
@@ -45,8 +47,8 @@
         -->
                 </div>
                 <div class="banner-right">
-                    <img class="free" src="{{page.free_delivery_button.url}}">
-                    <img class="non-free" src="{{page.free_delivery_button.url}}">
+                    <img class="banner free" src="{{page.free_delivery_button.url}}">
+                    <img class="banner non-free" src="{{page.no_delivery_button.url}}">
                         <br/>
                        <button class="button form-button" style="cursor:pointer;" onclick="showForm();"></button>
                         <br/>

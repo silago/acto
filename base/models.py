@@ -320,7 +320,9 @@ class Orders(models.Model):
         verbose_name_plural="Заказы"
 
 class Shop(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255,verbose_name="Адрес")
+    title = models.CharField(max_length=255)
+    phone = models.CharField(max_length=255)
     x    = models.FloatField()
     y    = models.FloatField()
     city = models.ForeignKey('City', related_name='shops')

@@ -27,7 +27,9 @@
                    {
                        'name':'{{s.name}}',
                        'x':'{{s.x}}',
-                       'y':'{{s.y}}'
+                       'y':'{{s.y}}',
+                       'title':'{{s.title}}',
+                       'phone':'{{s.phone}}'
                    }, 
                 {% endfor %}
                 ]
@@ -178,7 +180,7 @@ position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; lef
                 overflow-x:hidden;
                 max-width: 1400px;
                 x-min-width: 1152px;
-                min-width: 1317px;
+                min-width: 1200px;
                 margin: 0 auto;
                 font-family:"San Francisco";
                 border-left:18px solid white;
@@ -193,7 +195,7 @@ position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; lef
                 box-sizing: border-box;
                 max-width: 1400px;
                 padding-right: 34px;
-                min-width:1316px;
+                min-width:1200px;
                 top:0px;
                 x-left:90px;
                 margin:0 auto;
@@ -466,7 +468,7 @@ position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; lef
                 left: 290px;
                 bottom: 85px;
                 color: white;
-                width: 245px;
+                width: 300px;
                 font-size: 22px;
                 font-weight: bold;
             }
@@ -709,7 +711,7 @@ left: 27%;
                 width: 90px;
                 background-image: url(static/green/arrow-up.png);
                 left: 60px;
-                top: 24px;
+                top: 25px;
                 display: block;
             }
 
@@ -1119,10 +1121,14 @@ left: 27%;
                 position:relative;
                 width:100%;
                 width: 100%;
-                padding-left: 80px;
-                padding-top: 35px;
+                padding-top: 33px;
                 box-sizing: border-box;
-                padding-right: 80px;
+                    text-align:center;
+                        width:100%;
+                            min-width:239px;
+                                max-width:60%;
+                            
+
             }
             div#page-docs .content ul li {
                 overflow:hidden;
@@ -1251,7 +1257,7 @@ width: 0;
                 display:inline-block;
             }
             div#page-footer .title {
-                width:19%;
+                width:20%;
                 display:inline-block;
                     vertical-align:8px;
             }
@@ -1273,7 +1279,7 @@ width: 0;
                 display:inline-block;
                 vertical-align:8px;
                 padding-left:68px;
-                width:25%;
+                width:24%;
             }
             div#page-footer {
                 background-color: #363333;
@@ -1332,7 +1338,7 @@ width: 0;
             top:0px;
             x-background-color:blue;
 
-            min-width: 1317px;
+            min-width: 1200px;
         }
 
         div#float-city-selector .holder .right {
@@ -1584,11 +1590,42 @@ color: inherit;
 
 
         <script type="text/javascript">
+           function choose_shop(shop) {
+                
+                var x = toDot(shop.x);
+                var y = toDot(shop.y);
+                var name = shop.name;
+                var title = shop.title;
+                var phone = shop.phone;
+                if (window.map_marker !=null) {
+
+                }
+                var position = {lat:x,lng:y}; 
+                map.panTo(position);
+                map_marker = null;
+                map_marker = new google.maps.Marker({
+                    position: position,
+                    map: map,
+                    title: name+' '
+                  });
+
+              var infowindow = new google.maps.InfoWindow({
+                  content: "<div><h2 style='color:#47bae8;'>"+title+"</h2>"
+                  +"<br/>"+name+"</br>"+phone+"</div>"
+              });
+              map_marker.addListener('click', function() {
+                infowindow.open(map, map_marker);
+              });
+
+           }
+
            function choose_city(city) {
-               console.log(city);
+                var x = cities[city].x;
+                var y = cities[city].y;
+
                 //alert(code+' '+city)))ii;;;
-                 map.setZoom(17);
-                map.panTo({lat:toDot(cities[city].x),lng:toDot(cities[city].y)});
+                map.setZoom(17);
+                map.panTo({lat:toDot(x),lng:toDot(y)});
                 window.lc.setItem("ChosenName", city);
                 $('.float-city-selector').hide();
                 $('.select-city .selector').text(city);
@@ -1602,7 +1639,7 @@ color: inherit;
                 }
                 var shops = cities[city].shops;
                 for (var i =0; i<shops.length; i++) {
-                    items+='<li style="cursor:pointer;" onclick="map.panTo({lat:'+toDot(shops[i].x)+',lng:'+toDot(shops[i].y)+'})">'+shops[i].name+'</li>';
+                    items+='<li style="cursor:pointer;" onclick="choose_shop(cities[\''+city+'\'].shops['+i+'])">'+shops[i].name+'</li>';
                 }
                 $('#shops-list').html(items);
            } 
@@ -1771,7 +1808,7 @@ color: inherit;
                                 <span>
                                     <span class="quantity">1</span> упаковка
                                 </span>
-                                <a onclick="order_form.plus();" clasу="plus">
+                                <a onclick="order_form.plus();" class="plus">
                                     +
                                 </a>
                             </span>

@@ -24,15 +24,14 @@ def order(request):
     try:
         item.flat = request.POST['flat']
     except Exception as e:
-        pass
-    item.flat = ""
+        item.flat = ""
 
     item.phone = request.POST['phone']
     item.email = request.POST['email']
     item.name = request.POST['name']
 
-    item.phone = request.POST['date']
-    item.email = request.POST['time']
+    item.date = request.POST['date']
+    item.time = request.POST['time']
     item.save()
     return HttpResponse("OK")
 
