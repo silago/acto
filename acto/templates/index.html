@@ -1611,7 +1611,7 @@ color: inherit;
 
               var infowindow = new google.maps.InfoWindow({
                   content: "<div><h2 style='color:#47bae8;'>"+title+"</h2>"
-                  +"<br/>"+name+"</br>"+phone+"</div>"
+                  +"<div>"+name+"</br>"+phone+"</div></div>"
               });
               map_marker.addListener('click', function() {
                 infowindow.open(map, map_marker);
