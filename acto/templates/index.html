@@ -13,6 +13,11 @@
 
         <script>
             window.BASE_COST={{settings.cost}};
+            function formDate(day) {
+                if (!day) day = 0;
+                var date = new Date(new Date().getTime() + 24*60*60*1000*day);
+                return((date.getDate()+day) + '.' +date.getMonth() + 1)+ '.' +  date.getFullYear()
+            }
         </script>
 
         <script>
@@ -38,7 +43,9 @@
         };
         </script>
         <style type='text/css'>
-
+.gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom {
+    right:initial!important;
+}
 .ask_form input.error, .ask_form textarea.error {
     border:1px solid red!important;
 }
@@ -120,7 +127,7 @@ a.anchor.when_apply {
 
 .order-done.bg {
     cursor:pointer;
-position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; left:0; top:0; z-index:20; display:none;
+position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; left:0; top:0; z-index:40; display:none;
 }
         .order-done input.error {
             border:1px solid red!important;
@@ -288,6 +295,7 @@ position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; lef
                     margin-right:1.0em!important;
                 }
             }
+
 
             @media screen and (max-width: 1350px) {
                 #head #menu li {
@@ -1264,10 +1272,10 @@ width: 0;
                 display:inline-block;
             }
             div#page-footer .title {
-                width:20%;
+                width:19%;
                 display:inline-block;
                     vertical-align:8px;
-                        padding-right:50px!important;
+                        padding-right:00px!important;
             }
             div#page-footer .icons div {
                 width:24%;
@@ -1364,8 +1372,7 @@ width: 0;
                 color:#2c4f8b;
                 vertical-align:top;
                 padding-top:36px;;
-                width:800px;
-
+                width:700px;
                 padding-left:140px;
         }
         div#float-city-selector > div {
@@ -1377,6 +1384,8 @@ width: 0;
             margin-bottom:16px;
             padding-bottom:16px;
             border-bottom:1px solid #5a5758;
+            padding-left:20px;
+            margin-left:-20px;
         }
         div#float-city-selector .right .city-list {
             columns:3;
@@ -1616,6 +1625,7 @@ color: inherit;
            }
 
            function choose_city(city) {
+               $('.city_name').html(city);
                 var x = cities[city].x;
                 var y = cities[city].y;
 
@@ -1771,7 +1781,7 @@ color: inherit;
                             $('#order-done .error').hide();
 
                             var error = false;
-                            this.date =  $('.step3 .date .active').html();
+                            this.date =  formDate(parseInt($('.step3 .date .active').attr('alt')));
                             this.time  = $('.step3 .time').val();
                             this.count = $('.step3 .count').val();
                             if (!this.time || !this.date) {
@@ -1945,9 +1955,10 @@ function ahead(val) {
 </span>
                             <div class="form">
                                 <div class="when date">
-                                    <a onclick="$('.form .date a').removeClass('active'); $(this).addClass('active'); order_form.when='Сегодня';" href="javascript:void(0);">Сегодня</a>
-                                    <a onclick="$('.form .date a').removeClass('active'); $(this).addClass('active');order_form.when='Завтра';"  href="javascript:void(0);">Завтра</a>
-                                    <a onclick="$('.form .date a').removeClass('active'); $(this).addClass('active');order_form.when='Послезавтра';" href="javascript:void(0);">Послезавтра</a>
+                                    <a alt="0" onclick="$('.form .date a').removeClass('active'); $(this).addClass('active');"
+                                     href="javascript:void(0);">Сегодня</a>
+                                    <a alt="1" onclick="$('.form .date a').removeClass('active'); $(this).addClass('active');" href="javascript:void(0);">Завтра</a>
+                                    <a alt="2" onclick="$('.form .date a').removeClass('active'); $(this).addClass('active');" href="javascript:void(0);">Послезавтра</a>
                                 </div>
                                 <br/>
                             <input  class="time" name="time" type="text" placeholder="Укажите время" />
@@ -1974,10 +1985,10 @@ function ahead(val) {
                     </div>
                     <div class="right">
                         <div class="title">
-                            Ваш регион Москва
+                            Ваш регион: <span class="city_name">Москва
                             <br />
                             <br />
-                            Выберите ваш регион из списка
+                            Выберите ваш регион из списка, если мы определили его неправильно
                         </div>
                         <div class="city-list">
                             {% for city in cities %}
@@ -1985,6 +1996,7 @@ function ahead(val) {
                                     {{ city.name }}
                                 </span>
                             {% endfor %}
+                        </div>
                         </div>
                     </div>
                 </div>
