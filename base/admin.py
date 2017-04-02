@@ -38,7 +38,7 @@ class WhyPageAdmin(SingletonModelAdmin):
 class OrangePageItems(admin.TabularInline):
     verbose_name = "Элемент"
     verbose_name_plural  = "Элементы"
-    model =  OrangePage.items.through
+    model = GalleryImageItem
 
 class OrangePageAdmin(SingletonModelAdmin):
     exclude = "items" ,
@@ -68,15 +68,7 @@ class FooterPageItems(admin.TabularInline):
     verbose_name = "Элемент"
     verbose_name_plural  = "Элементы"
     model = LinkImageItem
-    #fields = ( 'image_tag', )
     readonly_fields = ('image_tag',)
-    #def __str__(self):
-    #    print(">>")
-    #    print(">>")
-    #    url =  LinkImageItem.objects.get(pk=self.linkimageitem_id).image.url
-    #    print(url)
-    #    return mark_safe("<img src='"+url+"' />")
-    #model.__str__ = __str__
 
 class FooterPageAdmin(SingletonModelAdmin):
     exclude = "title" ,

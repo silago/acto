@@ -1,4 +1,6 @@
-        <div id="page-orange">
+        <div class="bg oranggal" onclick="$('.oranggal').hide()">
+        </div>
+        <div class="page-orange" id="page-orange">
             <div class="triangle-up"> </div>
             <div class="content">
                 <div class="text-info">
@@ -6,20 +8,127 @@
                 </div>
                 <img class="logo" alt="{{page.title|striptags}}" src="{{page.logo.url}}" />
                 {% with items=page.items.all|dictsort:"order" %}
+                <div
+                                                               class="oranggal"  id="oranggal"
+                    style="
+                        width:80%;
+                        background-color:white;
+                        position:absolute; left:10%;
+                        top:10%;
+                        z-index:100;
+                        min-height:200px;
+                    "
+                    >
+                    <div onclick="$('.oranggal').hide();" class="cross"><img src="/static/orange/x.png" /></div>
+
+                    <div class="oimage image1"><div class="dimage"><img class="image" src="{{items.0.image.url}}" /></div><div class="dtext"><div class="text">{{items.0.text|safe}}</div></div></div>
+                    <div class="oimage image2"><div class="dimage"><img class="image" src="{{items.1.image.url}}" /></div><div class="dtext"><div class="text">{{items.1.text|safe}}</div></div></div>
+                    <div class="oimage image3"><div class="dimage"><img class="image" src="{{items.2.image.url}}" /></div><div class="dtext"><div class="text">{{items.2.text|safe}}</div></div></div>
+                    <div class="oimage image4"><div class="dimage"><img class="image" src="{{items.3.image.url}}" /></div><div class="dtext"><div class="text">{{items.3.text|safe}}</div></div></div>
+                    <div class="oimage image5"><div class="dimage"><img class="image" src="{{items.4.image.url}}" /></div><div class="dtext"><div class="text">{{items.4.text|safe}}</div></div></div>
+                    <div class="oimage image6"><div class="dimage"><img class="image" src="{{items.5.image.url}}" /></div><div class="dtext"><div class="text">{{items.5.text|safe}}</div></div></div>
+                    <div class="oimage image7"><div class="dimage"><img class="image" src="{{items.6.image.url}}" /></div><div class="dtext"><div class="text">{{items.6.text|safe}}</div></div></div>
+                    <div class="nav">
+                        <div style="float:left;" onclick="orangeprev();">  <img src="/static/orange/<.png" /> </div>
+                        <div style="float:right;" onclick="orangenext();"> <img src="/static/orange/>.png" /> </div>
+                    </div>
+                </div>
+    <style>
+        #oranggal .oimage {
+            display:none;
+        }
+        #oranggal .cross {
+    position:absolute; 
+        cursor:pointer;
+        right:20px; top:20px;
+        }
+        #oranggal .nav div {
+            cursor:pointer;
+        }
+        #oranggal .nav {
+            position:absolute;
+                bottom:20px;
+                    left:65%;
+                        right:3%;
+        }
+        #oranggal .dtext {
+            font-size:16px;
+            width:35%;
+            float:right;
+                padding:20px;
+            padding-top:100px;
+        }
+        #oranggal .dimage {
+            width:60%;
+            float:left;
+        }
+        #oranggal .image {
+            width:100%;
+            margin:20px;
+        }
+        #page-orange .content table td {
+            cursor:pointer;
+        }
+        .oranggal {
+            display:none;
+        }
+        .oranggal.bg {
+            cursor:pointer;
+            z-index:23;
+                position:fixed;
+                width:100%; height:100%; background-color:blue; opacity:0.6;
+                left:0; top:0;
+        }
+    </style>
+    <script>
+
+        orangeprev = function() {
+          $("#oranggal .oimage").hide();
+          ORANGE_GALLERY_INDEX++;
+          if (ORANGE_GALLERY_INDEX<1) {
+            ORANGE_GALLERY_INDEX=1;
+          }
+          $('#oranggal .oimage.image'+ORANGE_GALLERY_INDEX).show();
+        }
+        orangenext = function() {
+          $("#oranggal .oimage").hide();
+          ORANGE_GALLERY_INDEX++;
+          if (ORANGE_GALLERY_INDEX>ORANGE_COUNT) {
+            ORANGE_GALLERY_INDEX=1;
+          }
+          $('#oranggal .oimage.image'+ORANGE_GALLERY_INDEX).show();
+        }
+        ORANGE_COUNT = $('#oranggal .oimage').length;
+        ORANGE_GALLERY_INDEX=1;
+        gallery_orange_show = function(obj) {
+          $("#oranggal .oimage").hide();
+            $('.oranggal').show();
+            ORANGE_GALLERY_INDEX=parseInt(obj);
+            $('#oranggal .image'+obj).show();
+            /*
+            $('#oranggal .image').attr('src',
+                $(obj).find('img').attr('src')
+                );
+            $('#oranggal .text').html(
+                $(obj).find('img').attr('alt')
+                );
+            */
+        }
+    </script>
                 <table class="border shadow">
                     <tr>
-                        <td><img alt="{{item.0.alt}}" src="{{items.0.image.url}}" /></td>
-                        <td colspan=3 rowspan=3><img alt="{{item.3.alt}}" src="{{items.3.image.url}}" /> </td>
-                        <td colspan=2 rowspan=2><img alt="{{item.4.alt}}" src="{{items.4.image.url}}" />
+                        <td onclick="gallery_orange_show('1');"  class="image1" ><img alt="{{item.0.text}}" src="{{items.0.image.url}}" /></td>
+                        <td onclick="gallery_orange_show('2');"   class="image2"  style="width:50%;" colspan=3 rowspan=3><img alt="{{item.3.alt}}" src="{{items.3.image.url}}" /> </td>
+                        <td onclick="gallery_orange_show('3');"   class="image3"  colspan=2 rowspan=2><img alt="{{item.4.text}}" src="{{items.4.image.url}}" />
                         </td>
                     </tr>
                     <tr>
-                        <td><img alt="{{item.1.alt}}" src="{{items.1.image.url}}" /></td>
+                        <td onclick="gallery_orange_show('4');"  class="image4" ><img alt="{{item.1.alt}}" src="{{items.1.image.url}}" /></td>
                     </tr>
                     <tr>
-                        <td> <img alt="{{item.2.alt}}" src="{{items.2.image.url}}" /></td>
-                        <td> <img alt="{{item.5.alt}}" src="{{items.5.image.url}}" /></td>
-                        <td> <img alt="{{item.6.alt}}" src="{{items.6.image.url}}" /></td>
+                        <td onclick="gallery_orange_show('5');"  class="image5" > <img alt="{{item.2.alt}}" src="{{items.2.image.url}}" /></td>
+                        <td onclick="gallery_orange_show('6');"  class="image6" > <img alt="{{item.5.alt}}" src="{{items.5.image.url}}" /></td>
+                        <td onclick="gallery_orange_show('7');"  class="image7" > <img alt="{{item.6.alt}}" src="{{items.6.image.url}}" /></td>
                     </tr>
                 </table>
                 {% endwith %}

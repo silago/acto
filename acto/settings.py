@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'base',
     'solo',
+    'sorl.thumbnail',
     'tinymce'
 ]
 
@@ -121,6 +122,13 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': os.path.join(BASE_DIR,'django_cache'),
+    }
+}
 
 
 # Static files (CSS, JavaScript, Images)

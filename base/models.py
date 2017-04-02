@@ -5,6 +5,7 @@ from django.db import models
 from solo.models import SingletonModel
 from tinymce.models import HTMLField
 from django.conf import settings
+from sorl.thumbnail import ImageField as ThumbImageField
 import os
 
 class TemplateItem(models.Model):
@@ -71,11 +72,11 @@ class DoubleTextDoubleImageItem(models.Model):
 
 
 class GalleryImageItem(models.Model):
-    image  = models.ImageField()
+    image  = ThumbImageField()
     alt     = models.CharField(verbose_name="alt",max_length=255,blank=True, null=True, default="")
-    subimage  = models.ImageField()
     text     = HTMLField()
     order = models.IntegerField()
+    page   = models.ForeignKey('OrangePage', related_name="items")
     def __unicode__(self):
        return u'%s' % (self.image.url)
     def __str__(self):
@@ -171,7 +172,7 @@ class ForPage(BaseSingletonModel):
         verbose_name = "Для чего применяется"
 
 class OrangePage(BaseSingletonModel):
-    items = models.ManyToManyField(GalleryImageItem)
+    #items = models.ManyToManyField(GalleryImageItem)
     class Meta:
         verbose_name = "Галерея"
 

@@ -3,6 +3,7 @@
                 <!-- <img src="faq/faq-logo.png" /> -->
                 <img src="{{page.logo.url}}" />
             </div>
+            <div>
             <ul class="list">
                 {% for item in page.items.all %}
                 <li class="">
@@ -22,6 +23,41 @@
                 <!--     </span> -->
                 <!-- </li> -->
             </ul>
+<style>
+#page-faq div a.arrow {
+    border: 3px solid black;
+    border-radius: 110px;
+    color: black;
+    font-size: 15px;
+    padding: 6px 12px 10px;
+    position: absolute;
+    text-decoration:none;
+}
+#page-faq div a.down.arrow {
+    right: 370px;
+    top: 100px;
+}
+#page-faq div a.up.arrow {
+    right: 370px;
+    bottom: 100px;
+}
+#page-faq div a.arrow:hover {
+    color:#47bae8;
+    border-color:#47bae8;
+}
+#page-faq div ul.list li:nth-child(n+5) {
+    display:none;
+}
+</style>
+            <a 
+                class="arrow down"
+                onclick="return ask_prev();"
+                href="javascript:void(0);">▲</a>
+            <a 
+                class="arrow up"
+                onclick="return ask_next();"
+                href="javascript:void(0);">▼</a>
+            </div>
             <div style="display:none;" class="side done">
                 <h4    class="done"  >СПАСИБО, мы получили Ваш вопрос и ответим на него в ближайшее время!</h4>
 
@@ -46,10 +82,16 @@
                 </form>
             </div>
 <style>
-
 </style>
 
                 <script>
+                    function ask_next() {
+                        $('#page-faq ul.list').prepend($('#page-faq ul.list li:last-child'));
+                    }
+
+                    function ask_prev() {
+                        $('#page-faq ul.list').append($('#page-faq ul.list li:first-child'));
+                    }
                     function ask() {
                             $('.ask_form input').removeClass('error');
                             $('.ask_form textarea').removeClass('error');
