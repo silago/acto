@@ -5,6 +5,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import TopPage, ForPage, OrangePage, YellowPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, FaqPage, DocsPage, BottomPage, FooterPage, City, Orders, Questions, SiteSettings#, Shop
 
+from django.views.decorators.csrf import csrf_exempt
+
 def main(request):
     pages = (TopPage, ForPage, OrangePage, YellowPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, FaqPage, DocsPage, BottomPage, FooterPage)
     _result = ()
@@ -16,6 +18,7 @@ def main(request):
     settings = SiteSettings.objects.first()
     return render(request, 'index.html', {'pages':_result,'cities':cities,'settings':settings})
 
+@csrf_exempt
 def order(request):
     item = Orders()
     item.city = request.POST['city']
@@ -35,6 +38,7 @@ def order(request):
     item.save()
     return HttpResponse("OK")
 
+@csrf_exempt
 def question(request):
     item = Questions()
     if (request.session['capcha'].lower()!=request.POST['capcha'].lower()):
