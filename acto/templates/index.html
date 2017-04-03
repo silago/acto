@@ -16,7 +16,7 @@
             function formDate(day) {
                 if (!day) day = 0;
                 var date = new Date(new Date().getTime() + 24*60*60*1000*day);
-                return((date.getDate()+day) + '.' +date.getMonth() + 1)+ '.' +  date.getFullYear()
+                return((date.getDate()+day) + '.' +(date.getMonth() + 1))+ '.' +  date.getFullYear()
             }
         </script>
 
