@@ -9,17 +9,25 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="static/sf-webfont.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="/static/js/notify.js"></script>
+        <script src="/static/nicescroll/jquery.nicescroll.js"></script>
         <script src="https://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
+
+        <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAi3fsw5CM1n-2hPQr0oSTlxoVER0kb_1g&callback=initMap">
+        </script>
 
         <script>
             window.BASE_COST={{settings.cost}};
-            function formDate(day) {
+           function formDate(day) {
                 if (!day) day = 0;
                 var date = new Date(new Date().getTime() + 24*60*60*1000*day);
-                return((date.getDate()+day) + '.' +(date.getMonth() + 1))+ '.' +  date.getFullYear()
+                return((date.getDate()) + '.' +(date.getMonth() + 1))+ '.' +  date.getFullYear()
             }
+$(document).ready(function() {  
+    $("#shops-list").niceScroll();
+});
         </script>
-
         <script>
         window.cities = {
         {% for c in cities %} 
@@ -43,6 +51,10 @@
         };
         </script>
         <style type='text/css'>
+#shops-list {
+    max-height:200px;
+    padding-right:20px;
+}
 .gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom {
     right:initial!important;
 }
@@ -79,7 +91,7 @@
 
 a.anchor.when_apply {
     position:relative;
-    top:-20px;
+    top:-120px;
 }
             #page-faq .side form button {
                 border: 0px;
@@ -337,7 +349,6 @@ position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; lef
                 float:left;
                 x-margin-top:22px;
                 x-margin-left:32px;
-                margin-top:-2px;
             }
             #banner-top {
                 width:100%;
@@ -1307,6 +1318,12 @@ width: 0;
                 position: relative;
                 width: 100%;
             }
+
+            @media screen and (max-width: 1317px) {
+                div#page-footer .copy {
+                    font-size:1.00em!important;
+                }
+            }
             div#page-footer .copy {
                 text-align:center;
                 font-size:1.03em;
@@ -1610,6 +1627,7 @@ color: inherit;
         <script type="text/javascript">
            function choose_shop(shop) {
                 
+                map.streetView.setVisible(false);
                 var x = toDot(shop.x);
                 var y = toDot(shop.y);
                 var name = shop.name;
@@ -1626,7 +1644,9 @@ color: inherit;
            }
 
            function choose_city(city) {
+                map.streetView.setVisible(false);
                $('.city_name').html(city);
+               $('input.input.city').val(city);
                 var x = cities[city].x;
                 var y = cities[city].y;
 
@@ -1704,6 +1724,8 @@ color: inherit;
                         flat:'',
                         city:'',
                         time:'',
+                        count:'1',
+                        total:'0',
                         name:'',
                         phone:'',
                         email:'',
@@ -1712,7 +1734,6 @@ color: inherit;
                             if (next)  {
                                 $('.step1 input').removeClass('error');
                                 var error = false;
-
 
                                 this.name = $('.step1 .name').val();
                                 this.phone = $('.step1 .phone').val();
@@ -1784,7 +1805,8 @@ color: inherit;
                             var error = false;
                             this.date =  formDate(parseInt($('.step3 .date .active').attr('alt')));
                             this.time  = $('.step3 .time').val();
-                            this.count = $('.step3 .count').val();
+                            this.count = $('#order-done .holder .quantity').val();
+                            this.total = this.count*BASE_COST;
                             if (!this.time || !this.date) {
                                 error = true;
                             }
@@ -1806,11 +1828,13 @@ color: inherit;
                                     name:   this.name,
                                     phone:  this.phone,
                                     email:  this.email,
-                                    count:  this.count
+                                    count:  this.count,
+                                    total:  this.total
                             }).fail(function(d) {
                                 $('#order-done .error').show();
                                 $('#order-done .error').html('При выполнении запроса произошла ошибка');
                             }).done(function(d){
+                                $.notify("Запрос успешно отправлен","success");
                                 $('.order-done').hide();
                             });
                         },
@@ -1890,8 +1914,8 @@ function ahead(val) {
     $('.city_list_holder').html(result);
     return result;
 }
-                            </script>
-                            <input  class="city" name="city" onkeyup="ahead($(this).val())" type="text" placeholder="Наслеленный пункт" />
+                            </script> 
+                            <input  class="input city" name="city" onkeyup="ahead($(this).val())" type="text" placeholder="Наслеленный пункт" />
                             <div class="city_list_holder">
                             </div>
                             <br/>
@@ -2041,6 +2065,26 @@ try {
             $('#page-faq .list li').first().addClass('active');
         </script>
         <script type="text/javascript">
+
+            /*
+                if (navigator.geolocation) {
+                          navigator.geolocation.getCurrentPosition(function(position) {
+                            var pos = {
+                              lat: position.coords.latitude,
+                              lng: position.coords.longitude
+                            };
+
+                            infoWindow.setPosition(pos);
+                            infoWindow.setContent('Location found.');
+                            map.setCenter(pos);
+                          }, function() {
+                            handleLocationError(true, infoWindow, map.getCenter());
+                          });
+                        } else {
+                          // Browser doesn't support Geolocation
+                          //handleLocationError(false, infoWindow, map.getCenter());
+                        }
+*/
           window.onload = function () {
               var c = window.lc.getItem('ChosenName');
               if (!c) {

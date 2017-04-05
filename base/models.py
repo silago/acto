@@ -231,8 +231,6 @@ class DocsPage(BaseSingletonModel):
     class Meta:
         verbose_name = "Документы"
 
-
-
 class FooterPage(BaseSingletonModel):
     #items = models.ManyToManyField(LinkImageItem, verbose_name="Элемент")
     caption  = models.CharField(max_length=255)
@@ -301,6 +299,8 @@ class Questions(models.Model):
 
 class Orders(models.Model):
     city   =models.CharField(verbose_name="Город",max_length=255)
+    total   =models.CharField(max_length=255)
+    count   =models.CharField(max_length=255)
     street =models.CharField(verbose_name="Улица",max_length=255)
     house  =models.CharField(verbose_name="Дом",max_length=255)
     flat   =models.CharField(verbose_name="Квартира",max_length=255)

@@ -50,11 +50,11 @@
 }
 </style>
             <a 
-                class="arrow down"
+                class="ask_prev arrow down"
                 onclick="return ask_prev();"
                 href="javascript:void(0);">▲</a>
             <a 
-                class="arrow up"
+                class="ask_next arrow up"
                 onclick="return ask_next();"
                 href="javascript:void(0);">▼</a>
             </div>
@@ -85,14 +85,38 @@
 </style>
 
                 <script>
+                    ASK_FORM_COUNTER = 1;
+                    ASK_FORM_COUNTER_MAX = $('#page-faq ul.list li').length;
                     function ask_next() {
-                        $('#page-faq ul.list').prepend($('#page-faq ul.list li:last-child'));
+                        ASK_FORM_COUNTER+=4;
+                        $('.ask_prev').show();
+                        $('#page-faq ul.list li').hide();
+                        $('#page-faq ul.list li:nth-child(n+'+ASK_FORM_COUNTER+'):nth-child(-n+'+ASK_FORM_COUNTER*2+')').show();
+
+                        $('#page-faq ul.list li').removeClass('active');
+                        //$('#page-faq ul.list').prepend($('#page-faq ul.list li:last-child'));
+                        $('#page-faq ul.list li:visible').first().addClass('active');
+
+                        if (ASK_FORM_COUNTER+4>ASK_FORM_COUNTER_MAX ) {
+                            $('.ask_next').hide();
+                        }
                     }
 
                     function ask_prev() {
-                        $('#page-faq ul.list').append($('#page-faq ul.list li:first-child'));
+                        $('.ask_next').show();
+                        ASK_FORM_COUNTER-=4;
+                        $('#page-faq ul.list li').hide();
+                        $('#page-faq ul.list li:nth-child(n+'+ASK_FORM_COUNTER+'):nth-child(-n+'+ASK_FORM_COUNTER*2+')').show();
+                        $('#page-faq ul.list li').removeClass('active');
+                        //$('#page-faq ul.list').append($('#page-faq ul.list li:first-child'));
+                        $('#page-faq ul.list li:visible').first().addClass('active');
+
+                        if (ASK_FORM_COUNTER-4<1) {
+                            $('.ask_prev').hide();
+                        }
                     }
                     function ask() {
+                            
                             $('.ask_form input').removeClass('error');
                             $('.ask_form textarea').removeClass('error');
                             var name = $('.ask_form .name').val();
