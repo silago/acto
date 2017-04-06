@@ -36,6 +36,7 @@
 #page-faq div a.down.arrow {
     left: 67%;
     top: 100px;
+    display:none;
 }
 #page-faq div a.up.arrow {
     left: 67%;
@@ -91,7 +92,7 @@
                         ASK_FORM_COUNTER+=4;
                         $('.ask_prev').show();
                         $('#page-faq ul.list li').hide();
-                        $('#page-faq ul.list li:nth-child(n+'+ASK_FORM_COUNTER+'):nth-child(-n+'+ASK_FORM_COUNTER*2+')').show();
+                        $('#page-faq ul.list li:nth-child(n+'+ASK_FORM_COUNTER+'):nth-child(-n+'+(ASK_FORM_COUNTER+3)+')').show();
 
                         $('#page-faq ul.list li').removeClass('active');
                         //$('#page-faq ul.list').prepend($('#page-faq ul.list li:last-child'));
@@ -106,7 +107,7 @@
                         $('.ask_next').show();
                         ASK_FORM_COUNTER-=4;
                         $('#page-faq ul.list li').hide();
-                        $('#page-faq ul.list li:nth-child(n+'+ASK_FORM_COUNTER+'):nth-child(-n+'+ASK_FORM_COUNTER*2+')').show();
+                        $('#page-faq ul.list li:nth-child(n+'+ASK_FORM_COUNTER+'):nth-child(-n+'+(ASK_FORM_COUNTER+3)+')').show();
                         $('#page-faq ul.list li').removeClass('active');
                         //$('#page-faq ul.list').append($('#page-faq ul.list li:first-child'));
                         $('#page-faq ul.list li:visible').first().addClass('active');
