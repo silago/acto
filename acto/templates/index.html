@@ -1641,6 +1641,7 @@ color: inherit;
            }
 
            function choose_city(city) {
+               alert(city);
                 map.streetView.setVisible(false);
                $('.city_name').html(city);
                $('input.input.city').val(city);
@@ -1662,7 +1663,7 @@ color: inherit;
                     $('.banner.non-free').show();
                 }
 
-                map_marker = [];
+                if (typeof map_marker == 'undefinded' || map_marker == null) var map_marker = [];
                 for (var k = 0; k<map_marker.length; k++) {
                     map_marker[k].setMap(null);
                 }
@@ -1894,6 +1895,7 @@ color: inherit;
                                 function appendClear(val) {
                                     $('.city_list_holder').html('');
                                     $('#order-done input.city').val(val);
+                                    choose_city(val);
                                 }
 
 function ahead(val) {
