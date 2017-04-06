@@ -1802,7 +1802,7 @@ color: inherit;
                             var error = false;
                             this.date =  formDate(parseInt($('.step3 .date .active').attr('alt')));
                             this.time  = $('.step3 .time').val();
-                            this.count = $('#order-done .holder .quantity').val();
+                            //this.count = $('#order-done .holder .quantity').val();
                             this.total = this.count*BASE_COST;
                             if (!this.time || !this.date) {
                                 error = true;
