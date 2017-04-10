@@ -35,6 +35,8 @@ def order(request):
 
     item.date = request.POST['date']
     item.time = request.POST['time']
+    item.count = request.POST['count']
+    item.total = request.POST['total']
     item.save()
     return HttpResponse("OK")
 
@@ -47,8 +49,6 @@ def question(request):
     item.email = request.POST['mail']
     item.phone = request.POST['phone']
     item.text = request.POST['question']
-    item.count = request.POST['count']
-    item.total = request.POST['total']
     item.save()
     return HttpResponse("OK")
     pass

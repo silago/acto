@@ -32,6 +32,7 @@ class TextItem(models.Model):
     order   = models.IntegerField(verbose_name="Порядок")
     caption = HTMLField(verbose_name="Заголовок")
     text    = HTMLField(verbose_name="Текст")
+    page   = models.ForeignKey('FaqPage', related_name="items")
     def __unicode__(self):
        return u'%s' % (self.caption)
 
@@ -217,7 +218,7 @@ class HowPage(BaseSingletonModel):
         verbose_name = "Как применять"
 
 class FaqPage(BaseSingletonModel):
-    items = models.ManyToManyField(TextItem)
+    #items = models.ManyToManyField(TextItem)
     name_caption  = models.CharField(max_length=255)
     mail_caption  = models.CharField(max_length=255)
     phone_caption  = models.CharField(max_length=255)

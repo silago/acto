@@ -5,7 +5,7 @@
             </div>
             <div>
             <ul class="list">
-                {% for item in page.items.all %}
+                {% for item in page.items.all|dictsort:"order" %}
                 <li class="">
                 <h5>{{item.caption|striptags}}
                     <!-- Как помогает? -->

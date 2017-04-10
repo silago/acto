@@ -9,7 +9,7 @@ from solo.admin import SingletonModelAdmin
 from .models import TripleTextItem, TextImageItem, TextItem,DoubleTextDoubleImageItem, TextDoubleImageItem, ImageItem, TopPage, FaqPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, ForPage, DocsPage, OrangePage, YellowPage,BottomPage, FooterPage, City, Shop, Orders, Questions, SiteSettings, GalleryImageItem, LinkImageItem
 
 admin.site.register(TopPage, SingletonModelAdmin)
-admin.site.register(FaqPage, SingletonModelAdmin)
+#admin.site.register(FaqPage, SingletonModelAdmin)
 admin.site.register(MintPage, SingletonModelAdmin)
 admin.site.register(SiteSettings, SingletonModelAdmin)
 
@@ -34,6 +34,21 @@ class WhyPageAdmin(SingletonModelAdmin):
     inlines = (
         WhyPageItems,
     )
+
+
+class FaqPageItems(admin.TabularInline):
+    verbose_name = "Элемент"
+    verbose_name_plural  = "Элементы"
+    model = TextItem
+
+class FaqPageAdmin(SingletonModelAdmin):
+    exclude = "items" ,
+    inlines = (
+        FaqPageItems,
+    )
+admin.site.register(FaqPage, FaqPageAdmin)
+
+
 
 class OrangePageItems(admin.TabularInline):
     verbose_name = "Элемент"
