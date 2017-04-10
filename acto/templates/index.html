@@ -1680,7 +1680,7 @@ color: inherit;
                     var shop = shops[i];
                     var position = {lat:toDot(shop.x),lng:toDot(shop.y)}; 
                     //map.panTo(position);
-                    map_marker.unshift(new google.maps.Marker({
+                    map_marker.push(new google.maps.Marker({
                         position: position,
                         map: map,
                         title: shop.name+' '
@@ -1690,8 +1690,8 @@ color: inherit;
                         content: "<div><h2 style='color:#47bae8;'>"+shop.title+"</h2>"
                         +"<div>"+shop.name+"</br>"+shop.phone+"</div></div>"
                     });
-                    map_marker[0].addListener('click', function() {
-                        infowindow.open(map, map_marker[0]);
+                    map_marker[map_marker.length-1].addListener('click', () => {
+                        infowindow.open(map, map_marker[map_marker.length-1]);
                     });
 
 
