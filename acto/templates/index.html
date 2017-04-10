@@ -1636,8 +1636,6 @@ color: inherit;
                 var position = {lat:x,lng:y}; 
                 map.panTo(position);
                 map.setZoom(17);
-
-
            }
 
            function choose_city(city) {
@@ -1677,8 +1675,8 @@ color: inherit;
                 } );
                 for (var i =0; i<shops.length; i++) {
 
-                    var shop = shops[i];
-                    var position = {lat:toDot(shop.x),lng:toDot(shop.y)}; 
+                    let shop = shops[i];
+                    let position = {lat:toDot(shop.x),lng:toDot(shop.y)}; 
                     //map.panTo(position);
                     map_marker.push(new google.maps.Marker({
                         position: position,
@@ -1686,12 +1684,17 @@ color: inherit;
                         title: shop.name+' '
                     }));
 
-                    var infowindow = new google.maps.InfoWindow({
+                    let infowindow = new google.maps.InfoWindow({
                         content: "<div><h2 style='color:#47bae8;'>"+shop.title+"</h2>"
                         +"<div>"+shop.name+"</br>"+shop.phone+"</div></div>"
                     });
+                    let index = map_marker.length-1;
+                    let x = toDot(shop.x);
+                    let y = toDot(shop.y);
+                    let mpos = {lat:x, lng:y};
                     map_marker[map_marker.length-1].addListener('click', () => {
-                        infowindow.open(map, map_marker[map_marker.length-1]);
+                        infowindow.open(map, map_marker[index]);
+                        map.panTo(mpos);
                     });
 
 
@@ -1757,7 +1760,7 @@ color: inherit;
                         },
                         step2:function(next) {
                             if (next)  {
-
+                                $('.step2 input').removeClass('error');
                                 var error = false;
                                 this.city = $('.step2 .city').val();
                                 this.street = $('.step2 .street').val();
@@ -1775,10 +1778,13 @@ color: inherit;
                                     $('.step2 .house').addClass('error');
                                     error = true;
                                 }
+                                if (!this.flat) {
+                                    $('.step2 .flat').addClass('error');
+                                    error = true;
+                                }
 
 
 
-                                $('.step2 input').removeClass('error');
                                 if (!error) {
                                     $('.step2').hide();
                                     $('.step3').show();
