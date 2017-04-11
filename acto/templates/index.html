@@ -1639,18 +1639,16 @@ color: inherit;
            }
 
            function choose_city(city) {
-                map.streetView.setVisible(false);
                $('.city_name').html(city);
                $('input.input.city').val(city);
                 var x = cities[city].x;
                 var y = cities[city].y;
 
-                //alert(code+' '+city)))ii;;;
-                map.setZoom(7);
-                map.panTo({lat:toDot(x),lng:toDot(y)});
                 window.lc.setItem("ChosenName", city);
+
                 $('.float-city-selector').hide();
                 $('.select-city .selector').text(city);
+
                 var items = '';
                 if (cities[city].delivery == 'True') {
                     $('.banner.free').show();
@@ -1659,6 +1657,10 @@ color: inherit;
                     $('.banner.free').hide();
                     $('.banner.non-free').show();
                 }
+
+                map.streetView.setVisible(false);
+                map.setZoom(7);
+                map.panTo({lat:toDot(x),lng:toDot(y)});
 
                 if (typeof map_marker == 'undefinded' || map_marker == null) var map_marker = [];
                 for (var k = 0; k<map_marker.length; k++) {
@@ -2089,14 +2091,14 @@ try {
                           //handleLocationError(false, infoWindow, map.getCenter());
                         }
 */
-          window.onload = function () {
+    $('document').ready(function() {
               var c = window.lc.getItem('ChosenName');
               if (!c) {
                 c = ymaps.geolocation.city;
               }
               //jQuery(".select-city span.selector").text(c);
               choose_city(c);
-          }
+    });
          function showForm() {
              $('.order-done').show();
             
