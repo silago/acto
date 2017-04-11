@@ -24,21 +24,18 @@
         console.log(s);
         return Number(s.replace(',','.'));
     }
-    //$('document').ready(function() {
-
     var map;
     window.map = map;
     window.map_marker = null;
-    var x = toDot(cities[localStorage.getItem('ChosenName')].x);  
-    var y = toDot(cities[localStorage.getItem('ChosenName')].y);  
-    function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: x, lng: y},
-        zoom: 8,
-        zoomConrol: true
-    });
-    }
-    //})
+        function initMap() {
+            var x = toDot(cities[localStorage.getItem('ChosenName')].x);  
+            var y = toDot(cities[localStorage.getItem('ChosenName')].y);  
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: x, lng: y},
+                zoom: 8,
+                zoomConrol: true
+            });
+        }
     </script>
 
         <script async defer

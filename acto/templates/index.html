@@ -607,7 +607,7 @@ position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; lef
             div#page-facts ul li > div > div {
                 text-align:center;
                 padding-top:10px;
-                text-transform:lowercase;
+                x-text-transform:lowercase;
                 font-size:16px;
                 color:#2c4f8a;
             }
@@ -1692,7 +1692,7 @@ color: inherit;
                     let x = toDot(shop.x);
                     let y = toDot(shop.y);
                     let mpos = {lat:x, lng:y};
-                    map_marker[map_marker.length-1].addListener('click', () => {
+                    map_marker[map_marker.length-1].addListener('click', function() {
                         infowindow.open(map, map_marker[index]);
                         map.panTo(mpos);
                     });
