@@ -6,7 +6,7 @@
                     <div>
                         <img alt="{{item.alt}}" src="{{item.image.url}}" /> 
                         <div class="{{item.page}}">
-                            {{ item.text|striptags|linebreaksbr}}
+                            {{ item.text|striptags|safe|linebreaksbr}}
                         </div>
                     </div>
                 </li>
