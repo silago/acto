@@ -28,8 +28,13 @@
     window.map = map;
     window.map_marker = null;
         function initMap() {
-            var x = toDot(cities[localStorage.getItem('ChosenName')].x);  
-            var y = toDot(cities[localStorage.getItem('ChosenName')].y);  
+            if (typeof cities[localStorage.getItem('ChosenName')!='undefinded') {
+                var x = toDot(cities[localStorage.getItem('ChosenName')].x);  
+                var y = toDot(cities[localStorage.getItem('ChosenName')].y);  
+            } else {
+                var x = 0;
+                var y = 0;
+            }
             map = new google.maps.Map(document.getElementById('map'), {
                 center: {lat: x, lng: y},
                 zoom: 8,
