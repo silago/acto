@@ -1818,7 +1818,7 @@ color: inherit;
 
                             if (error) {
                                 $('#order-done .error').show();
-                                $('#order-done .error').html('Все поля необходимы для заполнения');
+                                $('#order-done .error').html('Необходимо заполнить все поля');
                                 return;
                             }
                             $.post('/order/',{
@@ -1921,7 +1921,7 @@ function ahead(val) {
     return result;
 }
                             </script> 
-                            <input  class="input city" name="city" onkeyup="ahead($(this).val())" type="text" placeholder="Наслеленный пункт" />
+                            <input  class="input city" name="city" onkeyup="ahead($(this).val())" type="text" placeholder="Населенный пункт" />
                             <div class="city_list_holder">
                             </div>
                             <br/>
