@@ -21,9 +21,9 @@
                 var date = new Date(new Date().getTime() + 24*60*60*1000*day);
                 return((date.getDate()) + '.' +(date.getMonth() + 1))+ '.' +  date.getFullYear()
             }
-$(document).ready(function() {  
-    $("#shops-list").niceScroll();
-});
+        $(document).ready(function() {  
+            $("#shops-list").niceScroll();
+        });
         </script>
         <script>
         window.cities = {
@@ -2091,14 +2091,6 @@ try {
                           //handleLocationError(false, infoWindow, map.getCenter());
                         }
 */
-    $('document').ready(function() {
-              var c = window.lc.getItem('ChosenName');
-              if (!c) {
-                c = ymaps.geolocation.city;
-              }
-              //jQuery(".select-city span.selector").text(c);
-              choose_city(c);
-    });
          function showForm() {
              $('.order-done').show();
             

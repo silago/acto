@@ -40,6 +40,17 @@
                 zoom: 8,
                 zoomConrol: true
             });
+
+
+    $('document').ready(function() {
+                ymaps.ready(function() {
+              var c = window.lc.getItem('ChosenName');
+              if (!c) {
+                c = ymaps.geolocation.city;
+              }
+              //choose_city(c);
+                });
+    });
         }
     </script>
 
