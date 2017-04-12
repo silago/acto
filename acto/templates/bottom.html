@@ -28,7 +28,7 @@
     window.map = map;
     window.map_marker = null;
         function initMap() {
-            if (typeof localStorage.getItem('ChosenName')!=null) {
+            if (localStorage.getItem('ChosenName')!=null) {
                 var x = toDot(cities[localStorage.getItem('ChosenName')].x);  
                 var y = toDot(cities[localStorage.getItem('ChosenName')].y);  
             } else {
