@@ -356,6 +356,9 @@ position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; lef
                 padding-bottom:100px;
             }
 
+            #banner-top .right img {
+                margin-top:28px;
+            }
             #banner-top .right .button {
                 margin-top:28px;
                 x-margin-right:18px;
@@ -938,7 +941,17 @@ left: 27%;
             }
             div#page-orange .content table td img {
                 width:100%;
+                 -webkit-transition: width 1s,  margin 1s; /* Safari */
+                 transition: width 1s,  margin 1s;
             }
+
+
+            div#page-orange .content table td img:hover {
+                width:105%;
+                    margin-left:-2.5%;
+                    margin-top:-5%;
+            }
+
             div#page-orange .content table td {
                 x-margin-left:40px;
                 x-margin-right:40px;
@@ -956,13 +969,13 @@ left: 27%;
                 border-width: 0px 0px;
             }
             div#page-orange .content table.shadow td {
-                box-shadow:0px 0px 1px 1px rgba(0,0,0,0.8)
+                box-shadow:0px 0px 1px 1px rgba(0,0,0,0.8);
+                overflow:hidden;
             }
             div#page-orange .content table.shadow {
                 border-spacing:18px;
             }
             div#page-orange .content table.shadow td {
-                box-shadow:0px 0px 1px 3px rgba(0,0,0,0.8)
             }
 
             div#page-orange .content .banner {
@@ -1589,7 +1602,7 @@ color: inherit;
         <div id="head">
             <span id="menu">
                 <ul>
-                    <li><img src="static/./logo.png" id="logo"></li>
+                    <li><a href="#"><img src="static/./logo.png" id="logo"></a></li>
                     {% for page in pages|dictsort:"order" %}
                         {% if page.menu_title %}
                             <li><a href="#{{page.slug}}">{{page.menu_title}}</a></li>
@@ -1622,7 +1635,7 @@ color: inherit;
 
 
         <script type="text/javascript">
-           function choose_shop(shop) {
+           function choose_shop(shop, index) {
                 
                 map.streetView.setVisible(false);
                 var x = toDot(shop.x);
@@ -1636,6 +1649,9 @@ color: inherit;
                 var position = {lat:x,lng:y}; 
                 map.panTo(position);
                 map.setZoom(17);
+
+                infowindow.open(map, map_marker[index]);
+                map.panTo(mpos);
            }
 
            function choose_city(city) {
@@ -1666,6 +1682,7 @@ color: inherit;
                 for (var k = 0; k<map_marker.length; k++) {
                     map_marker[k].setMap(null);
                 }
+                map_marker = [];
 
                 var shops = cities[city].shops.sort(function(a,b) {
                     if (a.name<b.name) {
@@ -1675,6 +1692,7 @@ color: inherit;
                     } 
                     return 0;
                 } );
+                $('#shops-list').html('');
                 for (var i =0; i<shops.length; i++) {
 
                     let shop = shops[i];
@@ -1694,15 +1712,22 @@ color: inherit;
                     let x = toDot(shop.x);
                     let y = toDot(shop.y);
                     let mpos = {lat:x, lng:y};
+
                     map_marker[map_marker.length-1].addListener('click', function() {
                         infowindow.open(map, map_marker[index]);
                         map.panTo(mpos);
                     });
 
+        
+                    var item=$('<li style="cursor:pointer;" onclick="choose_shop(cities[\''+city+'\'].shops['+i+'],'+i+')">'+shops[i].name+'</li>');
+                    item.click(function() {
+                        infowindow.open(map, map_marker[index]);
+                        map.panTo(mpos);
 
-                    items+='<li style="cursor:pointer;" onclick="choose_shop(cities[\''+city+'\'].shops['+i+'])">'+shops[i].name+'</li>';
+                    });
+                    items+=item;
+                    $('#shops-list').append(item);
                 }
-                $('#shops-list').html(items);
            } 
         </script>
         <div class="bg order-done" style=""> </div>
@@ -1720,18 +1745,22 @@ color: inherit;
                             this.count--;
                             this.update();
                         },
-                        city:'',
-                        street:'',
-                        house:'',
-                        flat:'',
-                        city:'',
-                        time:'',
-                        count:'1',
-                        total:'0',
-                        name:'',
-                        phone:'',
-                        email:'',
-                        count:1,
+                        init:function() {
+                            this.city='';
+                            this.street='';
+                            this.house='';
+                            this.flat='';
+                            this.time='';
+                            this.count='1';
+                            this.total='0';
+                            this.name='';
+                            this.phone='';
+                            this.email='';
+                            this.count=1;
+                            $('#order-done input:not(.city)').val(''); 
+                            $('#order-done textarea:not(.city)').html(''); 
+                            this,update();
+                        },
                         step1:function(next) {
                             if (next)  {
                                 $('.step1 input').removeClass('error');
@@ -1739,12 +1768,21 @@ color: inherit;
 
                                 this.name = $('.step1 .name').val();
                                 this.phone = $('.step1 .phone').val();
+                                this.phone = this.phone.replace(/[^0-9()\- ]/g,'');
+
                                 this.email = $('.step1 .email').val();
+                                if (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.email)) {
+                                    if (this.email!='') {
+                                        $('.step1 .email').addClass('error');
+                                        error = True;
+                                    }
+                                }
+
                                 if (!this.name) {
                                     $('.step1 .name').addClass('error');
                                     error = true;
                                 }
-                                if (!this.phone) {
+                                if (!this.phone || this.phone.length<6) {
                                     $('.step1 .phone').addClass('error');
                                     error = true;
                                 }
@@ -1821,6 +1859,7 @@ color: inherit;
                                 $('#order-done .error').html('Необходимо заполнить все поля');
                                 return;
                             }
+
                             $.post('/order/',{
                                     city:   this.city,
                                     street: this.street,
@@ -1838,9 +1877,15 @@ color: inherit;
                             }).fail(function(d) {
                                 $('#order-done .error').show();
                                 $('#order-done .error').html('При выполнении запроса произошла ошибка');
+                                $('.order-done .step1').show();
+                                $('.order-done .step3').hide();
                             }).done(function(d){
+
+                                $('.order-done .step1').show();
+                                $('.order-done .step3').hide();
                                 $.notify("Запрос успешно отправлен","success");
                                 $('.order-done').hide();
+                                this.init();
                             });
                         },
                         update: function() {
@@ -1853,6 +1898,7 @@ color: inherit;
                             $('#order-done .cost span.q').html(this.cost);
                         }
                     };
+                    order_form.init();
 
                 </script>
                 <div>

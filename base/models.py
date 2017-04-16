@@ -20,6 +20,7 @@ class TripleTextItem(models.Model):
     text     = HTMLField(verbose_name="Текст")
     name     = models.CharField(verbose_name="Имя",max_length=255,blank=True, null=True, default="")
     subtext  = models.CharField(verbose_name="Город",max_length=255,blank=True, null=True, default="")
+    page     = models.ForeignKey('YellowPage', related_name="items")
     def __str__(self):
         return self.name+ ' ' + self.text
     def __unicode__(self):
@@ -179,7 +180,6 @@ class OrangePage(BaseSingletonModel):
 
 class YellowPage(BaseSingletonModel):
     #text  = HTMLField(blank=True, null=True,default='')
-    items = models.ManyToManyField(TripleTextItem)
     class Meta:
         verbose_name = "Отзывы покупателей"
 

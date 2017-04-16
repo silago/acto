@@ -91,6 +91,20 @@ class FooterPageAdmin(SingletonModelAdmin):
         FooterPageItems
     ]
 
+
+class YellowPageItems(admin.TabularInline):
+    verbose_name = "Элемент"
+    verbose_name_plural  = "Элементы"
+    model = TripleTextItem
+
+class YellowPageAdmin(SingletonModelAdmin):
+    exclude = "title" ,
+    inlines = [
+        YellowPageItems
+    ]
+
+admin.site.register(YellowPage, YellowPageAdmin)
+
 admin.site.register(FooterPage, FooterPageAdmin)
 
 
@@ -102,7 +116,6 @@ admin.site.register(WhyPage, WhyPageAdmin)
 admin.site.register(HowPage, SingletonModelAdmin)
 admin.site.register(ForPage, SingletonModelAdmin)
 admin.site.register(DocsPage, SingletonModelAdmin)
-admin.site.register(YellowPage, SingletonModelAdmin)
 
 
 admin.site.register(ImageItem, admin.ModelAdmin)
@@ -112,7 +125,7 @@ admin.site.register(GalleryImageItem, admin.ModelAdmin)
 admin.site.register(DoubleTextDoubleImageItem, admin.ModelAdmin)
 admin.site.register(TextImageItem, admin.ModelAdmin)
 admin.site.register(TextItem, admin.ModelAdmin)
-admin.site.register(TripleTextItem, admin.ModelAdmin)
+admin.site.register(TripleTextItem)
 
 admin.site.register(City, admin.ModelAdmin)
 admin.site.register(Shop, admin.ModelAdmin)
