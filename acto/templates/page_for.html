@@ -1,6 +1,6 @@
         <div id="page-for">
             <ul>
-                {% for item in page.items.all %}
+                {% for item in page.items.all reversed %}
                 <li>
                     <img alt="{{item.alt}}" src="{{item.image.url}}" />
                 </li>

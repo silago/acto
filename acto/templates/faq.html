@@ -7,7 +7,7 @@
             <ul class="list">
                 {% for item in page.items.all|dictsort:"order" %}
                 <li class="">
-                <h5>{{item.caption|striptags}}
+                <h5>{{item.caption|safe}}
                     <!-- Как помогает? -->
                 </h5>
                     <span class="answer">

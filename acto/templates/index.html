@@ -137,7 +137,7 @@ a.anchor.when_apply {
 
 .order-done.bg {
     cursor:pointer;
-position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; left:0; top:0; z-index:40; display:none;
+position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; x-opacity:0.4; width:100%; height:100%; left:0; top:0; z-index:100; display:none;
 }
         .order-done input.error {
             border:1px solid red!important;
@@ -206,8 +206,8 @@ position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; lef
             #head {
                 margin-left:18;
                 position: fixed;
-                z-index: 29;
-                background-color: #fff;
+                z-index: 99;
+                background-color: rgba(255,255,255,0.9);
                 width: 100%;
                 box-sizing: border-box;
                 max-width: 1400px;
@@ -383,6 +383,7 @@ position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; lef
                 x-padding-bottom:160px;
                 padding-bottom:80px;
                 min-height:490px;
+                min-height:530px;
             }
 
             #page-faq ul {
@@ -416,15 +417,15 @@ position:fixed; background-color:blue; opacity:0.4; width:100%; height:100%; lef
                 font-size:20px;
                 color:#2c4f8a;
             }
-            #page-faq li:before {
-                    margin-top: -3px;
-                    margin-right: 10px;
+            #page-faq li h5:before {
             }
-            #page-faq li.active:before {
+            #page-faq li.active h5:before {
                 content:"▲";
                 color:#2c4f8a;
             }
-            #page-faq li:before {
+            #page-faq li h5:before {
+                margin-top: -4px;
+                margin-right: 10px;
                 content:"▼";
                 color:#a7a9ac;
             
@@ -1368,11 +1369,12 @@ width: 0;
             cursor:pointer;
             z-index:1;
                 position:fixed;
-                width:100%; height:100%; background-color:blue; opacity:0.6;
+                width:100%; height:100%; background-color:#2c4f8a;mix-blend-mode:multiply; x-opacity:0.6;
                 left:0; top:0;
         }
         div.float-city-selector {
             display:none;
+            top:61px!important;
         }
         div#float-city-selector .holder{
             padding-bottom:20px;
@@ -1382,10 +1384,10 @@ width: 0;
             position:absolute;
             x-position:fixed;
             width:100%;
-            z-index:9999;
+            z-index:89;
             left:0px;
             top:0px;
-            x-background-color:blue;
+            x-background-color:#2c4f8a;mix-blend-mode:multiply;
 
             min-width: 1200px;
         }
@@ -1776,11 +1778,9 @@ color: inherit;
                                 this.phone = this.phone.replace(/[^0-9()\- ]/g,'');
 
                                 this.email = $('.step1 .email').val();
-                                if (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.email)) {
-                                    if (this.email!='') {
+                                if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.email)) {
                                         $('.step1 .email').addClass('error');
                                         error = True;
-                                    }
                                 }
 
                                 if (!this.name) {
@@ -1983,7 +1983,6 @@ function ahead(val) {
                             <br />
                             <div style="color:red; margin:20px; display:none;" class="error"></div>
                             <br/>
-                            <br/>
                             <a onclick="order_form.step2(false);" href="javascript:void(0);">Отменить</a>
                             <a onclick="order_form.step2(true); " href="javascript:void(0);">Отправить</a>
                             </div>
@@ -2004,7 +2003,6 @@ function ahead(val) {
                             <div>
                             * - Поля, обязательные для заполнения 
                             </div>
-                            <br/>
                             <br/>
                             <br/>
                             <br/>
@@ -2047,8 +2045,6 @@ function ahead(val) {
                             <input  class="time" name="time" type="text" placeholder="Укажите время" />
                             <br/>
                             <div style="color:red; margin:20px; display:none;" class="error"></div>
-                            <br/>
-                            <br/>
                             <br/>
                             <a onclick="order_form.step3(false);" href="javascript:void(0);">Назад</a>
                             <a onclick="order_form.step3(true);"  href="javascript:void(0);">Подтвердить</a>
