@@ -1,4 +1,11 @@
         <div id="page-docs">
+
+                <div onclick="$('.docs-show').hide();"  class="docs-show bg">
+                </div>
+
+                <div class="docs-show" id="docs-show">
+                    <img src=""/>
+                </div>
             <div class="content">
                 <script>
                     window.DOCS_PAGE_GAL_INDEX=0;
@@ -21,7 +28,14 @@
                         DOCS_PAGE_GAL_INDEX++;
 
                     }
+
+                    function showDocs(src) {
+                        $('#docs-show img').attr('src',src);
+                        $('.docs-show').show();
+
+                    }
                 </script>
+
                 <img src="{{ page.logo.url }}" class="logo" />
                 <div onclick="docsRight();"  class="larrow">▶</div>
                 <ul>
@@ -31,7 +45,7 @@
                                                     style="display:none;"
                                                {% endif %}
                         >
-                        <a target=_blank href="{{item.image.url}}"> 
+                        <a  onclick="showDocs('{{item.image.url}}');"> 
                             <img alt="{{item.alt}}" src="{{item.image.url}}" />
                         </a>
                     </li>

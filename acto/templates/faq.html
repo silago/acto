@@ -1,6 +1,5 @@
         <div id="page-faq">
             <div class="logo">
-                <!-- <img src="faq/faq-logo.png" /> -->
                 <img src="{{page.logo.url}}" />
             </div>
             <div>
@@ -8,23 +7,25 @@
                 {% for item in page.items.all|dictsort:"order" %}
                 <li class="">
                 <h5>{{item.caption|safe}}
-                    <!-- Как помогает? -->
                 </h5>
                     <span class="answer">
                         {{item.text|safe}}
-                        <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum maximus augue, ut interdum turpis euismod ac. In et sem eget purus consequat volutpat. Curabitur in metus in nunc imperdiet suscipit. Nullam sed lectus pulvinar, consequat magna quis, consequat justo. Aenean quis eleifend massa, eu pharetra lorem. In ut leo nibh. Sed euismod quam sem, non vulputate dui vehicula et. -->
                     </span>
                 </li>
                 {% endfor %}
-                <!-- <li> -->
-                <!--     <h5>Как помогает?</h5> -->
-                <!--     <span class="answer"> -->
-                <!--         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum maximus augue, ut interdum turpis euismod ac. In et sem eget purus consequat volutpat. Curabitur in metus in nunc imperdiet suscipit. Nullam sed lectus pulvinar, consequat magna quis, consequat justo. Aenean quis eleifend massa, eu pharetra lorem. In ut leo nibh. Sed euismod quam sem, non vulputate dui vehicula et. -->
-                <!--     </span> -->
-                <!-- </li> -->
+            </ul>
+            <ul class="faq-nav">
+                    {% for item in page.items.all|dictsort:"order" %}
+                        {% if forloop.counter0|divisibleby:4 %}
+                        <li>
+                            <a href="javascript:ask_index({{forloop.counter0}});"></a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
             </ul>
 <style>
 #page-faq div a.arrow {
+    display:none;
     border: 3px solid black;
     border-radius: 110px;
     color: black;
@@ -86,6 +87,23 @@
 </style>
 
                 <script>
+                    $(document).ready(function() {
+                        $('#page-faq .faq-nav li').first().addClass('active');
+
+                    });
+
+                    function ask_index(i) {
+                        var k = i/4;
+                        var i = i + 1;
+                        $('#page-faq ul.list li').slideUp(100);
+                        $('#page-faq ul.list li:nth-child(n+'+i+'):nth-child(-n+'+(i+3)+')').slideDown(100);
+                        $('#page-faq ul.list li').removeClass('active');
+                        $('#page-faq ul.list li:visible').first().addClass('active');
+                        $('#page-faq ul.faq-nav li.active').removeClass('active');
+                        $($('#page-faq ul.faq-nav li')[k]).addClass('active');
+                    }
+
+
                     ASK_FORM_COUNTER = 1;
                     ASK_FORM_COUNTER_MAX = $('#page-faq ul.list li').length;
                     function ask_next() {
