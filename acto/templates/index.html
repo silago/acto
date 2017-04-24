@@ -1502,12 +1502,13 @@ width: 0;
         }
         div#order-done{
             display:none;
-            x-position:fixed;
-            position:absolute;
+
+            position:fixed;
+            x-position:absolute;
             z-index:999;
             width:100%;
             left:0px;
-            top:28px;
+            top:0px;
             padding-top:60px;
             box-sizing:border-box;
             min-width:1152px;
@@ -2237,7 +2238,7 @@ $('.order-done.bg').click(function() {
         $(window).scroll(function(){
             $('#head').css('margin-left',-parseInt($(window).scrollLeft()));
             $('#float-city-selector').css('top',parseInt($(window).scrollTop()));
-            $('#order-done').css('top',parseInt($(window).scrollTop()));
+            //$('#order-done').css('top',parseInt($(window).scrollTop()));
         });
     </script>
     <script>
