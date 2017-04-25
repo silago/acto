@@ -9,6 +9,7 @@
                         class="banner-logo" src="{{ page.logo.url }}" />
                     <!-- /* here will be js that get cities */ -->
                     <a 
+                        href="#"
                         onclick="$('.float-city-selector').show();"
                         class="city-selector"><span class="select-city"><span class="selector"></span></span></a>
                     <br/>
@@ -44,9 +45,13 @@
 
     $('document').ready(function() {
                 ymaps.ready(function() {
+            
               var c = window.lc.getItem('ChosenName');
               if (!c) {
                 c = ymaps.geolocation.city;
+              }
+              if (typeof c == 'undefinded') {
+                c = Object.keys(window.cities)[0];
               }
               choose_city(c);
                 });
