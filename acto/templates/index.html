@@ -841,8 +841,9 @@ left: 27%;
             div#page-why {
                 padding:99px 54px;
                 padding-top:0px;
-                padding-top:50px;
+                padding-bottom:50px;
                 overflow: initial;
+                    box-size:border-box;
                     width:100%;
             }
             div#page-why ul {
@@ -850,12 +851,16 @@ left: 27%;
                 x-margin-left:-10px;
                 x-padding-left:-10px;
                 box-sizing:border-box;
+                overflow:hidden;
+                
             }
             div#page-why ul li {
                 display:inline-block;
-                width:18%;
-                margin-right:2%;
+                width:20%;
                 vertical-align:top;
+                box-sizing:border-box;
+                overflow:hidden;
+                float:left;
             }
             div#page-why ul li > div > div {
                 text-align:center;
