@@ -510,19 +510,23 @@ position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; x-opacity:0.4;
 
             #page-faq ul.faq-nav li {
                 display:inline-block;
+                    vertical-align:middle;
             }
             #page-faq ul.faq-nav a {
                 color:#242424!important;
                 text-decoration:none;
             }
 
+            #page-faq ul.faq-nav li.active a {
+                margin-bottom:2px;
+            }
             #page-faq ul.faq-nav li.active a:after{
-                content:"●"; 
+                content:"\25CF"; 
                 font-size:24px;
             }
             #page-faq ul.faq-nav a:after {
-                content:"⚪";
-                font-size:21px;
+                content:"\25CB";
+                font-size:19px;
             }
 
             #page-faq ul.faq-nav {
