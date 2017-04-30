@@ -6,7 +6,7 @@ from solo.admin import SingletonModelAdmin
 #from django.contrib.contenttypes import admin as gadmin
 #from config.models import SiteConfiguration
 
-from .models import TripleTextItem, TextImageItem, TextItem,DoubleTextDoubleImageItem, TextDoubleImageItem, ImageItem, TopPage, FaqPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, ForPage, DocsPage, OrangePage, YellowPage,BottomPage, FooterPage, City, Shop, Orders, Questions, SiteSettings, GalleryImageItem, LinkImageItem
+from .models import TripleTextItem, TextImageItem, TextItem,DoubleTextDoubleImageItem, TextDoubleImageItem, TopPage, FaqPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, ForPage, ForPageImageItem, DocsPageImageItem, DocsPage, OrangePage, YellowPage,BottomPage, FooterPage, City, Shop, Orders, Questions, SiteSettings, GalleryImageItem, LinkImageItem
 
 admin.site.register(TopPage, SingletonModelAdmin)
 #admin.site.register(FaqPage, SingletonModelAdmin)
@@ -103,6 +103,38 @@ class YellowPageAdmin(SingletonModelAdmin):
         YellowPageItems
     ]
 
+
+class ForPageItems(admin.TabularInline):
+    verbose_name = "Элемент"
+    verbose_name_plural  = "Элементы"
+    model = ForPageImageItem
+
+class ForPageAdmin(SingletonModelAdmin):
+    exclude = "title" ,
+    inlines = [
+        ForPageItems
+    ]
+
+
+admin.site.register(ForPage, ForPageAdmin)
+
+
+
+class DocsPageItems(admin.TabularInline):
+    verbose_name = "Элемент"
+    verbose_name_plural  = "Элементы"
+    model = DocsPageImageItem
+
+class DocsPageAdmin(SingletonModelAdmin):
+    exclude = "title" ,
+    inlines = [
+        DocsPageItems
+    ]
+
+
+admin.site.register(DocsPage, DocsPageAdmin)
+
+
 admin.site.register(YellowPage, YellowPageAdmin)
 
 admin.site.register(FooterPage, FooterPageAdmin)
@@ -114,11 +146,9 @@ admin.site.register(BottomPage, SingletonModelAdmin)
 admin.site.register(GreenPage, GreenPageAdmin)
 admin.site.register(WhyPage, WhyPageAdmin)
 admin.site.register(HowPage, SingletonModelAdmin)
-admin.site.register(ForPage, SingletonModelAdmin)
-admin.site.register(DocsPage, SingletonModelAdmin)
 
 
-admin.site.register(ImageItem, admin.ModelAdmin)
+#admin.site.register(ImageItem, admin.ModelAdmin)
 admin.site.register(LinkImageItem)
 admin.site.register(TextDoubleImageItem, admin.ModelAdmin)
 admin.site.register(GalleryImageItem, admin.ModelAdmin)

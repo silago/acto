@@ -55,6 +55,13 @@ class ImageItem(models.Model):
     class Meta:
         verbose_name = "Изображения"
         verbose_name_plural = "Изображения"
+        abstract = True
+
+class ForPageImageItem(ImageItem):
+    page   = models.ForeignKey('ForPage', related_name="items")
+
+class DocsPageImageItem(ImageItem):
+    page   = models.ForeignKey('DocsPage', related_name="items")
 
 
 class DoubleTextDoubleImageItem(models.Model):
@@ -169,7 +176,8 @@ class TopPage(BaseSingletonModel):
         verbose_name = "Верх"
 
 class ForPage(BaseSingletonModel):
-    items = models.ManyToManyField(ImageItem)
+    pass
+    #items = models.ManyToManyField(ImageItem)
     class Meta:
         verbose_name = "Для чего применяется"
 
@@ -228,7 +236,8 @@ class FaqPage(BaseSingletonModel):
         verbose_name = "Ответы на вопросы"
 
 class DocsPage(BaseSingletonModel):
-    items = models.ManyToManyField(ImageItem)
+    pass
+    #items = models.ManyToManyField(ImageItem)
     class Meta:
         verbose_name = "Документы"
 
