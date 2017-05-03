@@ -1,6 +1,6 @@
         <div id="page-for">
             <ul>
-                {% for item in page.items.all |dictsort:"order" %}
+                {% for item in page.items.all|dictsort:"order" %}
                 <li>
                     <img alt="{{item.alt}}" src="{{item.image.url}}" />
                 </li>
