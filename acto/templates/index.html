@@ -107,7 +107,7 @@ a.anchor.when_apply {
                 width:185px;
                 height:60px;
                 background-image: url('static/faq/button.png');
-                    background-repeat:no-repeat;
+                background-repeat:no-repeat;
             }
 
             #page-faq .side form button:before {
@@ -141,27 +141,31 @@ a.anchor.when_apply {
     display:none;
     text-align:center;
 }
+
 .docs-show.bg {
     cursor:pointer;
-position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; x-opacity:0.4; width:100%; height:100%; left:0; top:0; z-index:100; display:none;
+position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; opacity:0.9; width:100%; height:100%; left:0; top:0; z-index:100; display:none;
 }
 
 #docs-show img {
-    max-width:100%;
+    height:100%;
+    margin: 0 auto;
 }
+
 #docs-show {
-                        width:80%;
-                        x-background-color:white;
-                        position:absolute; left:10%;
-                        top:10%;
+                        cursor:pointer;
+                        position:fixed;
+                        left:0;
+                        top:5%;
                         z-index:100;
-                        min-height:200px;
+                        height:85%;
+                        width:100%;
 }
 
 
 .order-done.bg {
     cursor:pointer;
-position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; x-opacity:0.4; width:100%; height:100%; left:0; top:0; z-index:100; display:none;
+position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; opacity:0.9; width:100%; height:100%; left:0; top:0; z-index:100; display:none;
 }
         .order-done input.error {
             border:1px solid red!important;
@@ -1436,25 +1440,26 @@ width: 0;
             cursor:pointer;
             z-index:14;
                 position:fixed;
-                width:100%; height:100%; background-color:#2c4f8a;mix-blend-mode:multiply; x-opacity:0.6;
+                width:100%; height:100%; background-color:#2c4f8a;mix-blend-mode:multiply; opacity:0.9;
                 left:0; top:0;
         }
         div.float-city-selector {
             display:none;
-            top:61px!important;
+            top:55px!important;
         }
         div#float-city-selector .holder{
             padding-bottom:20px;
         }
         div#float-city-selector {
             
-            position:absolute;
-            x-position:fixed;
+            x-position:absolute;
+            position:fixed;
             width:100%;
             z-index:89;
             left:0px;
             top:0px;
             x-background-color:#2c4f8a;x-mix-blend-mode:multiply;
+                padding-top:20px;
 
             min-width: 1200px;
         }
@@ -1532,16 +1537,16 @@ width: 0;
             margin-top:81px;
 
         }
-        div#order-done> div > div {
+        div#order-done > div.inner > div {
             min-height:200px;
             background-color:white;
         }
-        div#order-done > div img {
+        div#order-done > div.inner img {
             position:absolute;
                 top:-30px;
                 left:47px;
         }
-        div#order-done> div {
+        div#order-done > div.inner {
                 min-height:431px;
                 margin:0 auto;
                 max-width:1366px;
@@ -1804,8 +1809,9 @@ color: inherit;
                 }
            } 
         </script>
-        <div class="bg order-done" style=""> </div>
+        <div  class="bg order-done" style=""> </div>
         <div class="order-done" id="order-done">
+        <div onclick="$('.order-done').hide();" style="position:fixed; width:100%; height:100%; z-index:0; left:0px; top:0px; cursor:pointer;"></div>
                 <script>
                     window.order_form = {
                         count:1,
@@ -1974,7 +1980,7 @@ color: inherit;
                     order_form.init();
 
                 </script>
-                <div>
+                <div class="inner">
                     <img src="static/akto-box-photo.png" />
                     <div class="holder">
                         <div class="left">
