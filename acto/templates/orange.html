@@ -1,5 +1,25 @@
         <div class="bg oranggal" onclick="$('.oranggal').hide()">
         </div>
+        <div
+                                                       class="oranggal"  id="oranggal"
+            style="
+            "
+            >
+            <div onclick="$('.oranggal').hide();"  style="position:fixed; width:100%; height:100%; left:0px; top:0px; cursor:pointer;">
+            </div>
+
+            <div class="oimage">
+                <div class="dimage"><img class="image" src="{{items.0.image.url}}" /></div>
+                <div class="dtext">
+                    <div onclick="$('.oranggal').hide();" class="cross"><img src="/static/orange/x.png" /></div>
+                    <div class="text">{{items.0.text|safe}}</div>
+                    <div class="nav">
+                        <div style="float:left;" onclick="orangeprev();">  <img src="/static/orange/<.png" /> </div>
+                        <div style="float:right;" onclick="orangenext();"> <img src="/static/orange/>.png" /> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="page-orange" id="page-orange">
             <div class="triangle-up"> </div>
             <div class="content">
@@ -8,26 +28,6 @@
                 </div>
                 <img class="logo" alt="{{page.title|striptags}}" src="{{page.logo.url}}" />
                 {% with items=page.items.all|dictsort:"order" %}
-                <div
-                                                               class="oranggal"  id="oranggal"
-                    style="
-                    "
-                    >
-                    <div onclick="$('.oranggal').hide();"  style="position:fixed; width:100%; height:100%; left:0px; top:0px; cursor:pointer;">
-                    </div>
-
-                    <div class="oimage">
-                        <div class="dimage"><img class="image" src="{{items.0.image.url}}" /></div>
-                        <div class="dtext">
-                            <div onclick="$('.oranggal').hide();" class="cross"><img src="/static/orange/x.png" /></div>
-                            <div class="text">{{items.0.text|safe}}</div>
-                            <div class="nav">
-                                <div style="float:left;" onclick="orangeprev();">  <img src="/static/orange/<.png" /> </div>
-                                <div style="float:right;" onclick="orangenext();"> <img src="/static/orange/>.png" /> </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
     <style>
         #oranggal .oimage {
             display:none;
@@ -93,6 +93,7 @@
             background-color:white;
         }
         #oranggal {
+            min-width:1110px;
             top:0px;
             position:fixed;
             z-index:100;
