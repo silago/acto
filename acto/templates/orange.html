@@ -151,9 +151,10 @@
             ];
 
         orangeprev = function() {
-          ORANGE_GALLERY_INDEX++;
-          if (ORANGE_GALLERY_INDEX<1) {
-            ORANGE_GALLERY_INDEX=1;
+          if (ORANGE_GALLERY_INDEX<=1) {
+            ORANGE_GALLERY_INDEX=ORANGE_COUNT;
+          } else {
+            ORANGE_GALLERY_INDEX--;
           }
           var _ = orange_images[ORANGE_GALLERY_INDEX];
           $('#oranggal .oimage img.image').attr('src',_.image);
@@ -161,9 +162,10 @@
           
         }
         orangenext = function() {
-          ORANGE_GALLERY_INDEX++;
           if (ORANGE_GALLERY_INDEX>ORANGE_COUNT) {
             ORANGE_GALLERY_INDEX=1;
+          } else {
+            ORANGE_GALLERY_INDEX++;
           }
           var _ = orange_images[ORANGE_GALLERY_INDEX];
           $('#oranggal .oimage img.image').attr('src',_.image);
