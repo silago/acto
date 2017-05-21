@@ -82,11 +82,28 @@ WSGI_APPLICATION = 'acto.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-
+#Host
+#    ec2-107-22-244-62.compute-1.amazonaws.com
+#Database
+#
+#User
+#
+#Port
+#
+#Password
+#    3a576694d910d8f93dfc923d49138362a858f7908d3c5cd0ba2c9ed0a4cb387f
+#URI
+#    postgres://cgukjzmpcsvstt:3a576694d910d8f93dfc923d49138362a858f7908d3c5cd0ba2c9ed0a4cb387f@ec2-107-22-244-62.compute-1.amazonaws.com:5432/dcc1jc5kj044nm
+#Heroku CLI
+#    heroku pg:psql postgresql-curly-64135 --app silag-acto-back-server3
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        "NAME":"dcc1jc5kj044nm",
+        "USER":"cgukjzmpcsvstt",
+        "PORT":"5432",
+        "PASSWORD":"3a576694d910d8f93dfc923d49138362a858f7908d3c5cd0ba2c9ed0a4cb387f",
+        "HOST":"ec2-107-22-244-62.compute-1.amazonaws.com"
     }
 }
 

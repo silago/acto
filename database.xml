@@ -1,0 +1,754 @@
+<?xml version="1.0" encoding="utf-8"?>
+<django-objects version="1.0">
+    <object model="auth.user" pk="1">
+        <field name="password" type="CharField">pbkdf2_sha256$30000$h4EhMpzI9zra$uof3+npxyRwxaEHNk+oTEytC6fn4pfkUeWF55+HhKD4=</field>
+        <field name="last_login" type="DateTimeField">2017-04-10T16:20:09.749884+00:00</field>
+        <field name="is_superuser" type="BooleanField">True</field>
+        <field name="username" type="CharField">silago</field>
+        <field name="first_name" type="CharField"></field>
+        <field name="last_name" type="CharField"></field>
+        <field name="email" type="CharField">silago.nevermind@gmail.com</field>
+        <field name="is_staff" type="BooleanField">True</field>
+        <field name="is_active" type="BooleanField">True</field>
+        <field name="date_joined" type="DateTimeField">2017-02-25T15:45:22.692331+00:00</field>
+        <field name="groups" rel="ManyToManyRel" to="auth.group"></field>
+        <field name="user_permissions" rel="ManyToManyRel" to="auth.permission"></field>
+    </object>
+    <object model="auth.user" pk="2">
+        <field name="password" type="CharField">pbkdf2_sha256$30000$rBWLh7PSUWWb$KewxT0Ec7wjgcCkaZI6UNxr7ayPR3g/zt/pms5gRo4s=</field>
+        <field name="last_login" type="DateTimeField">2017-04-30T12:36:38.052021+00:00</field>
+        <field name="is_superuser" type="BooleanField">True</field>
+        <field name="username" type="CharField">admin</field>
+        <field name="first_name" type="CharField"></field>
+        <field name="last_name" type="CharField"></field>
+        <field name="email" type="CharField">silago@inbox.ru</field>
+        <field name="is_staff" type="BooleanField">True</field>
+        <field name="is_active" type="BooleanField">True</field>
+        <field name="date_joined" type="DateTimeField">2017-02-26T17:41:23.605042+00:00</field>
+        <field name="groups" rel="ManyToManyRel" to="auth.group"></field>
+        <field name="user_permissions" rel="ManyToManyRel" to="auth.permission"></field>
+    </object>
+    <object model="sites.site" pk="1">
+        <field name="domain" type="CharField">example.com</field>
+        <field name="name" type="CharField">example.com</field>
+    </object>
+    <object model="sites.site" pk="2">
+        <field name="domain" type="CharField">actovitderm</field>
+        <field name="name" type="CharField">actovitderm</field>
+    </object>
+    <object model="flatpages.flatpage" pk="1">
+        <field name="url" type="CharField">/eula/</field>
+        <field name="title" type="CharField">EULA</field>
+        <field name="content" type="TextField">Important - Read Carefully
+
+Veeam Software ('Veeam')
+
+End User Software License Agreement ('EULA')
+
+This EULA is a legally binding agreement between licensee end user (“End User”) and Veeam setting forth the terms and conditions governing the use and operation of Veeam’s proprietary computer software products (the “Software”) and the written technical specifications for the use and operation of the Software (the “Documentation”). Where the sense and context permit, references in this EULA to the Software include the Documentation. By downloading and installing, copying or otherwise using the Software, and/or otherwise accepting this EULA, End User agrees to be bound by the terms and conditions of this EULA. If End User does not agree to or accept the terms of this EULA, End User may not access or use the Software.
+1.0 Definitions
+
+1.1 “Fee(s)” means any License, Maintenance, professional services, consulting or other Fees agreed to by the parties as set forth in a Transaction Document.
+
+1.2 “Maintenance” and “Maintenance Policies” have the respective meanings set forth in Section 7.0.
+
+1.3 “Transaction” and “Transaction Document” have the following meanings: “Transaction(s)” is a License transaction pursuant to which End User: i) accepts this EULA as provided above and ii) takes actual or constructive possession of the Software. A Transaction may take place by any lawful means, electronically or in writing, and may be confirmed by a) purchase orders, credit orders, commitment letters, license keys, amendments to this EULA or other similar materials, signed or unsigned, (each a “Transaction Document(s)”), or b) by the conduct of the affected parties. A Transaction may be initiated and implemented by any entity that is directly or indirectly a party to it, including End User, Veeam, or authorized third party distributors, dealers, and/or other resellers of the Software. A Transaction Document may contain usage, business, legal and other terms and conditions agreed to by the parties. The foregoing notwithstanding, each Transaction will require that: i) this EULA be accepted by End User and ii) End User obtains actual or constructive possession of the Software. In the event of a conflict or inconsistency between the terms and conditions of this EULA and those set forth in a Transaction Document, the terms and conditions of the Transaction Document will govern and control.
+
+1.4 “Open Source” means various open source software components licensed under the terms of applicable open source license agreements included in the materials relating to such software. Open Source Software is composed of individual software components, each of which has its own copyright and its own applicable license conditions. A current list of Open Source Software used by Veeam can be found at http://www.veeam.com/eula-oss.html.
+2.0 Grant of License
+
+2.1 License Grant. When the Software is delivered to End User as part of a Transaction, End User will have, subject to the terms and conditions of this EULA, a perpetual, non-transferable, non-exclusive, license (“License”), to use the Software in object code format, solely for End User's internal business purposes for the management and processing of its own data and not the data of any third party(ies). Veeam Software License is perpetual, unless the Software is delivered to End User as part of a Transaction on a non-perpetual basis for a defined period, in such case, the End User’s right to use such Software will cease on the end date of the defined period.
+
+The data processing restriction set forth in the preceding paragraph will not apply to End User if End User a) has been accepted by Veeam, under “Veeam Cloud Provider Program” at http://www.veeam.com/service-providers.html and b) has accessed and is utilizing the Software with a stock-keeping unit number that designates End User as a “Cloud Provider” or similar description, thus authorizing End User to utilize the Software to perform systems management services for its customers.
+3.0 Additional Terms
+
+Nothing contained in this EULA is intended to prohibit or restrict the parties from mutually agreeing to enter into separate terms and conditions that i) modify or supplement the terms and conditions (including business and/or financial terms) of this EULA or the License granted to End User pursuant to this EULA; or ii) create or modify the terms a particular Transaction.
+4.0 Evaluation License
+
+A License designated as an “Evaluation” License in a Transaction Document authorizes End User to use one (1) copy of the Software for a 30 day period for non-production evaluation or demonstration purposes only.
+5.0 Not for Resale License (NFR)
+
+A License designated as a “Not for Resale License” (NFR) License in a Transaction Document authorizes End User to use one (1) copy of the Software with full functionality for evaluation or demonstration purposes only, and for a defined period of time.
+6.0 Limited Term License
+
+A license designated as a “Limited Term” License in a Transaction Document authorizes End User to use one (1) copy of the Software in production environment at End User’s site for a defined period of time. The defined period for a “Limited Term” License commences immediately upon generation of the license key.
+7.0 Maintenance
+
+Maintenance and support (“Maintenance”) for the Software will be available in accordance with Veeam’s applicable Maintenance Policies then in effect and shall commence on delivery of the Software. Provided End User is current on Maintenance, End User will receive (a) online support and (b) any Software updates, enhancements and/or improvements that are included or otherwise separately defined under the Maintenance Policies and are not licensed by Veeam at its discretion to its customers for a separate charge. Veeam’s current Maintenance Policies can be found at http://www.veeam.com/support.html.
+8.0 Copyright and Other Restrictions
+
+The Software is protected by copyright laws and international copyright treaties, as well as other intellectual property laws and treaties. The Software is licensed, not sold. The Software contains copyrighted material, trade secrets and other proprietary material of Veeam. All right, title and interest in the Software remains at all times with Veeam. In no event will End User directly or indirectly permit the Software to be decompiled, reverse engineered, or disassembled. End User will not disclose, transfer or otherwise make available the Software, or the results of any benchmark or other tests of the Software, to any third party without the prior written consent of Veeam. End User shall not remove any proprietary notices from the Software. End User may make one copy of the Software solely for backup or archival purposes.
+9.0 Audit
+
+During the term of this Agreement and for a period of one year thereafter, Veeam may, during normal business hours and upon reasonable prior notice to End User, inspect the files, computer processors, equipment and facilities of End User to verify End User's compliance with this EULA.
+10.0 Limited Warranty and Limitation of Liability
+
+Veeam warrants that it has the right and authority to grant the License under this EULA. Veeam will defend or, at its option, settle any action against End User based upon a claim that its use of the Software infringes any patent, copyright or other intellectual property right of a third party, and will indemnify End User against any amounts awarded against End User as a result of the claim, provided Veeam is promptly notified of the assertion of the claim and has control of its defense or settlement. Veeam warrants that the Software, in its unmodified form as initially delivered or made available to End User, will perform substantially in accordance with the Documentation for a warranty period of ninety (90) days from the date the Software is delivered to End User. In the event the Software fails in a material respect to operate in accordance with the Documentation during the warranty period and Veeam is unable to correct the defect, Veeam’s sole and exclusive liability and End User’s sole and exclusive remedy shall be a refund of the License fee, if any, paid by End User for the Software. In the event a reported problem with the Software is End User’s fault, End User agrees to reimburse Veeam for its correction efforts in accordance with its then standard rates. The foregoing limited warranty will not apply if failure of the Software is the result of damage or misuse caused by End User.
+
+EXCEPT FOR THE LIMITED WARRANTY SET FORTH ABOVE, THE SOFTWARE IS PROVIDED 'AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED WARRANTY THAT THE SOFTWARE IS FREE OF DEFECTS, MERCHANTABLE OR FIT FOR A PARTICULAR PURPOSE. NO ORAL OR WRITTEN INFORMATION OR ADVICE GIVEN BY VEEAM OR ANY THIRD PARTY, INCLUDING, WITHOUT LIMITATION, ANY VEEAM DISTRIBUTORS OR RESELLERS, SHALL CREATE ANY WARRANTY IN ADDITION TO, OR IN ANY WAY INCREASE THE SCOPE OF, THE LIMITED WARRANTY.
+
+In no event will Veeam, its affiliates, resellers, or distributors or suppliers be liable for any indirect, special, incidental or consequential damages arising out of the use of or inability to use the Software, including, without limitation, damages for lost profits, loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses, even if advised of the possibility thereof.
+11.0 Assignment
+
+Except in the event of a sale or transfer by Veeam of all or substantially all of its assets or voting securities, neither party will assign all or any portion of its rights or obligations under this EULA to any third party without the prior written consent of the other party.
+12.0 U.S. Government End Users
+
+Use, duplication, or disclosure of the Software to or by the U. S. Government is subject to the provisions and restrictions as set forth in FAR 52.227-14 and FAR 52.227-19, or equivalent restrictions and provisions as set forth in DFAR 252.227-7013 and DFAR 252.227-7014.
+13.0 General
+
+This Agreement sets forth Veeam's entire obligation and End User’s exclusive rights with respect to the Software and, except to the extent otherwise specifically provided in a purchase order or other written communication or advertising signed or jointly issued by both parties with respect to the Software, supersedes any conflicting terms of any purchase order and any other communication or advertising with respect to the Software. No failure of either party to exercise or enforce any of its rights under this EULA will act as a waiver of those rights. If any provision of this EULA is found illegal or unenforceable, it will be enforced to the maximum extent permissible, and the legality and enforceability of the other provisions of this EULA will not be affected. This EULA will be governed by the laws of the State of Ohio, without regard to its choice of law principles. The United Nations Convention for the International Sale of Goods will not apply.
+14.0 Export Controls
+
+The Software is subject to U.S. Export Administration Regulations. Veeam prohibits any export or re-export of Veeam Software products, services, or technical data to any destinations subject to U.S. embargoes or trade sanctions, except in compliance with the United States Export Administration Act and the related rules and regulations and similar non-U.S. government restrictions, if applicable. End User agrees not to use or make available the Software to or on behalf of any person that is a citizen, national, or resident of, or that is controlled by the government of the countries with which the U.S. may prohibit export transactions. The following countries are subject to the United States embargo or restricted trade cd sanctions: Burma (Myanmar), Cuba, Iran, North Korea, the Republic of South Sudan, the Republic of the Sudan, Syria, or any other country with which the United States may prohibit export transactions.</field>
+        <field name="enable_comments" type="BooleanField">False</field>
+        <field name="template_name" type="CharField"></field>
+        <field name="registration_required" type="BooleanField">False</field>
+        <field name="sites" rel="ManyToManyRel" to="sites.site"><object pk="2"></object><object pk="1"></object></field>
+    </object>
+    <object model="base.tripletextitem" pk="1">
+        <field name="text" type="TextField">&lt;p&gt;Заказывал Актовидерм с доставкой, всем остался доволен. Сам спрей еще не пробовал, но на полке смотрится огненно.&lt;/p&gt;</field>
+        <field name="name" type="CharField">Александр Близнюк</field>
+        <field name="subtext" type="CharField">Москва</field>
+        <field name="page" rel="ManyToOneRel" to="base.yellowpage">1</field>
+    </object>
+    <object model="base.tripletextitem" pk="2">
+        <field name="text" type="TextField">&lt;p&gt;Привезли прямо домой, я так рада! Не пришлось даже куда-то ходить. Мои нью-бэлансы довольны!&lt;/p&gt;</field>
+        <field name="name" type="CharField">Ольга Смирнова</field>
+        <field name="subtext" type="CharField">Лазаревское</field>
+        <field name="page" rel="ManyToOneRel" to="base.yellowpage">1</field>
+    </object>
+    <object model="base.tripletextitem" pk="3">
+        <field name="text" type="TextField">&lt;p&gt;Курьер хотел отжать у меня сотку, но я его присмирил. А так сервис хороший, буду заказывать еще.&lt;/p&gt;</field>
+        <field name="name" type="CharField">Андрей Кудинов</field>
+        <field name="subtext" type="CharField">Москва</field>
+        <field name="page" rel="ManyToOneRel" to="base.yellowpage">1</field>
+    </object>
+    <object model="base.tripletextitem" pk="4">
+        <field name="text" type="TextField">&lt;p&gt;Это вообще не нормально, что у вас такая хорошая доставка!&lt;/p&gt;</field>
+        <field name="name" type="CharField">Ольга Волнухина</field>
+        <field name="subtext" type="CharField">Санкт-Петербург</field>
+        <field name="page" rel="ManyToOneRel" to="base.yellowpage">1</field>
+    </object>
+    <object model="base.textitem" pk="1">
+        <field name="order" type="IntegerField">1</field>
+        <field name="caption" type="TextField">&lt;p&gt;Как наносить Актовидерм?&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;</field>
+        <field name="text" type="TextField">&lt;p&gt;Открыть крышку и распылять аэрозоль 3 секунды на место повреждения, захватывая 2-3 см здоровой кожи.&lt;/p&gt;
+&lt;p&gt;Дать пленке высохнуть в течение 20 секунд.&lt;br /&gt;Нанести еще 1&amp;amp;ndash;2 слоя жидкого пластыря для надежности.&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;</field>
+        <field name="page" rel="ManyToOneRel" to="base.faqpage">1</field>
+    </object>
+    <object model="base.textitem" pk="2">
+        <field name="order" type="IntegerField">1</field>
+        <field name="caption" type="TextField">&lt;p&gt;Сколько держится повязка Актовидерм?&lt;/p&gt;</field>
+        <field name="text" type="TextField">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;</field>
+        <field name="page" rel="ManyToOneRel" to="base.faqpage">1</field>
+    </object>
+    <object model="base.textitem" pk="3">
+        <field name="order" type="IntegerField">2</field>
+        <field name="caption" type="TextField">&lt;p&gt;С какого возраста можно применять Актовидерм?&lt;/p&gt;</field>
+        <field name="text" type="TextField">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;</field>
+        <field name="page" rel="ManyToOneRel" to="base.faqpage">1</field>
+    </object>
+    <object model="base.textitem" pk="4">
+        <field name="order" type="IntegerField">1</field>
+        <field name="caption" type="TextField">&lt;p&gt;Почему с Актовидермом мозоли заживают быстрее&lt;/p&gt;</field>
+        <field name="text" type="TextField">&lt;p&gt;Жидкий пластырь Актовидерм создает отличные условия для скорейшего заживления влажных мозолей. Он пропускает воздух, препятствует проникновению влаги, бактерий,&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; инфекций, защищает ранку от механических повреждений и создает условия для подсыхания мозоли. Поэтому с Актовидермом восстановление кожи происходит гораздо быстрее!&lt;/p&gt;</field>
+        <field name="page" rel="ManyToOneRel" to="base.faqpage">1</field>
+    </object>
+    <object model="base.textitem" pk="5">
+        <field name="order" type="IntegerField">5</field>
+        <field name="caption" type="TextField">&lt;p&gt;Как помогает?&lt;/p&gt;</field>
+        <field name="text" type="TextField">&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum maximus augue, ut interdum turpis euismod ac. In et sem eget purus consequat volutpat. Curabitur in metus in nunc imperdiet suscipit. Nullam sed lectus pulvinar, consequat magna quis, consequat justo. Aenean quis eleifend massa, eu pharetra lorem. In ut leo nibh. Sed euismod quam sem, non vulputate dui vehicula et. --&amp;gt;&lt;/p&gt;</field>
+        <field name="page" rel="ManyToOneRel" to="base.faqpage">1</field>
+    </object>
+    <object model="base.textitem" pk="6">
+        <field name="order" type="IntegerField">6</field>
+        <field name="caption" type="TextField">&lt;p&gt;Зачем нужна аэрозольная повязка Актовидерм?&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;</field>
+        <field name="text" type="TextField">&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum maximus augue, ut interdum turpis euismod ac. In et sem eget purus consequat volutpat. Curabitur in metus in nunc imperdiet suscipit. Nullam sed lectus pulvinar, consequat magna quis, consequat justo. Aenean quis eleifend massa, eu pharetra lorem. In ut leo nibh. Sed euismod quam sem, non vulputate dui vehicula et. --&amp;gt;&lt;/p&gt;</field>
+        <field name="page" rel="ManyToOneRel" to="base.faqpage">1</field>
+    </object>
+    <object model="base.forpageimageitem" pk="1">
+        <field name="image" type="FileField">for_cuts_KFhSAdt.png</field>
+        <field name="alt" type="CharField"></field>
+        <field name="order" type="IntegerField">1</field>
+        <field name="page" rel="ManyToOneRel" to="base.forpage">1</field>
+    </object>
+    <object model="base.forpageimageitem" pk="2">
+        <field name="image" type="FileField">abrasion_Nv1QcrK.png</field>
+        <field name="alt" type="CharField"></field>
+        <field name="order" type="IntegerField">2</field>
+        <field name="page" rel="ManyToOneRel" to="base.forpage">1</field>
+    </object>
+    <object model="base.forpageimageitem" pk="3">
+        <field name="image" type="FileField">for_traums_YJ8vr6w.png</field>
+        <field name="alt" type="CharField"></field>
+        <field name="order" type="IntegerField">3</field>
+        <field name="page" rel="ManyToOneRel" to="base.forpage">1</field>
+    </object>
+    <object model="base.forpageimageitem" pk="4">
+        <field name="image" type="FileField">callus_YTZnHwY.png</field>
+        <field name="alt" type="CharField"></field>
+        <field name="order" type="IntegerField">4</field>
+        <field name="page" rel="ManyToOneRel" to="base.forpage">1</field>
+    </object>
+    <object model="base.docspageimageitem" pk="1">
+        <field name="image" type="FileField">Certificate-X5M-04_ymlFSk1.jpg</field>
+        <field name="alt" type="CharField"></field>
+        <field name="order" type="IntegerField">1</field>
+        <field name="page" rel="ManyToOneRel" to="base.docspage">1</field>
+    </object>
+    <object model="base.docspageimageitem" pk="2">
+        <field name="image" type="FileField">binomo_limited_uSW0Lzg.jpg</field>
+        <field name="alt" type="CharField"></field>
+        <field name="order" type="IntegerField">2</field>
+        <field name="page" rel="ManyToOneRel" to="base.docspage">1</field>
+    </object>
+    <object model="base.docspageimageitem" pk="3">
+        <field name="image" type="FileField">sert-nauch_AZ8bIcl.jpg</field>
+        <field name="alt" type="CharField"></field>
+        <field name="order" type="IntegerField">3</field>
+        <field name="page" rel="ManyToOneRel" to="base.docspage">1</field>
+    </object>
+    <object model="base.docspageimageitem" pk="4">
+        <field name="image" type="FileField">f7c8b69022a38577da31ca82c79a4ba1_sGDZZDj.jpg</field>
+        <field name="alt" type="CharField"></field>
+        <field name="order" type="IntegerField">4</field>
+        <field name="page" rel="ManyToOneRel" to="base.docspage">1</field>
+    </object>
+    <object model="base.docspageimageitem" pk="5">
+        <field name="image" type="FileField">sertifikat-sootvetstviya-vorot-en-12424-en-12604-en-12453-en-13241-1_0Sk39n5.jpg</field>
+        <field name="alt" type="CharField"></field>
+        <field name="order" type="IntegerField">5</field>
+        <field name="page" rel="ManyToOneRel" to="base.docspage">1</field>
+    </object>
+    <object model="base.doubletextdoubleimageitem" pk="1">
+        <field name="image" type="FileField">shake_hSw7hct.png</field>
+        <field name="alt" type="CharField"></field>
+        <field name="subimage" type="FileField">1_hct3qxn.png</field>
+        <field name="caption" type="CharField">Встряхните Балон</field>
+        <field name="text" type="CharField"></field>
+        <field name="order" type="IntegerField">1</field>
+    </object>
+    <object model="base.doubletextdoubleimageitem" pk="2">
+        <field name="image" type="FileField">spray_nxm9Nld.png</field>
+        <field name="alt" type="CharField"></field>
+        <field name="subimage" type="FileField">2_Q1psMAf.png</field>
+        <field name="caption" type="CharField">Распылите Актовитдерм</field>
+        <field name="text" type="CharField">на поврежденный участок кожи в течении 1-3 секунд с расстояния 20см</field>
+        <field name="order" type="IntegerField">2</field>
+    </object>
+    <object model="base.doubletextdoubleimageitem" pk="3">
+        <field name="image" type="FileField">time_UkCgA5o.png</field>
+        <field name="alt" type="CharField"></field>
+        <field name="subimage" type="FileField">3_1IvSEzZ.png</field>
+        <field name="caption" type="CharField">Дайте Высохнуть</field>
+        <field name="text" type="CharField">Пленка образуется в течении 20 секунд</field>
+        <field name="order" type="IntegerField">3</field>
+    </object>
+    <object model="base.doubletextdoubleimageitem" pk="4">
+        <field name="image" type="FileField">3spray_mggcK6M.png</field>
+        <field name="alt" type="CharField"></field>
+        <field name="subimage" type="FileField">4_4QTurSG.png</field>
+        <field name="caption" type="CharField">ПОВТОРИТЕ</field>
+        <field name="text" type="CharField">Для создания более надежной защиты нанесите АКТОВИТДЕРМ® в 2-3 слоя.</field>
+        <field name="order" type="IntegerField">4</field>
+    </object>
+    <object model="base.doubletextdoubleimageitem" pk="5">
+        <field name="image" type="FileField">skin_8pi3Miw.png</field>
+        <field name="alt" type="CharField"></field>
+        <field name="subimage" type="FileField">5_yd3wYEg.png</field>
+        <field name="caption" type="CharField">ПЛЕНКА ОТХОДИТ</field>
+        <field name="text" type="CharField">в течение суток. При необходимости намочите пленку и снимите её самостоятельно.</field>
+        <field name="order" type="IntegerField">5</field>
+    </object>
+    <object model="base.galleryimageitem" pk="1">
+        <field name="image" type="FileField">knife.jpg</field>
+        <field name="alt" type="CharField">Lorem</field>
+        <field name="text" type="TextField">&lt;p&gt;&amp;nbsp;&lt;span&gt; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas mi id iaculis interdum. Nam lacinia dui massa, quis viverra ante dictum ac. Ut commodo justo eget mi gravida, eu malesuada nisi blandit. Pellentesque facilisis et leo id finibus. Pellentesque consequat turpis non faucibus scelerisque. Curabitur mattis sem nec nisl fringilla, tristique tempus urna aliquam. Morbi molestie, massa sit amet efficitur auctor, mi ex ornare felis, non luctus nibh est et risus. Nunc quis vehicula eros. Ut nec rutrum tellus, sit amet ultricies lorem. Curabitur vitae libero sit amet dui mollis fermentum nec vel ipsum. Praesent fringilla ultrices tortor, non tempus elit placerat sed. &lt;/span&gt;&lt;/p&gt;</field>
+        <field name="order" type="IntegerField">1</field>
+        <field name="page" rel="ManyToOneRel" to="base.orangepage">1</field>
+    </object>
+    <object model="base.galleryimageitem" pk="2">
+        <field name="image" type="FileField">skovoroda.jpg</field>
+        <field name="alt" type="CharField">Lorem</field>
+        <field name="text" type="TextField">&lt;p&gt;&amp;nbsp;&lt;span&gt; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas mi id iaculis interdum. Nam lacinia dui massa, quis viverra ante dictum ac. Ut commodo justo eget mi gravida, eu malesuada nisi blandit. Pellentesque facilisis et leo id finibus. Pellentesque consequat turpis non faucibus scelerisque. Curabitur mattis sem nec nisl fringilla, tristique tempus urna aliquam. Morbi molestie, massa sit amet efficitur auctor, mi ex ornare felis, non luctus nibh est et risus. Nunc quis vehicula eros. Ut nec rutrum tellus, sit amet ultricies lorem. Curabitur vitae libero sit amet dui mollis fermentum nec vel ipsum. Praesent fringilla ultrices tortor, non tempus elit placerat sed. &lt;/span&gt;&lt;/p&gt;</field>
+        <field name="order" type="IntegerField">2</field>
+        <field name="page" rel="ManyToOneRel" to="base.orangepage">1</field>
+    </object>
+    <object model="base.galleryimageitem" pk="3">
+        <field name="image" type="FileField">2girls.jpg</field>
+        <field name="alt" type="CharField">Lorem</field>
+        <field name="text" type="TextField">&lt;p&gt;&amp;nbsp;&lt;span&gt; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas mi id iaculis interdum. Nam lacinia dui massa, quis viverra ante dictum ac. Ut commodo justo eget mi gravida, eu malesuada nisi blandit. Pellentesque facilisis et leo id finibus. Pellentesque consequat turpis non faucibus scelerisque. Curabitur mattis sem nec nisl fringilla, tristique tempus urna aliquam. Morbi molestie, massa sit amet efficitur auctor, mi ex ornare felis, non luctus nibh est et risus. Nunc quis vehicula eros. Ut nec rutrum tellus, sit amet ultricies lorem. Curabitur vitae libero sit amet dui mollis fermentum nec vel ipsum. Praesent fringilla ultrices tortor, non tempus elit placerat sed. &lt;/span&gt;&lt;/p&gt;</field>
+        <field name="order" type="IntegerField">3</field>
+        <field name="page" rel="ManyToOneRel" to="base.orangepage">1</field>
+    </object>
+    <object model="base.galleryimageitem" pk="4">
+        <field name="image" type="FileField">selfie.jpg</field>
+        <field name="alt" type="CharField">Lorem</field>
+        <field name="text" type="TextField">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas mi id iaculis interdum. Nam lacinia dui massa, quis viverra ante dictum ac. Ut commodo justo eget mi gravida, eu malesuada nisi blandit. Pellentesque facilisis et leo id finibus. Pellentesque consequat turpis non faucibus scelerisque. Curabitur mattis sem nec nisl fringilla, tristique tempus urna aliquam. Morbi molestie, massa sit amet efficitur auctor, mi ex ornare felis, non luctus nibh est et risus. Nunc quis vehicula eros. Ut nec rutrum tellus, sit amet ultricies lorem. Curabitur vitae libero sit amet dui mollis fermentum nec vel ipsum. Praesent fringilla ultrices tortor, non tempus elit placerat sed.</field>
+        <field name="order" type="IntegerField">4</field>
+        <field name="page" rel="ManyToOneRel" to="base.orangepage">1</field>
+    </object>
+    <object model="base.galleryimageitem" pk="5">
+        <field name="image" type="FileField">keys.jpg</field>
+        <field name="alt" type="CharField">Lorem</field>
+        <field name="text" type="TextField">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas mi id iaculis interdum. Nam lacinia dui massa, quis viverra ante dictum ac. Ut commodo justo eget mi gravida, eu malesuada nisi blandit. Pellentesque facilisis et leo id finibus. Pellentesque consequat turpis non faucibus scelerisque. Curabitur mattis sem nec nisl fringilla, tristique tempus urna aliquam. Morbi molestie, massa sit amet efficitur auctor, mi ex ornare felis, non luctus nibh est et risus. Nunc quis vehicula eros. Ut nec rutrum tellus, sit amet ultricies lorem. Curabitur vitae libero sit amet dui mollis fermentum nec vel ipsum. Praesent fringilla ultrices tortor, non tempus elit placerat sed.</field>
+        <field name="order" type="IntegerField">5</field>
+        <field name="page" rel="ManyToOneRel" to="base.orangepage">1</field>
+    </object>
+    <object model="base.galleryimageitem" pk="6">
+        <field name="image" type="FileField">shoes.jpg</field>
+        <field name="alt" type="CharField">Lorem</field>
+        <field name="text" type="TextField">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas mi id iaculis interdum. Nam lacinia dui massa, quis viverra ante dictum ac. Ut commodo justo eget mi gravida, eu malesuada nisi blandit. Pellentesque facilisis et leo id finibus. Pellentesque consequat turpis non faucibus scelerisque. Curabitur mattis sem nec nisl fringilla, tristique tempus urna aliquam. Morbi molestie, massa sit amet efficitur auctor, mi ex ornare felis, non luctus nibh est et risus. Nunc quis vehicula eros. Ut nec rutrum tellus, sit amet ultricies lorem. Curabitur vitae libero sit amet dui mollis fermentum nec vel ipsum. Praesent fringilla ultrices tortor, non tempus elit placerat sed.</field>
+        <field name="order" type="IntegerField">6</field>
+        <field name="page" rel="ManyToOneRel" to="base.orangepage">1</field>
+    </object>
+    <object model="base.galleryimageitem" pk="7">
+        <field name="image" type="FileField">fire.jpg</field>
+        <field name="alt" type="CharField">Lorem</field>
+        <field name="text" type="TextField">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas mi id iaculis interdum. Nam lacinia dui massa, quis viverra ante dictum ac. Ut commodo justo eget mi gravida, eu malesuada nisi blandit. Pellentesque facilisis et leo id finibus. Pellentesque consequat turpis non faucibus scelerisque. Curabitur mattis sem nec nisl fringilla, tristique tempus urna aliquam. Morbi molestie, massa sit amet efficitur auctor, mi ex ornare felis, non luctus nibh est et risus. Nunc quis vehicula eros. Ut nec rutrum tellus, sit amet ultricies lorem. Curabitur vitae libero sit amet dui mollis fermentum nec vel ipsum. Praesent fringilla ultrices tortor, non tempus elit placerat sed.</field>
+        <field name="order" type="IntegerField">7</field>
+        <field name="page" rel="ManyToOneRel" to="base.orangepage">1</field>
+    </object>
+    <object model="base.textimageitem" pk="1">
+        <field name="image" type="FileField">20.png</field>
+        <field name="alt" type="CharField"></field>
+        <field name="text" type="TextField">&lt;p&gt;секунд слой&lt;/p&gt;
+&lt;p&gt;сохнет после нанесения&lt;/p&gt;</field>
+        <field name="order" type="IntegerField">1</field>
+    </object>
+    <object model="base.textimageitem" pk="2">
+        <field name="image" type="FileField">24.png</field>
+        <field name="alt" type="CharField"></field>
+        <field name="text" type="TextField">&lt;p&gt;часа защиты&lt;/p&gt;
+&lt;p&gt;от инфицирования&lt;/p&gt;
+&lt;p&gt;и попадания воды&lt;/p&gt;</field>
+        <field name="order" type="IntegerField">2</field>
+    </object>
+    <object model="base.textimageitem" pk="3">
+        <field name="image" type="FileField">200.png</field>
+        <field name="alt" type="CharField"></field>
+        <field name="text" type="TextField">&lt;p&gt;пластырей&lt;/p&gt;
+&lt;p&gt;заменяет одна упааковка&lt;/p&gt;
+&lt;p&gt;АКТОВИТДРЕМ&lt;span class="_Tgc"&gt;&amp;reg;&lt;/span&gt;&lt;/p&gt;</field>
+        <field name="order" type="IntegerField">4</field>
+    </object>
+    <object model="base.textimageitem" pk="4">
+        <field name="image" type="FileField">150.png</field>
+        <field name="alt" type="CharField"></field>
+        <field name="text" type="TextField">&lt;p&gt;применений&lt;/p&gt;
+&lt;p&gt;на один балон&lt;/p&gt;</field>
+        <field name="order" type="IntegerField">3</field>
+    </object>
+    <object model="base.textimageitem" pk="5">
+        <field name="image" type="FileField">dot1.png</field>
+        <field name="alt" type="CharField"></field>
+        <field name="text" type="TextField">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas mi id iaculis interdum. Nam lacinia dui massa, quis viverra ante dictum ac. Ut commodo justo eget mi gravida, eu malesuada nisi blandit. Pellentesque facilisis et leo id finibus. Pellentesque consequat turpis non faucibus scelerisque. Curabitur mattis sem nec nisl fringilla, tristique tempus urna aliquam. Morbi molestie, massa sit amet efficitur auctor, mi ex ornare felis, non luctus nibh est et risus. Nunc quis vehicula eros. Ut nec rutrum tellus, sit amet ultricies lorem. Curabitur vitae libero sit amet dui mollis fermentum nec vel ipsum. Praesent fringilla ultrices tortor, non tempus elit placerat sed.&lt;/p&gt;</field>
+        <field name="order" type="IntegerField">1</field>
+    </object>
+    <object model="base.textimageitem" pk="6">
+        <field name="image" type="FileField">dot2.png</field>
+        <field name="alt" type="CharField"></field>
+        <field name="text" type="TextField">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas mi id iaculis interdum. Nam lacinia dui massa, quis viverra ante dictum ac. Ut commodo justo eget mi gravida, eu malesuada nisi blandit. Pellentesque facilisis et leo id finibus. Pellentesque consequat turpis non faucibus scelerisque. Curabitur mattis sem nec nisl fringilla, tristique tempus urna aliquam. Morbi molestie, massa sit amet efficitur auctor, mi ex ornare felis, non luctus nibh est et risus. Nunc quis vehicula eros. Ut nec rutrum tellus, sit amet ultricies lorem. Curabitur vitae libero sit amet dui mollis fermentum nec vel ipsum. Praesent fringilla ultrices tortor, non tempus elit placerat sed.&lt;/p&gt;</field>
+        <field name="order" type="IntegerField">2</field>
+    </object>
+    <object model="base.textimageitem" pk="7">
+        <field name="image" type="FileField">dot3.png</field>
+        <field name="alt" type="CharField"></field>
+        <field name="text" type="TextField">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas mi id iaculis interdum. Nam lacinia dui massa, quis viverra ante dictum ac. Ut commodo justo eget mi gravida, eu malesuada nisi blandit. Pellentesque facilisis et leo id finibus. Pellentesque consequat turpis non faucibus scelerisque. Curabitur mattis sem nec nisl fringilla, tristique tempus urna aliquam. Morbi molestie, massa sit amet efficitur auctor, mi ex ornare felis, non luctus nibh est et risus. Nunc quis vehicula eros. Ut nec rutrum tellus, sit amet ultricies lorem. Curabitur vitae libero sit amet dui mollis fermentum nec vel ipsum. Praesent fringilla ultrices tortor, non tempus elit placerat sed.&lt;/p&gt;</field>
+        <field name="order" type="IntegerField">3</field>
+    </object>
+    <object model="base.textimageitem" pk="8">
+        <field name="image" type="FileField">1.png</field>
+        <field name="alt" type="CharField"></field>
+        <field name="text" type="TextField">&lt;p&gt;Защищает поврежденную кожу&lt;/p&gt;</field>
+        <field name="order" type="IntegerField">1</field>
+    </object>
+    <object model="base.textimageitem" pk="9">
+        <field name="image" type="FileField">2.png</field>
+        <field name="alt" type="CharField"></field>
+        <field name="text" type="TextField">&lt;p&gt;Невидимый&lt;/p&gt;</field>
+        <field name="order" type="IntegerField">2</field>
+    </object>
+    <object model="base.textimageitem" pk="10">
+        <field name="image" type="FileField">3.png</field>
+        <field name="alt" type="CharField"></field>
+        <field name="text" type="TextField">&lt;p&gt;Предотвращает инфицирование&lt;/p&gt;</field>
+        <field name="order" type="IntegerField">3</field>
+    </object>
+    <object model="base.textimageitem" pk="11">
+        <field name="image" type="FileField">4.png</field>
+        <field name="alt" type="CharField"></field>
+        <field name="text" type="TextField">&lt;p&gt;Водонепроницаемый&lt;/p&gt;</field>
+        <field name="order" type="IntegerField">4</field>
+    </object>
+    <object model="base.textimageitem" pk="12">
+        <field name="image" type="FileField">5.png</field>
+        <field name="alt" type="CharField"></field>
+        <field name="text" type="TextField">&lt;p&gt;Эластичный&lt;/p&gt;</field>
+        <field name="order" type="IntegerField">5</field>
+    </object>
+    <object model="base.textimageitem" pk="13">
+        <field name="image" type="FileField">f.png</field>
+        <field name="alt" type="CharField"></field>
+        <field name="text" type="TextField">&lt;p&gt;/facebook&lt;/p&gt;</field>
+        <field name="order" type="IntegerField">1</field>
+    </object>
+    <object model="base.textimageitem" pk="14">
+        <field name="image" type="FileField">i.png</field>
+        <field name="alt" type="CharField"></field>
+        <field name="text" type="TextField">&lt;p&gt;/instagram&lt;/p&gt;</field>
+        <field name="order" type="IntegerField">2</field>
+    </object>
+    <object model="base.textimageitem" pk="15">
+        <field name="image" type="FileField">v.png</field>
+        <field name="alt" type="CharField"></field>
+        <field name="text" type="TextField">&lt;p&gt;/vk.com&lt;/p&gt;</field>
+        <field name="order" type="IntegerField">3</field>
+    </object>
+    <object model="base.textimageitem" pk="16">
+        <field name="image" type="FileField">o.png</field>
+        <field name="alt" type="CharField"></field>
+        <field name="text" type="TextField">&lt;p&gt;/ok.ru&lt;/p&gt;</field>
+        <field name="order" type="IntegerField">4</field>
+    </object>
+    <object model="base.sitesettings" pk="1">
+        <field name="title" type="CharField">Actovitderm</field>
+        <field name="meta_description" type="CharField">Actovitderm</field>
+        <field name="meta_keywords" type="CharField">Actovitderm</field>
+        <field name="cost" type="IntegerField">260</field>
+        <field name="form_title" type="CharField">Жидкая аэрозольная повязка актовитдерм</field>
+        <field name="form_header_1" type="CharField">ОФОРМЛЕНИЕ ЗАКАЗА / Адрес доставки</field>
+        <field name="form_header_2" type="CharField">ОФОРМЛЕНИЕ ЗАКАЗА / Ваши контактные данные</field>
+        <field name="form_header_3" type="CharField">Спасибо, ваша заявка принята</field>
+        <field name="order_complete" type="TextField">Вближайшее время с вами свяжется наш менеджер для подтверждения даты и времени 
+доставки, а также расчета общей стоимости заказа с  учетом доставки до вашего города.
+Пожалуйта, выберите время, когда вам удобно принять звонок:</field>
+        <field name="const_info" type="CharField">Стоимость доставки расчитывается</field>
+        <field name="name_caption" type="CharField">Имя и фамилия</field>
+        <field name="mail_caption" type="CharField">E-mail</field>
+        <field name="phone_caption" type="CharField">Телефон</field>
+    </object>
+    <object model="base.toppage" pk="1">
+        <field name="logo" type="FileField">akto-box-photo_RxVKBnc.png</field>
+        <field name="active" type="BooleanField">True</field>
+        <field name="slug" type="CharField"></field>
+        <field name="template" type="CharField">top.html</field>
+        <field name="order" type="IntegerField">1</field>
+        <field name="menu_title" type="CharField"></field>
+        <field name="backgound" type="FileField">background-top-left_CgPoIMI.png</field>
+        <field name="image" type="FileField">background-top-left_rzXBm7y.png</field>
+        <field name="title" type="TextField">&lt;p&gt;Жидкая&lt;br /&gt;аэрозольная&lt;br /&gt;повязка Актовитдерм&amp;reg;&lt;/p&gt;</field>
+        <field name="banner" type="FileField">banner-non-free_vQYBN35.png</field>
+        <field name="free_delivery_button" type="FileField">banner-free_raelHHp.png</field>
+        <field name="no_delivery_button" type="FileField">banner-non-free_fqHgnh0.png</field>
+    </object>
+    <object model="base.forpage" pk="1">
+        <field name="logo" type="FileField"></field>
+        <field name="active" type="BooleanField">True</field>
+        <field name="title" type="CharField"></field>
+        <field name="slug" type="CharField">when_apply</field>
+        <field name="template" type="CharField">page_for.html</field>
+        <field name="order" type="IntegerField">1</field>
+        <field name="menu_title" type="CharField">когда применяется?</field>
+    </object>
+    <object model="base.orangepage" pk="1">
+        <field name="logo" type="FileField">logo-photo_VCNRyL4.png</field>
+        <field name="active" type="BooleanField">True</field>
+        <field name="title" type="CharField">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas mi id iaculis interdum. Nam lacinia dui massa, quis viverra ante dictum ac. Ut commodo justo eget mi gravida, eu malesuada nisi blandit.</field>
+        <field name="slug" type="CharField"></field>
+        <field name="template" type="CharField">orange.html</field>
+        <field name="order" type="IntegerField">2</field>
+        <field name="menu_title" type="CharField"></field>
+    </object>
+    <object model="base.yellowpage" pk="1">
+        <field name="logo" type="FileField">logo-yellow_s3ryWsX.png</field>
+        <field name="active" type="BooleanField">True</field>
+        <field name="title" type="CharField">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas mi id iaculis interdum. Nam lacinia dui massa, quis viverra ante dictum ac. Ut commodo justo eget mi gravida, eu malesuada nisi blandit.</field>
+        <field name="slug" type="CharField"></field>
+        <field name="template" type="CharField">yellow.html</field>
+        <field name="order" type="IntegerField">12</field>
+        <field name="menu_title" type="CharField"></field>
+    </object>
+    <object model="base.mintpage" pk="1">
+        <field name="logo" type="FileField">logo-mint.png</field>
+        <field name="active" type="BooleanField">True</field>
+        <field name="title" type="CharField"></field>
+        <field name="slug" type="CharField">howitworks</field>
+        <field name="template" type="CharField">mint.html</field>
+        <field name="order" type="IntegerField">1</field>
+        <field name="menu_title" type="CharField">как работает?</field>
+        <field name="left_image" type="FileField">hands.png</field>
+        <field name="right_image" type="FileField">infographic.png</field>
+        <field name="caption" type="TextField">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas mi id iaculis interdum. Nam lacinia dui massa, quis viverra ante dictum ac. Ut commodo justo eget mi gravida, eu malesuada nisi blandit.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;</field>
+    </object>
+    <object model="base.factspage" pk="1">
+        <field name="logo" type="FileField">zag-fakts_MWrwZ2O.png</field>
+        <field name="active" type="BooleanField">True</field>
+        <field name="title" type="CharField"></field>
+        <field name="slug" type="CharField"></field>
+        <field name="template" type="CharField">facts.html</field>
+        <field name="order" type="IntegerField">1</field>
+        <field name="menu_title" type="CharField"></field>
+        <field name="items" rel="ManyToManyRel" to="base.textimageitem"><object pk="1"></object><object pk="2"></object><object pk="3"></object><object pk="4"></object></field>
+    </object>
+    <object model="base.greenpage" pk="1">
+        <field name="logo" type="FileField">logo-green_qshxKfO.png</field>
+        <field name="active" type="BooleanField">True</field>
+        <field name="title" type="CharField">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas mi id iaculis interdum. Nam lacinia dui massa, quis viverra ante dictum ac. Ut commodo justo eget mi gravida, eu malesuada nisi blandit.</field>
+        <field name="slug" type="CharField">forwhoom</field>
+        <field name="template" type="CharField">green.html</field>
+        <field name="order" type="IntegerField">1</field>
+        <field name="menu_title" type="CharField">кому подходит?</field>
+        <field name="free_delivery_button" type="FileField">buy-now_vy6kSgU.png</field>
+        <field name="no_delivery_button" type="FileField">nofree.png</field>
+        <field name="items" rel="ManyToManyRel" to="base.textimageitem"><object pk="5"></object><object pk="6"></object><object pk="7"></object></field>
+    </object>
+    <object model="base.whypage" pk="1">
+        <field name="logo" type="FileField">why-logo_7AeNNAV.png</field>
+        <field name="active" type="BooleanField">True</field>
+        <field name="title" type="CharField"></field>
+        <field name="slug" type="CharField"></field>
+        <field name="template" type="CharField">why.html</field>
+        <field name="order" type="IntegerField">1</field>
+        <field name="menu_title" type="CharField"></field>
+        <field name="items" rel="ManyToManyRel" to="base.textimageitem"><object pk="8"></object><object pk="9"></object><object pk="10"></object><object pk="11"></object><object pk="12"></object></field>
+    </object>
+    <object model="base.howpage" pk="1">
+        <field name="logo" type="FileField">logo-blue.png</field>
+        <field name="active" type="BooleanField">True</field>
+        <field name="title" type="CharField"></field>
+        <field name="slug" type="CharField"></field>
+        <field name="template" type="CharField">blue.html</field>
+        <field name="order" type="IntegerField">1</field>
+        <field name="menu_title" type="CharField"></field>
+        <field name="caption" type="TextField">&lt;p&gt;Lorem ipsum dolor sit amet.&amp;nbsp;Lorem ipsum dolor sit amet.&amp;nbsp;Lorem ipsum dolor sit amet.&lt;/p&gt;</field>
+        <field name="items" rel="ManyToManyRel" to="base.doubletextdoubleimageitem"><object pk="1"></object><object pk="2"></object><object pk="3"></object><object pk="4"></object><object pk="5"></object></field>
+    </object>
+    <object model="base.faqpage" pk="1">
+        <field name="logo" type="FileField">faq-logo_5zf1HYx.png</field>
+        <field name="active" type="BooleanField">True</field>
+        <field name="title" type="CharField"></field>
+        <field name="slug" type="CharField"></field>
+        <field name="template" type="CharField">faq.html</field>
+        <field name="order" type="IntegerField">1</field>
+        <field name="menu_title" type="CharField"></field>
+        <field name="name_caption" type="CharField">ВАШЕ ИМЯ</field>
+        <field name="mail_caption" type="CharField">ЭKTРОННЫЙ АДРЕС</field>
+        <field name="phone_caption" type="CharField">ТЕЛЕФОН</field>
+        <field name="question_caption" type="CharField">ВАШ ВОПРОС</field>
+    </object>
+    <object model="base.docspage" pk="1">
+        <field name="logo" type="FileField">logo-sertificats_6N3UlVN.png</field>
+        <field name="active" type="BooleanField">True</field>
+        <field name="title" type="CharField"></field>
+        <field name="slug" type="CharField"></field>
+        <field name="template" type="CharField">docs.html</field>
+        <field name="order" type="IntegerField">13</field>
+        <field name="menu_title" type="CharField"></field>
+    </object>
+    <object model="base.footerpage" pk="1">
+        <field name="logo" type="FileField">milor.png</field>
+        <field name="active" type="BooleanField">True</field>
+        <field name="title" type="CharField">© Milor Pharma, 2017 г, Все права защищены, ООО «Милора Фарма», Телефон / Факс: +7(499)390-13-97, электронная почта: info@milor-pharma.ru</field>
+        <field name="slug" type="CharField"></field>
+        <field name="template" type="CharField">footer.html</field>
+        <field name="order" type="IntegerField">15</field>
+        <field name="menu_title" type="CharField"></field>
+        <field name="caption" type="CharField">Следите за  Актовитдерм в социальных сетях</field>
+        <field name="info" type="CharField">Данный сайт не является публичной офертой</field>
+        <field name="copy" type="CharField">© Milor Pharma, 2017 г, Все права защищены, ООО «Милора Фарма», Телефон / Факс: +7(499)390-13-97, электронная почта: info@milor-pharma.ru</field>
+        <field name="link" type="CharField">pages/eula</field>
+        <field name="image" type="FileField">warring.png</field>
+    </object>
+    <object model="base.linkimageitem" pk="1">
+        <field name="image" type="FileField">f_QB29835.png</field>
+        <field name="alt" type="CharField">Facebook</field>
+        <field name="link" type="CharField"></field>
+        <field name="order" type="IntegerField">1</field>
+        <field name="page" rel="ManyToOneRel" to="base.footerpage">1</field>
+    </object>
+    <object model="base.linkimageitem" pk="2">
+        <field name="image" type="FileField">i_1XyXvcy.png</field>
+        <field name="alt" type="CharField">Instagram</field>
+        <field name="link" type="CharField"></field>
+        <field name="order" type="IntegerField">2</field>
+        <field name="page" rel="ManyToOneRel" to="base.footerpage">1</field>
+    </object>
+    <object model="base.linkimageitem" pk="3">
+        <field name="image" type="FileField">v_ajz8BNS.png</field>
+        <field name="alt" type="CharField">Vkontakte</field>
+        <field name="link" type="CharField"></field>
+        <field name="order" type="IntegerField">3</field>
+        <field name="page" rel="ManyToOneRel" to="base.footerpage">1</field>
+    </object>
+    <object model="base.linkimageitem" pk="4">
+        <field name="image" type="FileField">o_M1DJlTt.png</field>
+        <field name="alt" type="CharField">odnoklassniki</field>
+        <field name="link" type="CharField"></field>
+        <field name="order" type="IntegerField">4</field>
+        <field name="page" rel="ManyToOneRel" to="base.footerpage">1</field>
+    </object>
+    <object model="base.bottompage" pk="1">
+        <field name="logo" type="FileField">logo.png</field>
+        <field name="active" type="BooleanField">True</field>
+        <field name="title" type="CharField"></field>
+        <field name="slug" type="CharField">buysomewhere</field>
+        <field name="template" type="CharField">bottom.html</field>
+        <field name="order" type="IntegerField">14</field>
+        <field name="menu_title" type="CharField">купить в аптеке</field>
+        <field name="free_delivery_button" type="FileField">free-delivery.png</field>
+        <field name="no_delivery_button" type="FileField">non-free-delivery.png</field>
+        <field name="image" type="FileField">photo.png</field>
+    </object>
+    <object model="base.city" pk="1">
+        <field name="name" type="CharField">Москва</field>
+        <field name="active" type="BooleanField">True</field>
+        <field name="has_delivery" type="BooleanField">True</field>
+        <field name="x" type="FloatField">55.755826</field>
+        <field name="y" type="FloatField">37.6173</field>
+    </object>
+    <object model="base.city" pk="2">
+        <field name="name" type="CharField">Санкт-Петербург</field>
+        <field name="active" type="BooleanField">False</field>
+        <field name="has_delivery" type="BooleanField">False</field>
+        <field name="x" type="FloatField">59.9181715448206</field>
+        <field name="y" type="FloatField">30.305578</field>
+    </object>
+    <object model="base.questions" pk="1">
+        <field name="name" type="CharField">qwe</field>
+        <field name="email" type="CharField">qwe</field>
+        <field name="phone" type="CharField">qwe</field>
+        <field name="text" type="CharField">qwe</field>
+    </object>
+    <object model="base.questions" pk="2">
+        <field name="name" type="CharField">qwe</field>
+        <field name="email" type="CharField">wqe</field>
+        <field name="phone" type="CharField">qwe</field>
+        <field name="text" type="CharField">qwe</field>
+    </object>
+    <object model="base.questions" pk="3">
+        <field name="name" type="CharField">Jhonny</field>
+        <field name="email" type="CharField">qwe</field>
+        <field name="phone" type="CharField">Jhonny</field>
+        <field name="text" type="CharField">1</field>
+    </object>
+    <object model="base.questions" pk="4">
+        <field name="name" type="CharField">test</field>
+        <field name="email" type="CharField">test</field>
+        <field name="phone" type="CharField">test</field>
+        <field name="text" type="CharField">test</field>
+    </object>
+    <object model="base.questions" pk="5">
+        <field name="name" type="CharField">qwe</field>
+        <field name="email" type="CharField">qwe</field>
+        <field name="phone" type="CharField">qew</field>
+        <field name="text" type="CharField">qwe</field>
+    </object>
+    <object model="base.questions" pk="6">
+        <field name="name" type="CharField">qwe</field>
+        <field name="email" type="CharField">qwe</field>
+        <field name="phone" type="CharField">qew</field>
+        <field name="text" type="CharField">qwe</field>
+    </object>
+    <object model="base.questions" pk="7">
+        <field name="name" type="CharField">qwe</field>
+        <field name="email" type="CharField">q</field>
+        <field name="phone" type="CharField">qwe</field>
+        <field name="text" type="CharField">qwe</field>
+    </object>
+    <object model="base.questions" pk="8">
+        <field name="name" type="CharField">12</field>
+        <field name="email" type="CharField">12</field>
+        <field name="phone" type="CharField">12</field>
+        <field name="text" type="CharField">12</field>
+    </object>
+    <object model="base.orders" pk="4">
+        <field name="city" type="CharField">Москва</field>
+        <field name="total" type="CharField">1</field>
+        <field name="count" type="CharField">1</field>
+        <field name="street" type="CharField">улица</field>
+        <field name="house" type="CharField">дом</field>
+        <field name="flat" type="CharField">кв</field>
+        <field name="phone" type="CharField">Сегодня</field>
+        <field name="email" type="CharField">22?11</field>
+        <field name="name" type="CharField">имя</field>
+        <field name="ts" type="DateTimeField">2017-03-29T20:38:22.581208+00:00</field>
+        <field name="date" type="CharField"></field>
+        <field name="time" type="CharField"></field>
+    </object>
+    <object model="base.orders" pk="5">
+        <field name="city" type="CharField">awe</field>
+        <field name="total" type="CharField">1</field>
+        <field name="count" type="CharField">1</field>
+        <field name="street" type="CharField">q</field>
+        <field name="house" type="CharField">q</field>
+        <field name="flat" type="CharField">1</field>
+        <field name="phone" type="CharField">qqw</field>
+        <field name="email" type="CharField">w</field>
+        <field name="name" type="CharField">qw</field>
+        <field name="ts" type="DateTimeField">2017-03-30T21:07:15.195253+00:00</field>
+        <field name="date" type="CharField">2.31.2017</field>
+        <field name="time" type="CharField">2</field>
+    </object>
+    <object model="base.orders" pk="6">
+        <field name="city" type="CharField">Москва</field>
+        <field name="total" type="CharField"></field>
+        <field name="count" type="CharField"></field>
+        <field name="street" type="CharField">test</field>
+        <field name="house" type="CharField">test</field>
+        <field name="flat" type="CharField">test</field>
+        <field name="phone" type="CharField">test</field>
+        <field name="email" type="CharField">test</field>
+        <field name="name" type="CharField">test</field>
+        <field name="ts" type="DateTimeField">2017-04-05T22:06:13.195681+00:00</field>
+        <field name="date" type="CharField">6.4.2017</field>
+        <field name="time" type="CharField">11</field>
+    </object>
+    <object model="base.orders" pk="7">
+        <field name="city" type="CharField">Москва</field>
+        <field name="total" type="CharField">520</field>
+        <field name="count" type="CharField">2</field>
+        <field name="street" type="CharField">test</field>
+        <field name="house" type="CharField">22</field>
+        <field name="flat" type="CharField">13</field>
+        <field name="phone" type="CharField">Телефон</field>
+        <field name="email" type="CharField">silago@inbox.ru</field>
+        <field name="name" type="CharField">TesttName</field>
+        <field name="ts" type="DateTimeField">2017-04-10T10:12:36.005620+00:00</field>
+        <field name="date" type="CharField">11.4.2017</field>
+        <field name="time" type="CharField">11</field>
+    </object>
+    <object model="base.shop" pk="1">
+        <field name="name" type="CharField">Пятницкая 15</field>
+        <field name="title" type="CharField">Supershop</field>
+        <field name="phone" type="CharField">925 52 01 12</field>
+        <field name="x" type="FloatField">55.743433</field>
+        <field name="y" type="FloatField">37.62876</field>
+        <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+    </object>
+    <object model="base.shop" pk="2">
+        <field name="name" type="CharField">Ленинский пр-т, 25</field>
+        <field name="title" type="CharField">Ленинский пр-т, 25</field>
+        <field name="phone" type="CharField">1</field>
+        <field name="x" type="FloatField">55.7173142</field>
+        <field name="y" type="FloatField">37.5929021</field>
+        <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+    </object>
+    <object model="base.shop" pk="3">
+        <field name="name" type="CharField">Ленинский пр-т, 104</field>
+        <field name="title" type="CharField">Ленинский пр-т, 104</field>
+        <field name="phone" type="CharField">0</field>
+        <field name="x" type="FloatField">55.669716</field>
+        <field name="y" type="FloatField">37.5112923</field>
+        <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+    </object>
+    <object model="base.shop" pk="4">
+        <field name="name" type="CharField">Ленинский пр-т, 70</field>
+        <field name="title" type="CharField">Ленинский пр-т, 70</field>
+        <field name="phone" type="CharField">1</field>
+        <field name="x" type="FloatField">55.6879654</field>
+        <field name="y" type="FloatField">37.5423154</field>
+        <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+    </object>
+</django-objects>
