@@ -94,19 +94,19 @@ class GalleryImageItem(models.Model):
         verbose_name = ""
         verbose_name_plural = "Текст с двумя изображениями"
 
-class TextDoubleImageItem(models.Model):
-    image  = models.ImageField()
-    alt     = models.CharField(verbose_name="Имя",max_length=255,blank=True, null=True, default="")
-    subimage  = models.ImageField()
-    text     = HTMLField()
-    order = models.IntegerField()
-    def __unicode__(self):
-       return u'%s' % (self.image.url)
-    def __str__(self):
-        return self.image.url + ' ' + self.text
-    class Meta:
-        verbose_name = ""
-        verbose_name_plural = "Текст с двумя изображениями"
+#class TextDoubleImageItem(models.Model):
+#    image  = models.ImageField()
+#    alt     = models.CharField(verbose_name="Имя",max_length=255,blank=True, null=True, default="")
+#    subimage  = models.ImageField()
+#    text     = HTMLField()
+#    order = models.IntegerField()
+#    def __unicode__(self):
+#       return u'%s' % (self.image.url)
+#    def __str__(self):
+#        return self.image.url + ' ' + self.text
+#    class Meta:
+#        verbose_name = ""
+#        verbose_name_plural = "Текст с двумя изображениями"
 
 
 

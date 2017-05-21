@@ -6,7 +6,7 @@ from solo.admin import SingletonModelAdmin
 #from django.contrib.contenttypes import admin as gadmin
 #from config.models import SiteConfiguration
 
-from .models import TripleTextItem, TextImageItem, TextItem,DoubleTextDoubleImageItem, TextDoubleImageItem, TopPage, FaqPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, ForPage, ForPageImageItem, DocsPageImageItem, DocsPage, OrangePage, YellowPage,BottomPage, FooterPage, City, Shop, Orders, Questions, SiteSettings, GalleryImageItem, LinkImageItem
+from .models import TripleTextItem, TextImageItem, TextItem,DoubleTextDoubleImageItem, TopPage, FaqPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, ForPage, ForPageImageItem, DocsPageImageItem, DocsPage, OrangePage, YellowPage,BottomPage, FooterPage, City, Shop, Orders, Questions, SiteSettings, GalleryImageItem, LinkImageItem
 
 admin.site.register(TopPage, SingletonModelAdmin)
 #admin.site.register(FaqPage, SingletonModelAdmin)
@@ -150,7 +150,6 @@ admin.site.register(HowPage, SingletonModelAdmin)
 
 #admin.site.register(ImageItem, admin.ModelAdmin)
 admin.site.register(LinkImageItem)
-admin.site.register(TextDoubleImageItem, admin.ModelAdmin)
 admin.site.register(GalleryImageItem, admin.ModelAdmin)
 admin.site.register(DoubleTextDoubleImageItem, admin.ModelAdmin)
 admin.site.register(TextImageItem, admin.ModelAdmin)
