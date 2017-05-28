@@ -144,6 +144,7 @@ class SiteSettings(SingletonModel):
     mail_caption   = models.CharField(max_length=255)
     phone_caption  = models.CharField(max_length=255)
 
+    counters      = models.TextField(blank=True, null=True, default="", verbose_name="Код Счетчиков")
     class Meta:
         verbose_name = "Настройка сайта"
         verbose_name_plural = "Настройки сайта"

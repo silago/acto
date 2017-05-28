@@ -5,7 +5,7 @@
             <div>
             <ul class="list">
                 {% for item in page.items.all|dictsort:"order" %}
-                <li class="">
+                <li class="final">
                 <h5>{{item.caption|safe}}
                 </h5>
                     <span class="answer">

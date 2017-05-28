@@ -48,6 +48,9 @@
         };
         </script>
         <style type='text/css'>
+.final > * {
+    all:initial;
+}
 ul {
     list-style:none;
 }
@@ -419,25 +422,25 @@ position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; opacity:0.9; w
                 margin-top:30px;
                 margin-left:90px;
             }
-            #page-faq ul.list li{
+            #page-faq ul.list > li{
                 border-top:1px solid #979696;
                 color:#353535;
             }
-            #page-faq ul.list li h5 {
+            #page-faq ul.list > li > h5 {
                 cursor:pointer;
                 font-weight:normal;
                 font-size:22px;
             }
-            #page-faq ul.list li:last-child {
+            #page-faq ul.list > li:last-child {
                 border-bottom:1px solid #d1d2d3;
             }
-            #page-faq ul.list li:first-child {
+            #page-faq ul.list > li:first-child {
                 border-top:1px solid #d1d2d3;
             }
             #page-faq .logo {
                 margin-left:90px;
             }
-            #page-faq ul.list li span.answer {
+            #page-faq ul.list > li span.answer {
                 display:none;
                 color:#99aac6;
                 margin-top:16px;
@@ -445,13 +448,13 @@ position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; opacity:0.9; w
                 font-size:20px;
                 color:#2c4f8a;
             }
-            #page-faq ul.list li h5:before {
+            #page-faq ul.list > li > h5:before {
             }
-            #page-faq ul.list li.active h5:before {
+            #page-faq ul.list > li.active > h5:before {
                 content:"▲";
                 color:#2c4f8a;
             }
-            #page-faq ul.list li h5:before {
+            #page-faq ul.list > li >  h5:before {
                 margin-top: -4px;
                 margin-right: 10px;
                 content:"▼";
@@ -460,12 +463,17 @@ position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; opacity:0.9; w
                 float:left;
                 font-size:26px;
             }
-            #page-faq ul.list li.active span.answer {
+            #page-faq ul.list > li.active >  span.answer {
                 display:block;
             }
-            #page-faq ul.list li {
+            #page-faq ul.list > li {
                 padding:18px;
                 list-style:none;
+            }
+            
+            #page-faq ul.list > li  * {
+                list-style:initial;
+                margin-left:inherit;
             }
 
             #page-faq .side {
@@ -990,7 +998,7 @@ left: 27%;
                 background-color:#ffa730;
                 padding-bottom:300px;
                 background-image: url(static/orange/bg_dots.png);
-                background-repeat: no-repeat#page-ocrange ;
+                background-repeat: no-repeat;
                 background-position: 95% 115%;
             }
             div#page-orange .triangle-down {
@@ -2277,5 +2285,6 @@ $('.order-done.bg').click(function() {
     <script>
         
     </script>
+    {{settings.counters|safe}}
     </body>
 </html>

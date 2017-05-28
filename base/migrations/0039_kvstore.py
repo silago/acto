@@ -9,16 +9,16 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.CreateModel(
-            name='KVStore',
-            fields=[
-                ('key', models.CharField(
-                    serialize=False,
-                    db_column='Key',
-                    max_length=200,
-                    primary_key=True)
-                    ),
-                ('value',models.TextField())
-                ]
-        ),
+        #migrations.CreateModel(
+        #    name='KVStore',
+        #    fields=[
+        #        ('key', models.CharField(
+        #            serialize=False,
+        #            db_column='Key',
+        #            max_length=200,
+        #            primary_key=True)
+        #            ),
+        #        ('value',models.TextField())
+        #        ]
+        #),
     ]

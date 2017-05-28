@@ -98,7 +98,6 @@ class YellowPageItems(admin.TabularInline):
     model = TripleTextItem
 
 class YellowPageAdmin(SingletonModelAdmin):
-    exclude = "title" ,
     inlines = [
         YellowPageItems
     ]
