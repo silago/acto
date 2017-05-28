@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns0="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://www.sample-package.org">
+   <SOAP-ENV:Header/>
+   <ns0:Body>
+      <ns1:PutInetOrder>
+         <ns1:ID>1</ns1:ID>
+         <ns1:Value>
+            <ns1:Value>
+               <ns1:Code>01</ns1:Code>
+               <ns1:Surname>Jhonn</ns1:Surname>
+               <ns1:Name>Doe</ns1:Name>
+               <ns1:Otchestvo>Pur</ns1:Otchestvo>
+               <ns1:OrderNum>1000</ns1:OrderNum>
+               <ns1:OrderDate>05:07:2000 23:57</ns1:OrderDate>
+               <ns1:Comment/>
+               <ns1:PostIndex/>
+               <ns1:Region/>
+               <ns1:City>Moscow</ns1:City>
+               <ns1:Street>Red Square</ns1:Street>
+               <ns1:House>1</ns1:House>
+               <ns1:Korpus/>
+               <ns1:Porch/>
+               <ns1:Floor/>
+               <ns1:Flat/>
+               <ns1:Domofon/>
+               <ns1:CodeFon/>
+               <ns1:Telefon/>
+               <ns1:Email/>
+               <ns1:Call/>
+               <ns1:Birthday/>
+               <ns1:SumBonus/>
+               <ns1:Prepayment/>
+               <ns1:FirmaCode/>
+               <ns1:Subscribe/>
+               <ns1:District/>
+               <ns1:WebPay/>
+               <ns1:WebStatusPayID/>
+               <ns1:SiteID>Aktoviderm</ns1:SiteID>
+               <ns1:Metro/>
+               <ns1:MetroID/>
+               <ns1:GiftCardNumber/>
+               <ns1:GiftCardCode/>
+               <ns1:GiftCardSumm/>
+               <ns1:ActionsName/>
+               <ns1:ActionsID/>
+               <ns1:FromID/>
+               <ns1:operating_system/>
+               <ns1:browser/>
+               <ns1:smsNotification/>
+               <ns1:IDoperator/>
+               <ns1:DeliveryDate/>
+               <ns1:DeliveryTimeS/>
+               <ns1:DeliveryTimeP/>
+               <ns1:R_source/>
+               <ns1:R_source_channel/>
+               <ns1:R_campaign/>
+            </ns1:Value>
+         </ns1:Value>
+      </ns1:PutInetOrder>
+   </ns0:Body>
+</SOAP-ENV:Envelope>
+                      
