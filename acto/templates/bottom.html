@@ -31,47 +31,46 @@
     var map;
     window.map = map;
     window.map_marker = null;
-        function initMap() {
-            if (localStorage.getItem('ChosenName')!=null) {
-                var x = toDot(cities[localStorage.getItem('ChosenName')].x);  
-                var y = toDot(cities[localStorage.getItem('ChosenName')].y);  
-            } else {
-                var x = 0;
-                var y = 0;
-            }
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: x, lng: y},
-                zoom: 8,
-                zoomConrol: true
-            });
+    function initMap() {
+        if (localStorage.getItem('ChosenName')!=null) {
+            var x = toDot(cities[localStorage.getItem('ChosenName')].x);  
+            var y = toDot(cities[localStorage.getItem('ChosenName')].y);  
+        } else {
+            var x = 0;
+            var y = 0;
+        }
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: x, lng: y},
+            zoom: 8,
+            zoomConrol: true
+        });
+    }
 
 
     $('document').ready(function() {
-                ymaps.ready(function() {
-            
+        ymaps.ready(function() {
               var c = window.lc.getItem('ChosenName');
               if (!c) {
                 c = ymaps.geolocation.city;
               }
-                  if (typeof c == 'undefinded') {
-                    c = Object.keys(window.cities)[0];
+              if (typeof c == 'undefinded') {
+                c = Object.keys(window.cities)[0];
+              }
+
+
+              if (typeof window.cities[c]=='undefinded' && ymaps.geolocation.city!='undefinded') {
+                   window.cities[c] = {
+                       x:toSemi(ymaps.geolocation.latitude),
+                       y:toSemi(ymaps.geolocation.longitude),
+                       delivery:false,
+                       name:c,
+                       shops:[]
                   }
+              }
 
-
-                      if (typeof window.cities[c]=='undefinded' && ymaps.geolocation.city!='undefinded') {
-                        
-                       window.cities[c] = {
-                           x:toSemi(ymaps.geolocation.latitude),
-                           y:toSemi(ymaps.geolocation.longitude),
-                           delivery:false,
-                           name:c,
-                           shops:[]
-                      }
-             
-                }
               choose_city(c);
+        });
     });
-        }
     </script>
 
         <script async defer

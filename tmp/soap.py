@@ -5,8 +5,10 @@ from suds.client import Client
 from suds import WebFault
 from suds.transport.http import HttpAuthenticated
 import sys
-#logging.basicConfig(level=logging.INFO)
+import logging
+logging.basicConfig(level=logging.INFO)
 #logging.getLogger('suds.client').setLevel(logging.DEBUG)
+logging.getLogger('suds.transport').setLevel(logging.DEBUG)
 
 url = 'http://ex.lab-krasoty.ru:8090/AptekaT/ws/Site.1cws?wsdl'
 credentials = dict(username='Aktoviderm', password='oki89ijn')
@@ -14,18 +16,8 @@ t = HttpAuthenticated(**credentials)
 
 api = Client(url, transport = t)
 
-#print(api)
-
 def directRequest(methodName, params):
     print("Start Request")
-    '''
-    Вызов метода API Яндекс.Директа:
-       api - экземпляр класса suds.Client
-       methodName - имя метода
-       params - входные параметры
-    В случае ошибки программа завершается,
-    иначе возвращается результат вызова метода
-    '''
     try:
         result = api.service['SiteSoap'][methodName](params)
         return result

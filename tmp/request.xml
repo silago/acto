@@ -32,8 +32,8 @@
                <ns1:Prepayment/>
                <ns1:FirmaCode/>
                <ns1:InetLines>
-                  <ns1:ProductCode>A</ns1:ProductCode>
-                  <ns1:Product>A</ns1:Product>
+                  <ns1:ProductCode>Aktoviderm</ns1:ProductCode>
+                  <ns1:Product>Aktoviderm</ns1:Product>
                   <ns1:Quantity>1</ns1:Quantity>
                   <ns1:NewPrice>20</ns1:NewPrice>
                   <ns1:Price>1</ns1:Price>
@@ -50,7 +50,7 @@
                <ns1:District/>
                <ns1:WebPay/>
                <ns1:WebStatusPayID/>
-               <ns1:SiteID>Aktoviderm</ns1:SiteID>
+               <ns1:SiteID>27</ns1:SiteID>
                <ns1:Metro/>
                <ns1:MetroID/>
                <ns1:GiftCardNumber/>
