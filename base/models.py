@@ -308,20 +308,21 @@ class Questions(models.Model):
         verbose_name="Вопрос"
         verbose_name_plural="Вопросы"
 
-class Orders(models.Model):
-    city   =models.CharField(verbose_name="Город",max_length=255)
-    total   =models.CharField(max_length=255)
-    count   =models.CharField(max_length=255)
-    street =models.CharField(verbose_name="Улица",max_length=255)
-    house  =models.CharField(verbose_name="Дом",max_length=255)
-    flat   =models.CharField(verbose_name="Квартира",max_length=255)
 
-    phone  =models.CharField(verbose_name="Телефон",max_length=255)
-    email  =models.CharField(verbose_name="Email",max_length=255)
-    name   =models.CharField(verbose_name="Имя",max_length=255)
+class Orders(models.Model):
+    city   =models.TextField(verbose_name="Город",)
+    total   =models.TextField()
+    count   =models.TextField()
+    street =models.TextField(verbose_name="Улица",)
+    house  =models.TextField(verbose_name="Дом",)
+    flat   =models.TextField(verbose_name="Квартира",)
+
+    phone  =models.TextField(verbose_name="Телефон",)
+    email  =models.TextField(verbose_name="Email",)
+    name   =models.TextField(verbose_name="Имя",)
     ts     =models.DateTimeField(verbose_name="Дата оформления", null=True, auto_now_add=True, blank=True)
-    date  =models.CharField(verbose_name="Дата доставки",max_length=255)
-    time  =models.CharField(verbose_name="Время",max_length=255)
+    date  =models.TextField(verbose_name="Дата доставки",)
+    time  =models.TextField(verbose_name="Время",)
     def __unicode__(self):
        return u'%s' % (self.name)
     def __str__(self):

@@ -1,11 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+import html.parser as p
+from requests.auth import HTTPBasicAuth
+import requests
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import TopPage, ForPage, OrangePage, YellowPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, FaqPage, DocsPage, BottomPage, FooterPage, City, Orders, Questions, SiteSettings#, Shop
-
+from xml.etree.ElementTree import Element, SubElement,  tostring
 from django.views.decorators.csrf import csrf_exempt
+
+PRODUCT_CODE = "Aktoviderm"
+PRODUCT_NAME = "Актовидерм"
+SITE_ID      = '30'
+API_LOGIN = "Aktoviderm"
+API_PASS  = "oki89ijn@ex"
+API_URL   = "http://ex.lab-krasoty.ru:8090/AptekaT/hs/exchange/s1/PostOrder"
+
 
 def main(request):
     pages = (TopPage, ForPage, OrangePage, YellowPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, FaqPage, DocsPage, BottomPage, FooterPage)
@@ -20,6 +30,9 @@ def main(request):
 
 @csrf_exempt
 def order(request):
+    settings = SiteSettings.objects.first()
+
+
     item = Orders()
     item.city = request.POST['city']
     item.street = request.POST['street']
@@ -36,8 +49,11 @@ def order(request):
     item.date = request.POST['date']
     item.time = request.POST['time']
     item.count = request.POST['count']
-    item.total = request.POST['total']
+    #item.total = request.POST['total']
+    item.total = int(int(request.POST['count'])*float(settings.cost))
     item.save()
+    xml = MakeXml(item, settings)
+    SendOrder(xml)
     return HttpResponse("OK")
 
 @csrf_exempt
@@ -86,3 +102,54 @@ def capcha(request):
 
     return response # and we're done!
 # Create your views here.
+
+def SendOrder(data):
+    r = requests.post(API_URL,auth=HTTPBasicAuth(API_LOGIN,API_PASS), data=data.encode('utf-8'))
+
+
+def MakeXml(item, settings):
+    header = '<?xml version="1.0" encoding="UTF-8"?>'
+    orders = Element('orders')
+    order = SubElement(orders, 'order')
+    site_id = SubElement(order, 'site_id')
+    site_id.text = SITE_ID
+    order_code = SubElement(order, 'order_code')
+    order_code.text = str(item.id)
+    user_id = SubElement(order, 'user_id')
+    name = SubElement(order, 'name')
+    name=item.name
+    phone = SubElement(order, 'phone')
+    phone=item.name
+    email = SubElement(order, 'email')
+    email.text = item.email
+    address = SubElement(order, 'address')
+    address.text = item.city + ' ' + item.street + ' ' + item.house + ' ' +  item.flat
+    comment = SubElement(order, 'comment')
+
+    shipping_id = SubElement(order, 'shipping_id')
+    shipping_cost = SubElement(order, 'shipping_cost')
+    payment_id = SubElement(order, 'payment_id')
+    discount = SubElement(order, 'discount')
+
+    total_cost = SubElement(order, 'total_cost')
+    total_cost.text = str(item.total)
+
+    order_time = SubElement(order, 'order_time')
+    order_time.text = str(item.date) +' '+ str(item.time)
+
+    products = SubElement(order, 'products')
+    product = SubElement(products, 'product')
+
+    pcode = SubElement(product, 'code')
+    pcode.text = PRODUCT_CODE
+    pname = SubElement(product, 'name')
+    pcode.text = PRODUCT_NAME
+    pamount = SubElement(product, 'amount')
+    pamount.text = str(item.count)
+    pprice = SubElement(product, 'price')
+    pprice.text = str(item.total)
+    #child.text = 'This child contains text.'
+    data = p.unescape(tostring(orders).decode('utf-8'))
+    return(header+data)
+
+

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><orders>
+  <order>
+    <site_id>30</site_id>
+    <order_code>1</order_code>
+    <user_id></user_id>
+    <name>test</name>
+    <phone>01</phone>
+    <email></email>
+    <address>Щелковский проезд, 4 кв20</address>
+    <comment></comment>
+    <shipping_id></shipping_id>
+    <shipping_cost>0</shipping_cost>
+    <payment_id></payment_id>
+    <discount>0</discount>
+    <total_cost>684.00</total_cost>
+    <order_time>25.01.2017 14:21:16</order_time>
+    <products>
+      <product>
+        <code>01</code>
+        <name>Aktoviderm</name>
+        <amount>1</amount>
+        <price>347.00</price>
+      </product>
+    </products>
+  </order>
+</orders>
