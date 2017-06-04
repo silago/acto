@@ -1,0 +1,2511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<django-objects version="1.0">
+  <object model="auth.user" pk="1">
+    <field name="password" type="CharField">pbkdf2_sha256$30000$h4EhMpzI9zra$uof3+npxyRwxaEHNk+oTEytC6fn4pfkUeWF55+HhKD4=</field>
+    <field name="last_login" type="DateTimeField">2017-04-10T16:20:09.749884+00:00</field>
+    <field name="is_superuser" type="BooleanField">True</field>
+    <field name="username" type="CharField">silago</field>
+    <field name="first_name" type="CharField"></field>
+    <field name="last_name" type="CharField"></field>
+    <field name="email" type="CharField">silago.nevermind@gmail.com</field>
+    <field name="is_staff" type="BooleanField">True</field>
+    <field name="is_active" type="BooleanField">True</field>
+    <field name="date_joined" type="DateTimeField">2017-02-25T15:45:22.692331+00:00</field>
+    <field name="groups" rel="ManyToManyRel" to="auth.group"></field>
+    <field name="user_permissions" rel="ManyToManyRel" to="auth.permission"></field>
+  </object>
+  <object model="auth.user" pk="2">
+    <field name="password" type="CharField">pbkdf2_sha256$30000$rBWLh7PSUWWb$KewxT0Ec7wjgcCkaZI6UNxr7ayPR3g/zt/pms5gRo4s=</field>
+    <field name="last_login" type="DateTimeField">2017-05-30T21:09:41.109335+00:00</field>
+    <field name="is_superuser" type="BooleanField">True</field>
+    <field name="username" type="CharField">admin</field>
+    <field name="first_name" type="CharField"></field>
+    <field name="last_name" type="CharField"></field>
+    <field name="email" type="CharField">silago@inbox.ru</field>
+    <field name="is_staff" type="BooleanField">True</field>
+    <field name="is_active" type="BooleanField">True</field>
+    <field name="date_joined" type="DateTimeField">2017-02-26T17:41:23.605042+00:00</field>
+    <field name="groups" rel="ManyToManyRel" to="auth.group"></field>
+    <field name="user_permissions" rel="ManyToManyRel" to="auth.permission"></field>
+  </object>
+  <object model="sessions.session" pk="008ua48lyl5qfpe1anuonwx0xdzogfsl">
+    <field name="session_data" type="TextField">MDdiOGY1ZDJiMDVlNDQ0MGRlM2FlMmUxNWQ5MjQzMTY3ZTYzZGM1NTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjIiLCJjYXBjaGEiOiI0MTU4IiwiX2F1dGhfdXNlcl9oYXNoIjoiNjZhMTdhMzJkMTRiNmVhMGJkYTYzOWM0MzY2MDZjYmYzNzFhZDJkZCJ9</field>
+    <field name="expire_date" type="DateTimeField">2017-06-12T20:12:42.392965+00:00</field>
+  </object>
+  <object model="sessions.session" pk="0wu8yoq9qd6j74n1mo1049ic9azlm451">
+    <field name="session_data" type="TextField">NzY0YjQ4OGJlZmYwOGE2NjNjZmUzMTRkZTI4NDFkYzBkOWVlM2M2YTp7ImNhcGNoYSI6IjU0MTgifQ==</field>
+    <field name="expire_date" type="DateTimeField">2017-06-13T13:33:41.176556+00:00</field>
+  </object>
+  <object model="sessions.session" pk="4bzv7h0oewm1iebzwt48mkwntcyxl3h8">
+    <field name="session_data" type="TextField">YjAwOTNmNGM0MTkyMGVhMDFjMDE0ZDdlN2E3OGU2ZTg2NzRkMjNlZjp7ImNhcGNoYSI6IjQxNjMifQ==</field>
+    <field name="expire_date" type="DateTimeField">2017-06-08T06:28:31.173937+00:00</field>
+  </object>
+  <object model="sessions.session" pk="6uyfyp5jscw1ix8lfe9282e9bd5cx0l6">
+    <field name="session_data" type="TextField">YTVkZGFhYzVkMDY1Yjk2ZjQwN2NmZmIwNTcxZWFiN2U4YTgwN2RmNzp7ImNhcGNoYSI6IjIwNDEiLCJfYXV0aF91c2VyX2lkIjoiMiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNjZhMTdhMzJkMTRiNmVhMGJkYTYzOWM0MzY2MDZjYmYzNzFhZDJkZCJ9</field>
+    <field name="expire_date" type="DateTimeField">2017-06-12T20:48:17.280010+00:00</field>
+  </object>
+  <object model="sessions.session" pk="8j7y99k1cets53pdsay33md0l5v6pg1y">
+    <field name="session_data" type="TextField">M2Y5ZTYyZmQwNGY0OGIwNjliZmNiNjg2YTY0MzA4ZmVjZjMyMjdmODp7ImNhcGNoYSI6Ijc1NjAifQ==</field>
+    <field name="expire_date" type="DateTimeField">2017-06-08T08:35:06.922349+00:00</field>
+  </object>
+  <object model="sessions.session" pk="bz0rzgru6g6igdlt5fw3f5x2clcmckkq">
+    <field name="session_data" type="TextField">YTUyMmM2OTNhYjkwOTFjZGQxMjQwMmJiMzE2ODYwOWVmZDEyZGY0Mzp7ImNhcGNoYSI6IjQ5NzgifQ==</field>
+    <field name="expire_date" type="DateTimeField">2017-06-05T05:32:08.007344+00:00</field>
+  </object>
+  <object model="sessions.session" pk="c2id92zebt7g5phy8ev21htpgojmc6nn">
+    <field name="session_data" type="TextField">NmJhY2YyMWU0MzQ3OWJmMDY1YmEwZWIyMmY5NjllMDRlNTIyYThkNzp7ImNhcGNoYSI6IjY1MDkifQ==</field>
+    <field name="expire_date" type="DateTimeField">2017-06-13T12:05:16.629886+00:00</field>
+  </object>
+  <object model="sessions.session" pk="jimiwg4xqogzpb7r8a01569u11cw2bij">
+    <field name="session_data" type="TextField">OGU5MTk5NTNkNDM1ZTcwMTg3NzUwMWI3YzQ5MzhkNmYzOWRiMTFkYzp7ImNhcGNoYSI6IjQwMjQifQ==</field>
+    <field name="expire_date" type="DateTimeField">2017-06-07T08:27:36.529098+00:00</field>
+  </object>
+  <object model="sessions.session" pk="m64o15ojut8ux01t3e8hyvbs2m4b33u8">
+    <field name="session_data" type="TextField">ZTc2Y2UwOWZiY2Q3MTM3ZjFlYmE5YjU4MmNhMTBmMTUyOTkxYTAxYzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiY2FwY2hhIjoiNTk2MyIsIl9hdXRoX3VzZXJfaGFzaCI6IjY2YTE3YTMyZDE0YjZlYTBiZGE2MzljNDM2NjA2Y2JmMzcxYWQyZGQiLCJfYXV0aF91c2VyX2lkIjoiMiJ9</field>
+    <field name="expire_date" type="DateTimeField">2017-06-13T09:44:50.278333+00:00</field>
+  </object>
+  <object model="sessions.session" pk="qqz4vr1ogy0ijajw6k3t8ph7fvg9gxap">
+    <field name="session_data" type="TextField">ZmFlMjI0NWNhMTIwNzVlZjYzNGIwM2FkNmMwNjYwOGZkNDQ1OTliNzp7ImNhcGNoYSI6IjIzMDkifQ==</field>
+    <field name="expire_date" type="DateTimeField">2017-06-07T08:47:40.353511+00:00</field>
+  </object>
+  <object model="sessions.session" pk="r2vd0jgnwdg3lcuy3a2rh49tn38z97hs">
+    <field name="session_data" type="TextField">ZTg2NmU4MzI4YTQ1YWRkOTE1ZDk3YmEzYTdiNGNmMThlY2Y3NjI3Nzp7ImNhcGNoYSI6Ijk5OTYifQ==</field>
+    <field name="expire_date" type="DateTimeField">2017-06-13T11:38:15.120436+00:00</field>
+  </object>
+  <object model="sessions.session" pk="szmis5keye6un2lfexo84fn6y9op93vz">
+    <field name="session_data" type="TextField">YzkwMWU5ZjA1OTgzMTBlYTk4ODU4MjU3MzgzZjQ3NGUyY2VmNzJhOTp7ImNhcGNoYSI6IjQ3NjIifQ==</field>
+    <field name="expire_date" type="DateTimeField">2017-06-12T12:27:25.754345+00:00</field>
+  </object>
+  <object model="sessions.session" pk="u9exe1f6vedoblkm3avvq5oru89cwxn6">
+    <field name="session_data" type="TextField">ODNkODQ3NjdlYTM4ODcwOWYzZjMyMWIzNDc5ZjNhNDlkNDAxNWE5Zjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjIiLCJjYXBjaGEiOiI4NTYxIiwiX2F1dGhfdXNlcl9oYXNoIjoiNjZhMTdhMzJkMTRiNmVhMGJkYTYzOWM0MzY2MDZjYmYzNzFhZDJkZCJ9</field>
+    <field name="expire_date" type="DateTimeField">2017-06-14T19:38:42.157071+00:00</field>
+  </object>
+  <object model="sessions.session" pk="w54y2vg5ybcxz1g6bieknofpdxb2fkci">
+    <field name="session_data" type="TextField">NDBiZTY5NjEzZmE1ZTEwMzZiYmFmZmI1NTQ1OTQ3N2QzOTg2ZDI1Njp7ImNhcGNoYSI6IjY3NDAiLCJfYXV0aF91c2VyX2lkIjoiMiIsIl9hdXRoX3VzZXJfaGFzaCI6IjY2YTE3YTMyZDE0YjZlYTBiZGE2MzljNDM2NjA2Y2JmMzcxYWQyZGQiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCJ9</field>
+    <field name="expire_date" type="DateTimeField">2017-06-16T13:23:20.646322+00:00</field>
+  </object>
+  <object model="sessions.session" pk="wb9jzi2zyu0rz86b3ll8wdky6c10z3cg">
+    <field name="session_data" type="TextField">ZWE2YTkzOTU3NmYzOTJlYzgwMmE0ZmY5MmZkODgzZGM0NGNkZDEzZDp7ImNhcGNoYSI6IjM3ODYifQ==</field>
+    <field name="expire_date" type="DateTimeField">2017-06-12T20:28:53.779431+00:00</field>
+  </object>
+  <object model="sessions.session" pk="wd0kgbq4r209jopt9asnntmnzpc401r2">
+    <field name="session_data" type="TextField">Y2NjNTdiNGIzNmEyOTE4YjllMzY2NTYwNTI1MGIwMTFmNGU3YzFlMjp7ImNhcGNoYSI6IjgyODAifQ==</field>
+    <field name="expire_date" type="DateTimeField">2017-06-13T08:18:19.077879+00:00</field>
+  </object>
+  <object model="sites.site" pk="1">
+    <field name="domain" type="CharField">example.com</field>
+    <field name="name" type="CharField">example.com</field>
+  </object>
+  <object model="sites.site" pk="2">
+    <field name="domain" type="CharField">actovitderm</field>
+    <field name="name" type="CharField">actovitderm</field>
+  </object>
+  <object model="flatpages.flatpage" pk="1">
+    <field name="url" type="CharField">/eula/</field>
+    <field name="title" type="CharField">EULA</field>
+    <field name="content" type="TextField">СОГЛАШЕНИЕ ОБ ОБРАБОТКЕ ПЕРСОНАЛЬНЫХ ДАННЫХ
+
+1. Общие положения.
+
+1.1. Настоящее Соглашение об обработке персональных данных (далее Соглашение) действует в отношении всех персональных данных, которые Общество с ограниченной ответственностью «Миллор Фарма» (далее Компания) может получить от Пользователя (лица, использующего сервисы сайта www.aktoviderm.ru (далее Сайт)), в частности, в ходе заказа продукции, отправки отзывов или вопросов, участия в рекламных и маркетинговых акциях и/или ином взаимодействии (далее Услуги).
+
+1.2. Указывая свои персональные данные при использовании сервисов Сайта, Пользователь выражает согласие с настоящим Соглашением. В соответствии с Соглашением согласие Пользователя на предоставление, обработку и передачу его персональных данных Компании является полным и безусловным.
+
+1.3. Посетителям Сайта следует воздержаться от заполнения форм и/или использования других сервисов Сайта, в случае несогласия (полного или частичного) с Соглашением, а равно несогласия предоставить персональные данные.
+
+1.4. Согласие Пользователя включает в себя согласие на сбор, систематизацию, накопление, хранение, уточнение, трансграничную передачу, блокирование, обезличивание, уничтожение персональных данных, а также передачу их в рекламных целях или целях рассылки информационных материалов внутри Компании или поставщику услуг, обязующемуся выполнять условия договора о защите персональных данных.
+
+1.5. Согласие Пользователя распространяется на следующие персональные данные: фамилия, имя, отчество, контактный телефон, адрес электронной почты, почтовый адрес доставки заказов.
+
+1.6. Срок действия согласия Пользователя является неограниченным, однако Пользователь вправе в любой момент отозвать настоящее согласие путем направления письменного уведомления на адрес электронной почты: info@millor-pharma.ru с пометкой «отзыв согласия на обработку персональных данных».
+
+1.7. В отношении отдельных Услуг Компания может публиковать положения, дополняющие настоящее Соглашение.
+
+2. Персональные данные, которые получает и обрабатывает Компания.
+
+2.1. В рамках настоящего Соглашения под персональными данными понимаются:
+
+2.1.1. Персональные данные, которые Пользователь предоставляет о себе при использовании сервисов Сайта или в процессе заказа Услуг, предоставляемых Компанией. Соответствующая информация явно обозначена. В частности, к ней отнесены фамилия, имя, отчество, контактный телефон, адрес электронной почты, почтовый адрес доставки заказов.
+
+2.1.2. Иная информация о Пользователе, которая дополнительно необходима Компании для предоставления отдельных Услуг, что явно указано при их заказе.
+
+2.2. Компания исходит из того, что Пользователь представляет достоверные персональные данные.
+
+3. Цели обработки персональной информации пользователей.
+
+3.1. Компания обрабатывает только те персональные данные, которые необходимы для оказания Услуг и улучшения их качества.
+
+3.2. Персональную информацию пользователя Компания может использовать в следующих целях:
+
+3.2.1. Идентификация стороны в рамках оказания Услуги.
+
+3.2.2. Предоставление Пользователю персонализированных Услуг.
+
+3.2.3. Улучшение качества Услуг и разработка новых.
+
+3.2.4. Проведение статистических и иных исследований на основе обезличенных данных.
+
+4. Передача персональных данных Пользователя третьим лицам.
+
+4.1. В отношении персональных данных Пользователя сохраняется их конфиденциальность, кроме случаев обработки персональных данных, доступ неограниченного круга лиц к которым предоставлен Пользователем либо по его просьбе.
+
+4.2. Компания вправе передать персональную информацию Пользователя третьим лицам в следующих случаях:
+
+4.2.1. Пользователь предоставил свое согласие на такие действия.
+
+4.2.2. Передача необходима для достижения целей, осуществления и выполнения функций, полномочий и обязанностей, возложенных законодательством Российской Федерации на Компанию.
+
+5. Меры, применяемые для защиты персональных данных Пользователей.
+
+5.1. Компания принимает необходимые и достаточные организационные и технические меры для защиты персональных данных Пользователя от неправомерного или случайного доступа, уничтожения, изменения, блокирования, копирования, распространения, а также от иных неправомерных действий с персональными данными третьих лиц.
+
+6. Права и обязанности Пользователя.
+
+6.1. Компания предпринимает разумные меры для поддержания точности и актуальности имеющихся у Компании персональных данных, а также удаления устаревших и других недостоверных или излишних персональных данных, тем не менее Пользователь несет ответственность за предоставление достоверных сведений, а также за обновление предоставленных данных в случае каких-либо изменений.
+
+6.2. Пользователь может в любой момент изменить (обновить, дополнить, блокировать, уничтожить) предоставленную им персональную информацию или ее часть, а также параметры ее конфиденциальности путем обращения в Компанию.
+
+6.2.1. Пользователь вправе в любой момент отозвать согласие на обработку Компанией персональных данных путем направления письменного уведомления на электронный адрес: info@millor-pharma.ru с пометкой «отзыв согласия на обработку персональных данных», при этом отзыв Пользователем согласия на обработку персональных данных влечет за собой удаление учетной записи Пользователя с Сайта, а также уничтожение записей, содержащих персональные данные, в системах обработки персональных данных Компании.
+
+6.3. Пользователь имеет право на получение информации, касающейся обработки его персональных данных Компанией.
+
+6.4. Для исполнения положений в п. 6.2 и 6.3 настоящего Соглашения Компания может потребовать подтвердить личность Пользователя, затребовав предоставления такого подтверждения в любой, не противоречащей закону, форме.
+
+7. Обратная связь. Вопросы и предложения.
+Все предложения или вопросы по поводу настоящего Соглашения Компания просит сообщать по адресу электронной почты info@millor-pharma.ru.</field>
+    <field name="enable_comments" type="BooleanField">False</field>
+    <field name="template_name" type="CharField"></field>
+    <field name="registration_required" type="BooleanField">False</field>
+    <field name="sites" rel="ManyToManyRel" to="sites.site"><object pk="2"></object><object pk="1"></object></field>
+  </object>
+  <object model="base.tripletextitem" pk="1">
+    <field name="text" type="TextField">&lt;p&gt;Заказывал Актовидерм с доставкой, остался доволен сервисом и работой курьера.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;</field>
+    <field name="name" type="CharField">Александр Близнюк</field>
+    <field name="subtext" type="CharField">Москва</field>
+    <field name="page" rel="ManyToOneRel" to="base.yellowpage">1</field>
+  </object>
+  <object model="base.tripletextitem" pk="2">
+    <field name="text" type="TextField">&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Доставили к двери квартиры, аналоги так легко не найдешь! И стоит недорого даже с учетом доставки.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;</field>
+    <field name="name" type="CharField">Ольга Смирнова</field>
+    <field name="subtext" type="CharField">Лазаревское</field>
+    <field name="page" rel="ManyToOneRel" to="base.yellowpage">1</field>
+  </object>
+  <object model="base.tripletextitem" pk="3">
+    <field name="text" type="TextField">&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;У нас сиамская кошка с характером и маленький ребенок, пользуемся часто!) Заказывали пол года назад и все никак не кончится)&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;</field>
+    <field name="name" type="CharField">Андрей Кудинов</field>
+    <field name="subtext" type="CharField">Москва</field>
+    <field name="page" rel="ManyToOneRel" to="base.yellowpage">1</field>
+  </object>
+  <object model="base.tripletextitem" pk="4">
+    <field name="text" type="TextField">&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Спрей доставили день в день. Очень пригодится в поездке по стране, положила к себе в аптечку!&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;</field>
+    <field name="name" type="CharField">Ольга Волнухина</field>
+    <field name="subtext" type="CharField">Санкт-Петербург</field>
+    <field name="page" rel="ManyToOneRel" to="base.yellowpage">1</field>
+  </object>
+  <object model="base.textitem" pk="1">
+    <field name="order" type="IntegerField">6</field>
+    <field name="caption" type="TextField">&lt;p&gt;Можно ли с повязкой АКТОВИДЕРМ&amp;reg; пойти в бассейн или на тренировку?&lt;/p&gt;</field>
+    <field name="text" type="TextField">&lt;p&gt;Конечно, можно! Защитная пленка АКТОВИДЕРМ&amp;reg; держится 24 часа, плотно прилегая к коже и защищая раны от попадания влаги, бактерий и грязи.&lt;/p&gt;</field>
+    <field name="page" rel="ManyToOneRel" to="base.faqpage">1</field>
+  </object>
+  <object model="base.textitem" pk="2">
+    <field name="order" type="IntegerField">5</field>
+    <field name="caption" type="TextField">&lt;p&gt;Почему с АКТОВИДЕРМ&amp;reg; мозоли заживают быстрее?&lt;/p&gt;</field>
+    <field name="text" type="TextField">&lt;p&gt;Жидкий пластырь АКТОВИДЕРМ&amp;reg; создает отличные условия для скорейшего заживления влажных мозолей. Он пропускает воздух, препятствует проникновению влаги, бактерий, инфекций, защищает ранку от механических повреждений и создает условия для подсыхания мозоли. Поэтому с АКТОВИДЕРМ&amp;reg; восстановление кожи происходит гораздо быстрее!&lt;/p&gt;</field>
+    <field name="page" rel="ManyToOneRel" to="base.faqpage">1</field>
+  </object>
+  <object model="base.textitem" pk="3">
+    <field name="order" type="IntegerField">4</field>
+    <field name="caption" type="TextField">&lt;p&gt;Натерла ноги туфлями. Могу ли я нанести АКТОВИДЕРМ&amp;reg; и надеть их снова или будет больно?&lt;/p&gt;</field>
+    <field name="text" type="TextField">&lt;p&gt;Боль &amp;ndash; понятие субъективное, да и болевой порог у всех людей разный. Поэтому, в зависимости от вашей индивидуальной чувствительности, после нанесения АКТОВИДЕРМ&amp;reg; боль либо не будет ощущаться совсем, либо станет гораздо меньше.&lt;/p&gt;</field>
+    <field name="page" rel="ManyToOneRel" to="base.faqpage">1</field>
+  </object>
+  <object model="base.textitem" pk="4">
+    <field name="order" type="IntegerField">3</field>
+    <field name="caption" type="TextField">&lt;p&gt;Как снять повязку АКТОВИДЕРМ&amp;reg;?&lt;/p&gt;</field>
+    <field name="text" type="TextField">&lt;p&gt;Защитная пленка АКТОВИДЕРМ&amp;reg; отходит от кожи в течение суток. Нужно убрать пленку раньше? Достаточно намочить ее, подцепить край и аккуратно снять.&lt;/p&gt;</field>
+    <field name="page" rel="ManyToOneRel" to="base.faqpage">1</field>
+  </object>
+  <object model="base.textitem" pk="5">
+    <field name="order" type="IntegerField">2</field>
+    <field name="caption" type="TextField">&lt;p&gt;Правда ли, что АКТОВИДЕРМ&amp;reg; уменьшает боль?&lt;/p&gt;</field>
+    <field name="text" type="TextField">&lt;p&gt;В состав АКТОВИДЕРМ&amp;reg; входит пропеллент, при испарении которого кожа быстро охлаждается, а болевая чувствительность падает. Ссадины, порезы и ожоги болят меньше, а заживают гораздо быстрее!&lt;/p&gt;</field>
+    <field name="page" rel="ManyToOneRel" to="base.faqpage">1</field>
+  </object>
+  <object model="base.textitem" pk="6">
+    <field name="order" type="IntegerField">1</field>
+    <field name="caption" type="TextField">&lt;p&gt;Зачем нужна аэрозольная повязка АКТОВИДЕРМ&amp;reg;?&amp;nbsp;&lt;/p&gt;</field>
+    <field name="text" type="TextField">&lt;p&gt;АКТОВИДЕРМ&amp;reg; защищает поврежденную кожу от воды, грязи, инфекций, грибка и механических повреждений. Кроме того, он содержит дезинфицирующее вещество хлоргексидин и охлаждающие компоненты, которые смягчают боль. При этом повязка свободно пропускает воздух &amp;ndash; рана &amp;laquo;дышит&amp;raquo;, а следовательно, быстрее заживает, так как не преет и не подвержена инфекции.&lt;/p&gt;</field>
+    <field name="page" rel="ManyToOneRel" to="base.faqpage">1</field>
+  </object>
+  <object model="base.textitem" pk="7">
+    <field name="order" type="IntegerField">7</field>
+    <field name="caption" type="TextField">&lt;p&gt;От АКТОВИДЕРМ&amp;reg; может быть аллергия?&lt;/p&gt;</field>
+    <field name="text" type="TextField">&lt;p&gt;Полимер, который используется при производстве АКТОВИДЕРМ&amp;reg;, гипоаллергенен, так как не содержит в составе красителей, отдушек и консервантов. Это значит, что вероятность аллергии при применении средства стремится к нулю.&lt;/p&gt;</field>
+    <field name="page" rel="ManyToOneRel" to="base.faqpage">1</field>
+  </object>
+  <object model="base.textitem" pk="8">
+    <field name="order" type="IntegerField">8</field>
+    <field name="caption" type="TextField">&lt;p&gt;Правда ли, что АКТОВИДЕРМ&amp;reg; обеззараживает рану?&lt;/p&gt;</field>
+    <field name="text" type="TextField">&lt;p&gt;В составе АКТОВИДЕРМ&amp;reg; есть антисептик хлоргексидин. Повязка обеззараживает поврежденный участок кожи и защищает его от механического воздействия. С АКТОВИДЕРМ&amp;reg; можно не бояться попадания в рану инфекций и грибка!&lt;/p&gt;</field>
+    <field name="page" rel="ManyToOneRel" to="base.faqpage">1</field>
+  </object>
+  <object model="base.textitem" pk="9">
+    <field name="order" type="IntegerField">9</field>
+    <field name="caption" type="TextField">&lt;p&gt;А животным можно наносить АКТОВИДЕРМ&amp;reg;?&lt;/p&gt;</field>
+    <field name="text" type="TextField">&lt;p&gt;Использование аэрозольной повязки АКТОВИДЕРМ&amp;reg; у животных не противопоказано.&lt;/p&gt;</field>
+    <field name="page" rel="ManyToOneRel" to="base.faqpage">1</field>
+  </object>
+  <object model="base.textitem" pk="10">
+    <field name="order" type="IntegerField">10</field>
+    <field name="caption" type="TextField">&lt;p&gt;С какого возраста можно применять АКТОВИДЕРМ&amp;reg;?&lt;/p&gt;</field>
+    <field name="text" type="TextField">&lt;p&gt;Аэрозольная повязка АКТОВИДЕРМ&amp;reg; не имеет возрастных ограничений и может применяться у детей с первых дней жизни.&lt;/p&gt;</field>
+    <field name="page" rel="ManyToOneRel" to="base.faqpage">1</field>
+  </object>
+  <object model="base.textitem" pk="11">
+    <field name="order" type="IntegerField">11</field>
+    <field name="caption" type="TextField">&lt;p&gt;Сколько держится повязка АКТОВИДЕРМ&amp;reg;?&lt;/p&gt;</field>
+    <field name="text" type="TextField">&lt;p&gt;АКТОВИДЕРМ&amp;reg; может держаться на коже 24 часа. Через сутки защитная пленка сойдет. Если рана не зажила или пленка начала отходить раньше времени &amp;ndash; нанесите новый слой поверх старого.&lt;/p&gt;</field>
+    <field name="page" rel="ManyToOneRel" to="base.faqpage">1</field>
+  </object>
+  <object model="base.textitem" pk="12">
+    <field name="order" type="IntegerField">12</field>
+    <field name="caption" type="TextField">&lt;p&gt;Как хранить баллон с АКТОВИДЕРМ&amp;reg;?&lt;/p&gt;</field>
+    <field name="text" type="TextField">&lt;p&gt;Срок годности жидкой аэрозольной повязки АКТОВИДЕРМ&amp;reg; &amp;ndash; 2 года с даты изготовления. Храните баллон в проветриваемом помещении вдали от источников тепла при температуре от +5&amp;deg;С до +40&amp;deg;С.&lt;/p&gt;</field>
+    <field name="page" rel="ManyToOneRel" to="base.faqpage">1</field>
+  </object>
+  <object model="base.forpageimageitem" pk="1">
+    <field name="image" type="FileField">for_cuts_KFhSAdt.png</field>
+    <field name="alt" type="CharField"></field>
+    <field name="order" type="IntegerField">1</field>
+    <field name="page" rel="ManyToOneRel" to="base.forpage">1</field>
+  </object>
+  <object model="base.forpageimageitem" pk="2">
+    <field name="image" type="FileField">abrasion_Nv1QcrK.png</field>
+    <field name="alt" type="CharField"></field>
+    <field name="order" type="IntegerField">2</field>
+    <field name="page" rel="ManyToOneRel" to="base.forpage">1</field>
+  </object>
+  <object model="base.forpageimageitem" pk="3">
+    <field name="image" type="FileField">for_traums_YJ8vr6w.png</field>
+    <field name="alt" type="CharField"></field>
+    <field name="order" type="IntegerField">3</field>
+    <field name="page" rel="ManyToOneRel" to="base.forpage">1</field>
+  </object>
+  <object model="base.forpageimageitem" pk="4">
+    <field name="image" type="FileField">callus_YTZnHwY.png</field>
+    <field name="alt" type="CharField"></field>
+    <field name="order" type="IntegerField">4</field>
+    <field name="page" rel="ManyToOneRel" to="base.forpage">1</field>
+  </object>
+  <object model="base.docspageimageitem" pk="1">
+    <field name="image" type="FileField">Certificate-X5M-04_ymlFSk1.jpg</field>
+    <field name="alt" type="CharField"></field>
+    <field name="order" type="IntegerField">1</field>
+    <field name="page" rel="ManyToOneRel" to="base.docspage">1</field>
+  </object>
+  <object model="base.docspageimageitem" pk="2">
+    <field name="image" type="FileField">binomo_limited_uSW0Lzg.jpg</field>
+    <field name="alt" type="CharField"></field>
+    <field name="order" type="IntegerField">2</field>
+    <field name="page" rel="ManyToOneRel" to="base.docspage">1</field>
+  </object>
+  <object model="base.docspageimageitem" pk="3">
+    <field name="image" type="FileField">sert-nauch_AZ8bIcl.jpg</field>
+    <field name="alt" type="CharField"></field>
+    <field name="order" type="IntegerField">3</field>
+    <field name="page" rel="ManyToOneRel" to="base.docspage">1</field>
+  </object>
+  <object model="base.docspageimageitem" pk="4">
+    <field name="image" type="FileField">f7c8b69022a38577da31ca82c79a4ba1_sGDZZDj.jpg</field>
+    <field name="alt" type="CharField"></field>
+    <field name="order" type="IntegerField">4</field>
+    <field name="page" rel="ManyToOneRel" to="base.docspage">1</field>
+  </object>
+  <object model="base.docspageimageitem" pk="5">
+    <field name="image" type="FileField">sertifikat-sootvetstviya-vorot-en-12424-en-12604-en-12453-en-13241-1_0Sk39n5.jpg</field>
+    <field name="alt" type="CharField"></field>
+    <field name="order" type="IntegerField">5</field>
+    <field name="page" rel="ManyToOneRel" to="base.docspage">1</field>
+  </object>
+  <object model="base.doubletextdoubleimageitem" pk="1">
+    <field name="image" type="FileField">shake_hSw7hct.png</field>
+    <field name="alt" type="CharField"></field>
+    <field name="subimage" type="FileField">1_hct3qxn.png</field>
+    <field name="caption" type="CharField">Встряхните Баллон</field>
+    <field name="text" type="CharField"></field>
+    <field name="order" type="IntegerField">1</field>
+  </object>
+  <object model="base.doubletextdoubleimageitem" pk="2">
+    <field name="image" type="FileField">spray_nxm9Nld.png</field>
+    <field name="alt" type="CharField"></field>
+    <field name="subimage" type="FileField">2_Q1psMAf.png</field>
+    <field name="caption" type="CharField">Распылите АКТОВИДЕРМ®</field>
+    <field name="text" type="CharField">на поврежденный участок кожи в течение 1-3 секунд с расстояния 20 см.</field>
+    <field name="order" type="IntegerField">2</field>
+  </object>
+  <object model="base.doubletextdoubleimageitem" pk="3">
+    <field name="image" type="FileField">time_UkCgA5o.png</field>
+    <field name="alt" type="CharField"></field>
+    <field name="subimage" type="FileField">3_1IvSEzZ.png</field>
+    <field name="caption" type="CharField">Дайте Высохнуть</field>
+    <field name="text" type="CharField">Пленка образуется в течение 20 секунд.</field>
+    <field name="order" type="IntegerField">3</field>
+  </object>
+  <object model="base.doubletextdoubleimageitem" pk="4">
+    <field name="image" type="FileField">3spray_mggcK6M.png</field>
+    <field name="alt" type="CharField"></field>
+    <field name="subimage" type="FileField">4_4QTurSG.png</field>
+    <field name="caption" type="CharField">ПОВТОРИТЕ</field>
+    <field name="text" type="CharField">Для создания более надежной защиты нанесите АКТОВИДЕРМ® в 2-3 слоя.</field>
+    <field name="order" type="IntegerField">4</field>
+  </object>
+  <object model="base.doubletextdoubleimageitem" pk="5">
+    <field name="image" type="FileField">skin_8pi3Miw.png</field>
+    <field name="alt" type="CharField"></field>
+    <field name="subimage" type="FileField">5_yd3wYEg.png</field>
+    <field name="caption" type="CharField">ПЛЕНКА ОТХОДИТ</field>
+    <field name="text" type="CharField">в течение суток. При необходимости намочите плёнку и снимите её самостоятельно.</field>
+    <field name="order" type="IntegerField">5</field>
+  </object>
+  <object model="base.galleryimageitem" pk="1">
+    <field name="image" type="FileField">knife.jpg</field>
+    <field name="alt" type="CharField">Lorem</field>
+    <field name="text" type="TextField">&lt;p&gt;&amp;nbsp;&lt;span&gt; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas mi id iaculis interdum. Nam lacinia dui massa, quis viverra ante dictum ac. Ut commodo justo eget mi gravida, eu malesuada nisi blandit. Pellentesque facilisis et leo id finibus. Pellentesque consequat turpis non faucibus scelerisque. Curabitur mattis sem nec nisl fringilla, tristique tempus urna aliquam. Morbi molestie, massa sit amet efficitur auctor, mi ex ornare felis, non luctus nibh est et risus. Nunc quis vehicula eros. Ut nec rutrum tellus, sit amet ultricies lorem. Curabitur vitae libero sit amet dui mollis fermentum nec vel ipsum. Praesent fringilla ultrices tortor, non tempus elit placerat sed. &lt;/span&gt;&lt;/p&gt;</field>
+    <field name="order" type="IntegerField">1</field>
+    <field name="page" rel="ManyToOneRel" to="base.orangepage">1</field>
+  </object>
+  <object model="base.galleryimageitem" pk="2">
+    <field name="image" type="FileField">skovoroda.jpg</field>
+    <field name="alt" type="CharField">Lorem</field>
+    <field name="text" type="TextField">&lt;p&gt;&amp;nbsp;&lt;span&gt; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas mi id iaculis interdum. Nam lacinia dui massa, quis viverra ante dictum ac. Ut commodo justo eget mi gravida, eu malesuada nisi blandit. Pellentesque facilisis et leo id finibus. Pellentesque consequat turpis non faucibus scelerisque. Curabitur mattis sem nec nisl fringilla, tristique tempus urna aliquam. Morbi molestie, massa sit amet efficitur auctor, mi ex ornare felis, non luctus nibh est et risus. Nunc quis vehicula eros. Ut nec rutrum tellus, sit amet ultricies lorem. Curabitur vitae libero sit amet dui mollis fermentum nec vel ipsum. Praesent fringilla ultrices tortor, non tempus elit placerat sed. &lt;/span&gt;&lt;/p&gt;</field>
+    <field name="order" type="IntegerField">2</field>
+    <field name="page" rel="ManyToOneRel" to="base.orangepage">1</field>
+  </object>
+  <object model="base.galleryimageitem" pk="3">
+    <field name="image" type="FileField">2girls.jpg</field>
+    <field name="alt" type="CharField">Lorem</field>
+    <field name="text" type="TextField">&lt;p&gt;&amp;nbsp;&lt;span&gt; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas mi id iaculis interdum. Nam lacinia dui massa, quis viverra ante dictum ac. Ut commodo justo eget mi gravida, eu malesuada nisi blandit. Pellentesque facilisis et leo id finibus. Pellentesque consequat turpis non faucibus scelerisque. Curabitur mattis sem nec nisl fringilla, tristique tempus urna aliquam. Morbi molestie, massa sit amet efficitur auctor, mi ex ornare felis, non luctus nibh est et risus. Nunc quis vehicula eros. Ut nec rutrum tellus, sit amet ultricies lorem. Curabitur vitae libero sit amet dui mollis fermentum nec vel ipsum. Praesent fringilla ultrices tortor, non tempus elit placerat sed. &lt;/span&gt;&lt;/p&gt;</field>
+    <field name="order" type="IntegerField">3</field>
+    <field name="page" rel="ManyToOneRel" to="base.orangepage">1</field>
+  </object>
+  <object model="base.galleryimageitem" pk="4">
+    <field name="image" type="FileField">selfie.jpg</field>
+    <field name="alt" type="CharField">Lorem</field>
+    <field name="text" type="TextField">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas mi id iaculis interdum. Nam lacinia dui massa, quis viverra ante dictum ac. Ut commodo justo eget mi gravida, eu malesuada nisi blandit. Pellentesque facilisis et leo id finibus. Pellentesque consequat turpis non faucibus scelerisque. Curabitur mattis sem nec nisl fringilla, tristique tempus urna aliquam. Morbi molestie, massa sit amet efficitur auctor, mi ex ornare felis, non luctus nibh est et risus. Nunc quis vehicula eros. Ut nec rutrum tellus, sit amet ultricies lorem. Curabitur vitae libero sit amet dui mollis fermentum nec vel ipsum. Praesent fringilla ultrices tortor, non tempus elit placerat sed.&lt;/p&gt;</field>
+    <field name="order" type="IntegerField">4</field>
+    <field name="page" rel="ManyToOneRel" to="base.orangepage">1</field>
+  </object>
+  <object model="base.galleryimageitem" pk="5">
+    <field name="image" type="FileField">keys.jpg</field>
+    <field name="alt" type="CharField">Lorem</field>
+    <field name="text" type="TextField">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas mi id iaculis interdum. Nam lacinia dui massa, quis viverra ante dictum ac. Ut commodo justo eget mi gravida, eu malesuada nisi blandit. Pellentesque facilisis et leo id finibus. Pellentesque consequat turpis non faucibus scelerisque. Curabitur mattis sem nec nisl fringilla, tristique tempus urna aliquam. Morbi molestie, massa sit amet efficitur auctor, mi ex ornare felis, non luctus nibh est et risus. Nunc quis vehicula eros. Ut nec rutrum tellus, sit amet ultricies lorem. Curabitur vitae libero sit amet dui mollis fermentum nec vel ipsum. Praesent fringilla ultrices tortor, non tempus elit placerat sed.&lt;/p&gt;</field>
+    <field name="order" type="IntegerField">5</field>
+    <field name="page" rel="ManyToOneRel" to="base.orangepage">1</field>
+  </object>
+  <object model="base.galleryimageitem" pk="6">
+    <field name="image" type="FileField">shoes.jpg</field>
+    <field name="alt" type="CharField">Lorem</field>
+    <field name="text" type="TextField">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas mi id iaculis interdum. Nam lacinia dui massa, quis viverra ante dictum ac. Ut commodo justo eget mi gravida, eu malesuada nisi blandit. Pellentesque facilisis et leo id finibus. Pellentesque consequat turpis non faucibus scelerisque. Curabitur mattis sem nec nisl fringilla, tristique tempus urna aliquam. Morbi molestie, massa sit amet efficitur auctor, mi ex ornare felis, non luctus nibh est et risus. Nunc quis vehicula eros. Ut nec rutrum tellus, sit amet ultricies lorem. Curabitur vitae libero sit amet dui mollis fermentum nec vel ipsum. Praesent fringilla ultrices tortor, non tempus elit placerat sed.&lt;/p&gt;</field>
+    <field name="order" type="IntegerField">6</field>
+    <field name="page" rel="ManyToOneRel" to="base.orangepage">1</field>
+  </object>
+  <object model="base.galleryimageitem" pk="7">
+    <field name="image" type="FileField">fire.jpg</field>
+    <field name="alt" type="CharField">Lorem</field>
+    <field name="text" type="TextField">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas mi id iaculis interdum. Nam lacinia dui massa, quis viverra ante dictum ac. Ut commodo justo eget mi gravida, eu malesuada nisi blandit. Pellentesque facilisis et leo id finibus. Pellentesque consequat turpis non faucibus scelerisque. Curabitur mattis sem nec nisl fringilla, tristique tempus urna aliquam. Morbi molestie, massa sit amet efficitur auctor, mi ex ornare felis, non luctus nibh est et risus. Nunc quis vehicula eros. Ut nec rutrum tellus, sit amet ultricies lorem. Curabitur vitae libero sit amet dui mollis fermentum nec vel ipsum. Praesent fringilla ultrices tortor, non tempus elit placerat sed.&lt;/p&gt;</field>
+    <field name="order" type="IntegerField">7</field>
+    <field name="page" rel="ManyToOneRel" to="base.orangepage">1</field>
+  </object>
+  <object model="base.textimageitem" pk="1">
+    <field name="image" type="FileField">20.png</field>
+    <field name="alt" type="CharField"></field>
+    <field name="text" type="TextField">&lt;p&gt;секунд сохнет&lt;/p&gt;
+&lt;p&gt;слой после нанесения&lt;/p&gt;</field>
+    <field name="order" type="IntegerField">1</field>
+  </object>
+  <object model="base.textimageitem" pk="2">
+    <field name="image" type="FileField">24.png</field>
+    <field name="alt" type="CharField"></field>
+    <field name="text" type="TextField">&lt;p&gt;часа защиты&lt;/p&gt;
+&lt;p&gt;от инфицирования&lt;/p&gt;
+&lt;p&gt;и попадания воды&lt;/p&gt;</field>
+    <field name="order" type="IntegerField">2</field>
+  </object>
+  <object model="base.textimageitem" pk="3">
+    <field name="image" type="FileField">200.png</field>
+    <field name="alt" type="CharField"></field>
+    <field name="text" type="TextField">&lt;p&gt;пластырей&lt;/p&gt;
+&lt;p&gt;заменяет одна упаковка&lt;/p&gt;
+&lt;p&gt;АКТОВИДЕРМ&lt;span class="_Tgc"&gt;&amp;reg;&lt;/span&gt;&lt;/p&gt;</field>
+    <field name="order" type="IntegerField">4</field>
+  </object>
+  <object model="base.textimageitem" pk="4">
+    <field name="image" type="FileField">150.png</field>
+    <field name="alt" type="CharField"></field>
+    <field name="text" type="TextField">&lt;p&gt;применений&lt;/p&gt;
+&lt;p&gt;на один баллон&lt;/p&gt;</field>
+    <field name="order" type="IntegerField">3</field>
+  </object>
+  <object model="base.textimageitem" pk="5">
+    <field name="image" type="FileField">dot1.png</field>
+    <field name="alt" type="CharField"></field>
+    <field name="text" type="TextField">&lt;p&gt;Порез во время готовки, ожог от утюга и горячего масла, заноза &amp;ndash; бытовые микротравмы приключаются ежедневно. Они не должны портить настроение, поэтому держите в доме жидкий пластырь АКТОВИДЕРМ&amp;reg;.&lt;/p&gt;
+&lt;p&gt;На коже спрей превращается в прозрачную эластичную пленку. Она защищает поврежденный участок от микробов, загрязнений и влаги, ускоряя заживление.&lt;/p&gt;
+&lt;p&gt;Защитная пленка почти не заметна на коже и держится 24 часа. Ее можно мочить, при этом пластырь останется на месте.&lt;/p&gt;</field>
+    <field name="order" type="IntegerField">1</field>
+  </object>
+  <object model="base.textimageitem" pk="6">
+    <field name="image" type="FileField">dot2.png</field>
+    <field name="alt" type="CharField"></field>
+    <field name="text" type="TextField">&lt;p&gt;Даже под присмотром родителей дети умудряются разбивать коленки, обдирать ладони, ставить занозы. На такие случаи держите под рукой АКТОВИДЕРМ&amp;reg; &amp;ndash; средство для быстрой дезинфекции и обезболивания.&lt;/p&gt;
+&lt;p&gt;АКТОВИДЕРМ&amp;reg; не придется отдирать вместе с болячкой, как обычный пластырь. В отличие от &amp;laquo;зеленки&amp;raquo;, он не щиплет. Образуя надежный защитный слой, он меньше обычной повязки беспокоит малыша.&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Плотная прозрачная пленка держится 24 часа, не пропускает внутрь микробов, воду и грязь. С АКТОВИДЕРМ&amp;reg; шанс занести инфекцию уменьшается, а скорость заживления увеличивается.&lt;/p&gt;</field>
+    <field name="order" type="IntegerField">2</field>
+  </object>
+  <object model="base.textimageitem" pk="7">
+    <field name="image" type="FileField">dot3.png</field>
+    <field name="alt" type="CharField"></field>
+    <field name="text" type="TextField">&lt;p&gt;На природе случается всякое &amp;ndash; порезы и занозы, царапины и ожоги. С дезинфекцией и защитой ранки от воды и грязи отлично справляется АКТОВИДЕРМ&amp;reg;. Один баллон заменяет небольшую походную аптечку.&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Спрей обеззараживает, приятно холодит поврежденную кожу, смягчает боль. После высыхания АКТОВИДЕРМ&amp;reg; превращается в эластичную &amp;laquo;дышащую&amp;raquo; мембрану. Она не стесняет движений, не цепляется за одежду и держится целые сутки.&lt;/p&gt;</field>
+    <field name="order" type="IntegerField">3</field>
+  </object>
+  <object model="base.textimageitem" pk="8">
+    <field name="image" type="FileField">1.png</field>
+    <field name="alt" type="CharField"></field>
+    <field name="text" type="TextField">&lt;p&gt;Защищает поврежденную кожу&lt;/p&gt;</field>
+    <field name="order" type="IntegerField">1</field>
+  </object>
+  <object model="base.textimageitem" pk="9">
+    <field name="image" type="FileField">2.png</field>
+    <field name="alt" type="CharField"></field>
+    <field name="text" type="TextField">&lt;p&gt;Невидимый&lt;/p&gt;</field>
+    <field name="order" type="IntegerField">2</field>
+  </object>
+  <object model="base.textimageitem" pk="10">
+    <field name="image" type="FileField">3.png</field>
+    <field name="alt" type="CharField"></field>
+    <field name="text" type="TextField">&lt;p&gt;Предотвращает инфицирование&lt;/p&gt;</field>
+    <field name="order" type="IntegerField">3</field>
+  </object>
+  <object model="base.textimageitem" pk="11">
+    <field name="image" type="FileField">4.png</field>
+    <field name="alt" type="CharField"></field>
+    <field name="text" type="TextField">&lt;p&gt;Водонепроницаемый&lt;/p&gt;</field>
+    <field name="order" type="IntegerField">4</field>
+  </object>
+  <object model="base.textimageitem" pk="12">
+    <field name="image" type="FileField">5.png</field>
+    <field name="alt" type="CharField"></field>
+    <field name="text" type="TextField">&lt;p&gt;Эластичный&lt;/p&gt;</field>
+    <field name="order" type="IntegerField">5</field>
+  </object>
+  <object model="base.textimageitem" pk="13">
+    <field name="image" type="FileField">f.png</field>
+    <field name="alt" type="CharField"></field>
+    <field name="text" type="TextField">&lt;p&gt;/facebook&lt;/p&gt;</field>
+    <field name="order" type="IntegerField">1</field>
+  </object>
+  <object model="base.textimageitem" pk="14">
+    <field name="image" type="FileField">i.png</field>
+    <field name="alt" type="CharField"></field>
+    <field name="text" type="TextField">&lt;p&gt;/instagram&lt;/p&gt;</field>
+    <field name="order" type="IntegerField">2</field>
+  </object>
+  <object model="base.textimageitem" pk="15">
+    <field name="image" type="FileField">v.png</field>
+    <field name="alt" type="CharField"></field>
+    <field name="text" type="TextField">&lt;p&gt;/vk.com&lt;/p&gt;</field>
+    <field name="order" type="IntegerField">3</field>
+  </object>
+  <object model="base.textimageitem" pk="16">
+    <field name="image" type="FileField">o.png</field>
+    <field name="alt" type="CharField"></field>
+    <field name="text" type="TextField">&lt;p&gt;/ok.ru&lt;/p&gt;</field>
+    <field name="order" type="IntegerField">4</field>
+  </object>
+  <object model="base.sitesettings" pk="1">
+    <field name="title" type="CharField">АКТОВИДЕРМ - жидкая аэрозольная повязка</field>
+    <field name="meta_description" type="CharField">АКТОВИДЕРМ - жидкая аэрозольная повязка. Замена пластырю от ран, ссадин, порезов, ожогов, мозолей, пролежней</field>
+    <field name="meta_keywords" type="CharField">Актовидерм, пластырь, жидкая аэрозольная повязка, раны, ожоги, мозоли, ссадины, порезы</field>
+    <field name="cost" type="IntegerField">260</field>
+    <field name="form_title" type="CharField">Жидкая аэрозольная повязка АКТОВИДЕРМ®</field>
+    <field name="form_header_1" type="CharField">ОФОРМЛЕНИЕ ЗАКАЗА / Адрес доставки</field>
+    <field name="form_header_2" type="CharField">ОФОРМЛЕНИЕ ЗАКАЗА / Ваши контактные данные</field>
+    <field name="form_header_3" type="CharField">СПАСИБО, ВАША ЗАЯВКА ПРИНЯТА!</field>
+    <field name="order_complete" type="TextField">В ближайшее время с вами свяжется наш менеджер для подтверждения даты и времени доставки, а также расчета общей стоимости заказа с учетом доставки до вашего города.
+Пожалуйста, выберите время, когда вам будет удобно принять звонок:</field>
+    <field name="const_info" type="CharField">Стоимость доставки рассчитывается</field>
+    <field name="name_caption" type="CharField">Имя и фамилия</field>
+    <field name="mail_caption" type="CharField">E-mail</field>
+    <field name="phone_caption" type="CharField">Телефон</field>
+    <field name="counters" type="TextField">&lt;script&gt;
+&lt;/script&gt;</field>
+  </object>
+  <object model="base.toppage" pk="1">
+    <field name="logo" type="FileField">akto-box-photo_RxVKBnc.png</field>
+    <field name="active" type="BooleanField">True</field>
+    <field name="slug" type="CharField"></field>
+    <field name="template" type="CharField">top.html</field>
+    <field name="order" type="IntegerField">1</field>
+    <field name="menu_title" type="CharField"></field>
+    <field name="backgound" type="FileField">background-top-left_CgPoIMI.png</field>
+    <field name="image" type="FileField">background-top-left_rzXBm7y.png</field>
+    <field name="title" type="TextField">&lt;p&gt;Жидкая&lt;br /&gt;аэрозольная&lt;br /&gt;повязка АКТОВИДЕРМ&amp;reg;&lt;/p&gt;</field>
+    <field name="banner" type="FileField">banner-non-free_vQYBN35.png</field>
+    <field name="free_delivery_button" type="FileField">banner-free_raelHHp.png</field>
+    <field name="no_delivery_button" type="FileField">banner-non-free_fqHgnh0.png</field>
+  </object>
+  <object model="base.forpage" pk="1">
+    <field name="logo" type="FileField"></field>
+    <field name="active" type="BooleanField">True</field>
+    <field name="title" type="CharField"></field>
+    <field name="slug" type="CharField">when_apply</field>
+    <field name="template" type="CharField">page_for.html</field>
+    <field name="order" type="IntegerField">1</field>
+    <field name="menu_title" type="CharField">когда применяется?</field>
+  </object>
+  <object model="base.orangepage" pk="1">
+    <field name="logo" type="FileField">logo-photo_VCNRyL4.png</field>
+    <field name="active" type="BooleanField">True</field>
+    <field name="title" type="CharField">Домашняя аптечка, сумочка, походный рюкзак, "бардачок" авто – мы создали АКТОВИДЕРМ® компактным, чтобы он всегда был у вас под рукой!</field>
+    <field name="slug" type="CharField"></field>
+    <field name="template" type="CharField">orange.html</field>
+    <field name="order" type="IntegerField">2</field>
+    <field name="menu_title" type="CharField"></field>
+  </object>
+  <object model="base.yellowpage" pk="1">
+    <field name="logo" type="FileField">logo-yellow_s3ryWsX.png</field>
+    <field name="active" type="BooleanField">True</field>
+    <field name="title" type="CharField">Секрет быстрого заживления ран, порезов и ожогов в правильном уходе. АКТОВИДЕРМ® – надежная «дышащая» защита от микробов, грязи и влаги, которой доверяют взрослые и дети.</field>
+    <field name="slug" type="CharField"></field>
+    <field name="template" type="CharField">yellow.html</field>
+    <field name="order" type="IntegerField">12</field>
+    <field name="menu_title" type="CharField"></field>
+  </object>
+  <object model="base.mintpage" pk="1">
+    <field name="logo" type="FileField">logo-mint.png</field>
+    <field name="active" type="BooleanField">True</field>
+    <field name="title" type="CharField"></field>
+    <field name="slug" type="CharField">howitworks</field>
+    <field name="template" type="CharField">mint.html</field>
+    <field name="order" type="IntegerField">1</field>
+    <field name="menu_title" type="CharField">как работает?</field>
+    <field name="left_image" type="FileField">hands.png</field>
+    <field name="right_image" type="FileField">infographic.png</field>
+    <field name="caption" type="TextField">&lt;p&gt;АКТОВИДЕРМ&amp;reg; &amp;ndash; полезное приобретение в домашнюю аптечку. Распылите спрей на поврежденную кожу &amp;ndash; он станет надежной защитой от микробов, грязи и влаги на 24 часа. Пластырь пропускает воздух, поэтому рана &amp;laquo;дышит&amp;raquo; и быстрее заживает!&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;</field>
+  </object>
+  <object model="base.factspage" pk="1">
+    <field name="logo" type="FileField">zag-fakts_MWrwZ2O.png</field>
+    <field name="active" type="BooleanField">True</field>
+    <field name="title" type="CharField"></field>
+    <field name="slug" type="CharField"></field>
+    <field name="template" type="CharField">facts.html</field>
+    <field name="order" type="IntegerField">1</field>
+    <field name="menu_title" type="CharField"></field>
+    <field name="items" rel="ManyToManyRel" to="base.textimageitem"><object pk="2"></object><object pk="1"></object><object pk="4"></object><object pk="3"></object></field>
+  </object>
+  <object model="base.greenpage" pk="1">
+    <field name="logo" type="FileField">logo-green_qshxKfO.png</field>
+    <field name="active" type="BooleanField">True</field>
+    <field name="title" type="CharField">Жидкий пластырь АКТОВИДЕРМ® – это помощь в уходе за ссадинами и ожогами, тату и пирсингом, хирургическими швами и пролежнями. Разрешен к применению у взрослых и детей!</field>
+    <field name="slug" type="CharField">forwhoom</field>
+    <field name="template" type="CharField">green.html</field>
+    <field name="order" type="IntegerField">1</field>
+    <field name="menu_title" type="CharField">кому подходит?</field>
+    <field name="free_delivery_button" type="FileField">buy-now_vy6kSgU.png</field>
+    <field name="no_delivery_button" type="FileField">nofree.png</field>
+    <field name="items" rel="ManyToManyRel" to="base.textimageitem"><object pk="6"></object><object pk="7"></object><object pk="5"></object></field>
+  </object>
+  <object model="base.whypage" pk="1">
+    <field name="logo" type="FileField">why-logo_7AeNNAV.png</field>
+    <field name="active" type="BooleanField">True</field>
+    <field name="title" type="CharField"></field>
+    <field name="slug" type="CharField"></field>
+    <field name="template" type="CharField">why.html</field>
+    <field name="order" type="IntegerField">1</field>
+    <field name="menu_title" type="CharField"></field>
+    <field name="items" rel="ManyToManyRel" to="base.textimageitem"><object pk="8"></object><object pk="9"></object><object pk="10"></object><object pk="11"></object><object pk="12"></object></field>
+  </object>
+  <object model="base.howpage" pk="1">
+    <field name="logo" type="FileField">logo-blue.png</field>
+    <field name="active" type="BooleanField">True</field>
+    <field name="title" type="CharField"></field>
+    <field name="slug" type="CharField"></field>
+    <field name="template" type="CharField">blue.html</field>
+    <field name="order" type="IntegerField">1</field>
+    <field name="menu_title" type="CharField"></field>
+    <field name="caption" type="TextField">&lt;p&gt;Кровь из пальца, щиплет ссадина или болит место ожога? Для таких случаев есть АКТОВИДЕРМ&amp;reg;. Одно нажатие на распылитель, и ранка обеззаражена и обезболена на 24 часа.&lt;/p&gt;</field>
+    <field name="items" rel="ManyToManyRel" to="base.doubletextdoubleimageitem"><object pk="1"></object><object pk="2"></object><object pk="3"></object><object pk="4"></object><object pk="5"></object></field>
+  </object>
+  <object model="base.faqpage" pk="1">
+    <field name="logo" type="FileField">faq-logo_5zf1HYx.png</field>
+    <field name="active" type="BooleanField">True</field>
+    <field name="title" type="CharField"></field>
+    <field name="slug" type="CharField"></field>
+    <field name="template" type="CharField">faq.html</field>
+    <field name="order" type="IntegerField">1</field>
+    <field name="menu_title" type="CharField"></field>
+    <field name="name_caption" type="CharField">ВАШЕ ИМЯ</field>
+    <field name="mail_caption" type="CharField">ЭЛЕKTРОННЫЙ АДРЕС</field>
+    <field name="phone_caption" type="CharField">ТЕЛЕФОН</field>
+    <field name="question_caption" type="CharField">ВАШ ВОПРОС</field>
+  </object>
+  <object model="base.docspage" pk="1">
+    <field name="logo" type="FileField">logo-sertificats_6N3UlVN.png</field>
+    <field name="active" type="BooleanField">True</field>
+    <field name="title" type="CharField"></field>
+    <field name="slug" type="CharField"></field>
+    <field name="template" type="CharField">docs.html</field>
+    <field name="order" type="IntegerField">13</field>
+    <field name="menu_title" type="CharField"></field>
+  </object>
+  <object model="base.footerpage" pk="1">
+    <field name="logo" type="FileField">milor.png</field>
+    <field name="active" type="BooleanField">True</field>
+    <field name="title" type="CharField">© Milor Pharma, 2017 г, Все права защищены, ООО «Милора Фарма», Телефон / Факс: +7(499)390-13-97, электронная почта: info@milor-pharma.ru</field>
+    <field name="slug" type="CharField"></field>
+    <field name="template" type="CharField">footer.html</field>
+    <field name="order" type="IntegerField">15</field>
+    <field name="menu_title" type="CharField"></field>
+    <field name="caption" type="CharField">Следите за Актовидерм® в социальных сетях:</field>
+    <field name="info" type="CharField">Данный сайт не является публичной офертой.</field>
+    <field name="copy" type="CharField">© Millor Pharma, 2017 г. Все права защищены. ООО «Миллор Фарма». Телефон / Факс: +7(499)390-13-97, электронная почта: info@millor-pharma.ru</field>
+    <field name="link" type="CharField">pages/eula</field>
+    <field name="image" type="FileField">warring.png</field>
+  </object>
+  <object model="base.linkimageitem" pk="1">
+    <field name="image" type="FileField">f_QB29835.png</field>
+    <field name="alt" type="CharField">Facebook</field>
+    <field name="link" type="CharField"></field>
+    <field name="order" type="IntegerField">1</field>
+    <field name="page" rel="ManyToOneRel" to="base.footerpage">1</field>
+  </object>
+  <object model="base.linkimageitem" pk="2">
+    <field name="image" type="FileField">i_1XyXvcy.png</field>
+    <field name="alt" type="CharField">Instagram</field>
+    <field name="link" type="CharField"></field>
+    <field name="order" type="IntegerField">2</field>
+    <field name="page" rel="ManyToOneRel" to="base.footerpage">1</field>
+  </object>
+  <object model="base.linkimageitem" pk="3">
+    <field name="image" type="FileField">v_ajz8BNS.png</field>
+    <field name="alt" type="CharField">Vkontakte</field>
+    <field name="link" type="CharField"></field>
+    <field name="order" type="IntegerField">3</field>
+    <field name="page" rel="ManyToOneRel" to="base.footerpage">1</field>
+  </object>
+  <object model="base.linkimageitem" pk="4">
+    <field name="image" type="FileField">o_M1DJlTt.png</field>
+    <field name="alt" type="CharField">odnoklassniki</field>
+    <field name="link" type="CharField"></field>
+    <field name="order" type="IntegerField">4</field>
+    <field name="page" rel="ManyToOneRel" to="base.footerpage">1</field>
+  </object>
+  <object model="base.bottompage" pk="1">
+    <field name="logo" type="FileField">logo.png</field>
+    <field name="active" type="BooleanField">True</field>
+    <field name="title" type="CharField"></field>
+    <field name="slug" type="CharField">buysomewhere</field>
+    <field name="template" type="CharField">bottom.html</field>
+    <field name="order" type="IntegerField">14</field>
+    <field name="menu_title" type="CharField">купить в аптеке</field>
+    <field name="free_delivery_button" type="FileField">free-delivery.png</field>
+    <field name="no_delivery_button" type="FileField">non-free-delivery.png</field>
+    <field name="image" type="FileField">photo.png</field>
+  </object>
+  <object model="base.city" pk="1">
+    <field name="name" type="CharField">Москва</field>
+    <field name="active" type="BooleanField">True</field>
+    <field name="has_delivery" type="BooleanField">True</field>
+    <field name="x" type="FloatField">55.755826</field>
+    <field name="y" type="FloatField">37.6173</field>
+  </object>
+  <object model="base.city" pk="2">
+    <field name="name" type="CharField">Санкт-Петербург</field>
+    <field name="active" type="BooleanField">False</field>
+    <field name="has_delivery" type="BooleanField">False</field>
+    <field name="x" type="FloatField">59.9181715448206</field>
+    <field name="y" type="FloatField">30.305578</field>
+  </object>
+  <object model="base.questions" pk="1">
+    <field name="name" type="CharField">qwe</field>
+    <field name="email" type="CharField">qwe</field>
+    <field name="phone" type="CharField">qwe</field>
+    <field name="text" type="CharField">qwe</field>
+  </object>
+  <object model="base.questions" pk="2">
+    <field name="name" type="CharField">qwe</field>
+    <field name="email" type="CharField">wqe</field>
+    <field name="phone" type="CharField">qwe</field>
+    <field name="text" type="CharField">qwe</field>
+  </object>
+  <object model="base.questions" pk="3">
+    <field name="name" type="CharField">Jhonny</field>
+    <field name="email" type="CharField">qwe</field>
+    <field name="phone" type="CharField">Jhonny</field>
+    <field name="text" type="CharField">1</field>
+  </object>
+  <object model="base.questions" pk="4">
+    <field name="name" type="CharField">test</field>
+    <field name="email" type="CharField">test</field>
+    <field name="phone" type="CharField">test</field>
+    <field name="text" type="CharField">test</field>
+  </object>
+  <object model="base.questions" pk="5">
+    <field name="name" type="CharField">qwe</field>
+    <field name="email" type="CharField">qwe</field>
+    <field name="phone" type="CharField">qew</field>
+    <field name="text" type="CharField">qwe</field>
+  </object>
+  <object model="base.questions" pk="6">
+    <field name="name" type="CharField">qwe</field>
+    <field name="email" type="CharField">qwe</field>
+    <field name="phone" type="CharField">qew</field>
+    <field name="text" type="CharField">qwe</field>
+  </object>
+  <object model="base.questions" pk="7">
+    <field name="name" type="CharField">qwe</field>
+    <field name="email" type="CharField">q</field>
+    <field name="phone" type="CharField">qwe</field>
+    <field name="text" type="CharField">qwe</field>
+  </object>
+  <object model="base.questions" pk="8">
+    <field name="name" type="CharField">12</field>
+    <field name="email" type="CharField">12</field>
+    <field name="phone" type="CharField">12</field>
+    <field name="text" type="CharField">12</field>
+  </object>
+  <object model="base.questions" pk="9">
+    <field name="name" type="CharField">тест</field>
+    <field name="email" type="CharField">33-@inbox.ru</field>
+    <field name="phone" type="CharField">9671593216</field>
+    <field name="text" type="CharField">вопрос</field>
+  </object>
+  <object model="base.orders" pk="4">
+    <field name="city" type="CharField">Москва</field>
+    <field name="total" type="CharField">1</field>
+    <field name="count" type="CharField">1</field>
+    <field name="street" type="CharField">улица</field>
+    <field name="house" type="CharField">дом</field>
+    <field name="flat" type="CharField">кв</field>
+    <field name="phone" type="CharField">Сегодня</field>
+    <field name="email" type="CharField">22?11</field>
+    <field name="name" type="CharField">имя</field>
+    <field name="ts" type="DateTimeField">2017-03-29T20:38:22.581208+00:00</field>
+    <field name="date" type="CharField"></field>
+    <field name="time" type="CharField"></field>
+  </object>
+  <object model="base.orders" pk="5">
+    <field name="city" type="CharField">awe</field>
+    <field name="total" type="CharField">1</field>
+    <field name="count" type="CharField">1</field>
+    <field name="street" type="CharField">q</field>
+    <field name="house" type="CharField">q</field>
+    <field name="flat" type="CharField">1</field>
+    <field name="phone" type="CharField">qqw</field>
+    <field name="email" type="CharField">w</field>
+    <field name="name" type="CharField">qw</field>
+    <field name="ts" type="DateTimeField">2017-03-30T21:07:15.195253+00:00</field>
+    <field name="date" type="CharField">2.31.2017</field>
+    <field name="time" type="CharField">2</field>
+  </object>
+  <object model="base.orders" pk="6">
+    <field name="city" type="CharField">Москва</field>
+    <field name="total" type="CharField"></field>
+    <field name="count" type="CharField"></field>
+    <field name="street" type="CharField">test</field>
+    <field name="house" type="CharField">test</field>
+    <field name="flat" type="CharField">test</field>
+    <field name="phone" type="CharField">test</field>
+    <field name="email" type="CharField">test</field>
+    <field name="name" type="CharField">test</field>
+    <field name="ts" type="DateTimeField">2017-04-05T22:06:13.195681+00:00</field>
+    <field name="date" type="CharField">6.4.2017</field>
+    <field name="time" type="CharField">11</field>
+  </object>
+  <object model="base.orders" pk="7">
+    <field name="city" type="CharField">Москва</field>
+    <field name="total" type="CharField">520</field>
+    <field name="count" type="CharField">2</field>
+    <field name="street" type="CharField">test</field>
+    <field name="house" type="CharField">22</field>
+    <field name="flat" type="CharField">13</field>
+    <field name="phone" type="CharField">Телефон</field>
+    <field name="email" type="CharField">silago@inbox.ru</field>
+    <field name="name" type="CharField">TesttName</field>
+    <field name="ts" type="DateTimeField">2017-04-10T10:12:36.005620+00:00</field>
+    <field name="date" type="CharField">11.4.2017</field>
+    <field name="time" type="CharField">11</field>
+  </object>
+  <object model="base.orders" pk="8">
+    <field name="city" type="CharField">Москва</field>
+    <field name="total" type="CharField">260</field>
+    <field name="count" type="CharField">1</field>
+    <field name="street" type="CharField">ул</field>
+    <field name="house" type="CharField">д</field>
+    <field name="flat" type="CharField">кв</field>
+    <field name="phone" type="CharField">282310</field>
+    <field name="email" type="CharField">33-@inbox.ru</field>
+    <field name="name" type="CharField">тест</field>
+    <field name="ts" type="DateTimeField">2017-05-25T06:51:04.617288+00:00</field>
+    <field name="date" type="CharField">27.5.2017</field>
+    <field name="time" type="CharField">27</field>
+  </object>
+  <object model="base.shop" pk="1">
+    <field name="name" type="CharField">Грекова ул., 8</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.886448</field>
+    <field name="y" type="FloatField">37.66256</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="2">
+    <field name="name" type="CharField">Генерала Белобородова ул., 16к1</field>
+    <field name="title" type="CharField">Неофарм</field>
+    <field name="phone" type="CharField">8-495-585-55-15</field>
+    <field name="x" type="FloatField">55.834795</field>
+    <field name="y" type="FloatField">37.3561</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="3">
+    <field name="name" type="CharField">Авиационная ул., 68</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.810036</field>
+    <field name="y" type="FloatField">37.456492</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="4">
+    <field name="name" type="CharField">Парковая 3-я ул., 8/19</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.79062</field>
+    <field name="y" type="FloatField">37.784381</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="5">
+    <field name="name" type="CharField">Декабристов ул., 20к2</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.862338</field>
+    <field name="y" type="FloatField">37.60894</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="6">
+    <field name="name" type="CharField">Каширское ш., 26к1</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.654051</field>
+    <field name="y" type="FloatField">37.649004</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="7">
+    <field name="name" type="CharField">Краснопрудная ул., 22-24</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.778715</field>
+    <field name="y" type="FloatField">37.665309</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="8">
+    <field name="name" type="CharField">Мосфильмовская ул., 41к1</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.710925</field>
+    <field name="y" type="FloatField">37.509119</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="9">
+    <field name="name" type="CharField">Профсоюзная ул., 118</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.636306</field>
+    <field name="y" type="FloatField">37.521129</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="10">
+    <field name="name" type="CharField">Пятницкое ш., 29</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.850656</field>
+    <field name="y" type="FloatField">37.364562</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="11">
+    <field name="name" type="CharField">Маршала Тухачевского ул., 41к1</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.78439</field>
+    <field name="y" type="FloatField">37.468802</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="12">
+    <field name="name" type="CharField">Дмитрия Донского б-р, 8</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.568064</field>
+    <field name="y" type="FloatField">37.573806</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="13">
+    <field name="name" type="CharField">Менжинского ул., 23к1</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.869763</field>
+    <field name="y" type="FloatField">37.660377</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="14">
+    <field name="name" type="CharField">Парковая 9-я ул., 61Ас1</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.809125</field>
+    <field name="y" type="FloatField">37.798376</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="15">
+    <field name="name" type="CharField">Малая Филевская ул., 12к1</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.738292</field>
+    <field name="y" type="FloatField">37.472737</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="16">
+    <field name="name" type="CharField">Волгоградский пр-т, 62</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.706208</field>
+    <field name="y" type="FloatField">37.755742</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="17">
+    <field name="name" type="CharField">Коммунарка п., Липовый парк ул., 11</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.566567</field>
+    <field name="y" type="FloatField">37.485637</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="19">
+    <field name="name" type="CharField">Борисовские Пруды ул., 14к4</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.632825</field>
+    <field name="y" type="FloatField">37.744549</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="20">
+    <field name="name" type="CharField">Парковая 9-я ул., 23</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.794963</field>
+    <field name="y" type="FloatField">37.798727</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="21">
+    <field name="name" type="CharField">Новокузьминская 1-я ул., 27/12</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.713207</field>
+    <field name="y" type="FloatField">37.795151</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="22">
+    <field name="name" type="CharField">Парковая 7-я ул., 12/28</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.796203</field>
+    <field name="y" type="FloatField">37.794226</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="23">
+    <field name="name" type="CharField">Костякова ул., 6/5</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.81167</field>
+    <field name="y" type="FloatField">37.573115</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="24">
+    <field name="name" type="CharField">Часовая ул., 11 (Асеева, 3)</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.807378</field>
+    <field name="y" type="FloatField">37.529282</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="25">
+    <field name="name" type="CharField">Мичуринский пр-т, 54к3</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.694378</field>
+    <field name="y" type="FloatField">37.487784</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="26">
+    <field name="name" type="CharField">Автозаводский 2-й пр-д, 3А</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.706634</field>
+    <field name="y" type="FloatField">37.65885</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="27">
+    <field name="name" type="CharField">Толбухина ул., 12к1</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.72199</field>
+    <field name="y" type="FloatField">37.401402</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="28">
+    <field name="name" type="CharField">Плещеева ул., 12</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.88608</field>
+    <field name="y" type="FloatField">37.611419</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="29">
+    <field name="name" type="CharField">Братиславская ул., 12</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.659744</field>
+    <field name="y" type="FloatField">37.752984</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="30">
+    <field name="name" type="CharField">Мичуринский пр-т, 21к3</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.698295</field>
+    <field name="y" type="FloatField">37.503352</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="31">
+    <field name="name" type="CharField">Краснодарская ул., 15/17</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.677575</field>
+    <field name="y" type="FloatField">37.746436</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="32">
+    <field name="name" type="CharField">Буденного пр-т, 39к1</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.763862</field>
+    <field name="y" type="FloatField">37.734659</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="33">
+    <field name="name" type="CharField">Профсоюзная ул., 18к1</field>
+    <field name="title" type="CharField">Столички</field>
+    <field name="phone" type="CharField">8-800-555-111-5</field>
+    <field name="x" type="FloatField">55.683077</field>
+    <field name="y" type="FloatField">37.567258</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="34">
+    <field name="name" type="CharField">Рублевское ш., 16к1</field>
+    <field name="title" type="CharField">Неофарм</field>
+    <field name="phone" type="CharField">8-495-585-55-15</field>
+    <field name="x" type="FloatField">55.740188</field>
+    <field name="y" type="FloatField">37.43437</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="35">
+    <field name="name" type="CharField">Чертаново Сев. мкр, 1А</field>
+    <field name="title" type="CharField">Неофарм</field>
+    <field name="phone" type="CharField">8-495-585-55-15</field>
+    <field name="x" type="FloatField">55.637393</field>
+    <field name="y" type="FloatField">37.600388</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="36">
+    <field name="name" type="CharField">Кутузовский пр-т, 14с1</field>
+    <field name="title" type="CharField">Неофарм</field>
+    <field name="phone" type="CharField">8-495-585-55-15</field>
+    <field name="x" type="FloatField">55.748154</field>
+    <field name="y" type="FloatField">37.555616</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="37">
+    <field name="name" type="CharField">Малая Ордынка ул., 3</field>
+    <field name="title" type="CharField">Неофарм</field>
+    <field name="phone" type="CharField">8-495-585-55-15</field>
+    <field name="x" type="FloatField">55.740436</field>
+    <field name="y" type="FloatField">37.626079</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="38">
+    <field name="name" type="CharField">Бауманская ул., 33/2с1</field>
+    <field name="title" type="CharField">Неофарм</field>
+    <field name="phone" type="CharField">8-495-585-55-15</field>
+    <field name="x" type="FloatField">55.772796</field>
+    <field name="y" type="FloatField">37.678757</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="39">
+    <field name="name" type="CharField">Большая Якиманка ул., 52</field>
+    <field name="title" type="CharField">Неофарм</field>
+    <field name="phone" type="CharField">8-495-585-55-15</field>
+    <field name="x" type="FloatField">55.731774</field>
+    <field name="y" type="FloatField">37.611455</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="base.shop" pk="40">
+    <field name="name" type="CharField">Фрунзенская наб, 44с1</field>
+    <field name="title" type="CharField">Неофарм</field>
+    <field name="phone" type="CharField">8-495-585-55-15</field>
+    <field name="x" type="FloatField">55.719708</field>
+    <field name="y" type="FloatField">37.582987</field>
+    <field name="city" rel="ManyToOneRel" to="base.city">1</field>
+  </object>
+  <object model="admin.logentry" pk="1">
+    <field name="action_time" type="DateTimeField">2017-05-25T06:27:17.539701+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">30</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">TopPage object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["title"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="2">
+    <field name="action_time" type="DateTimeField">2017-05-25T06:35:23.028829+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">33</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">/media/20.png</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="3">
+    <field name="action_time" type="DateTimeField">2017-05-25T06:35:59.336654+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">33</field>
+    <field name="object_id" type="TextField">4</field>
+    <field name="object_repr" type="CharField">/media/150.png</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="4">
+    <field name="action_time" type="DateTimeField">2017-05-25T06:36:30.111417+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">33</field>
+    <field name="object_id" type="TextField">3</field>
+    <field name="object_repr" type="CharField">/media/200.png</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="5">
+    <field name="action_time" type="DateTimeField">2017-05-25T06:36:32.184753+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">31</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">FactsPage object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[]</field>
+  </object>
+  <object model="admin.logentry" pk="6">
+    <field name="action_time" type="DateTimeField">2017-05-25T06:37:16.000047+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">26</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">/media/shake_hSw7hct.png</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["caption"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="7">
+    <field name="action_time" type="DateTimeField">2017-05-25T06:38:01.938021+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">26</field>
+    <field name="object_id" type="TextField">2</field>
+    <field name="object_repr" type="CharField">/media/spray_nxm9Nld.png</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["caption", "text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="8">
+    <field name="action_time" type="DateTimeField">2017-05-25T06:38:29.025612+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">26</field>
+    <field name="object_id" type="TextField">3</field>
+    <field name="object_repr" type="CharField">/media/time_UkCgA5o.png</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="9">
+    <field name="action_time" type="DateTimeField">2017-05-25T06:38:52.195837+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">26</field>
+    <field name="object_id" type="TextField">4</field>
+    <field name="object_repr" type="CharField">/media/3spray_mggcK6M.png</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="10">
+    <field name="action_time" type="DateTimeField">2017-05-25T06:39:24.495995+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">26</field>
+    <field name="object_id" type="TextField">5</field>
+    <field name="object_repr" type="CharField">/media/skin_8pi3Miw.png</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="11">
+    <field name="action_time" type="DateTimeField">2017-05-25T06:40:58.125478+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">20</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">FaqPage object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["mail_caption"]}}, {"changed": {"object": "&lt;p&gt;\u041a\u0430\u043a \u043d\u0430\u043d\u043e\u0441\u0438\u0442\u044c \u0410\u043a\u0442\u043e\u0432\u0438\u0434\u0435\u0440\u043c?&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;", "name": "\u0412\u043e\u043f\u0440\u043e\u0441", "fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="12">
+    <field name="action_time" type="DateTimeField">2017-05-25T06:44:10.979310+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">14</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">SiteSettings object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["title", "meta_description", "meta_keywords", "form_title", "form_header_3", "order_complete", "const_info"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="13">
+    <field name="action_time" type="DateTimeField">2017-05-25T06:45:36.919634+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">14</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">SiteSettings object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["order_complete"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="14">
+    <field name="action_time" type="DateTimeField">2017-05-25T06:46:22.289722+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">14</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">SiteSettings object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["order_complete"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="15">
+    <field name="action_time" type="DateTimeField">2017-05-25T06:49:30.900853+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">14</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">SiteSettings object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["order_complete"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="16">
+    <field name="action_time" type="DateTimeField">2017-05-25T06:55:53.736555+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">27</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">MintPage object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["caption"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="17">
+    <field name="action_time" type="DateTimeField">2017-05-25T07:03:34.615264+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">32</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">GreenPage object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["title"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="18">
+    <field name="action_time" type="DateTimeField">2017-05-25T07:09:59.910395+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">25</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">HowPage object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["caption"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="19">
+    <field name="action_time" type="DateTimeField">2017-05-25T07:11:26.848432+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">25</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">HowPage object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["caption"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="20">
+    <field name="action_time" type="DateTimeField">2017-05-25T07:13:46.152471+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">28</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">OrangePage object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["title"]}}, {"changed": {"object": "/media/selfie.jpg", "name": "", "fields": ["text"]}}, {"changed": {"object": "/media/keys.jpg", "name": "", "fields": ["text"]}}, {"changed": {"object": "/media/shoes.jpg", "name": "", "fields": ["text"]}}, {"changed": {"object": "/media/fire.jpg", "name": "", "fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="21">
+    <field name="action_time" type="DateTimeField">2017-05-25T09:13:40.209382+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">28</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">OrangePage object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["title"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="22">
+    <field name="action_time" type="DateTimeField">2017-05-25T09:19:24.821161+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">28</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">OrangePage object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["title"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="23">
+    <field name="action_time" type="DateTimeField">2017-05-25T09:27:07.920057+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">28</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">OrangePage object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["title"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="24">
+    <field name="action_time" type="DateTimeField">2017-05-25T10:49:48.230859+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">28</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">OrangePage object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["title"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="25">
+    <field name="action_time" type="DateTimeField">2017-05-25T10:59:46.554646+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">19</field>
+    <field name="object_id" type="TextField">6</field>
+    <field name="object_repr" type="CharField">&lt;p&gt;При каких повреждениях кожи помогает АКТОВИДЕРМ&amp;reg;?&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["caption", "text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="26">
+    <field name="action_time" type="DateTimeField">2017-05-25T11:00:04.232361+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">19</field>
+    <field name="object_id" type="TextField">6</field>
+    <field name="object_repr" type="CharField">&lt;p&gt;При каких повреждениях кожи помогает АКТОВИДЕРМ&amp;reg;?&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["order"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="27">
+    <field name="action_time" type="DateTimeField">2017-05-25T11:00:12.689325+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">19</field>
+    <field name="object_id" type="TextField">5</field>
+    <field name="object_repr" type="CharField">&lt;p&gt;Как помогает?&lt;/p&gt;</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["order"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="28">
+    <field name="action_time" type="DateTimeField">2017-05-25T11:00:20.102627+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">19</field>
+    <field name="object_id" type="TextField">4</field>
+    <field name="object_repr" type="CharField">&lt;p&gt;Почему с Актовидермом мозоли заживают быстрее&lt;/p&gt;</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["order"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="29">
+    <field name="action_time" type="DateTimeField">2017-05-25T11:00:29.450663+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">19</field>
+    <field name="object_id" type="TextField">3</field>
+    <field name="object_repr" type="CharField">&lt;p&gt;С какого возраста можно применять Актовидерм?&lt;/p&gt;</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["order"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="30">
+    <field name="action_time" type="DateTimeField">2017-05-25T11:00:39.843277+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">19</field>
+    <field name="object_id" type="TextField">2</field>
+    <field name="object_repr" type="CharField">&lt;p&gt;Сколько держится повязка Актовидерм?&lt;/p&gt;</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["order"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="31">
+    <field name="action_time" type="DateTimeField">2017-05-25T11:00:46.953310+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">19</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">&lt;p&gt;Как наносить Актовидерм?&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["order"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="32">
+    <field name="action_time" type="DateTimeField">2017-05-25T11:02:28.858668+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">19</field>
+    <field name="object_id" type="TextField">6</field>
+    <field name="object_repr" type="CharField">&lt;p&gt;При каких повреждениях кожи помогает АКТОВИДЕРМ&amp;reg;?&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["caption", "text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="33">
+    <field name="action_time" type="DateTimeField">2017-05-25T11:03:23.253318+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">19</field>
+    <field name="object_id" type="TextField">6</field>
+    <field name="object_repr" type="CharField">&lt;p&gt;При каких повреждениях кожи помогает АКТОВИДЕРМ&amp;reg;?&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="34">
+    <field name="action_time" type="DateTimeField">2017-05-25T11:03:35.451698+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">19</field>
+    <field name="object_id" type="TextField">6</field>
+    <field name="object_repr" type="CharField">&lt;p&gt;При каких повреждениях кожи помогает АКТОВИДЕРМ&amp;reg;?&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="35">
+    <field name="action_time" type="DateTimeField">2017-05-25T11:12:31.160360+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">19</field>
+    <field name="object_id" type="TextField">5</field>
+    <field name="object_repr" type="CharField">&lt;p&gt;Правда ли, что АКТОВИДЕРМ&amp;reg; уменьшает боль?&lt;/p&gt;</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["caption", "text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="36">
+    <field name="action_time" type="DateTimeField">2017-05-25T11:15:36.126950+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">19</field>
+    <field name="object_id" type="TextField">4</field>
+    <field name="object_repr" type="CharField">&lt;p&gt;Как снять повязку АКТОВИДЕРМ&amp;reg;?&lt;/p&gt;</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["caption", "text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="37">
+    <field name="action_time" type="DateTimeField">2017-05-25T11:16:39.241559+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">19</field>
+    <field name="object_id" type="TextField">6</field>
+    <field name="object_repr" type="CharField">&lt;p&gt;Зачем нужна аэрозольная повязка АКТОВИДЕРМ&amp;reg;?&amp;nbsp;&lt;/p&gt;</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["caption", "text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="38">
+    <field name="action_time" type="DateTimeField">2017-05-25T11:18:37.940824+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">19</field>
+    <field name="object_id" type="TextField">3</field>
+    <field name="object_repr" type="CharField">&lt;p&gt;Натерла ноги туфлями. Могу ли я нанести АКТОВИДЕРМ&amp;reg; и надеть их снова или будет больно?&lt;/p&gt;</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["caption", "text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="39">
+    <field name="action_time" type="DateTimeField">2017-05-25T11:20:24.396043+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">19</field>
+    <field name="object_id" type="TextField">2</field>
+    <field name="object_repr" type="CharField">&lt;p&gt;Почему с АКТОВИДЕРМ&amp;reg; мозоли заживают быстрее?&lt;/p&gt;</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["caption", "text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="40">
+    <field name="action_time" type="DateTimeField">2017-05-25T11:21:27.419032+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">19</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">&lt;p&gt;Можно ли с повязкой АКТОВИДЕРМ&amp;reg; пойти в бассейн или на тренировку?&lt;/p&gt;</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["caption", "text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="41">
+    <field name="action_time" type="DateTimeField">2017-05-25T11:22:59.572532+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">19</field>
+    <field name="object_id" type="TextField">7</field>
+    <field name="object_repr" type="CharField">&lt;p&gt;От АКТОВИДЕРМ&amp;reg; может быть аллергия?&lt;/p&gt;</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="42">
+    <field name="action_time" type="DateTimeField">2017-05-25T11:24:04.403700+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">19</field>
+    <field name="object_id" type="TextField">8</field>
+    <field name="object_repr" type="CharField">&lt;p&gt;Правда ли, что АКТОВИДЕРМ&amp;reg; обеззараживает рану?&lt;/p&gt;</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="43">
+    <field name="action_time" type="DateTimeField">2017-05-25T11:30:07.511779+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">19</field>
+    <field name="object_id" type="TextField">9</field>
+    <field name="object_repr" type="CharField">&lt;p&gt;А животным можно наносить АКТОВИДЕРМ&amp;reg;?&lt;/p&gt;</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="44">
+    <field name="action_time" type="DateTimeField">2017-05-25T11:31:16.309240+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">19</field>
+    <field name="object_id" type="TextField">10</field>
+    <field name="object_repr" type="CharField">&lt;p&gt;С какого возраста можно применять АКТОВИДЕРМ&amp;reg;?&lt;/p&gt;</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="45">
+    <field name="action_time" type="DateTimeField">2017-05-25T11:33:48.997615+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">19</field>
+    <field name="object_id" type="TextField">11</field>
+    <field name="object_repr" type="CharField">&lt;p&gt;Сколько держится повязка АКТОВИДЕРМ&amp;reg;?&lt;/p&gt;</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="46">
+    <field name="action_time" type="DateTimeField">2017-05-25T11:34:23.699759+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">19</field>
+    <field name="object_id" type="TextField">12</field>
+    <field name="object_repr" type="CharField">&lt;p&gt;Как хранить баллон с АКТОВИДЕРМ&amp;reg;?&lt;/p&gt;</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="47">
+    <field name="action_time" type="DateTimeField">2017-05-25T11:49:25.677714+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">36</field>
+    <field name="object_id" type="TextField">4</field>
+    <field name="object_repr" type="CharField">Ольга Волнухина</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="48">
+    <field name="action_time" type="DateTimeField">2017-05-25T14:53:01.171402+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">36</field>
+    <field name="object_id" type="TextField">3</field>
+    <field name="object_repr" type="CharField">Андрей Кудинов</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="49">
+    <field name="action_time" type="DateTimeField">2017-05-25T14:53:40.831020+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">36</field>
+    <field name="object_id" type="TextField">3</field>
+    <field name="object_repr" type="CharField">Андрей Кудинов</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[]</field>
+  </object>
+  <object model="admin.logentry" pk="50">
+    <field name="action_time" type="DateTimeField">2017-05-25T14:54:37.906089+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">36</field>
+    <field name="object_id" type="TextField">3</field>
+    <field name="object_repr" type="CharField">Андрей Кудинов</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="51">
+    <field name="action_time" type="DateTimeField">2017-05-25T14:55:31.642803+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">36</field>
+    <field name="object_id" type="TextField">2</field>
+    <field name="object_repr" type="CharField">Ольга Смирнова</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="52">
+    <field name="action_time" type="DateTimeField">2017-05-25T14:59:03.552334+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">36</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">Александр Близнюк</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="53">
+    <field name="action_time" type="DateTimeField">2017-05-25T14:59:25.580128+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">36</field>
+    <field name="object_id" type="TextField">4</field>
+    <field name="object_repr" type="CharField">Ольга Волнухина</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="54">
+    <field name="action_time" type="DateTimeField">2017-05-25T14:59:33.012003+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">36</field>
+    <field name="object_id" type="TextField">3</field>
+    <field name="object_repr" type="CharField">Андрей Кудинов</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="55">
+    <field name="action_time" type="DateTimeField">2017-05-25T14:59:39.781946+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">36</field>
+    <field name="object_id" type="TextField">2</field>
+    <field name="object_repr" type="CharField">Ольга Смирнова</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="56">
+    <field name="action_time" type="DateTimeField">2017-05-25T15:00:44.370339+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">36</field>
+    <field name="object_id" type="TextField">3</field>
+    <field name="object_repr" type="CharField">Андрей Кудинов</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="57">
+    <field name="action_time" type="DateTimeField">2017-05-25T15:00:59.428417+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">36</field>
+    <field name="object_id" type="TextField">3</field>
+    <field name="object_repr" type="CharField">Андрей Кудинов</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="58">
+    <field name="action_time" type="DateTimeField">2017-05-25T15:01:07.031835+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">36</field>
+    <field name="object_id" type="TextField">2</field>
+    <field name="object_repr" type="CharField">Ольга Смирнова</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="59">
+    <field name="action_time" type="DateTimeField">2017-05-25T15:01:34.816112+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">36</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">Александр Близнюк</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="60">
+    <field name="action_time" type="DateTimeField">2017-05-27T14:13:53.870090+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">19</field>
+    <field name="object_id" type="TextField">6</field>
+    <field name="object_repr" type="CharField">&lt;p&gt;Зачем нужна аэрозольная повязка АКТОВИДЕРМ&amp;reg;?&amp;nbsp;&lt;/p&gt;</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="61">
+    <field name="action_time" type="DateTimeField">2017-05-27T14:56:22.866901+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">19</field>
+    <field name="object_id" type="TextField">6</field>
+    <field name="object_repr" type="CharField">&lt;p&gt;Зачем нужна аэрозольная повязка АКТОВИДЕРМ&amp;reg;?&amp;nbsp;&lt;/p&gt;</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="62">
+    <field name="action_time" type="DateTimeField">2017-05-28T19:34:30.704813+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">14</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">SiteSettings object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["counters"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="63">
+    <field name="action_time" type="DateTimeField">2017-05-28T19:34:50.463762+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">14</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">SiteSettings object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["counters"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="64">
+    <field name="action_time" type="DateTimeField">2017-05-29T06:42:28.870207+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">21</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">FooterPage object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["caption", "info", "copy"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="65">
+    <field name="action_time" type="DateTimeField">2017-05-29T06:43:34.224353+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">8</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">/eula/ -- EULA</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["content"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="66">
+    <field name="action_time" type="DateTimeField">2017-05-29T08:20:06.741504+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">36</field>
+    <field name="object_id" type="TextField">4</field>
+    <field name="object_repr" type="CharField">Ольга Волнухина</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="67">
+    <field name="action_time" type="DateTimeField">2017-05-29T08:20:19.885402+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">36</field>
+    <field name="object_id" type="TextField">4</field>
+    <field name="object_repr" type="CharField">Ольга Волнухина</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="68">
+    <field name="action_time" type="DateTimeField">2017-05-29T08:21:18.156484+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">19</field>
+    <field name="object_id" type="TextField">12</field>
+    <field name="object_repr" type="CharField">&lt;p&gt;Как хранить баллон с АКТОВИДЕРМ&amp;reg;?&lt;/p&gt;</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[]</field>
+  </object>
+  <object model="admin.logentry" pk="69">
+    <field name="action_time" type="DateTimeField">2017-05-29T10:39:02.564992+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">27</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">MintPage object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["caption"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="70">
+    <field name="action_time" type="DateTimeField">2017-05-29T10:50:02.550538+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">27</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">MintPage object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["caption"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="71">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:15:25.979893+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">4</field>
+    <field name="object_repr" type="CharField">Парковая 3-я ул., 8/19</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["name", "title", "phone", "x", "y"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="72">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:16:34.767659+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">3</field>
+    <field name="object_repr" type="CharField">Авиационная ул., 68</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["name", "title", "phone", "x", "y"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="73">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:17:09.644390+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">2</field>
+    <field name="object_repr" type="CharField">Генерала Белобородова ул., 16к1</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["name", "title", "phone", "x", "y"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="74">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:17:40.934597+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">Грекова ул., 8</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["name", "title", "phone", "x", "y"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="75">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:18:26.469823+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">5</field>
+    <field name="object_repr" type="CharField">Декабристов ул., 20к2</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="76">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:23:36.971250+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">6</field>
+    <field name="object_repr" type="CharField">Каширское ш., 26к1</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="77">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:25:23.060702+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">7</field>
+    <field name="object_repr" type="CharField">Краснопрудная ул., 22-24</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="78">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:32:30.363210+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">8</field>
+    <field name="object_repr" type="CharField">Мосфильмовская ул., 41к1</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="79">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:32:55.366898+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">9</field>
+    <field name="object_repr" type="CharField">Профсоюзная ул., 118</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="80">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:33:19.177083+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">10</field>
+    <field name="object_repr" type="CharField">Пятницкое ш., 29</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="81">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:33:46.856506+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">11</field>
+    <field name="object_repr" type="CharField">Маршала Тухачевского ул., 41к1</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="82">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:34:12.528175+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">12</field>
+    <field name="object_repr" type="CharField">Дмитрия Донского б-р, 8</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="83">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:34:35.214128+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">13</field>
+    <field name="object_repr" type="CharField">Менжинского ул., 23к1</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="84">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:35:10.451496+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">14</field>
+    <field name="object_repr" type="CharField">Парковая 9-я ул., 61Ас1</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="85">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:36:21.553948+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">15</field>
+    <field name="object_repr" type="CharField">Малая Филевская ул., 12к1</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="86">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:37:23.248375+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">16</field>
+    <field name="object_repr" type="CharField">Волгоградский пр-т, 62</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="87">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:38:00.453879+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">17</field>
+    <field name="object_repr" type="CharField">Коммунарка п., Липовый парк ул., 11</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="88">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:38:21.970036+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">18</field>
+    <field name="object_repr" type="CharField">Московская ул., 3</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="89">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:38:49.051580+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">19</field>
+    <field name="object_repr" type="CharField">Борисовские Пруды ул., 14к4</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="90">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:39:26.194545+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">20</field>
+    <field name="object_repr" type="CharField">Парковая 9-я ул., 23</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="91">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:39:56.202102+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">21</field>
+    <field name="object_repr" type="CharField">Новокузьминская 1-я ул., 27/12</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="92">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:40:24.620704+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">22</field>
+    <field name="object_repr" type="CharField">Парковая 7-я ул., 12/28</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="93">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:40:53.334333+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">23</field>
+    <field name="object_repr" type="CharField">Костякова ул., 6/5</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="94">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:49:09.079182+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">23</field>
+    <field name="object_repr" type="CharField">Костякова ул., 6/5</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["x", "y"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="95">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:49:38.361650+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">22</field>
+    <field name="object_repr" type="CharField">Парковая 7-я ул., 12/28</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["x", "y"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="96">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:50:16.593614+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">21</field>
+    <field name="object_repr" type="CharField">Новокузьминская 1-я ул., 27/12</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["x", "y"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="97">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:50:38.240460+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">20</field>
+    <field name="object_repr" type="CharField">Парковая 9-я ул., 23</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["x", "y"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="98">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:51:01.782772+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">19</field>
+    <field name="object_repr" type="CharField">Борисовские Пруды ул., 14к4</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["x", "y"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="99">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:51:27.142709+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">18</field>
+    <field name="object_repr" type="CharField">Московская ул., 3</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["x", "y"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="100">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:52:06.860224+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">17</field>
+    <field name="object_repr" type="CharField">Коммунарка п., Липовый парк ул., 11</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["x", "y"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="101">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:52:32.523746+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">18</field>
+    <field name="object_repr" type="CharField">Московская ул., 3</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">3</field>
+    <field name="change_message" type="TextField"></field>
+  </object>
+  <object model="admin.logentry" pk="102">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:54:15.004077+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">16</field>
+    <field name="object_repr" type="CharField">Волгоградский пр-т, 62</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["x", "y"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="103">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:54:52.670041+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">15</field>
+    <field name="object_repr" type="CharField">Малая Филевская ул., 12к1</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["x", "y"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="104">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:55:24.367202+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">14</field>
+    <field name="object_repr" type="CharField">Парковая 9-я ул., 61Ас1</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["x", "y"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="105">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:55:44.432578+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">20</field>
+    <field name="object_repr" type="CharField">Парковая 9-я ул., 23</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["x", "y"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="106">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:56:09.163627+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">13</field>
+    <field name="object_repr" type="CharField">Менжинского ул., 23к1</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["x", "y"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="107">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:56:32.806881+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">12</field>
+    <field name="object_repr" type="CharField">Дмитрия Донского б-р, 8</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["x", "y"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="108">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:56:54.264693+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">11</field>
+    <field name="object_repr" type="CharField">Маршала Тухачевского ул., 41к1</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["x", "y"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="109">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:57:16.883776+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">10</field>
+    <field name="object_repr" type="CharField">Пятницкое ш., 29</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["x", "y"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="110">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:57:38.084083+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">9</field>
+    <field name="object_repr" type="CharField">Профсоюзная ул., 118</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["x", "y"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="111">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:58:00.207472+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">8</field>
+    <field name="object_repr" type="CharField">Мосфильмовская ул., 41к1</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["x", "y"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="112">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:58:21.408852+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">7</field>
+    <field name="object_repr" type="CharField">Краснопрудная ул., 22-24</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[]</field>
+  </object>
+  <object model="admin.logentry" pk="113">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:59:10.657562+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">5</field>
+    <field name="object_repr" type="CharField">Декабристов ул., 20к2</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[]</field>
+  </object>
+  <object model="admin.logentry" pk="114">
+    <field name="action_time" type="DateTimeField">2017-05-29T11:59:45.992582+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">4</field>
+    <field name="object_repr" type="CharField">Парковая 3-я ул., 8/19</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[]</field>
+  </object>
+  <object model="admin.logentry" pk="115">
+    <field name="action_time" type="DateTimeField">2017-05-29T12:00:43.016375+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">Грекова ул., 8</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[]</field>
+  </object>
+  <object model="admin.logentry" pk="116">
+    <field name="action_time" type="DateTimeField">2017-05-29T12:04:10.569118+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">24</field>
+    <field name="object_repr" type="CharField">Часовая ул., 11 (Асеева, 3)</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="117">
+    <field name="action_time" type="DateTimeField">2017-05-29T12:04:36.928611+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">25</field>
+    <field name="object_repr" type="CharField">Мичуринский пр-кт, 54к3</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="118">
+    <field name="action_time" type="DateTimeField">2017-05-29T12:05:43.445631+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">25</field>
+    <field name="object_repr" type="CharField">Мичуринский пр-т, 54к3</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["name"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="119">
+    <field name="action_time" type="DateTimeField">2017-05-29T12:06:22.979965+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">26</field>
+    <field name="object_repr" type="CharField">Автозаводский 2-й пр-д, 3А</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="120">
+    <field name="action_time" type="DateTimeField">2017-05-29T12:06:46.087712+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">27</field>
+    <field name="object_repr" type="CharField">Толбухина ул., 12к1</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="121">
+    <field name="action_time" type="DateTimeField">2017-05-29T12:07:09.107327+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">28</field>
+    <field name="object_repr" type="CharField">Плещеева ул., 12</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="122">
+    <field name="action_time" type="DateTimeField">2017-05-29T12:07:43.091828+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">29</field>
+    <field name="object_repr" type="CharField">Братиславская ул., 12</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="123">
+    <field name="action_time" type="DateTimeField">2017-05-29T12:08:05.825998+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">30</field>
+    <field name="object_repr" type="CharField">Мичуринский пр-т, 21к3</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="124">
+    <field name="action_time" type="DateTimeField">2017-05-29T12:08:29.235001+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">31</field>
+    <field name="object_repr" type="CharField">Краснодарская ул., 15/17</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="125">
+    <field name="action_time" type="DateTimeField">2017-05-29T12:08:56.003650+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">32</field>
+    <field name="object_repr" type="CharField">Буденного пр-т, 39к1</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="126">
+    <field name="action_time" type="DateTimeField">2017-05-29T12:09:20.291531+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">33</field>
+    <field name="object_repr" type="CharField">Профсоюзная ул., 18к1</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="127">
+    <field name="action_time" type="DateTimeField">2017-05-29T12:09:55.134546+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">2</field>
+    <field name="object_repr" type="CharField">Генерала Белобородова ул., 16к1</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[]</field>
+  </object>
+  <object model="admin.logentry" pk="128">
+    <field name="action_time" type="DateTimeField">2017-05-29T12:10:35.369795+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">34</field>
+    <field name="object_repr" type="CharField">Рублевское ш., 16к1</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="129">
+    <field name="action_time" type="DateTimeField">2017-05-29T12:11:10.588823+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">35</field>
+    <field name="object_repr" type="CharField">Чертаново Сев. мкр, 1А</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="130">
+    <field name="action_time" type="DateTimeField">2017-05-29T12:11:36.471589+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">36</field>
+    <field name="object_repr" type="CharField">Кутузовский пр-т, 14с1</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="131">
+    <field name="action_time" type="DateTimeField">2017-05-29T12:12:18.566994+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">37</field>
+    <field name="object_repr" type="CharField">Малая Ордынка ул., 3</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="132">
+    <field name="action_time" type="DateTimeField">2017-05-29T12:12:45.084912+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">38</field>
+    <field name="object_repr" type="CharField">Бауманская ул., 33/2с1</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="133">
+    <field name="action_time" type="DateTimeField">2017-05-29T12:13:17.683497+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">39</field>
+    <field name="object_repr" type="CharField">Большая Якиманка ул., 52</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="134">
+    <field name="action_time" type="DateTimeField">2017-05-29T12:13:42.671795+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">12</field>
+    <field name="object_id" type="TextField">40</field>
+    <field name="object_repr" type="CharField">Фрунзенская наб, 44с1</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">1</field>
+    <field name="change_message" type="TextField">[{"added": {}}]</field>
+  </object>
+  <object model="admin.logentry" pk="135">
+    <field name="action_time" type="DateTimeField">2017-05-29T13:01:20.091438+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">32</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">GreenPage object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["title"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="136">
+    <field name="action_time" type="DateTimeField">2017-05-29T13:08:00.166490+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">32</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">GreenPage object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["title"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="137">
+    <field name="action_time" type="DateTimeField">2017-05-29T13:09:09.348813+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">32</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">GreenPage object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[]</field>
+  </object>
+  <object model="admin.logentry" pk="138">
+    <field name="action_time" type="DateTimeField">2017-05-29T13:09:37.182535+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">32</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">GreenPage object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["title"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="139">
+    <field name="action_time" type="DateTimeField">2017-05-29T13:11:38.086397+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">35</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">YellowPage object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["title"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="140">
+    <field name="action_time" type="DateTimeField">2017-05-29T13:12:19.670811+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">35</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">YellowPage object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["title"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="141">
+    <field name="action_time" type="DateTimeField">2017-05-29T15:13:36.434404+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">33</field>
+    <field name="object_id" type="TextField">5</field>
+    <field name="object_repr" type="CharField">/media/dot1.png</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="142">
+    <field name="action_time" type="DateTimeField">2017-05-29T15:14:52.764643+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">33</field>
+    <field name="object_id" type="TextField">5</field>
+    <field name="object_repr" type="CharField">/media/dot1.png</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[]</field>
+  </object>
+  <object model="admin.logentry" pk="143">
+    <field name="action_time" type="DateTimeField">2017-05-29T15:15:54.829666+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">33</field>
+    <field name="object_id" type="TextField">5</field>
+    <field name="object_repr" type="CharField">/media/dot1.png</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="144">
+    <field name="action_time" type="DateTimeField">2017-05-29T15:16:16.563148+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">33</field>
+    <field name="object_id" type="TextField">5</field>
+    <field name="object_repr" type="CharField">/media/dot1.png</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="145">
+    <field name="action_time" type="DateTimeField">2017-05-29T15:16:21.456222+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">32</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">GreenPage object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[]</field>
+  </object>
+  <object model="admin.logentry" pk="146">
+    <field name="action_time" type="DateTimeField">2017-05-29T15:18:20.964968+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">33</field>
+    <field name="object_id" type="TextField">6</field>
+    <field name="object_repr" type="CharField">/media/dot2.png</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="147">
+    <field name="action_time" type="DateTimeField">2017-05-29T15:18:50.140371+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">33</field>
+    <field name="object_id" type="TextField">7</field>
+    <field name="object_repr" type="CharField">/media/dot3.png</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[{"changed": {"fields": ["text"]}}]</field>
+  </object>
+  <object model="admin.logentry" pk="148">
+    <field name="action_time" type="DateTimeField">2017-05-29T15:18:51.660952+00:00</field>
+    <field name="user" rel="ManyToOneRel" to="auth.user">2</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">32</field>
+    <field name="object_id" type="TextField">1</field>
+    <field name="object_repr" type="CharField">GreenPage object</field>
+    <field name="action_flag" type="PositiveSmallIntegerField">2</field>
+    <field name="change_message" type="TextField">[]</field>
+  </object>
+</django-objects>
