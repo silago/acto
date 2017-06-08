@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'base',
     'solo',
-    'sorl.thumbnail',
+    #'sorl.thumbnail',
     'tinymce'
 ]
 

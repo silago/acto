@@ -73,17 +73,46 @@ def PutInetOrder():
     _list.Value = _order
     return api.service['SiteSoap'].PutInetOrder(ID='1',Value=_list)
 
+def MakeXml():
+    from xml.etree.ElementTree import Element, SubElement, Comment, tostring
+    header = '<?xml version="1.0" encoding="UTF-8"?>'
+    orders = Element('orders')
+    order = SubElement(orders, 'order')
+    site_id = SubElement(order, 'site_id')
+    order_code = SubElement(order, 'order_code')
+    user_id = SubElement(order, 'user_id')
+    name = SubElement(order, 'name')
+    phone = SubElement(order, 'phone')
+    email = SubElement(order, 'email')
+    address = SubElement(order, 'address')
+    comment = SubElement(order, 'comment')
+    shipping_id = SubElement(order, 'shipping_id')
+    shipping_cost = SubElement(order, 'shipping_cost')
+    payment_id = SubElement(order, 'payment_id')
+    discount = SubElement(order, 'discount')
+    total_cost = SubElement(order, 'total_cost')
+    order_time = SubElement(order, 'order_time')
+    products = SubElement(order, 'products')
+    product = SubElement(products, 'product')
+    pcode = SubElement(product, 'code')
+    pname = SubElement(product, 'name')
+    pamount = SubElement(product, 'amount')
+    pprice = SubElement(product, 'price')
+    #child.text = 'This child contains text.'
+    return header+tostring(orders)
+
 def Main():
-    result = ''
-    try:
-        result = PutInetOrder()
-    except Exception as e:
-        print(e)
-    print(">>>")
-    print(result)
-    print("<<<")
-    pass
-    print(api.last_sent())
+    print(MakeXml())
+    #result = ''
+    #try:
+    #    result = PutInetOrder()
+    #except Exception as e:
+    #    print(e)
+    #print(">>>")
+    #print(result)
+    #print("<<<")
+    #pass
+    #print(api.last_sent())
 
 Main()
 
