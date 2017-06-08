@@ -13,7 +13,7 @@ PRODUCT_CODE = "Aktoviderm"
 PRODUCT_NAME = "Актовидерм"
 SITE_ID      = '30'
 API_LOGIN = "Aktoviderm"
-API_PASS  = "oki89ijn@ex"
+API_PASS  = "oki89ijn"
 API_URL   = "http://ex.lab-krasoty.ru:8090/AptekaT/hs/exchange/s1/PostOrder"
 
 
@@ -53,6 +53,7 @@ def order(request):
     item.total = int(int(request.POST['count'])*float(settings.cost))
     item.save()
     xml = MakeXml(item, settings)
+    print(xml)
     SendOrder(xml)
     return HttpResponse("OK")
 
@@ -105,6 +106,8 @@ def capcha(request):
 
 def SendOrder(data):
     r = requests.post(API_URL,auth=HTTPBasicAuth(API_LOGIN,API_PASS), data=data.encode('utf-8'))
+    print(r)
+    print(r.text)
 
 
 def MakeXml(item, settings):
@@ -116,20 +119,23 @@ def MakeXml(item, settings):
     order_code = SubElement(order, 'order_code')
     order_code.text = str(item.id)
     user_id = SubElement(order, 'user_id')
+    user_id.text = ""
     name = SubElement(order, 'name')
     name=item.name
     phone = SubElement(order, 'phone')
-    phone=item.name
+    phone.text=item.phone
     email = SubElement(order, 'email')
     email.text = item.email
     address = SubElement(order, 'address')
     address.text = item.city + ' ' + item.street + ' ' + item.house + ' ' +  item.flat
     comment = SubElement(order, 'comment')
-
+    comment.text = ""
     shipping_id = SubElement(order, 'shipping_id')
     shipping_cost = SubElement(order, 'shipping_cost')
     payment_id = SubElement(order, 'payment_id')
+    payment_id.text = "1"
     discount = SubElement(order, 'discount')
+    discount.text = ""
 
     total_cost = SubElement(order, 'total_cost')
     total_cost.text = str(item.total)
@@ -143,7 +149,7 @@ def MakeXml(item, settings):
     pcode = SubElement(product, 'code')
     pcode.text = PRODUCT_CODE
     pname = SubElement(product, 'name')
-    pcode.text = PRODUCT_NAME
+    pname.text = PRODUCT_NAME
     pamount = SubElement(product, 'amount')
     pamount.text = str(item.count)
     pprice = SubElement(product, 'price')
