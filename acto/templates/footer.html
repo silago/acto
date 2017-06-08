@@ -9,7 +9,7 @@
             </div>
             <div class="icons">
                 {% for item in page.items.all %}
-                <div><a href="{{item.url}}"><img alt="{{item.alt}}" src="{{item.image.url}}" /></a></div>  
+                <div><a href="{{item.link}}"><img alt="{{item.alt}}" src="{{item.image.url}}" /></a></div>  
                 {% endfor %}
             </div>
             <div class="info">
