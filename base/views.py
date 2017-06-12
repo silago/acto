@@ -9,9 +9,9 @@ from .models import TopPage, ForPage, OrangePage, YellowPage, MintPage, FactsPag
 from xml.etree.ElementTree import Element, SubElement,  tostring
 from django.views.decorators.csrf import csrf_exempt
 
-PRODUCT_CODE = "Aktoviderm"
+PRODUCT_CODE = "000053523"
 PRODUCT_NAME = "Актовидерм"
-SITE_ID      = '30'
+SITE_ID      = '31'
 API_LOGIN = "Aktoviderm"
 API_PASS  = "oki89ijn"
 API_URL   = "http://ex.lab-krasoty.ru:8090/AptekaT/hs/exchange/s1/PostOrder"
@@ -31,8 +31,6 @@ def main(request):
 @csrf_exempt
 def order(request):
     settings = SiteSettings.objects.first()
-
-
     item = Orders()
     item.city = request.POST['city']
     item.street = request.POST['street']
@@ -119,18 +117,21 @@ def MakeXml(item, settings):
     order_code = SubElement(order, 'order_code')
     order_code.text = str(item.id)
     user_id = SubElement(order, 'user_id')
-    user_id.text = ""
+    user_id.text = "1"
     name = SubElement(order, 'name')
-    name=item.name
+    name.text=item.name
     phone = SubElement(order, 'phone')
     phone.text=item.phone
     email = SubElement(order, 'email')
     email.text = item.email
+    if (not item.email):
+        email.text="mail@actoviderm.com"
     address = SubElement(order, 'address')
     address.text = item.city + ' ' + item.street + ' ' + item.house + ' ' +  item.flat
     comment = SubElement(order, 'comment')
     comment.text = ""
     shipping_id = SubElement(order, 'shipping_id')
+    shipping_id.text="эл005264"
     shipping_cost = SubElement(order, 'shipping_cost')
     payment_id = SubElement(order, 'payment_id')
     payment_id.text = "1"
