@@ -1748,8 +1748,9 @@ color: inherit;
            }
 
            function choose_city(city) {
-               if (typeof {{settings.yandex_counter_id} != 'undefined') {
-                    {{settings.yandex_counter_id}}.reachGoal(city.replace(' ',''));
+
+               if (typeof {{settings.yandex_counter_id}} != 'undefined') {
+                    {{settings.yandex_counter_id}}.reachGoal(city.replace(/\W/g,''));
                }
 
 
@@ -1817,7 +1818,7 @@ color: inherit;
                     });
 
         
-                    var item=$('<li style="cursor:pointer;" onclick="{{settings.yandex_counter_id}}.reachGoal(\''+city.replace(' ','')+'\');  choose_shop(cities[\''+city+'\'].shops['+i+'],'+i+')">'+shops[i].name+'</li>');
+                    var item=$('<li style="cursor:pointer;" onclick="{{settings.yandex_counter_id}}.reachGoal(\''+city.replace(/\W/g,'')+'\');  choose_shop(cities[\''+city+'\'].shops['+i+'],'+i+')">'+shops[i].name+'</li>');
                     item.click(function() {
                         infowindow.open(map, map_marker[index]);
                         map.panTo(mpos);
