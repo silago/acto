@@ -27,7 +27,7 @@ DEBUG = True
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
-ALLOWED_HOSTS = ['silag-acto-back-server3.herokuapp.com','localhost']
+ALLOWED_HOSTS = ['www.actoviderm.ru','actoviderm.ru','silag-acto-back-server3.herokuapp.com','localhost']
 SITE_ID = 1
 
 # Application definition
@@ -98,12 +98,10 @@ WSGI_APPLICATION = 'acto.wsgi.application'
 #    heroku pg:psql postgresql-curly-64135 --app silag-acto-back-server3
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        "NAME":"dcc1jc5kj044nm",
-        "USER":"cgukjzmpcsvstt",
-        "PORT":"5432",
-        "PASSWORD":"3a576694d910d8f93dfc923d49138362a858f7908d3c5cd0ba2c9ed0a4cb387f",
-        "HOST":"ec2-107-22-244-62.compute-1.amazonaws.com"
+        'ENGINE': 'django.db.backends.mysql',
+        "NAME":"certa_acto",
+        "USER":"certa_acto",
+	"PASSWORD":"Wxru676yQ",
     }
 }
 
@@ -145,6 +143,30 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': os.path.join(BASE_DIR,'django_cache'),
     }
+}
+
+FILE_UPLOAD_TEMP_DIR=os.path.join(PROJECT_ROOT,'tmp')
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': FILE_UPLOAD_TEMP_DIR+'log.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file','console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
 }
 
 

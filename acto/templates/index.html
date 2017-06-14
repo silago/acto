@@ -23,6 +23,7 @@
             }
         $(document).ready(function() {  
             $("#shops-list").niceScroll();
+		$('#float-city-selector .right').niceScroll();
         });
         </script>
         <script>
@@ -1473,7 +1474,10 @@ width: 0;
         }
 
         div#float-city-selector .holder .right {
-            display:inline-block;
+            display:inline-block;	
+            position:absolute;
+	    box-sizing:border-box;
+            max-height:80%;
         }
         div#float-city-selector .holder .left {
             display:inline-block;
