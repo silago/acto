@@ -145,6 +145,7 @@ class SiteSettings(SingletonModel):
     phone_caption  = models.CharField(max_length=255)
 
     counters      = models.TextField(blank=True, null=True, default="", verbose_name="Код Счетчиков")
+    yandex_counter_id= models.TextField(blank=True, null=True, verbose_name="", default='yaCounter44908690')
     class Meta:
         verbose_name = "Настройка сайта"
         verbose_name_plural = "Настройки сайта"
