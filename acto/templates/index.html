@@ -1730,7 +1730,6 @@ color: inherit;
 
         <script type="text/javascript">
            function choose_shop(shop, index) {
-                
                 map.streetView.setVisible(false);
                 var x = toDot(shop.x);
                 var y = toDot(shop.y);
@@ -1749,7 +1748,7 @@ color: inherit;
            }
 
            function choose_city(city) {
-               if (typeof {{settings.yandex_counter_id}} != 'undefined') {
+               if (typeof {{settings.yandex_counter_id}oo}} != 'undefined') {
                     {{settings.yandex_counter_id}}.reachGoal(city.replace(' ',''));
                }
 
@@ -1818,7 +1817,7 @@ color: inherit;
                     });
 
         
-                    var item=$('<li style="cursor:pointer;" onclick="choose_shop(cities[\''+city+'\'].shops['+i+'],'+i+')">'+shops[i].name+'</li>');
+                    var item=$('<li style="cursor:pointer;" onclick="{{settings.yandex_counter_id}}.reachGoal(\''+city.replace(' ','')+'\');  choose_shop(cities[\''+city+'\'].shops['+i+'],'+i+')">'+shops[i].name+'</li>');
                     item.click(function() {
                         infowindow.open(map, map_marker[index]);
                         map.panTo(mpos);
