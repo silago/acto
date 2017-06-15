@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import html.parser as p
+import sys
 from requests.auth import HTTPBasicAuth
 import requests
 from django.shortcuts import render
@@ -50,10 +51,14 @@ def order(request):
     #item.total = request.POST['total']
     item.total = int(int(request.POST['count'])*float(settings.cost))
     item.save()
-    xml = MakeXml(item, settings)
-    print(xml)
-    SendOrder(xml)
-    return HttpResponse("OK")
+    try:
+        xml = MakeXml(item, settings)
+        response  = SendOrder(xml)
+        return HttpResponse(response)
+    except Exception as e:
+        t = 'Error on line {}'.format(sys.exc_info()[-1].tb_lineno)
+        return HttpResponse(t + str(e))
+
 
 @csrf_exempt
 def question(request):
@@ -98,14 +103,11 @@ def capcha(request):
     # now, we tell the image to save as a PNG to the
     # provided file-like object
     im.save(response, 'PNG')
-
     return response # and we're done!
 # Create your views here.
 
 def SendOrder(data):
     r = requests.post(API_URL,auth=HTTPBasicAuth(API_LOGIN,API_PASS), data=data.encode('utf-8'))
-    print(r)
-    print(r.text)
 
 
 def MakeXml(item, settings):
