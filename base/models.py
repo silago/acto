@@ -285,7 +285,12 @@ class City(models.Model):
     name = models.CharField(verbose_name="Город",max_length=255)
     active       = models.BooleanField(verbose_name="Активен",default=False)
     has_delivery = models.BooleanField(verbose_name="Бесплатная доставка",default=False)
-    target   = models.CharField(verbose_name="Target",max_length=255,blank=True, null=True, default=name.replace(' ','').replace('-',''))
+    target   = models.CharField(verbose_name="Target",max_length=255,blank=True, null=True, default="")
+
+    def save(self, *args, **kwargs):
+        if (self.target == ""):
+            self.target = self.name.replace(' ','').replace('-','')
+        super(City, self).save(*args,**kwargs)
 
     x    = models.FloatField()
     y    = models.FloatField()
