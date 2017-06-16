@@ -10,12 +10,13 @@ from .models import TopPage, ForPage, OrangePage, YellowPage, MintPage, FactsPag
 from xml.etree.ElementTree import Element, SubElement,  tostring
 from django.views.decorators.csrf import csrf_exempt
 
-PRODUCT_CODE = "000053523"
+PRODUCT_CODE = "000079216"
 PRODUCT_NAME = "Актовидерм"
 SITE_ID      = '31'
 API_LOGIN = "Aktoviderm"
 API_PASS  = "oki89ijn"
-API_URL   = "http://ex.lab-krasoty.ru:8090/AptekaT/hs/exchange/s1/PostOrder"
+#API_URL   = "http://ex.lab-krasoty.ru:8090/AptekaT/hs/exchange/s1/PostOrder"
+API_URL   = "http://Aktoviderm:oki89ijn@ex.lab-krasoty.ru/Apteka/hs/exchange/s1/PostOrder)"
 
 
 def main(request):
@@ -108,6 +109,7 @@ def capcha(request):
 
 def SendOrder(data):
     r = requests.post(API_URL,auth=HTTPBasicAuth(API_LOGIN,API_PASS), data=data.encode('utf-8'))
+    return r.text
 
 
 def MakeXml(item, settings):
