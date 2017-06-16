@@ -121,7 +121,7 @@ def MakeXml(item, settings):
     order_code = SubElement(order, 'order_code')
     order_code.text = str(item.id)
     user_id = SubElement(order, 'user_id')
-    user_id.text = "1"
+    user_id.text = str(item.id)
     name = SubElement(order, 'name')
     name.text=item.name
     phone = SubElement(order, 'phone')
