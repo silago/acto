@@ -23,7 +23,9 @@
             }
         $(document).ready(function() {  
             $("#shops-list").niceScroll();
-		$('#float-city-selector .right').niceScroll();
+		$('#float-city-selector .right').niceScroll({
+'autohidemode':false		
+});
         });
         </script>
         <script>
@@ -1463,14 +1465,17 @@ width: 0;
             
             x-position:absolute;
             position:fixed;
-            width:100%;
+            x-width:100%;
+            width:95%;
             z-index:89;
             left:0px;
             top:0px;
+		    margin-left:2.5%;
             x-background-color:#2c4f8a;x-mix-blend-mode:multiply;
                 padding-top:20px;
 
             min-width: 1200px;
+
         }
 
         div#float-city-selector .holder .right {
@@ -1497,7 +1502,7 @@ width: 0;
                 padding-left:140px;
         }
         div#float-city-selector > div {
-                margin:20px;
+                x-margin:20px;
                 background-color:white;
         }
 
