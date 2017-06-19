@@ -22,7 +22,9 @@
                 return((date.getDate()) + '.' +(date.getMonth() + 1))+ '.' +  date.getFullYear()
             }
         $(document).ready(function() {  
-            $("#shops-list").niceScroll();
+		$("#shops-list").niceScroll({
+			'autohidemode':false
+		});
 		$('#float-city-selector .right').niceScroll({
 'autohidemode':false		
 });
@@ -34,6 +36,7 @@
             '{{c.name}}':{
                 'x':'{{c.x}}',
                 'y':'{{c.y}}',
+                'target':'{{c.target}}',
                 'name':'{{c.name}}',
                 'delivery':'{{c.has_delivery}}',
                 'shops':[{% for s in c.shops.all %}
@@ -51,6 +54,7 @@
         };
         </script>
         <style type='text/css'>
+
 .final > * {
     not-all:initial;
 }
@@ -1759,7 +1763,7 @@ color: inherit;
            function choose_city(city) {
 
                if (typeof {{settings.yandex_counter_id}} != 'undefined') {
-                    {{settings.yandex_counter_id}}.reachGoal(city.replace(/\W/g,''));
+                    {{settings.yandex_counter_id}}.reachGoal(cities[city].target);
                }
 
 
