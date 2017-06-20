@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
 <html>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
     <head>
         <title>{{settings.title}}</title>
         <meta name="description" content="{{settings.meta_description}}"/>
@@ -15,19 +14,34 @@
 
 
         <script>
+function isTouchDevice(){
+    return true == ("ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch);
+}
+
             window.BASE_COST={{settings.cost}};
            function formDate(day) {
                 if (!day) day = 0;
                 var date = new Date(new Date().getTime() + 24*60*60*1000*day);
                 return((date.getDate()) + '.' +(date.getMonth() + 1))+ '.' +  date.getFullYear()
             }
+
+	
+
         $(document).ready(function() {  
+		if (false && !isTouchDevice()) {
 		$("#shops-list").niceScroll({
-			'autohidemode':false
+			'autohidemode':false,
+			'touchbehaviour':true
 		});
 		$('#float-city-selector .right').niceScroll({
-'autohidemode':false		
+			'autohidemode':false,	
+			'touchbehaviour':true
 });
+} else {
+
+		$("#shops-list").addClass('overflow');
+		$('#float-city-selector .right').addClass('overflow');
+}
         });
         </script>
         <script>
@@ -54,6 +68,9 @@
         };
         </script>
         <style type='text/css'>
+.overflow {
+	overflow-y:auto;
+}
 
 .final > * {
     not-all:initial;
