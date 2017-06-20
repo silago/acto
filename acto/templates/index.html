@@ -1501,15 +1501,23 @@ width: 0;
         }
 
         div#float-city-selector .holder .right {
-            display:inline-block;	
+            x-display:inline-block;	
             x-position:absolute;
             position:relative;
 	    box-sizing:border-box;
             max-height:80%;
+
+                font-size:18px;
+                color:#2c4f8b;
+                vertical-align:top;
+                padding-top:36px;;
+                x-width:700px;
+                padding-left:60px;
         }
         div#float-city-selector .holder .left {
             display:inline-block;
             width:300px;
+           float:left;
         }
         div#float-city-selector .holder .left img {
             padding:36px 81px;
@@ -1517,12 +1525,6 @@ width: 0;
             padding-top:30px;
         }
         div#float-city-selector  .right {
-                font-size:18px;
-                color:#2c4f8b;
-                vertical-align:top;
-                padding-top:36px;;
-                width:700px;
-                padding-left:140px;
         }
         div#float-city-selector > div {
                 x-margin:20px;
@@ -1537,11 +1539,14 @@ width: 0;
             margin-left:-20px;
         }
         div#float-city-selector .right .city-list {
-            columns:3;
-            -moz-columns:3;
+            x-columns:3;
+            x--moz-columns:3;
+	    overflow-x:hidden;
         }
         div#float-city-selector .right .city-list span {
-            display:block;
+            x-display:block;
+	    display:inline-block;
+	    width:300px;
         }
 
 
@@ -2203,6 +2208,7 @@ function ahead(val) {
                         </div>
                         </div>
                     </div>
+		    <div class="clear"></div>
                 </div>
         </div>
         <div class="clear"></div>
@@ -2313,6 +2319,7 @@ $('.order-done.bg').click(function() {
 });
         $(window).scroll(function(){
             $('#head').css('margin-left',-parseInt($(window).scrollLeft()));
+            $('#float-city-selector').css('margin-left',-parseInt($(window).scrollLeft()));
             $('#float-city-selector').css('top',parseInt($(window).scrollTop()));
             $('#oranggal').css('margin-left',-parseInt($(window).scrollLeft()));
         });
