@@ -26,7 +26,7 @@ def main(request):
         page_object = page.objects.get()
         if page_object.active:
             _result += page_object,
-    cities = City.objects.all()
+    cities = City.objects.order_by('order','name').all()
     settings = SiteSettings.objects.first()
     return render(request, 'index.html', {'pages':_result,'cities':cities,'settings':settings})
 

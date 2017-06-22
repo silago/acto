@@ -286,6 +286,10 @@ class City(models.Model):
     active       = models.BooleanField(verbose_name="Активен",default=False)
     has_delivery = models.BooleanField(verbose_name="Бесплатная доставка",default=False)
     target   = models.CharField(verbose_name="Target",max_length=255,blank=True, null=True, default="")
+    order    = models.IntegerField(default=50)
+    bold    = models.BooleanField(default=False)
+
+
 
     def save(self, *args, **kwargs):
         if (self.target == ""):

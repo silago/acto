@@ -13,6 +13,7 @@
         <script src="https://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
 
 
+	<meta name="yandex-verification" content="54883a35452f8514" />
         <script>
 function isTouchDevice(){
     return true == ("ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch);
@@ -1542,12 +1543,23 @@ width: 0;
             x-columns:3;
             x--moz-columns:3;
 	    overflow-x:hidden;
+            -moz-column-width: 300px;
+            -webkit-column-width: 300px;
+             column-width: 300px;
         }
+
         div#float-city-selector .right .city-list span {
-            x-display:block;
-	    display:inline-block;
-	    width:300px;
+            display:block;
+	   x-display:inline-block;
+	   x width:300px;
         }
+
+        div#float-city-selector .right .city-list span:nth-child(1),
+        div#float-city-selector .right .city-list span:nth-child(2),
+        div#float-city-selector .right .city-list span:nth-child(3),
+	div#float-city-selector .right .city-list span:nth-child(4){
+		font-weight:bold;
+	}
 
 
 
