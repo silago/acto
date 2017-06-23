@@ -1972,17 +1972,44 @@ color: inherit;
                                 }
 
 
-
                                 if (!error) {
-                                    $('.step2').hide();
-                                    $('.step3').show();
-                                }
+				    this.date = '';
+				    this.time = '';
+				    $.post('/order/',{
+					    city:   this.city,
+					    street: this.street,
+					    house:  this.house,
+					    flat:   this.flat,
+					    time:   this.time,
+					    date:   this.date,
+					    phone:  this.phone,
+					    time:   this.time,
+					    name:   this.name,
+					    phone:  this.phone,
+					    email:  this.email,
+					    count:  this.count,
+					    total:  this.total
+				    }).fail(function(d) {
+					$('#order-done .error').show();
+					$.notify("При выполнении запроса произошла ошибка","error");
+					//$('.order-done .step1').show();
+					//$('.order-done .step3').hide();
+				    }).done(function(d){
+					$('.order-done .step1').show();
+					$('.order-done .step3').hide();
+					$.notify("Запрос успешно отправлен","success");
+					$('.order-done').hide();
+					this.init();
+				    });
+				}
 
                             } else {
                                     $('.step2').hide();
                                     $('.step1').show();
 
                             }
+
+
                         },
                         step3: function(next) {
                             if(!next) {
@@ -2007,34 +2034,6 @@ color: inherit;
                                 $('#order-done .error').html('Необходимо заполнить все поля');
                                 return;
                             }
-
-                            $.post('/order/',{
-                                    city:   this.city,
-                                    street: this.street,
-                                    house:  this.house,
-                                    flat:   this.flat,
-                                    time:   this.time,
-                                    date:   this.date,
-                                    phone:  this.phone,
-                                    time:   this.time,
-                                    name:   this.name,
-                                    phone:  this.phone,
-                                    email:  this.email,
-                                    count:  this.count,
-                                    total:  this.total
-                            }).fail(function(d) {
-                                $('#order-done .error').show();
-                                $('#order-done .error').html('При выполнении запроса произошла ошибка');
-                                $('.order-done .step1').show();
-                                $('.order-done .step3').hide();
-                            }).done(function(d){
-
-                                $('.order-done .step1').show();
-                                $('.order-done .step3').hide();
-                                $.notify("Запрос успешно отправлен","success");
-                                $('.order-done').hide();
-                                this.init();
-                            });
                         },
                         update: function() {
                             if (!this.count) {
