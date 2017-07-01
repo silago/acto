@@ -1974,6 +1974,8 @@ color: inherit;
 
 
                                 if (!error) {
+
+                    {{settings.yandex_counter_id}}.reachGoal('OrderComplete');
 				    this.date = '';
 				    this.time = '';
 				    $.post('/order/',{
