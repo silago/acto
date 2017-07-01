@@ -32,15 +32,16 @@
                 var pageGreenGalleryIndexMax = $('#page-green ul li').length-1;
                 
                 function FitGreenGallery() {
+		    var index = pageGreenGalleryIndex+1;
                     $('#page-green ul li').hide();
                     if (pageGreenGalleryIndex == 0) {
                         $('#page-green ul li:nth-child(-n+3)').show();
-                    } else if (pageGreenGalleryIndex == 0) {
-                        $('#page-green ul li:nth-ilast-child(-n+3)').show();
+                    } else if (pageGreenGalleryIndex == pageGreenGalleryIndexMax) {
+                        $('#page-green ul li:nth-last-child(-n+3)').show();
                     } else {
-                        $('#page-green ul li:nth-ilast-child('+pageGreenGalleryIndex-1+)').show();
-                        $('#page-green ul li:nth-ilast-child('+pageGreenGalleryIndex+)').show();
-                        $('#page-green ul li:nth-ilast-child('+pageGreenGalleryIndex+1+)').show();
+                        $('#page-green ul li:nth-child('+ (index-1) +')').show();
+                        $('#page-green ul li:nth-child('+index+')').show();
+                        $('#page-green ul li:nth-child('+(index+1) +')').show();
                     }
                 }
 
@@ -54,6 +55,7 @@
                     }
                     $('#page-green ul li').removeClass('active');
                     $($('#page-green ul li')[--pageGreenGalleryIndex]).addClass('active');
+		    FitGreenGallery();
                     
                 });
                 $('#page-green .arrow-right').click(function() {
@@ -62,12 +64,14 @@
                     }
                     $('#page-green ul li').removeClass('active');
                     $($('#page-green ul li')[++pageGreenGalleryIndex]).addClass('active');
-                });
+		    FitGreenGallery();
+		});
 
                 $('#page-green ul li').click(function() {
-                    $('#page-green ul li').removeClass('active');
-                    $(this).addClass('active');
-                });
+                    //$('#page-green ul li').removeClass('active');
+                    //$(this).addClass('active');
+                    //FitGreenGallery();
+		});
             </script>
             <div class="banner">
                <!-- <img src="green/buy-now.png" /> -->
