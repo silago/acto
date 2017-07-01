@@ -27,9 +27,27 @@
 			</span>
 
             <script type="text/javascript">
+                var pageGreenLimit = 3;
                 var pageGreenGalleryIndex = 0;
                 var pageGreenGalleryIndexMax = $('#page-green ul li').length-1;
+                
+                function FitGreenGallery() {
+                    $('#page-green ul li').hide();
+                    if (pageGreenGalleryIndex == 0) {
+                        $('#page-green ul li:nth-child(-n+3)').show();
+                    } else if (pageGreenGalleryIndex == 0) {
+                        $('#page-green ul li:nth-ilast-child(-n+3)').show();
+                    } else {
+                        $('#page-green ul li:nth-ilast-child('+pageGreenGalleryIndex-1+)').show();
+                        $('#page-green ul li:nth-ilast-child('+pageGreenGalleryIndex+)').show();
+                        $('#page-green ul li:nth-ilast-child('+pageGreenGalleryIndex+1+)').show();
+                    }
+                }
+
+
                 $('#page-green ul li').first().addClass('active');
+                $('#page-green ul li').hide();
+                $('#page-green ul li:nth-child(-n+3)').show();
                 $('#page-green .arrow-left').click(function() {
                     if (pageGreenGalleryIndex==0) {
                        pageGreenGalleryIndex = pageGreenGalleryIndexMax+1; 
