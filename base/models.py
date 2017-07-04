@@ -129,6 +129,7 @@ class TextImageItem(models.Model):
 
 class SiteSettings(SingletonModel):
     title               = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Заголовок")
+    phone   = models.ImageField(blank=True, null=True,default='', verbose_name="Телефон")
     meta_description    = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Описание")
     meta_keywords       = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Ключевые слова")
     cost                = models.IntegerField(default=1, verbose_name="Цена")
