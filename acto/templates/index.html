@@ -405,7 +405,7 @@ position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; opacity:0.9; w
                 x-margin-top:22px;
                 x-margin-left:32px;
             }
-            #banner-top {
+            #delivery-top {
                 width:100%;
                 x-height: 388px;
                 x-background-color: #ffd245;
@@ -414,14 +414,14 @@ position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; opacity:0.9; w
                 padding-bottom:100px;
             }
 
-            #banner-top .right img {
+            #delivery-top .right img {
                 margin-top:28px;
             }
-            #banner-top .right .button {
+            #delivery-top .right .button {
                 margin-top:28px;
                 x-margin-right:18px;
             }
-            #banner-top .right:after {
+            #delivery-top .right:after {
                 content: " ";
                 width: 0;
                 height: 0;
@@ -578,7 +578,7 @@ position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; opacity:0.9; w
             }
 
 
-            #banner-top .left {
+            #delivery-top .left {
                 background-position:-60px 0px;
                 background-repeat: no-repeat;
                 background-image:url('static/background-top-left.png');
@@ -588,7 +588,7 @@ position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; opacity:0.9; w
                 x-height:388px;
                 width:70%;
             }
-            #banner-top .left > .text-info > span {
+            #delivery-top .left > .text-info > span {
                 display:block;
                 position: absolute;
                 left: 290px;
@@ -598,12 +598,12 @@ position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; opacity:0.9; w
                 font-size: 22px;
                 font-weight: bold;
             }
-            #banner-top .left .text-info {
+            #delivery-top .left .text-info {
                 margin-left:53px;
                 position:relative;
                 top:50px;
             }
-            #banner-top .right {
+            #delivery-top .right {
 
                 text-align: center;
                 float: right;
@@ -822,7 +822,7 @@ left: 27%;
             div#page-green ul li{
                 cursor:pointer;
             }
-            div#page-green div.banner{
+            div#page-green div.delivery{
                 position:absolute;
                 top:219px;
                 x-right:120px;
@@ -1085,7 +1085,7 @@ left: 27%;
             div#page-orange .content table.shadow td {
             }
 
-            div#page-orange .content .banner {
+            div#page-orange .content .delivery {
                 top: 200px;
                 margin: 0px 1.2%;
                 position: relative;
@@ -1321,7 +1321,7 @@ list-style: none;
                 width: 100%;
                 padding-bottom:50px;
             }
-            div#page-bottom .content .banner-left {
+            div#page-bottom .content .delivery-left {
                 position:absolute;
                 left:9px;
                 top:-1px;
@@ -1330,21 +1330,21 @@ list-style: none;
                 z-index:10;
                 padding:34px;
             }
-            div#page-bottom .content .banner-left .banner-logo {
+            div#page-bottom .content .delivery-left .delivery-logo {
 
             }
-            div#page-bottom .content .banner-left .city-selector {
+            div#page-bottom .content .delivery-left .city-selector {
                 text-decoration:none;
                 font-weight:bold;
                 color:inherit;
             }
 
-            div#page-bottom .content .banner-left .city-selector:before {
+            div#page-bottom .content .delivery-left .city-selector:before {
                 content:"▼";
                 color:#a7a9ac;
                 padding-right:5px;
             }
-            div#page-bottom .content .banner-left ul li {
+            div#page-bottom .content .delivery-left ul li {
                 list-style:none;
                 border-top:1px solid #a7a9ac;
                 padding:16px 0px;
@@ -1358,7 +1358,7 @@ list-style: none;
                 top:0px;
                 z-index: 2;
             }
-            div#page-bottom .banner-triangle-up {
+            div#page-bottom .delivery-triangle-up {
 width: 0;
     height: 0;
     position: absolute;
@@ -1377,7 +1377,7 @@ width: 0;
             min-width:100%;
             }
 
-            div#page-bottom .content .banner-right {
+            div#page-bottom .content .delivery-right {
                 position:absolute;
                 right:0px;
                 top:30px;
@@ -1390,7 +1390,7 @@ width: 0;
                 padding-bottom:5px;
                 padding-top:70px;
             }
-            div#page-bottom .content .banner-right .button {
+            div#page-bottom .content .delivery-right .button {
                 margin-top:20px;
                 margin-bottom:26px;
             }
@@ -1816,11 +1816,11 @@ color: inherit;
 
                 var items = '';
                 if (cities[city].delivery == 'True') {
-                    $('.banner.free').show();
-                    $('.banner.non-free').hide();
+                    $('.delivery.free').show();
+                    $('.delivery.non-free').hide();
                 } else {
-                    $('.banner.free').hide();
-                    $('.banner.non-free').show();
+                    $('.delivery.free').hide();
+                    $('.delivery.non-free').show();
                 }
 
                 map.streetView.setVisible(false);
