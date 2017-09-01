@@ -47,10 +47,10 @@ def order(request):
     item.name = request.POST['name']
 
     item.date = request.POST['date']
-    item.time = request.POST['time']
+    item.time =  request.POST['time']
     item.count = request.POST['count']
     #item.total = request.POST['total']
-    item.total = int(int(request.POST['count'])*float(settings.cost))
+    item.total = int(int(item.count)*float(settings.cost))
     item.save()
     try:
         xml = MakeXml(item, settings)
@@ -113,6 +113,7 @@ def SendOrder(data):
 
 
 def MakeXml(item, settings):
+    settings = SiteSettings.objects.first()
     header = '<?xml version="1.0" encoding="UTF-8"?>'
     orders = Element('orders')
     order = SubElement(orders, 'order')
@@ -158,7 +159,8 @@ def MakeXml(item, settings):
     pamount = SubElement(product, 'amount')
     pamount.text = str(item.count)
     pprice = SubElement(product, 'price')
-    pprice.text = str(item.total)
+    #pprice.text = str(item.total)
+    pprice.text = str(float(settings.cost))
     #child.text = 'This child contains text.'
     data = p.unescape(tostring(orders).decode('utf-8'))
     return(header+data)
