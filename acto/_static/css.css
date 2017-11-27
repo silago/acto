@@ -152,8 +152,9 @@ position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; opacity:0.9; w
             .non-free {
                 display:none;
             }
-            @media screen and (max-width: 1317px) {
+            @media screen and (max-width: 480px) {
                 body {
+
                     overflow-x:auto!important;
                 }
             }
@@ -183,8 +184,9 @@ position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; opacity:0.9; w
             body {
                 box-sizing: border-box;
                 overflow-x:hidden;
-                max-width: 1400px;
-                x-min-width: 1152px;
+           /*     max-width: 1400px;*/
+                max-width: 480px;
+      /*          x-min-width: 1152px;*/
                 /*
                 min-width: 1200px;
                 */
@@ -196,11 +198,11 @@ position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; opacity:0.9; w
                 position: fixed;
                 z-index: 36;
                 background-color: rgba(255,255,255,0.9);
-                width: 100%;
+                width: 480px;
                 box-sizing: border-box;
-                max-width: 1400px;
+                max-width: 480px;
                 padding-right: 34px;
-                min-width:1200px;
+        /*        min-width:1200px;*/
                 top:0px;
                 x-left:90px;
                 margin:0 auto;
@@ -228,7 +230,7 @@ position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; opacity:0.9; w
                 box-sizing: inherit;
                 display: inline-block;
                 x-margin-left: -215px;
-                min-width:900px;
+ /*               min-width:900px;*/
                 position:relative;
                 height:33px;
             }
@@ -281,7 +283,7 @@ position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; opacity:0.9; w
                 margin-right:2.6em;
             }
 
-            @media screen and (max-width: 1383px) {
+            @media screen and (max-width: 480px) {
                 #head #menu li {
                     overflow-x:auto!important;
                     margin-right:3%;
@@ -290,7 +292,7 @@ position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; opacity:0.9; w
                     width:62%;
                 }
             }
-            @media screen and (max-width: 1280px) {
+            @media screen and (max-width: 480px) {
                 #head #menu li {
                     overflow-x:auto!important;
                     margin-right:1.0em!important;
@@ -298,7 +300,7 @@ position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; opacity:0.9; w
             }
 
 
-            @media screen and (max-width: 1350px) {
+            @media screen and (max-width: 480px) {
                 #head #menu li {
                     overflow-x:auto!important;
                     margin-right:1.75em;
@@ -1328,27 +1330,34 @@ width: 0;
 
 
             div#page-footer > div  {
-                    padding:24px;
+              /*      padding:24px;*/
                     box-sizing:border-box;
             }
             div#page-footer .logo {
-                width:15%;
+                margin-left: 30px;
+                width:150px;
                 display:inline-block;
             }
-            div#page-footer .title {
+           /* div#page-footer .title {
                 width:19%;
                 display:inline-block;
                     vertical-align:8px;
                         padding-right:00px!important;
-            }
+            }*/
             div#page-footer .icons div {
-                width:24%;
+                width:15px;
+                margin-right: 45px;
                 box-sizing:border-box;
                 border:0px;
                 display:inline-block;
+
+            }
+            #page-footer .icons div:last-child{
+                display: none;
             }
             div#page-footer .icons {
-                width:40%;
+                width:235px;
+                /*margin-right: 100px;*/
                 text-align:center;
                 display:inline-block;
             }
@@ -1358,8 +1367,11 @@ width: 0;
             div#page-footer .info {
                 display:inline-block;
                 vertical-align:8px;
-                padding-left:68px;
-                width:24%;
+                margin-top: 50px;
+             /*   padding-left:68px;*/
+                width:100%;
+                font-size: 26px;
+                text-align: center;
             }
             div#page-footer {
                 background-color: #363333;
@@ -1371,18 +1383,52 @@ width: 0;
                 width: 100%;
             }
 
-            @media screen and (max-width: 1317px) {
+            @media screen and (max-width: 480px) {
+                div#page-footer{
+                    width: 100%;
+                }
                 div#page-footer .copy {
                     font-size:1.00em!important;
                 }
             }
             div#page-footer .copy {
                 text-align:center;
-                font-size:1.03em;
-                font-size:18px;
+/*                font-size:1.03em;*/
+                font-size:24px;
                 padding:24px 0px;
                 x-letter-spacing:1px;
             }
+            div#page-footer .reg{
+                margin-top: 10px;
+                margin-bottom: 20px;
+                font-size: 24px;
+                text-align: center;
+            }
+            div#page-footer .ver{
+                margin-bottom: 20px;
+                font-size: 24px;
+                text-align: center;
+            }
+            div#page-footer .call{
+                margin-bottom: 20px;
+                font-size: 24px;
+                text-align: center;
+            }
+            div#page-footer .footer-link-btn{
+                width: 100%;  
+                background: #ffffff;
+                color: #000000;
+                display: table;
+                font-family: sans-serif;
+                font-size: 24px;
+                line-height: 1.5;
+                padding: 10px 25px;
+                margin:0 auto;
+                text-decoration: none;
+                text-transform: uppercase;
+            } 
+            
+
             div#page-footer .agreement {
                 font-size: 18px;
                 letter-spacing: 1px;
@@ -1399,6 +1445,9 @@ width: 0;
             div#page-footer .warring img {
                 max-width:100%;
             }
+
+
+
 
 
         div.float-city-selector.bg {
@@ -1680,3 +1729,5 @@ color: inherit;
                 cursor:pointer;
         }
         </style>
+
+ }

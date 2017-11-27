@@ -4,9 +4,9 @@
                 <img src="{{page.logo.url}}" />
                 </a>
             </div>
-            <div class="title">
+<!--             <div class="title">
                 {{page.caption}}
-            </div>
+            </div> -->
             <div class="icons">
                 {% for item in page.items.all %}
                 <div><a href="{{item.link}}"><img alt="{{item.alt}}" src="{{item.image.url}}" /></a></div>  
@@ -19,6 +19,15 @@
             <div class="copy">
                 {{ page.copy }}
             </div>
+            <div class="reg">
+            	<a class="footer-link-btn" href="#">сменить регион</a>
+            </div>
+            <div class="ver">
+            	<a class="footer-link-btn" href="#">полная версия сайта</a>
+            </div>
+            <div class="call">
+            	<a class="footer-link-btn" href="#">8 (800) 222-42-72<br/> Звонок по РФ – бесплатно</a>
+        	</div>
             <div class="warring">
                 <img src="{{ page.image.url }}" />
             </div>
