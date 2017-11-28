@@ -20,7 +20,8 @@ API_URL   = "http://Aktoviderm:oki89ijn@ex.lab-krasoty.ru/Apteka/hs/exchange/s1/
 
 
 def main(request):
-    pages = (TopPage, ForPage, OrangePage, YellowPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, FaqPage, DocsPage, BottomPage, FooterPage)
+    #pages = (TopPage, ForPage, OrangePage, YellowPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, FaqPage, DocsPage, BottomPage, FooterPage)
+    pages = (ForPage, FooterPage,)
     _result = ()
     for page in pages:
         page_object = page.objects.get()
@@ -164,5 +165,3 @@ def MakeXml(item, settings):
     #child.text = 'This child contains text.'
     data = p.unescape(tostring(orders).decode('utf-8'))
     return(header+data)
-
-
