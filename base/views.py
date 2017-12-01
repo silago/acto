@@ -21,7 +21,7 @@ API_URL   = "http://Aktoviderm:oki89ijn@ex.lab-krasoty.ru/Apteka/hs/exchange/s1/
 
 def main(request):
     #pages = (TopPage, ForPage, OrangePage, YellowPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, FaqPage, DocsPage, BottomPage, FooterPage)
-    pages = (ForPage, WhyPage, FooterPage,)
+    pages = (ForPage, WhyPage, FaqPage, FooterPage,)
     _result = ()
     for page in pages:
         page_object = page.objects.get()
