@@ -21,7 +21,7 @@ API_URL   = "http://Aktoviderm:oki89ijn@ex.lab-krasoty.ru/Apteka/hs/exchange/s1/
 
 def main(request):
     #pages = (TopPage, ForPage, OrangePage, YellowPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, FaqPage, DocsPage, BottomPage, FooterPage)
-    pages = (ForPage, WhyPage, FooterPage,)
+    pages = (ForPage, OrangePage, WhyPage, FooterPage,)
     _result = ()
     for page in pages:
         page_object = page.objects.get()
@@ -30,6 +30,13 @@ def main(request):
     cities = City.objects.order_by('order','name').all()
     settings = SiteSettings.objects.first()
     return render(request, 'index.html', {'pages':_result,'cities':cities,'settings':settings})
+
+def instagram(request):
+        token="1201565014.1bf0eec.6f326a5ff2db413c9c76a1671519fd41"
+        user_id = "1201565014"
+        url=  "https://api.instagram.com/v1/users/" + user_id + "/media/recent?access_token=" + token
+        r = requests.get(url)
+        return HttpResponse(r.text)
 
 @csrf_exempt
 def order(request):
