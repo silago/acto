@@ -70,7 +70,7 @@
             }
 
             div#page-yellow-mobile .bg-bottom img {
-                margin-top: -30px;
+                margin-top: -10px;
             }
             div#page-yellow-mobile .bg-bottom img {
               width:100%;
@@ -111,26 +111,14 @@
 
       <div id="carouselClientsRewievs" class="carousel slide" data-ride="carousel" interval: 400>
             <div class="carousel-inner" role="listbox">
-              <div class="carousel-item active">
-                <div class="plainText">Это вообще не нормально, что у вас такая хорошая доставка!</div><br/>
-                <div class="highlightedTextBold">Ольга Волнухина</div>
-                <div class="highlightedText">г. Санкт-Петербург</div>
+
+              {% for item in page.items.all %}
+              <div class="carousel-item {% if forloop.counter0 == 0 %}active{% endif %}">
+                <div class="plainText">{{ item.text|safe }}</div><br/>
+                <div class="highlightedTextBold">{{ item.name }}</div>
+                <div class="highlightedText">г. {{item.subtext}}</div>
               </div>
-              <div class="carousel-item">
-                <div class="plainText">Курьер хотел отжать у меня сотку, но я его присмирил. А так сервис хороший, буду заказывать еще.</div><br/>
-                <div class="highlightedTextBold">Андрей Кудинов</div>
-                <div class="highlightedText">г. Москва</div>
-              </div>
-              <div class="carousel-item">
-                <div class="plainText">Привезли прямо домой, я так рада! Не пришлось даже куда-то ходить. Мои нью-бэлансы довольны!</div><br/>
-                <div class="highlightedTextBold">Ольга Смирнова</div>
-                <div class="highlightedText">г. Лазаревское</div>
-              </div>
-              <div class="carousel-item">
-                <div class="plainText">Заказывал Актовидерм с доставкой, всем остался доволен. Сам спрей еще не пробовал, но на полке смотрится огненно.</div><br/>
-                <div class="highlightedTextBold">Александр Близнюк</div>
-                <div class="highlightedText">г. Москва</div>
-              </div>
+              {% endfor %}
           </div>
 
         <div class="col-1">

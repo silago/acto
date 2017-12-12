@@ -1,15 +1,67 @@
+<style>
+  #page-mint-mobile img {
+      max-width: 100%;
+  }
+
+  #page-mint-mobile  .container {
+                background-color:#00cabe;
+              }
+
+            div#page-mint-mobile .triangle-down {
+                width: 0;
+                height: 0;
+                border-left: 1600px solid transparent;
+                border-top: 64px solid #00cabe;
+            }
+
+            div#page-mint-mobile .triangle-up {
+                width: 0;
+                height: 0;
+                border-right: 1600px solid transparent;
+                border-bottom: 64px solid #00cabe;
+            }
+
+</style>
+
+<div id="page-mint-mobile">
+  <div class="triangle-up">
+  </div>
+  <div class="container">
+    <div class="row">
+        <div class="col-6">
+                <img alt="{{page.caption|striptags}}" class="logo" src="{{page.logo.url}}" />
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+                <img class="hands" src="{{page.left_image.url}}" />
+      </div>
+
+      <div class="col-12">
+                    {{ page.caption|safe }}
+      </div>
+
+      <div class="col-12">
+            <img class="info" src="{{page.right_image.url}}" />
+      </div>
+    </div>
+  </div>
+
+  <div class="triangle-down">
+  </div>
+</div>
+<!--
+
         <div id="page-mint">
             <div class="triangle-up"> </div>
             <div class="content">
                 <div class="text-info">
                     {{ page.caption|safe }}
-                    <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas mi id iaculis interdum. Nam lacinia dui massa, quis viverra ante dictum ac. Ut commodo justo eget mi gravida, eu malesuada nisi blandit. -->
                 </div>
-                <!-- <img class="logo" src="mint/logo-mint.png" /> -->
                 <img alt="{{page.caption|striptags}}" class="logo" src="{{page.logo.url}}" />
                 <img class="hands" src="{{page.left_image.url}}" />
             </div>
             <div class="triangle-down"> </div>
-            <!-- <img class="info" src="mint/infographic.png" /> -->
             <img class="info" src="{{page.right_image.url}}" />
         </div>
+      -->

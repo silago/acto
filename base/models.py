@@ -282,14 +282,19 @@ class BottomPage(BaseSingletonModel):
     #    pass
 
 
+class Region(models.Model):
+    name = models.CharField(verbose_name="Город",max_length=255)
+    active       = models.BooleanField(verbose_name="Активен",default=False)
+    has_delivery = models.BooleanField(verbose_name="Бесплатная доставка",default=False)
+
 class City(models.Model):
     name = models.CharField(verbose_name="Город",max_length=255)
     active       = models.BooleanField(verbose_name="Активен",default=False)
     has_delivery = models.BooleanField(verbose_name="Бесплатная доставка",default=False)
     target   = models.CharField(verbose_name="Target",max_length=255,blank=True, null=True, default="")
     order    = models.IntegerField(default=50)
-    bold    = models.BooleanField(default=False)
-
+    bold     = models.BooleanField(default=False)
+    region   = models.ForeignKey('Region', related_name='region', null=True)
 
 
     def save(self, *args, **kwargs):
@@ -345,6 +350,12 @@ class Orders(models.Model):
         verbose_name="Заказ"
         verbose_name_plural="Заказы"
 
+class Metro:
+    name = models.CharField(max_length=255,verbose_name="Адрес", null=True)
+    city = models.ForeignKey('City', related_name='shops', null=True)
+    image  = models.ImageField(  verbose_name="Изображение", null=True)
+
+
 class Shop(models.Model):
     name = models.CharField(max_length=255,verbose_name="Адрес")
     title = models.CharField(max_length=255)
@@ -352,6 +363,10 @@ class Shop(models.Model):
     x    = models.FloatField()
     y    = models.FloatField()
     city = models.ForeignKey('City', related_name='shops')
+    address = models.CharField(max_length=255, null=True)
+    url = models.CharField(max_length=255, null=True) #yandexmap
+    metro = models.CharField(max_length=255, null=True) #yandexmap
+
     def __unicode__(self):
        return u'%s' % (self.name)
     def __str__(self):

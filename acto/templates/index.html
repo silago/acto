@@ -13,6 +13,10 @@
         <meta name="keywords" content="{{settings.keywords}}"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="static/sf-webfont.css">
+        <link href="static/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+        <link href="static/js/jquery-typeahead/src/jquery.typeahead.css" rel="stylesheet">
+        <script src="static/js/jquery-typeahead/src/jquery.typeahead.js"></script>
+
         <!--
         -->
 
@@ -718,5 +722,26 @@ $('.order-done.bg').click(function() {
 
     </script>
     {{settings.counters|safe}}
+
+<script type="text/javascript">
+  $('body').ready(function(){
+       var carousels = $('.carousel');
+    carousels.each(function(i,carousel) {
+      let max = 0;
+      var items = $(carousel).find('.carousel-item');
+      items.each(function(k,item) {
+           if ($(item).height() > max) {
+          max = $(item).height();
+        }
+      });
+      max+=10;
+      $(carousel).first('.carousel-inner').height(max);
+
+      items.each(function(k,item) {
+           $(item).height(max);
+      });
+    });
+  });
+</script>
     </body>
 </html>
