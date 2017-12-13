@@ -1,11 +1,246 @@
+<style>
+  #delivery-top .container .row img {
+
+    max-width: 100%;
+
+
+
+  }
+
+
+  #delivery-top img.logo {
+        margin-top: -34px;
+    margin-left: -8px;
+    width: 164px;
+  }
+
+  #delivery-top > .container {
+  }
+
+  #delivery-top {
+    background: url('static/mobile/top/yellow_bg.png');
+    background-repeat:no-repeat;
+  }
+
+  #delivery-top .title {
+
+    text-align: right;
+text-transform: uppercase;
+color: white;
+font-weight: bolder;
+font-size: 35px;
+padding-top: 16px;
+line-height: 36px;
+transform: scale(0.8,1);
+letter-spacing: 1px;
+margin-left: 26px;
+  }
+
+
+  #delivery-top .bubble{
+    position: relative;
+    left:0px; top:0px;
+    height: 0px;
+    z-index: 9;
+    top:151px;
+
+
+  }
+
+  #delivery-top .bubble button {
+      text-transform: uppercase;
+      width: 100%;
+      background-color: #babcbe;
+      color: #fff;
+      height: 33px;
+      border-radius: 15px;
+
+      text-align: center;
+      padding: 5px 0px;
+      font-weight: bold;
+  }
+
+
+
+  #delivery-top .bubble button.active {
+    background-color: orange;
+  }
+
+  #delivery-top .bubble .bubble-holder {
+    background: url('static/mobile/top/bubble.png');
+    position: relative;
+    height: 191px;
+    z-index: 10;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+
+  }
+
+  #delivery-top .bubble .bubble-holder .q {
+height: 40px;
+margin-top: 54px;
+text-align: center;
+font-size: 21px;
+padding: 0px 50px;
+font-weight: bold;
+}
+</style>
+
+
+
+<div id="delivery-top">
+  <div class="bubble container">
+    <div class="row bubble-holder">
+        <div class="col-12 q"
+        >
+        Ваш регион нижний новгород?
+        </div>
+        <div class="col-6">
+          <button class="btn active">
+            Да
+          </button>
+        </div>
+        <div class="col-6">
+          <button class="btn">
+            Нет, выбрать
+          </button>
+        </div>
+
+
+
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+        <div class="col-12 title">
+                Жидкая
+                <br />
+                Аэрозольная
+                </br>
+                повязка
+                <!--
+                {{page.title.mobile|safe}}
+                -->
+        </div>
+      </div>
+    <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-10">
+            <img class="logo" src="{{page.logo.url}}" />
+        </div>
+        <div class="col-1">
+        </div>
+      </div>
+    <div class="row">
+        <div class="col-12">
+          <br/>
+          <br/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-5">
+            <img class="" src="static/mobile/top/590.png" />
+        </div>
+        <div class="col-5">
+                <img class="" src="static/mobile/top/offer_pink.png" />
+                <br/>
+                text
+                <br/>
+                <img class="" src="static/mobile/top/buy_green.png" />
+        </div>
+        <div class="col-1"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="choose-region">
+    <div class="container">
+      <div class="row">
+        <div class="col-2">
+          <span class="oi oi-chevron-left" title="icon name" aria-hidden="true"></span>
+        </div>
+        <div class="col-8">
+          Выбор региона (всего {{cities|length}})
+
+        </div>
+        <div class="col-2">
+          <span class="oi oi-x" title="icon name" aria-hidden="true"></span>
+        </div>
+      </div>
+    </div>
+    <div>
+        <hr />
+    <div>
+
+    <div class="container">
+        <div class="row">
+          <div class="col-12">
+          <form>
+                <div class="typeahead__container">
+                    <div class="typeahead__field">
+
+                        <span class="typeahead__query">
+                            <input class="js-typeahead"
+                                   name="q"
+                                   type="search"
+                                   autofocus
+                                   autocomplete="off">
+                        </span>
+                        <span class="typeahead__button">
+                            <button type="submit">
+                                <span class="typeahead__search-icon"></span>
+                            </button>
+                        </span>
+
+                    </div>
+                </div>
+            </form>
+          </div>
+
+        </div>
+      <div class="row">
+
+    <!--
+    {% for city in cities %}
+    <div class="col-12">
+        {{ city.name }}
+      <hr />
+    </div>
+    {% endfor %}
+  -->
+    </div>
+    </div>
+
+  </div>
+  <script>
+ $.typeahead({
+            input: ".js-typeahead",
+            minLength: 0,
+            order: "asc",
+            searchOnFocus: true,
+            source: {
+                group: {
+                    display: ["name"],
+                    template: "{{name}}",
+                    data: Object.values(cities)
+                }
+            }});
+  </script>
+
+
+<!---
 <div id="delivery-top">
     <div class="left"
         style="background-image:url('{{page.image.url}}');">
         <div class="text-info">
-            <!-- <img src="akto-box-photo.png" /> -->
             <img src="{{page.logo.url}}" />
             <span>
-                <!-- Жидкая аэрозольная повязка&nbsp;Актовитдерм® -->
                 {{page.title|safe}}
             </span>
         </div>
@@ -17,4 +252,5 @@
         <button class="button form-button" style="cursor:pointer;" onclick="showForm(); {{settings.yandex_counter_id}}.reachGoal('order');"></button>
     </div>
 </div>
+-->
 <div class="clear"></div>

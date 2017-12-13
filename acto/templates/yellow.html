@@ -1,5 +1,147 @@
+
+<!---Alter code--------------------------------->
+
+<style type="text/css">
+  #page-yellow-mobile .plainText  {
+    font-family:DejaVu Sans Condensed;
+    font-size:17px;
+  }
+</style>
+
+<style type="text/css">
+  #page-yellow-mobile .highlightedText  {
+    font-family:DejaVu Sans Condensed;
+    font-size:17px;
+    color:#FFFFFF;
+    background: #fa6475;
+    text-indent:7px;
+    max-width: 60%;
+  }
+</style>
+
+<style type="text/css">
+  #page-yellow-mobile .highlightedTextBold  {
+    font-family:DejaVu Sans Condensed;
+    font-size:17px;
+    color:#FFFFFF;
+    background: #fa6475;
+    font-weight:bold;
+    text-indent:7px;
+    max-width: 75%;
+  }
+</style>
+
+<style type="text/css">
+  #page-yellow-mobile #rewievsContainer  {
+    min-height:250px;
+  }
+  #page-yellow-mobile .yellow {
+    background-color: yellow;
+  }
+
+  #page-yellow-mobile .white {
+    background-color: white;
+  }
+
+  #page-yellow-mobile .logo img{
+      max-width: 100%;
+  }
+  #carouselClientsRewievs {
+
+  }
+
+
+            div#page-yellow-mobile .triangle-down {
+                width: 0;
+                height: 0;
+                border-left: 1600px solid transparent;
+                border-top: 64px solid #ffa730;
+            }
+            div#page-yellow-mobile .arrow-holder {
+                width:100%;
+                overflow:hidden;
+
+            }
+            div#page-yellow-mobile .triangle-up {
+                width: 0;
+                height: 0;
+                border-right: 1600px solid transparent;
+                border-bottom: 64px solid #ffef45;
+            }
+
+            div#page-yellow-mobile .bg-bottom img {
+                margin-top: -10px;
+            }
+            div#page-yellow-mobile .bg-bottom img {
+              width:100%;
+            }
+
+            div#page-yellow-mobile .bg-top img {
+              width:100%;
+            }
+
+            div#page-yellow-mobile {
+              position: relative;
+              margin-top: -65px;
+              z-index: 10;
+            }
+
+</style>
+<div id="page-yellow-mobile">
+            <div class="arrow-holder">
+              <div class="triangle-up"> </div>
+            </div>
+    <div class="container yellow">
+      <div class="row">
+        <div class="col-8 logo">
+          <img src="{{page.logo.url}}" />
+        </div>
+      </div>
+    </div>
+
+
+        <div class="bg-top yellow">
+          <img src="static/mobile/yellow/bg-top.png" />
+        </div>
+    <div class="container white">
+      <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-10" id=rewievsContainer>
+
+      <div id="carouselClientsRewievs" class="carousel slide" data-ride="carousel" interval: 400>
+            <div class="carousel-inner" role="listbox">
+
+              {% for item in page.items.all %}
+              <div class="carousel-item {% if forloop.counter0 == 0 %}active{% endif %}">
+                <div class="plainText">{{ item.text|safe }}</div><br/>
+                <div class="highlightedTextBold">{{ item.name }}</div>
+                <div class="highlightedText">г. {{item.subtext}}</div>
+              </div>
+              {% endfor %}
+          </div>
+
+        <div class="col-1">
+        </div>
+      </div>
+
+
+    </div>
+        <div class="bg-bottom ">
+          <img src="static/mobile/yellow/bg-bottom.png" />
+        </div>
+
+<!---end of Alter code--------------------------------->
+
+  </div>
+</div>
+</div>
+
+<!--
+
+
         <div id="page-yellow">
-		
+
             <div class="arrow-holder">
             <div class="triangle-up"> </div>
             </div>
@@ -36,3 +178,4 @@
             </div>
             <div class="clear"> </div>
         </div>
+      -->

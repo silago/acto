@@ -1,9 +1,112 @@
+
+<style>
+  #page-green-mobile img {
+      max-width: 100%;
+  }
+
+  #page-green-mobile .container {
+    background-color: #bed73a;
+  }
+
+  #page-green-mobile .slider-container {
+    width: 247px;
+    height: 200px;
+    margin: 0 auto;
+
+    margin-bottom: 30px;
+
+    margin-top:30px;
+  }
+
+  #page-green-mobile .slider-container img {
+    width:217px;
+    margin:0 15px;
+  }
+
+  #page-green-mobile .slider {
+    width:200%;
+    margin-left:-100%;
+  }
+
+
+
+
+  </style>
+
+  <script>
+  greenSlider = {
+    index:1,
+    slide: function(i) {
+      this.index = i;
+      console.log(
+        (-this.index*50)+'%'
+      );
+        $('#page-green-mobile .slider').animate({
+          marginLeft: (-this.index*100)+'%'
+        });
+    }
+  }
+  </script>
+
+
+</div>
+
+<div id="page-green-mobile">
+
+  <div class="container">
+    <div class="row">
+        <div class="col-6">
+                <img alt="{{page.caption|striptags}}" class="logo" src="{{page.logo.url}}" />
+        </div>
+        <div class="slider-container">
+          <table class="slider" style="width: {{page.items.all|length}}00%; ">
+
+              <tr>
+                  {% for item in page.items.all %}
+              <td>
+                <a onclick="greenSlider.slide({{forloop.counter0}});">
+                    <img alt="{{item.alt}}"  src="{{ item.image.url }}" />
+                </a>
+                <!--
+                <li>
+                    <img alt="{{item.alt}}"  src="{{ item.image.url }}" />
+                    <span>
+                        {{item.text|safe}}
+                    </span>
+                </li>
+              -->
+            </td>
+              {% endfor %}
+            </tr>
+          </table>
+          </div>
+          </div>
+
+
+      <div class="row">
+        <div class="col-6">
+            <img class="" src="static/mobile/top/590.png" />
+        </div>
+        <div class="col-6">
+                <img class="" src="static/mobile/top/offer_pink.png" />
+                <br/>
+                text
+                <br/>
+                <img class="" src="static/mobile/top/buy_green.png" />
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+<!--
         <div id="page-green">
             <div class="triangle-up"> </div>
             <div class="content">
                 <div class="text-info">
                     {{page.title|striptags}}
-                    <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas mi id iaculis interdum. Nam lacinia dui massa, quis viverra ante dictum ac. Ut commodo justo eget mi gravida, eu malesuada nisi blandit. -->
                 </div>
                 <img class="logo" src="{{page.logo.url}}" />
             <span class="starts"> </span>
@@ -30,7 +133,7 @@
                 var pageGreenLimit = 3;
                 var pageGreenGalleryIndex = 0;
                 var pageGreenGalleryIndexMax = $('#page-green ul li').length-1;
-                
+
                 function FitGreenGallery() {
 		    var index = pageGreenGalleryIndex+1;
                     $('#page-green ul li').hide();
@@ -51,12 +154,12 @@
                 $('#page-green ul li:nth-child(-n+3)').show();
                 $('#page-green .arrow-left').click(function() {
                     if (pageGreenGalleryIndex==0) {
-                       pageGreenGalleryIndex = pageGreenGalleryIndexMax+1; 
+                       pageGreenGalleryIndex = pageGreenGalleryIndexMax+1;
                     }
                     $('#page-green ul li').removeClass('active');
                     $($('#page-green ul li')[--pageGreenGalleryIndex]).addClass('active');
 		    FitGreenGallery();
-                    
+
                 });
                 $('#page-green .arrow-right').click(function() {
                     if (pageGreenGalleryIndex==pageGreenGalleryIndexMax) {
@@ -74,17 +177,14 @@
 		});
             </script>
             <div class="delivery">
-               <!-- <img src="green/buy-now.png" /> -->
                <img class="delivery free" src="{{page.free_delivery_button.url}}" />
                <img class="delivery non-free"  src="{{page.no_delivery_button.url}}" />
 
                <br />
                <br />
-               <!--
-                   <img  style="cursor:pointer;" onclick="showForm();" src="static/green/button.png" />
-               -->
                <button class="button form-button" style="cursor:pointer;" onclick="showForm();"></button>
             </div>
             </div>
             <div class="triangle-down"></div>
         </div>
+      -->
