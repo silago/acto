@@ -69,10 +69,104 @@
 </div>
 
 
+<style>
+  #find-shop-mobile img {
+    max-width: 100%;
+
+  }
+
+ #find-shop-mobile hr {
+   border-top: 1px solid gray;
+ }
+
+ #find-shop-mobile .small-padding {
+   margin-top:15px;
+ }
+
+
+ #find-shop-mobile button.wide {
+   width:100%;
+ }
+</style>
+
+
 <div id="find-shop-mobile">
+  <div class="container">
+    <div class="row">
+      <div class="5">
+        <img src="{{ page.logo.url }}" />
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="small-padding col-12">
+        Регион: Москва
+        <hr />
+      </div>
+      <div class="small-padding col-12">
+        <input type="text" placeholder="Москва" />
+        <hr />
+      </div>
+      <div class="small-padding col-12">
 
+                <div class="typeahead__container">
+                    <div class="typeahead__field">
+
+                        <span class="typeahead__query">
+        <input placeholder="Поиск по улице или метро" class="js-typeahead-bottom-shops"
+                                   name="q"
+                                   type="search"
+                                   autofocus
+                                   autocomplete="off">
+                                 </span>
+
+                        <span class="typeahead__button">
+                            <button type="submit">
+                                <span class="typeahead__search-icon"></span>
+                            </button>
+                        </span>
+                               </div>
+                             </div>
+        <hr />
+      </div>
+    </div>
+  </div>
 </div>
+
+
+  <script>
+ var initTAShops =
+    function() {
+console.log(
+  cities[lc.ChosenName].shops
+);
+     $.typeahead({
+                input: ".js-typeahead-bottom-shops",
+                minLength: 0,
+                order: "asc",
+            blurOnTab: true,
+            emptyTemplate: 'no result for {{query}}',
+                searchOnFocus: true,
+                source: {
+                        display: ["name"],
+                        template: "{{name}}",
+                        data: cities[lc.ChosenName].shops
+                },
+                // callback: {
+                //    onClickAfter: function (node, a, item, event) {
+                //      choose_city(item.name);
+                //      $('#choose_city_modal').modal('hide');
+                //    }
+                //},
+
+              });
+        };
+        //initTAShops();
+        onCityChosen.push(initTAShops);
+
+  </script>
+
+
 <!--
         <div id="page-bottom">
                         <div class="delivery-triangle-up"></div>
@@ -94,80 +188,7 @@
                 </div>
                 <div class="center">
                   <div style="width:100%; height:746px;" id="map"></div>
-    <script type="text/javascript">
-    function toSemi(s) {
-        return Number(s);
-        //return Number(s.replace('.',','));
 
-    }
-    function toDot(s) {
-
-        return Number((''+s).replace(',','.'));
-    }
-    var map;
-    window.map = map;
-    window.map_marker = null;
-    var map_inited = false;
-    function initMap() {
-        if (!map_inited) {
-
-            var x = 0;
-            var y = 0;
-            try {
-                if (localStorage.getItem('ChosenName')!=null) {
-                    x = toDot(cities[localStorage.getItem('ChosenName')].x);
-                    y = toDot(cities[localStorage.getItem('ChosenName')].y);
-                } else {
-                }
-            } catch(e) {
-
-            }
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: x, lng: y},
-                zoom: 8,
-                zoomConrol: true
-            });
-            map_inited = true;
-        }
-
-    }
-
-
-    $('document').ready(function() {
-        ymaps.ready(function() {
-              var c = window.lc.getItem('ChosenName');
-              if (!c) {
-                c = ymaps.geolocation.city;
-                if (typeof c == 'undefined') {
-                    c = ymaps.geolocation.region;
-                }
-              }
-
-              if (typeof c == 'undefined') {
-                c = Object.keys(window.cities)[0];
-              }
-
-
-
-              if (typeof window.cities[c]=='undefined' && (typeof ymaps.geolocation.region!='undefined' || typeof ymaps.geolocation.city!='undefined')) {
-                   window.cities[c] = {
-                       x:toSemi(ymaps.geolocation.latitude),
-                       y:toSemi(ymaps.geolocation.longitude),
-                       delivery:false,
-                       name:c,
-                       shops:[]
-                  }
-              }
-
-              initMap();
-              choose_city(c);
-        });
-    });
-    </script>
-
-        <script async defer
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAi3fsw5CM1n-2hPQr0oSTlxoVER0kb_1g&callback=initMap">
-        </script>
                 </div>
                 <div class="delivery-right">
                     <img class="delivery free" src="{{page.free_delivery_button.url}}">

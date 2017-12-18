@@ -1,3 +1,18 @@
+.collapsing {
+	display:none!important;
+}
+
+.collapse.show {
+	display: flex!important;
+}
+
+.collapse {
+	display: none!important;
+}
+
+button {
+	cursor:pointer;
+}
 
 .overflow {
 	overflow-y:auto;

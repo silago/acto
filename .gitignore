@@ -3,3 +3,4 @@ venv
 **/*.pyc
 tmp.log
 db.sqlite3
+acto/tmplog.log

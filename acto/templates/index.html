@@ -23,6 +23,9 @@
         <script src="/static/js/notify.js"></script>
         <script src="/static/nicescroll/jquery.nicescroll.js"></script>
         <script src="https://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
+        <script type="text/javascript">
+           window.onCityChosen = [];
+        </script>
 
 
 
@@ -160,6 +163,7 @@ function isTouchDevice(){
 
         <script type="text/javascript">
            function choose_shop(shop, index) {
+                /*
                 map.streetView.setVisible(false);
                 var x = toDot(shop.x);
                 var y = toDot(shop.y);
@@ -167,7 +171,7 @@ function isTouchDevice(){
                 var title = shop.title;
                 var phone = shop.phone;
                 if (window.map_marker !=null) {
-
+choose_city_modal
                 }
                 var position = {lat:x,lng:y};
                 map.panTo(position);
@@ -175,26 +179,36 @@ function isTouchDevice(){
 
                 infowindow.open(map, map_marker[index]);
                 map.panTo(mpos);
+                */
            }
 
-           function choose_city(city) {
+
+
+           function choose_city(city, show_confirmation) {
 
                //if (typeof {{settings.yandex_counter_id}} != 'undefined') {
                //     {{settings.yandex_counter_id}}.reachGoal(cities[city].target);
                //}
 
 
+                if (show_confirmation == true) {
+                      $('#city_confirmation').css('display','flex');
+                }
+
+                window.lc.setItem("ChosenName", city);
+
                $('.city_name').html(city);
+                /*
                $('input.input.city').val(city);
                 var x = cities[city].x;
                 var y = cities[city].y;
 
-                window.lc.setItem("ChosenName", city);
 
                 $('.float-city-selector').hide();
                 $('.select-city .selector').text(city);
 
                 var items = '';
+                */
                 if (cities[city].delivery == 'True') {
                     $('.delivery.free').show();
                     $('.delivery.non-free').hide();
@@ -203,6 +217,7 @@ function isTouchDevice(){
                     $('.delivery.non-free').show();
                 }
 
+                /*
                 map.streetView.setVisible(false);
                 map.setZoom(7);
                 map.panTo({lat:toDot(x),lng:toDot(y)});
@@ -257,179 +272,19 @@ function isTouchDevice(){
                     items+=item;
                     $('#shops-list').append(item);
                 }
+                    */
+
+
+
+                    for (var i =0; i<window.onCityChosen.length; i++) { onCityChosen[i](); }
+
+
            }
         </script>
         <div  class="bg order-done" style=""> </div>
         <div class="order-done" id="order-done">
         <div onclick="$('.order-done').hide();" style="position:fixed; width:100%; height:100%; z-index:0; left:0px; top:0px; cursor:pointer;"></div>
                 <script>
-                    window.order_form = {
-                        count:1,
-                        base_cost:580,
-                        cost:580,
-                        plus:function() {
-                            this.count++;
-                            this.update();
-                        },
-                        minus:function() {
-                            this.count--;
-                            this.update();
-                        },
-                        init:function() {
-                            this.city='';
-                            this.street='';
-                            this.house='';
-                            this.flat='';
-                            this.time='';
-                            this.count='1';
-                            this.total='0';
-                            this.name='';
-                            this.phone='';
-                            this.email='';
-                            this.count=1;
-                            $('#order-done input:not(.city)').val('');
-                            $('#order-done textarea:not(.city)').html('');
-                            this.update();
-                        },
-                        step1:function(next) {
-                            if (next)  {
-                                $('.step1 input').removeClass('error');
-                                var error = false;
-
-                                this.name = $('.step1 .name').val();
-                                this.phone = $('.step1 .phone').val();
-                                this.phone = this.phone.replace(/[^0-9()\- ]/g,'');
-
-
-                                if (!this.name) {
-                                    $('.step1 .name').addClass('error');
-                                    error = true;
-                                }
-                                if (!this.phone || this.phone.length<6) {
-                                    $('.step1 .phone').addClass('error');
-                                    error = true;
-                                }
-
-                                this.email = $('.step1 .email').val();
-                                if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.email)) {
-                                        $('.step1 .email').addClass('error');
-                                        error = true;
-                                }
-
-                                if (!error) {
-                                    $('.step1').hide();
-                                    $('.step2').show();
-                                }
-
-
-                            } else {
-                                $('.order-done').hide();
-
-                            }
-                        },
-                        step2:function(next) {
-                            if (next)  {
-                                $('.step2 input').removeClass('error');
-                                var error = false;
-                                this.city = $('.step2 .city').val();
-                                this.street = $('.step2 .street').val();
-                                this.house = $('.step2 .house').val();
-                                this.flat = $('.step2 .flat').val();
-                                if (!this.city) {
-                                    $('.step2 .city').addClass('error');
-                                    error = true;
-                                }
-                                if (!this.street) {
-                                    $('.step2 .street').addClass('error');
-                                    error = true;
-                                }
-                                if (!this.house) {
-                                    $('.step2 .house').addClass('error');
-                                    error = true;
-                                }
-                                if (!this.flat) {
-                                    $('.step2 .flat').addClass('error');
-                                    error = true;
-                                }
-
-
-                                if (!error) {
-
-                    {{settings.yandex_counter_id}}.reachGoal('OrderComplete');
-				    this.date = '';
-				    this.time = '';
-				    $.post('/order/',{
-					    city:   this.city,
-					    street: this.street,
-					    house:  this.house,
-					    flat:   this.flat,
-					    time:   this.time,
-					    date:   this.date,
-					    phone:  this.phone,
-					    time:   this.time,
-					    name:   this.name,
-					    phone:  this.phone,
-					    email:  this.email,
-					    count:  this.count,
-					    total:  this.total
-				    }).fail(function(d) {
-					$('#order-done .error').show();
-					$.notify("При выполнении запроса произошла ошибка","error");
-					//$('.order-done .step1').show();
-					//$('.order-done .step3').hide();
-				    }).done(function(d){
-					$('.order-done .step1').show();
-					$('.order-done .step2').hide();
-					$.notify("Запрос успешно отправлен","success");
-					$('.order-done').hide();
-					this.init();
-				    });
-				}
-
-                            } else {
-                                    $('.step2').hide();
-                                    $('.step1').show();
-
-                            }
-
-
-                        },
-                        step3: function(next) {
-                            if(!next) {
-                                $('.order-done .step2').show();
-                                $('.order-done .step3').hide();
-                                return;
-                            }
-
-                            $('#order-done .error').hide();
-
-                            var error = false;
-                            this.date =  formDate(parseInt($('.step3 .date .active').attr('alt')));
-                            this.time  = $('.step3 .time').val();
-                            //this.count = $('#order-done .holder .quantity').val();
-                            this.total = this.count*BASE_COST;
-                            if (!this.time || !this.date) {
-                                error = true;
-                            }
-
-                            if (error) {
-                                $('#order-done .error').show();
-                                $('#order-done .error').html('Необходимо заполнить все поля');
-                                return;
-                            }
-                        },
-                        update: function() {
-                            if (!this.count) {
-                                this.count=1;
-                            }
-                            //this.count = $('.step3 .count').val();
-                            this.cost = window.BASE_COST * this.count;
-                            $('#order-done .quantity').html(this.count);
-                            $('#order-done .cost span.q').html(this.cost);
-                        }
-                    };
-                    order_form.init();
-
                 </script>
                 <div class="inner">
                     <img src="static/akto-box-photo.png" />
@@ -610,7 +465,92 @@ function ahead(val) {
         {% endfor %}
 
 
+
+        <!--
+        <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAi3fsw5CM1n-2hPQr0oSTlxoVER0kb_1g&callback=initMap">
+        </script>
+      -->
+
+    <script type="text/javascript">
+    function toSemi(s) {
+        return Number(s);
+        //return Number(s.replace('.',','));
+
+    }
+    function toDot(s) {
+
+        return Number((''+s).replace(',','.'));
+    }
+    /*
+    var map;
+    window.map = map;
+    window.map_marker = null;
+    var map_inited = false;
+    function initMap() {
+        if (!map_inited) {
+
+            var x = 0;
+            var y = 0;
+            try {
+                if (localStorage.getItem('ChosenName')!=null) {
+                    x = toDot(cities[localStorage.getItem('ChosenName')].x);
+                    y = toDot(cities[localStorage.getItem('ChosenName')].y);
+                } else {
+                }
+            } catch(e) {
+
+            }
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: x, lng: y},
+                zoom: 8,
+                zoomConrol: true
+            });
+            map_inited = true;
+        }
+
+    }
+    */
+
+
+
+    $('document').ready(function() {
+        window.city_is_just_detected  = false;
+        ymaps.ready(function() {
+              var c = window.lc.getItem('ChosenName');
+              if (!c) {
+                window.city_is_just_detected  = true;
+                c = ymaps.geolocation.city;
+                if (typeof c == 'undefined') {
+                    c = ymaps.geolocation.region;
+                }
+              }
+
+              if (typeof c == 'undefined') {
+                c = Object.keys(window.cities)[0];
+              }
+
+
+
+              if (typeof window.cities[c]=='undefined' && (typeof ymaps.geolocation.region!='undefined' || typeof ymaps.geolocation.city!='undefined')) {
+                   window.cities[c] = {
+                       x:toSemi(ymaps.geolocation.latitude),
+                       y:toSemi(ymaps.geolocation.longitude),
+                       delivery:false,
+                       name:c,
+                       shops:[]
+                  }
+              }
+
+              //initMap();
+              choose_city(c,window.city_is_just_detected);
+        });
+    });
+    </script>
+
+
         <script>
+
 
 
 try {
@@ -742,6 +682,7 @@ $('.order-done.bg').click(function() {
       });
     });
   });
+
 </script>
     </body>
 </html>
