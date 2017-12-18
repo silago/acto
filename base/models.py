@@ -8,6 +8,10 @@ from django.conf import settings
 from sorl.thumbnail import ImageField as ThumbImageField
 import os
 
+class MetroField(models.CharField):
+    pass
+
+
 class TemplateItem(models.Model):
     name  = models.CharField(max_length=255,blank=True, null=True, default="")
     template  = models.FileField()

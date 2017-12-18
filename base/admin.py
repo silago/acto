@@ -7,6 +7,7 @@ from solo.admin import SingletonModelAdmin
 #from config.models import SiteConfiguration
 
 from .models import TripleTextItem, TextImageItem, TextItem,DoubleTextDoubleImageItem, TopPage, FaqPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, ForPage, ForPageImageItem, DocsPageImageItem, DocsPage, OrangePage, YellowPage,BottomPage, FooterPage, City, Shop, Orders, Questions, SiteSettings, GalleryImageItem, LinkImageItem
+from .forms import ShopsForm
 
 admin.site.register(TopPage, SingletonModelAdmin)
 #admin.site.register(FaqPage, SingletonModelAdmin)
@@ -156,9 +157,16 @@ admin.site.register(TextItem, admin.ModelAdmin)
 admin.site.register(TripleTextItem)
 
 admin.site.register(City, admin.ModelAdmin)
-admin.site.register(Shop, admin.ModelAdmin)
+
+
+class ShopsModelAdmin(admin.ModelAdmin):
+    class Media:
+        js = (
+            '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js', # jquery
+            "//api-maps.yandex.ru/1.1/index.xml", 
+        )
+    form = ShopsForm
+
+admin.site.register(Shop, ShopsModelAdmin)
 admin.site.register(Orders, admin.ModelAdmin)
 admin.site.register(Questions, admin.ModelAdmin)
-
-
-
