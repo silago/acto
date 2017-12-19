@@ -22,10 +22,13 @@
 
         <script src="/static/js/notify.js"></script>
         <script src="/static/nicescroll/jquery.nicescroll.js"></script>
+	<!--
         <script src="https://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
+	-->
         <script type="text/javascript">
            window.onCityChosen = [];
         </script>
+        <script src="https://api-maps.yandex.ru/1.1/index.xml" type="text/javascript"></script>
 
 
 
@@ -682,6 +685,12 @@ $('.order-done.bg').click(function() {
       });
     });
   });
+
+ openYandex = function() {
+   setTimeout(function () { window.location = "https://www.facebook.com"; }, 25);
+   window.location = "fb://";
+ }
+
 
 </script>
     </body>
