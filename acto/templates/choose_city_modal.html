@@ -1,0 +1,92 @@
+<style>
+    #choose_city_modal .bg{
+      position: fixed;
+      left:0; top:0; right:0; bottom:0;
+      z-index: 0;
+    }
+    #choose_city_modal {
+      background-color: #fff;
+border-top: 10px solid black;
+padding-top: 10px;
+
+    }
+    #choose_city_modal     .typeahead__cancel-button {
+      display: none;
+    }
+
+    #choose_city_modal .pink {
+        color:#ef6278;
+    }
+
+    #choose_city_modal hr.pink {
+      border-top:5px solid #ef6278;
+    }
+</style>
+
+<div id="choose_city_modal" class="modal fade">
+  <div class="choose-region">
+    <div class="container">
+      <div class="row">
+        <div class="col-2">
+            <button data-toggle="modal" data-target="#choose_city_modal">
+                <span class="oi oi-chevron-left" title="icon name" aria-hidden="true"          ></span>
+            </button>
+        </div>
+        <div class="col-8">
+          Выбор региона (всего {{cities|length}})
+        </div>
+        <div class="col-2">
+          <button data-toggle="modal" data-target="#choose_city_modal">
+            <span class="pink oi oi-x" x-not-onclick="$('.typeahead__cancel-button').click();" title="icon name" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div>
+        <hr class="pink"/>
+    </div>
+
+    <div class="container">
+        <div class="row">
+          <div class="col-12">
+          <form>
+                <div class="typeahead__container">
+                    <div class="typeahead__field">
+
+                        <span class="typeahead__query">
+                            <input class="js-typeahead-top-cities"
+                                   name="q"
+                                   type="search"
+                                   autofocus
+                                   autocomplete="off">
+                        </span>
+                        <span class="typeahead__button">
+                            <button type="submit">
+                                <span class="typeahead__search-icon"></span>
+                            </button>
+                        </span>
+
+                    </div>
+                </div>
+            </form>
+          </div>
+
+        </div>
+      <div class="row">
+
+    <!--
+    {% for city in cities %}
+    <div class="col-12">
+        {{ city.name }}
+      <hr />
+    </div>
+    {% endfor %}
+  -->
+    </div>
+    </div>
+
+  </div>
+
+
+
+  </div>
