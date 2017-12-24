@@ -54,7 +54,7 @@ def order(request):
     item.email = request.POST['email']
     item.name = request.POST['name']
 
-    item.date = request.POST['date']
+    item.date = request.POST['date'] if 'date' in request.POST else ''
     item.time =  request.POST['time']
     item.count = request.POST['count']
     #item.total = request.POST['total']

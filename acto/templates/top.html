@@ -478,9 +478,32 @@ padding-top: 10px;
                             this.phone='';
                             this.email='';
                             this.count=1;
-                            $('#order-done input:not(.city)').val('');
-                            $('#order-done textarea:not(.city)').html('');
+                            this.date='';
+                            //$('#order-done input:not(.city)').val('');
+                            //$('#order-done textarea:not(.city)').html('');
                             this.update();
+                        },
+                        post: function() {
+                          $.post('/order/',{
+                					    city:   this.city,
+                					    street: this.street,
+                					    house:  this.house,
+                					    flat:   this.flat,
+                					    time:   this.time,
+                					    phone:  this.phone,
+                					    time:   this.time,
+                					    name:   this.name,
+                					    phone:  this.phone,
+                					    email:  this.email,
+                					    count:  this.count,
+                					    total:  this.total
+                				    }).fail(function(d) {
+                        					$('#order-done .error').show();
+                        					$.notify("При выполнении запроса произошла ошибка","error");
+                        		}).done(function(d){
+                        					$.notify("Запрос успешно отправлен","success");
+                                  window.order_form_mobile.init();
+                    				});
                         },
                         update: function(){
                             if (!this.count) {
@@ -494,13 +517,22 @@ padding-top: 10px;
                         submit: function() {
                           var prefix = "#order-form-mobile input[name="
                           var postfix= "]";
+                          var error  = false;
                           for(_ in ['city','street','house','flat','name','phone','email']) {
+                            $(prefix + _ + postfix).removeClass("has-danger");
                             this[_]=$(prefix + _ + postfix).val();
-                            console.log(_);
-
+                            if ([_]="") {
+                              $(prefix + _ + postfix).addClass("has-danger");
+                              error = true;
+                              console.log(_);
+                            }
+                          }
+                          if (!error) {
+                            this.post();
                           }
                         }
                       };
+
                       window.order_form_mobile.init();
                       $('#order-form-mobile .plus').click(()=>window.order_form_mobile.plus());
                       $('#order-form-mobile .minus').click(()=>window.order_form_mobile.minus());

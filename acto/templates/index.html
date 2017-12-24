@@ -22,9 +22,6 @@
 
         <script src="/static/js/notify.js"></script>
         <script src="/static/nicescroll/jquery.nicescroll.js"></script>
-	<!--
-        <script src="https://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
-	-->
         <script type="text/javascript">
            window.onCityChosen = [];
         </script>
@@ -519,7 +516,8 @@ function ahead(val) {
 
     $('document').ready(function() {
         window.city_is_just_detected  = false;
-        ymaps.ready(function() {
+        //YMaps.ready(function() {
+              var ymaps = YMaps;
               var c = window.lc.getItem('ChosenName');
               if (!c) {
                 window.city_is_just_detected  = true;
@@ -547,7 +545,7 @@ function ahead(val) {
 
               //initMap();
               choose_city(c,window.city_is_just_detected);
-        });
+        //});
     });
     </script>
 
@@ -690,7 +688,6 @@ $('.order-done.bg').click(function() {
    setTimeout(function () { window.location = "https://www.facebook.com"; }, 25);
    window.location = "fb://";
  }
-
 
 </script>
     </body>
