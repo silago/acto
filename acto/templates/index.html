@@ -82,9 +82,18 @@ function isTouchDevice(){
                 'target':'{{c.target}}',
                 'name':'{{c.name}}',
                 'delivery':'{{c.has_delivery}}',
+                'towns':[{% for s in c.towns.all %}
+                   {
+                       'name':'{{s.name}}',
+                       'x':'{{s.x}}',
+                       'y':'{{s.y}}',
+                   },
+                {% endfor %}
+              ],
                 'shops':[{% for s in c.shops.all %}
                    {
                        'name':'{{s.name}}',
+                       'address':'{{s.address}}',
                        'x':'{{s.x}}',
                        'y':'{{s.y}}',
                        'title':'{{s.title}}',
@@ -95,6 +104,28 @@ function isTouchDevice(){
         },
         {% endfor %}
         };
+
+
+        window.towns = [
+        {% for c in towns %} {
+                'x':'{{c.x}}',
+                'y':'{{c.y}}',
+                'name':'{{c.name}}',
+                'shops':[
+                  {% for s in c.shops.all %}
+                  {
+                       'name':'{{s.name}}',
+                       'address':'{{s.address}}',
+                       'x':'{{s.x}}',
+                       'y':'{{s.y}}',
+                       'title':'{{s.title}}',
+                       'phone':'{{s.phone}}'
+                  },
+                  {% endfor %}
+                ]
+              },
+        {% endfor %}
+        ];
         </script>
     </head>
     <body id="mobile" class="mobile">
@@ -459,10 +490,16 @@ function ahead(val) {
                 </div>
         </div>
         <div class="clear"></div>
+
+
+
         {% for page in pages|dictsort:"order" %}
         <a name="{{page.slug}}" class="{{page.slug}} anchor"> <!--{{page.template}}--> </a>
             {% include page.template %}
         {% endfor %}
+
+        {% include 'order_form.html' %}
+        {% include 'choose_city_modal.html' %}
 
 
 

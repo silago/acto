@@ -6,13 +6,17 @@ from solo.admin import SingletonModelAdmin
 #from django.contrib.contenttypes import admin as gadmin
 #from config.models import SiteConfiguration
 
-from .models import TripleTextItem, TextImageItem, TextItem,DoubleTextDoubleImageItem, TopPage, FaqPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, ForPage, ForPageImageItem, DocsPageImageItem, DocsPage, OrangePage, YellowPage,BottomPage, FooterPage, City, Shop, Orders, Questions, SiteSettings, GalleryImageItem, LinkImageItem
-from .forms import ShopsForm
+from .models import TripleTextItem, TextImageItem, TextItem,DoubleTextDoubleImageItem, TopPage, FaqPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, ForPage, ForPageImageItem, DocsPageImageItem, DocsPage, OrangePage, YellowPage,BottomPage, FooterPage, Town, City, Shop, Orders, Questions, SiteSettings, GalleryImageItem, LinkImageItem
 
 admin.site.register(TopPage, SingletonModelAdmin)
 #admin.site.register(FaqPage, SingletonModelAdmin)
 admin.site.register(MintPage, SingletonModelAdmin)
 admin.site.register(SiteSettings, SingletonModelAdmin)
+
+class GreenPageItems(admin.TabularInline):
+    verbose_name = "Элемент"
+    verbose_name_plural  = "Элементы"
+    model =  GreenPage.items.through
 
 class GreenPageItems(admin.TabularInline):
     verbose_name = "Элемент"
@@ -156,17 +160,8 @@ admin.site.register(TextImageItem, admin.ModelAdmin)
 admin.site.register(TextItem, admin.ModelAdmin)
 admin.site.register(TripleTextItem)
 
+admin.site.register(Town, admin.ModelAdmin)
 admin.site.register(City, admin.ModelAdmin)
-
-
-class ShopsModelAdmin(admin.ModelAdmin):
-    class Media:
-        js = (
-            '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js', # jquery
-            "//api-maps.yandex.ru/1.1/index.xml", 
-        )
-    form = ShopsForm
-
-admin.site.register(Shop, ShopsModelAdmin)
+admin.site.register(Shop, admin.ModelAdmin)
 admin.site.register(Orders, admin.ModelAdmin)
 admin.site.register(Questions, admin.ModelAdmin)

@@ -1,4 +1,13 @@
 <style>
+
+  #delivery-top .delivery button {
+    background: transparent;
+  }
+
+  #delivery-top .delivery-free button {
+    background: transparent;
+  }
+
   #delivery-top .container .row img {
     max-width: 100%;
   }
@@ -102,28 +111,6 @@ font-size: 11px;
 text-align: center;
     }
 
-    #choose_city_modal .bg{
-      position: fixed;
-      left:0; top:0; right:0; bottom:0;
-      z-index: 0;
-    }
-    #choose_city_modal {
-      background-color: #fff;
-border-top: 10px solid black;
-padding-top: 10px;
-
-    }
-    #choose_city_modal     .typeahead__cancel-button {
-      display: none;
-    }
-
-    #choose_city_modal .pink {
-        color:#ef6278;
-    }
-
-    #choose_city_modal hr.pink {
-      border-top:5px solid #ef6278;
-    }
 </style>
 
 
@@ -188,12 +175,16 @@ padding-top: 10px;
             <img class="" src="static/mobile/top/590.png" />
         </div>
         <div class="col-6 delivery">
-                <img class="" src="static/mobile/top/offer_pink.png" />
+                <button data-toggle="collapse" data-target="#order-form-mobile">
+                  <img class="" src="static/mobile/top/offer_pink.png" />
+                </button>
                 <br/>
                 Доставка бесплатно
                 <br/>
                 <br/>
-                <img class="" src="static/mobile/top/buy_green.png" />
+                <a href="#find-shop">
+                  <img class="" src="static/mobile/top/buy_green.png" />
+                </a>
         </div>
       </div>
 
@@ -213,332 +204,6 @@ padding-top: 10px;
       </div>
     </div>
   </div>
-</div>
-
-<div id="choose_city_modal" class="modal">
-  <div class="choose-region">
-    <div class="container">
-      <div class="row">
-        <div class="col-2">
-            <button data-toggle="modal" data-target="#choose_city_modal">
-                <span class="oi oi-chevron-left" title="icon name" aria-hidden="true"          ></span>
-            </button>
-        </div>
-        <div class="col-8">
-          Выбор региона (всего {{cities|length}})
-        </div>
-        <div class="col-2">
-          <button data-toggle="modal" data-target="#choose_city_modal">
-            <span class="pink oi oi-x" x-not-onclick="$('.typeahead__cancel-button').click();" title="icon name" aria-hidden="true"></span>
-          </button>
-        </div>
-      </div>
-    </div>
-    <div>
-        <hr class="pink"/>
-    </div>
-
-    <div class="container">
-        <div class="row">
-          <div class="col-12">
-          <form>
-                <div class="typeahead__container">
-                    <div class="typeahead__field">
-
-                        <span class="typeahead__query">
-                            <input class="js-typeahead-top-cities"
-                                   name="q"
-                                   type="search"
-                                   autofocus
-                                   autocomplete="off">
-                        </span>
-                        <span class="typeahead__button">
-                            <button type="submit">
-                                <span class="typeahead__search-icon"></span>
-                            </button>
-                        </span>
-
-                    </div>
-                </div>
-            </form>
-          </div>
-
-        </div>
-      <div class="row">
-
-    <!--
-    {% for city in cities %}
-    <div class="col-12">
-        {{ city.name }}
-      <hr />
-    </div>
-    {% endfor %}
-  -->
-    </div>
-    </div>
-
-  </div>
-
-
-
-  </div>
-
- <style>
- #order-form-mobile {
-   border-top:5px solid black;
-   padding-top:15px;
- }
-
- #order-form-mobile hr {
-   border-top: 1px solid gray;
- }
-
- #order-form-mobile .small-padding {
-   margin-top:15px;
- }
-
-
- #order-form-mobile button.wide {
-   width:100%;
- }
-
- #order-form-mobile .row img {
-   width: 100%;
- }
-
- #order-form-mobile .header {
-   text-transform: uppercase;
- }
-
-
-
- #order-form-mobile .plus,
- #order-form-mobile .minus{
-  background-color: #d0edfc;
-  width: 23px;
-  padding: 0;
- }
-
-
-
- </style>
-
-  <div id="order-form-mobile" class="x-container">
-
-    <form method="post" action="#">
-      <div class="form-group">
-        <label class="col-10" >Регион: Москва</label>
-        <button clas="col-2" data-toggle="modal" data-target="#choose_city_modal">
-            <span class="oi oi-chevron-right" title="icon name" aria-hidden="true"          ></span>
-        </button>
-        <div class="col-12">
-          <hr />
-        </div>
-      </div>
-      <div class="form-group col-12">
-        <label >Жидкая аэрозольная повязка<br/>АКТОВИДЕРМ &copy; <label>
-      </div>
-      <!--
-        $('#order-done .quantity').html(this.count);
-        $('#order-done .cost span.q').html(this.cost);
-      -->
-      <div class="x-form-group inner-order-form container">
-        <div class="row">
-          <div class='col-1 '>
-            <input type="button" class="minus btn" value="-"/>
-          </div>
-          <label class="col-3 center"><span class="quantity">1</span>&nbsp;уп.</label>
-          <div  class='col-1 no-padding'>
-            <input type="button" class="plus btn" value="+"/>
-          </div>
-          <div  class='col-1'>
-          </div>
-          <div class="col-5 cost"><span class="q">590</span> руб</div>
-        </div>
-        <div class="row small-padding">
-          <div class="col-12 delivery">Доставка: Бесплатно</div>
-        <div class="col-12 small-padding">
-          <div class="total cost">Итого: <span class="q">590</span></div>
-        </div>
-        <div class="col-12 small-padding">
-          <div class="i">Укажите информацию для связи и расчета доставки</div>
-        </div>
-        <div class="col-12">
-          <hr />
-          <input type="text" class="" name="name"  placeholder="Имя и фамилия">
-        </div>
-        <div class="col-12">
-          <hr />
-          <input type="text" class="" name="phone" placeholder="Номер телефона">
-        </div>
-        <div class="col-12">
-          <hr />
-          <input type="text" class="" name="email" placeholder="Электронная почта">
-        </div>
-        <div class="col-12">
-          <hr />
-          <input type="text" class="" name="city"  placeholder="Москва">
-        </div>
-        <div class="col-12">
-          <hr />
-          <input type="text" class="" name="street" placeholder="Улица">
-        </div>
-        <div class="col-12">
-          <hr />
-          <input type="text" class="" name="house" placeholder="Дом">
-        </div>
-        <div class="col-12">
-          <hr />
-          <input type="text" class="" name="flat" placeholder="Квартира">
-        </div>
-        <div class="col-12 small-padding">
-            * - поля обязательные для заполнения
-        </div>
-        <div class="col-12 small-padding">
-          <input type="button" class="btn btn-primary wide submit" value="Отправить" />
-        </div >
-      </div>
-    </form>
-    <div class="success">
-      <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <div class="header">Спасибо!</div>
-               <p class="small-padding">
-                 Ваша заявка оформлена. <br/>
-                 Ожидайте звонка менеджера в ближайшее время!
-                 <br/>
-               </p>
-
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-2">
-            </div>
-            <div class="col-8">
-              <img class="logo" src="{{page.logo.url}}" />
-            </div>
-            <div class="col-2">
-            </div>
-          </div>
-      </div>
-
-    </div>
-  </div>
-  <script>
-  /*
- $.typeahead({
-            input: ".js-typeahead-top-cities",
-            minLength: 0,
-
-            order: "asc",
-            searchOnFocus: true,
-            source: {
-                group: {
-                    display: ["name"],
-                    template: "{{name}}",
-                    data: Object.values(cities)
-                }
-            },
-             callback: {
-                onClickAfter: function (node, a, item, event) {
-                  choose_city(item.name);
-                  $('#choose_city_modal').modal('hide');
-                }
-            },
-
-          });
-          */
-
-  </script>
-
-                <script>
-                    window.order_form_mobile = {
-                        count:1,
-                        base_cost:580,
-                        cost:580,
-                        plus:function() {
-                            this.count++;
-                            this.update();
-                        },
-                        minus:function() {
-                            this.count--;
-                            this.update();
-                        },
-                        init:function() {
-                            this.city='';
-                            this.street='';
-                            this.house='';
-                            this.flat='';
-                            this.time='';
-                            this.count='1';
-                            this.total='0';
-                            this.name='';
-                            this.phone='';
-                            this.email='';
-                            this.count=1;
-                            this.date='';
-                            //$('#order-done input:not(.city)').val('');
-                            //$('#order-done textarea:not(.city)').html('');
-                            this.update();
-                        },
-                        post: function() {
-                          $.post('/order/',{
-                					    city:   this.city,
-                					    street: this.street,
-                					    house:  this.house,
-                					    flat:   this.flat,
-                					    time:   this.time,
-                					    phone:  this.phone,
-                					    time:   this.time,
-                					    name:   this.name,
-                					    phone:  this.phone,
-                					    email:  this.email,
-                					    count:  this.count,
-                					    total:  this.total
-                				    }).fail(function(d) {
-                        					$('#order-done .error').show();
-                        					$.notify("При выполнении запроса произошла ошибка","error");
-                        		}).done(function(d){
-                        					$.notify("Запрос успешно отправлен","success");
-                                  window.order_form_mobile.init();
-                    				});
-                        },
-                        update: function(){
-                            if (!this.count) {
-                                this.count=1;
-                            }
-                            //this.count = $('.step3 .count').val();
-                            this.cost = window.BASE_COST * this.count;
-                            $('#order-form-mobile .quantity').html(this.count);
-                            $('#order-form-mobile .cost span.q').html(this.cost);
-                        },
-                        submit: function() {
-                          var prefix = "#order-form-mobile input[name="
-                          var postfix= "]";
-                          var error  = false;
-                          for(_ in ['city','street','house','flat','name','phone','email']) {
-                            $(prefix + _ + postfix).removeClass("has-danger");
-                            this[_]=$(prefix + _ + postfix).val();
-                            if ([_]="") {
-                              $(prefix + _ + postfix).addClass("has-danger");
-                              error = true;
-                              console.log(_);
-                            }
-                          }
-                          if (!error) {
-                            this.post();
-                          }
-                        }
-                      };
-
-                      window.order_form_mobile.init();
-                      $('#order-form-mobile .plus').click(()=>window.order_form_mobile.plus());
-                      $('#order-form-mobile .minus').click(()=>window.order_form_mobile.minus());
-                      $('#order-form-mobile .submit').click(()=>window.order_form_mobile.submit());
-
-                      </script>
 
 
 <!---

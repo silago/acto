@@ -291,6 +291,7 @@ class Region(models.Model):
     active       = models.BooleanField(verbose_name="Активен",default=False)
     has_delivery = models.BooleanField(verbose_name="Бесплатная доставка",default=False)
 
+
 class City(models.Model):
     name = models.CharField(verbose_name="Город",max_length=255)
     active       = models.BooleanField(verbose_name="Активен",default=False)
@@ -298,7 +299,6 @@ class City(models.Model):
     target   = models.CharField(verbose_name="Target",max_length=255,blank=True, null=True, default="")
     order    = models.IntegerField(default=50)
     bold     = models.BooleanField(default=False)
-    region   = models.ForeignKey('Region', related_name='region', null=True)
 
 
     def save(self, *args, **kwargs):
@@ -313,6 +313,21 @@ class City(models.Model):
     def __str__(self):
         return self.name
     #shops= models.OneToMany(to=Shop)
+    class Meta:
+        verbose_name="Регион"
+        verbose_name_plural="Регион"
+
+class Town(models.Model):
+    name = models.CharField(verbose_name="Город",max_length=255)
+    region = models.ForeignKey('City', related_name='towns', null=True)
+    x    = models.FloatField(null=True, blank=True)
+    y    = models.FloatField(null=True, blank=True)
+    def __unicode__(self):
+       return u'%s' % (self.name)
+
+    def __str__(self):
+        return self.name
+
     class Meta:
         verbose_name="Город"
         verbose_name_plural="Города"
@@ -361,12 +376,13 @@ class Metro:
 
 
 class Shop(models.Model):
-    name = models.CharField(max_length=255,verbose_name="Адрес")
+    name = models.CharField(max_length=255,verbose_name="Название")
     title = models.CharField(max_length=255)
     phone = models.CharField(max_length=255)
     x    = models.FloatField()
     y    = models.FloatField()
-    city = models.ForeignKey('City', related_name='shops')
+    city = models.ForeignKey('City', related_name='shops', verbose_name="Регион")
+    town = models.ForeignKey('Town', related_name='shops', verbose_name="Город", null=True)
     address = models.CharField(max_length=255, null=True)
     url = models.CharField(max_length=255, null=True) #yandexmap
     metro = models.CharField(max_length=255, null=True) #yandexmap

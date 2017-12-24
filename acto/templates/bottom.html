@@ -34,6 +34,7 @@
 <br/>
 <br/>
 <br/>
+<a name="page-bottom-mobile"/></a>
 <div class="" id="page-bottom-mobile">
 
             <div class="triangle-up">
@@ -89,7 +90,7 @@
  }
 </style>
 
-
+<a name="find-shop"></a>
 <div id="find-shop-mobile">
   <div class="container">
     <div class="row">
@@ -104,42 +105,126 @@
         <hr />
       </div>
       <div class="small-padding col-12">
+        <!--
         <input type="text" placeholder="Москва" />
-        <hr />
-      </div>
-      <div class="small-padding col-12">
-
+      -->
                 <div class="typeahead__container">
                     <div class="typeahead__field">
-
                         <span class="typeahead__query">
-        <input placeholder="Поиск по улице или метро" class="js-typeahead-bottom-shops"
+                                  <input placeholder="Регион" class="js-typeahead-bottom-cities"
                                    name="q"
                                    type="search"
                                    autofocus
                                    autocomplete="off">
                                  </span>
-
-                        <span class="typeahead__button">
-                            <button type="submit">
-                                <span class="typeahead__search-icon"></span>
-                            </button>
-                        </span>
+                                <span class="typeahead__button">
+                                    <button type="submit">
+                                        <span class="typeahead__search-icon"></span>
+                                    </button>
+                                </span>
                                </div>
                              </div>
         <hr />
       </div>
+      <div class="small-padding col-12">
+        <!--
+        <input type="text" placeholder="Москва" />
+      -->
+                <div class="typeahead__container">
+                    <div class="typeahead__field">
+                        <span class="typeahead__query">
+                                  <input placeholder="Город" class="js-typeahead-bottom-towns"
+                                   name="q"
+                                   type="search"
+                                   autofocus
+                                   autocomplete="off">
+                                 </span>
+                                <span class="typeahead__button">
+                                    <button type="submit">
+                                        <span class="typeahead__search-icon"></span>
+                                    </button>
+                                </span>
+                               </div>
+                             </div>
+        <hr />
+      </div>
+      <div class="small-padding col-12">
+                <div class="typeahead__container">
+                    <div class="typeahead__field">
+                        <span class="typeahead__query">
+                                  <input placeholder="Поиск по улице или метро" class="js-typeahead-bottom-shops find-shops-input"
+                                   name="q"
+                                   type="search"
+                                   autofocus
+                                   autocomplete="off">
+                                 </span>
+                                <span class="typeahead__button">
+                                    <button type="submit">
+                                        <span class="typeahead__search-icon"></span>
+                                    </button>
+                                </span>
+                               </div>
+                             </div>
+        <hr />
+      </div>
+
+      <div class="small-padding col-12 result">
+          <ul class="shop-search-result">
+          </ul>
+      <div>
     </div>
   </div>
 </div>
 
 
   <script>
- var initTAShops =
-    function() {
-console.log(
-  cities[lc.ChosenName].shops
-);
+// var initTAShops =
+//    function() {
+//        cities[lc.ChosenName].shops
+//      };
+
+
+
+ $.typeahead({
+            input: ".js-typeahead-bottom-cities",
+            minLength: 0,
+
+            order: "asc",
+            searchOnFocus: true,
+            source: {
+                group: {
+                    display: ["name"],
+                    template: "{{name}}",
+                    data: Object.values(cities)
+                }
+            },
+             callback: {
+            },
+
+          });
+
+ $.typeahead({
+            input: ".js-typeahead-bottom-towns",
+            minLength: 0,
+
+            order: "asc",
+            searchOnFocus: true,
+            source: {
+                group: {
+                    display: ["name"],
+                    template: "{{name}}",
+                    data: towns
+                }
+            },
+             callback: {
+            },
+
+          });
+
+
+     /*
+
+
      $.typeahead({
                 input: ".js-typeahead-bottom-shops",
                 minLength: 0,
@@ -161,8 +246,40 @@ console.log(
 
               });
         };
+        */
+
+
+        findShops = function(q) {
+          //var result = [];
+          var result = '';
+          if (q.length < 2) {
+            return;
+          }
+          for (var i in cities[lc.ChosenName].shops ) {
+            var shop = cities[lc.ChosenName].shops[i];
+            if (shop.address.indexOf(q)!=-1)  {
+              var str = "<li><a onclick='openYandex(\""+shops.address+"\");'>" + shop.address + "</a></li>";
+              result+=str;
+              //.push(
+              //  str
+              //);
+            }
+          }
+          var item  = $('.shop-search-result').first();
+          item.html(result);
+        }
+
+        $( ".find-shops-input" ).change(function() {
+
+              console.log($( this ).val());
+          findShops(
+              $( this ).val()
+          );
+          //  alert( "Handler for .change() called." );
+        });
+
         //initTAShops();
-        onCityChosen.push(initTAShops);
+        //onCityChosen.push(initTAShops);
 
   </script>
 

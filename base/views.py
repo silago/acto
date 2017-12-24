@@ -6,7 +6,7 @@ from requests.auth import HTTPBasicAuth
 import requests
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import TopPage, ForPage, OrangePage, YellowPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, FaqPage, DocsPage, BottomPage, FooterPage, City, Orders, Questions, SiteSettings#, Shop
+from .models import TopPage, ForPage, OrangePage, Town, YellowPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, FaqPage, DocsPage, BottomPage, FooterPage, City, Orders, Questions, SiteSettings#, Shop
 from xml.etree.ElementTree import Element, SubElement,  tostring
 from django.views.decorators.csrf import csrf_exempt
 
@@ -28,8 +28,9 @@ def main(request):
         if page_object.active:
             _result += page_object,
     cities = City.objects.order_by('order','name').all()
+    towns  = Town.objects.all()
     settings = SiteSettings.objects.first()
-    return render(request, 'index.html', {'pages':_result,'cities':cities,'settings':settings})
+    return render(request, 'index.html', {'pages':_result,'cities':cities,'towns':towns, 'settings':settings})
 
 def instagram(request):
         token="1201565014.1bf0eec.6f326a5ff2db413c9c76a1671519fd41"
