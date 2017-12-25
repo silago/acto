@@ -703,17 +703,17 @@ $('.order-done.bg').click(function() {
 
 <script type="text/javascript">
   $('body').ready(function(){
-       var carousels = $('.carousel');
+    var carousels = $('.carousel');
     carousels.each(function(i,carousel) {
-      let max = 0;
+      var max = 0;
       var items = $(carousel).find('.carousel-item');
       items.each(function(k,item) {
            if ($(item).height() > max) {
-          max = $(item).height();
+              max = $(item).height();
         }
       });
       max+=10;
-      $(carousel).first('.carousel-inner').height(max);
+      $(carousel).first('.adjust').height(max);
 
       items.each(function(k,item) {
            $(item).height(max);
