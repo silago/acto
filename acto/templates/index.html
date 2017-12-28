@@ -16,10 +16,6 @@
         <link href="static/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
         <link href="static/js/jquery-typeahead/src/jquery.typeahead.css" rel="stylesheet">
         <script src="static/js/jquery-typeahead/src/jquery.typeahead.js"></script>
-
-        <!--
-        -->
-
         <script src="/static/js/notify.js"></script>
         <script src="/static/nicescroll/jquery.nicescroll.js"></script>
         <script type="text/javascript">
@@ -87,6 +83,23 @@ function isTouchDevice(){
                        'name':'{{s.name}}',
                        'x':'{{s.x}}',
                        'y':'{{s.y}}',
+
+                'shops':[{% for ts in s.shops.all %}
+                   {
+                       'name':'{{ts.name}}',
+                       'address':'{{ts.address}}',
+                       'x':'{{ts.x}}',
+                       'y':'{{ts.y}}',
+                       'title':'{{ts.title}}',
+                       'phone':'{{ts.phone}}',
+                       'metro':'{{ts.metro}}'
+                   },
+                   {% endfor %}
+                 ]
+
+
+
+
                    },
                 {% endfor %}
               ],
@@ -97,7 +110,8 @@ function isTouchDevice(){
                        'x':'{{s.x}}',
                        'y':'{{s.y}}',
                        'title':'{{s.title}}',
-                       'phone':'{{s.phone}}'
+                       'phone':'{{s.phone}}',
+                       'metro':'{{ts.metro}}'
                    },
                 {% endfor %}
                 ]
@@ -554,13 +568,13 @@ function ahead(val) {
     $('document').ready(function() {
         window.city_is_just_detected  = false;
         //YMaps.ready(function() {
-              var ymaps = YMaps;
+              //window.ymaps = YMaps;
               var c = window.lc.getItem('ChosenName');
               if (!c) {
                 window.city_is_just_detected  = true;
-                c = ymaps.geolocation.city;
+                c = YMaps.location.city;
                 if (typeof c == 'undefined') {
-                    c = ymaps.geolocation.region;
+                    c = YMaps.location.region;
                 }
               }
 
@@ -570,10 +584,10 @@ function ahead(val) {
 
 
 
-              if (typeof window.cities[c]=='undefined' && (typeof ymaps.geolocation.region!='undefined' || typeof ymaps.geolocation.city!='undefined')) {
+              if (typeof window.cities[c]=='undefined' && (typeof YMaps.location.region!='undefined' || typeof YMaps.location.city!='undefined')) {
                    window.cities[c] = {
-                       x:toSemi(ymaps.geolocation.latitude),
-                       y:toSemi(ymaps.geolocation.longitude),
+                       x:toSemi(YMaps.location.latitude),
+                       y:toSemi(YMaps.location.longitude),
                        delivery:false,
                        name:c,
                        shops:[]
@@ -705,6 +719,9 @@ $('.order-done.bg').click(function() {
   $('body').ready(function(){
     var carousels = $('.carousel');
     carousels.each(function(i,carousel) {
+      if ($(carousel).hasClass('ignore-fit')) {
+        continue;
+      }
       var max = 0;
       var items = $(carousel).find('.carousel-item');
       items.each(function(k,item) {

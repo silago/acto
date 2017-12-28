@@ -1,3 +1,4 @@
+
 .collapsing {
 	display:none!important;
 }
@@ -686,6 +687,14 @@ left: 27%;
                 border-top: 64px solid #bed73a;
             }
 
+            div#page-green .triangle-up {
+                width: 0;
+                height: 0;
+                border-right: 1600px solid transparent;
+                border-bottom: 64px solid #bed73a;
+            }
+
+
             div#page-green .content {
                 background-color:#bed73a;
                 x-height:851px;
@@ -694,13 +703,6 @@ left: 27%;
                 background-image: url(green/dots.png);
                 background-repeat: no-repeat;
                 background-position: 150px 200px;
-            }
-
-            div#page-green .triangle-up {
-                width: 0;
-                height: 0;
-                border-right: 1600px solid transparent;
-                border-bottom: 64px solid #bed73a;
             }
 
             div#page-green .content .info {

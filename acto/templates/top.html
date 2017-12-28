@@ -75,6 +75,7 @@ margin-left: 26px;
 
   #delivery-top .bubble .bubble-holder {
     background: url('static/mobile/top/bubble.png');
+    background-size: 85% 100%;
     position: relative;
     height: 191px;
     z-index: 10;
@@ -170,11 +171,12 @@ text-align: center;
           <br/>
         </div>
       </div>
-      <div class="row delivery free">
+      <div class="delivery free">
+      <div class="row">
         <div class="col-6">
             <img class="" src="static/mobile/top/590.png" />
         </div>
-        <div class="col-6 delivery">
+        <div class="col-6 delivery free">
                 <button data-toggle="collapse" data-target="#order-form-mobile">
                   <img class="" src="static/mobile/top/offer_pink.png" />
                 </button>
@@ -187,13 +189,15 @@ text-align: center;
                 </a>
         </div>
       </div>
+      </div>
 
 
-      <div class="row delivery non-free" style="display:none;">
+      <div class="delivery non-free"  style="display:none;">
+      <div class="row delivery ">
         <div class="col-6">
             <img class="" src="static/mobile/top/590.png" />
         </div>
-        <div class="col-6" class="delivery">
+        <div class="col-6">
                 <img class="" src="static/mobile/top/offer_pink.png" />
                 <br/>
                 Доставка оплачивается отдельно
@@ -201,6 +205,7 @@ text-align: center;
                 <br/>
                 <img class="" src="static/mobile/top/buy_green.png" />
         </div>
+      </div>
       </div>
     </div>
   </div>

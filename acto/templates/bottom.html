@@ -261,20 +261,35 @@
 
         findShops = function(q) {
           //var result = [];
+          var city = $('.js-typeahead-bottom-cities').val();
+          var town = $('.js-typeahead-bottom-towns').val();
+          var shops = [];
+          for (var i in cities[city].towns) {
+            if (cities[city].towns[i].name==town) {
+              shops = cities[city].towns[i].shops;
+            }
+          }
+
+
           var result = '';
           if (q.length < 2) {
             return;
           }
-          for (var i in cities[lc.ChosenName].shops ) {
-            var shop = cities[lc.ChosenName].shops[i];
-            if (shop.address.indexOf(q)!=-1)  {
-              var str = "<li><a onclick='openYandex(\""+shops.address+"\");'>" + shop.address + "</a></li>";
+          for (var i in shops ) {
+            var shop = shops[i];
+            if (shop.address.indexOf(q)!=-1  || shop.name.indexOf(q)!=-1 ||  shop.title.indexOf(q)!=-1 || shop.metro.indexOf(q)!=-1)  {
+              var str = "<li><a onclick='openYandex(\""+shops[i].address+"\");'>" + shops[i].name + " " +shops[i].address + "</a></li>";
               result+=str;
               //.push(
               //  str
               //);
             }
           }
+
+          if (result == "") {
+            result = "Извините, по вашему запросу ничего не найдено.";
+          }
+
           var item  = $('.shop-search-result').first();
           item.html(result);
         }

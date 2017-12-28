@@ -10,7 +10,8 @@
 
   #page-green-mobile .slider-container {
     width: 247px;
-    height: 200px;
+
+    /* height: 200px; */
     margin: 0 auto;
 
     margin-bottom: 30px;
@@ -42,8 +43,34 @@
                 border-bottom: 64px solid #bed73a;
             }
 
+            .green-slider {
+              display: none;
+              padding: 0px 30px;
+              width: 100%;
+            }
+
+                  button.green-slider-content > span.show {
+                    display: inline;
+                  }
+                  button.green-slider-content > span.hide {
+                    display: none;
+                  }
+
+                  button.green-slider-content.hide > span.hide {
+                    display: inline;
+                  }
+                  button.green-slider-content.hide > span.show {
+                    display: none;
+                  }
 
 
+                  div.green-slider-content.block {
+                    display: none;
+                  }
+
+                  div.green-slider-content.hide {
+                    display: none;
+                  }
 
   </style>
 
@@ -52,12 +79,11 @@
     index:1,
     slide: function(i) {
       this.index = i;
-      console.log(
-        (-this.index*50)+'%'
-      );
         $('#page-green-mobile .slider').animate({
           marginLeft: (-this.index*100)+'%'
         });
+        $('.green-slider').hide();
+        $('.green-slider-'+i).show();
     }
   }
   </script>
@@ -74,6 +100,8 @@
         <div class="col-6">
                 <img alt="{{page.caption|striptags}}" class="logo" src="{{page.logo.url}}" />
         </div>
+          </div>
+    <div class="row">
         <div class="slider-container">
           <table class="slider" style="width: {{page.items.all|length}}00%; ">
 
@@ -94,11 +122,35 @@
             </td>
               {% endfor %}
             </tr>
+
           </table>
           </div>
           </div>
 
+          <div class="row">
+              {% for item in page.items.all %}
+              <div class="center green-slider green-slider-{{forloop.counter0}}">
+                  <h4> На детской площадке
+                      <div style="float:right">
 
+                          <button style="background-color:transparent;"
+                                  onClick="$('.green-slider-content-{{forloop.counter0}}').toggleClass('hide');"
+                                  class="green-slider-content green-slider-content-{{forloop.counter0}}">
+                              <span class="oi oi-chevron-top hide" title="icon name" aria-hidden="true"          ></span>
+                              <span class="oi oi-chevron-bottom show" title="icon name" aria-hidden="true"          ></span>
+                          </button>
+                      </div>
+                  </h4>
+                  <hr />
+                  <div class="green-slider-content green-slider-content-{{forloop.counter0}}">
+                    {{item.text|safe}}
+                  </div>
+              </div>
+              {% endfor %}
+            </div>
+
+
+      <div class="delivery non-free">
       <div class="row">
         <div class="col-6">
             <img class="" src="static/mobile/top/590.png" />
@@ -106,17 +158,39 @@
         <div class="col-6">
                 <img class="" src="static/mobile/top/offer_pink.png" />
                 <br/>
-                text
+               Доставка оплачивается отдельно
                 <br/>
                 <img class="" src="static/mobile/top/buy_green.png" />
         </div>
       </div>
+      </div>
+
+      <div class="delivery free">
+      <div class="row">
+        <div class="col-6">
+            <img class="" src="static/mobile/top/590.png" />
+        </div>
+        <div class="col-6">
+                <img class="" src="static/mobile/top/offer_pink.png" />
+                <br/>
+                Бесплатная доставка
+                <br/>
+                <img class="" src="static/mobile/top/buy_green.png" />
+        </div>
+      </div>
+      </div>
+
       <br/>
       <br/>
       <br/>
     </div>
             <div class="triangle-down"> </div>
   </div>
+  <script>
+  $('document').ready(function(){
+      greenSlider.slide(1);
+    });
+  </script>
 
 <!--
         <div id="page-green">

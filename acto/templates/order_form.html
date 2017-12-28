@@ -1,5 +1,13 @@
  <style>
-
+#order-form-mobile input.has-danger {
+  border: 1px solid rosybrown;
+width: 100%;
+border-radius: 5px;
+padding: 5px;
+}
+ #order-form-mobile .success {
+   display: none;
+ }
  #order-form-mobile {
    overflow-y: auto;
  }
@@ -40,6 +48,22 @@
   width: 23px;
   padding: 0;
  }
+
+ #order-form-mobile input.submit {
+   width: 100%;
+   border-radius: 0px;
+   background-color: #d0edfc;
+   text-transform: uppercase;
+   color:black;
+ }
+
+ #order-form-mobile > div {
+   width: 100%;
+ }
+
+ #order-form-mobile .top-container .right {
+   text-align: right;
+ }
  </style>
 
 
@@ -48,11 +72,11 @@
     <div class="x-modal-content">
     <div class="modal-body">
     <div class="container-fluid">
-    <div class="row">
+    <div class="row top-container">
        <div class="col-10">
               <img src="static/./logo.png" id="logo"></a>
        </div>
-       <div class="col-2">
+       <div class="col-2 right">
               <button >
                 <span class="oi oi-x" title="icon name" aria-hidden="true"></span>
               </button>
@@ -60,12 +84,13 @@
        <br />
        <br />
      </div>
+       <br />
 
     <form method="post" action="#">
-      <div class="row">
+      <div class="row top-container">
         <label class="col-10" >Регион: Москва</label>
-       <div class="col-2">
-        <button clas="" data-toggle="modal" data-target="#choose_city_modal">
+       <div class="col-2 right">
+        <button data-toggle="modal" data-target="#choose_city_modal">
             <span class="oi oi-chevron-right" title="icon name" aria-hidden="true"          ></span>
         </button>
       </div>
@@ -114,13 +139,13 @@
         <div class="row small-padding ">
           <hr />
           <div  class='col-12'>
-          <input type="text" class="" name="name"  placeholder="Имя и фамилия">
+          <input type="text" class="" name="name"  placeholder="Имя и фамилия*">
         </div>
         </div>
         <div class="row small-padding ">
           <hr />
           <div  class='col-12'>
-          <input type="text" class="" name="phone" placeholder="Номер телефона">
+          <input type="text" class="" name="phone" placeholder="Номер телефона*">
         </div>
         </div>
         <div class="row small-padding ">
@@ -132,19 +157,19 @@
         <div class="row small-padding ">
           <hr />
           <div  class='col-12'>
-          <input type="text" class="" name="city"  placeholder="Москва">
+          <input type="text" class="" name="city"  placeholder="Москва*">
         </div>
         </div>
         <div class="row small-padding ">
           <hr />
           <div  class='col-12'>
-          <input type="text" class="" name="street" placeholder="Улица">
+          <input type="text" class="" name="street" placeholder="Улица*">
         </div>
         </div>
         <div class="row small-padding ">
           <hr />
           <div  class='col-12'>
-          <input type="text" class="" name="house" placeholder="Дом">
+          <input type="text" class="" name="house" placeholder="Дом*">
         </div>
         </div>
         <div class="row small-padding ">
@@ -159,7 +184,9 @@
         </div>
         </div>
         <div class="row small-padding">
+          <div  class='col-12'>
           <input type="button" class="btn btn-primary wide submit" value="Отправить" />
+        </div >
         </div >
       </div>
     </form>
@@ -262,15 +289,20 @@
                           var prefix = "#order-form-mobile input[name="
                           var postfix= "]";
                           var error  = false;
-                          for(_ in ['city','street','house','flat','name','phone','email']) {
+                          var keys = ['city','street','house','flat','name','phone','email'];
+                          for(key in keys) {
+                            var _ = keys[key];
                             $(prefix + _ + postfix).removeClass("has-danger");
                             this[_]=$(prefix + _ + postfix).val();
-                            if ([_]="") {
+                            console.log(this[_]);
+                            if (this[_]=="") {
                               $(prefix + _ + postfix).addClass("has-danger");
                               error = true;
                               console.log(_);
                             }
                           }
+                          console.log(error);
+                          return;
                           if (!error) {
                             this.post();
                           }

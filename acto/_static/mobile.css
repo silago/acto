@@ -1,5 +1,7 @@
 body {
 	padding-top:60px;
+	max-width: 420px;
+	margin: 0 auto;
 }
 
 .center {
