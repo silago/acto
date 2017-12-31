@@ -1,5 +1,11 @@
 <style>
 
+            div#delivery-top .triangle-down {
+                border-left: 1600px solid #fff;
+                border-top: 94px solid transparent;
+                z-index: 2;
+            }
+
   #delivery-top .delivery button {
     background: transparent;
   }
@@ -26,6 +32,7 @@
     background: url('static/mobile/top/yellow_bg.png');
     background-repeat:no-repeat;
     background-size: 100%;
+    padding-bottom: 0px;
   }
 
   #delivery-top .title {
@@ -198,15 +205,23 @@ text-align: center;
             <img class="" src="static/mobile/top/590.png" />
         </div>
         <div class="col-6">
-                <img class="" src="static/mobile/top/offer_pink.png" />
+                <button data-toggle="collapse" data-target="#order-form-mobile">
+                  <img class="" src="static/mobile/top/offer_pink.png" />
+                </button>
                 <br/>
                 Доставка оплачивается отдельно
                 <br/>
                 <br/>
-                <img class="" src="static/mobile/top/buy_green.png" />
+                <a href="#find-shop">
+                  <img class="" src="static/mobile/top/buy_green.png" />
+                </a>
         </div>
       </div>
       </div>
+    </div>
+  <br/>
+  <br/>
+    <div class="triangle-down">
     </div>
   </div>
 

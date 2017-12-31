@@ -5,6 +5,9 @@
 
 <meta name="viewport" content="width=device-width" />
 
+
+
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <link rel="icon" type="image/png" href="/static/favicon.png" />
@@ -163,8 +166,29 @@ function isTouchDevice(){
   <a class="navbar-brand" href="#">
                     <img src="static/./logo.png" id="logo"></a>
   </a>
+
+<style>
+  button.navbar-toggler[aria-expanded=false] > .open {
+    display: inline-block;
+  }
+  button.navbar-toggler[aria-expanded=false] > .close {
+    display: none;
+  }
+  button.navbar-toggler[aria-expanded=true] > .open {
+    display: none;
+  }
+  button.navbar-toggler[aria-expanded=true] > .close {
+    display: inline-block;
+    font-size: 28px;
+margin-top: -3px;
+color: #ee5c72;
+  }
+
+  </style>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span class="open navbar-toggler-icon"></span>
+    <span class="close oi oi-x" title="icon name" aria-hidden="true"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
