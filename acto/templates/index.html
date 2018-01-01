@@ -192,7 +192,13 @@ color: #ee5c72;
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <button data-dismiss="modal" data-target="#choose_city_modal">
+                <span class="oi oi-chevron-left" title="icon name" aria-hidden="true">Регион: <span class="city_name">...</span></span>
+            </button>
+        </li>
+
 
                     {% for page in pages|dictsort:"order" %}
                         {% if page.menu_title %}
@@ -201,6 +207,14 @@ color: #ee5c72;
       </li>
                         {% endif %}
                     {% endfor %}
+
+      <li class="nav-item">
+        8 800 222-42-72
+       <br />
+       <small>
+         Горячая линия препарата. Звонок по РФ - бесплатно
+       </small>
+      </li>
     </ul>
   </div>
 </nav>
