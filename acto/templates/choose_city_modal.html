@@ -8,6 +8,7 @@
       background-color: #fff;
 border-top: 10px solid black;
 padding-top: 10px;
+z-index: 1070;
 
     }
     #choose_city_modal     .typeahead__cancel-button {
@@ -31,15 +32,15 @@ padding-top: 10px;
   <div class="choose-region modal-dialog">
     <div class="container">
       <div class="row">
-        <div class="col-2">
+        <div class="col-1">
             <button data-dismiss="modal" data-target="#choose_city_modal">
                 <span class="oi oi-chevron-left" title="icon name" aria-hidden="true"          ></span>
             </button>
         </div>
-        <div class="col-8">
+        <div class="col-9">
           Выбор региона (всего {{cities|length}})
         </div>
-        <div class="col-2">
+        <div class="col-1">
           <button data-dismiss="modal" data-target="#choose_city_modal">
             <span class="pink oi oi-x" x-not-onclick="$('.typeahead__cancel-button').click();" title="icon name" aria-hidden="true"></span>
           </button>
@@ -88,11 +89,7 @@ padding-top: 10px;
   -->
     </div>
     </div>
-
   </div>
-
-
-
   </div>
 
 

@@ -25,6 +25,7 @@
            window.onCityChosen = [];
         </script>
         <script src="https://api-maps.yandex.ru/1.1/index.xml" type="text/javascript"></script>
+        <script src="static/js/jquery.maskedinput/src/jquery.maskedinput.js" type="text/javascript"></script>
 
 
 
@@ -86,23 +87,19 @@ function isTouchDevice(){
                        'name':'{{s.name}}',
                        'x':'{{s.x}}',
                        'y':'{{s.y}}',
-
-                'shops':[{% for ts in s.shops.all %}
-                   {
-                       'name':'{{ts.name}}',
-                       'address':'{{ts.address}}',
-                       'x':'{{ts.x}}',
-                       'y':'{{ts.y}}',
-                       'title':'{{ts.title}}',
-                       'phone':'{{ts.phone}}',
-                       'metro':'{{ts.metro}}'
-                   },
-                   {% endfor %}
-                 ]
-
-
-
-
+                        'shops':[
+                           {% for ts in s.shops.all %}
+                           {
+                               'name':'{{ts.name}}',
+                               'address':'{{ts.address}}',
+                               'x':'{{ts.x}}',
+                               'y':'{{ts.y}}',
+                               'title':'{{ts.title}}',
+                               'phone':'{{ts.phone}}',
+                               'metro':'{{ts.metro}}'
+                           },
+                         {% endfor %}
+                         ]
                    },
                 {% endfor %}
               ],
@@ -152,9 +149,20 @@ function isTouchDevice(){
         </div>
 
       <style>
+
         .mobile .navbar {
-          border-bottom: 5px solid #ee5c72;
+          z-index: 1060;
         }
+        .mobile .navbar .pink-border{
+          border-bottom: 5px solid #ee5c72;
+          width: 100%;
+          margin-bottom:-8px;
+        }
+
+        .mobile .navbar .nav-item.row {
+          padding: 10px 0px;
+        }
+
         .mobile .navbar-light .navbar-toggler-icon {
           background-image: url("/static/navbar.png");
         }
@@ -163,7 +171,7 @@ function isTouchDevice(){
         }
       </style>
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" href="#" onclick="$('.modal').modal('hide');">
                     <img src="static/./logo.png" id="logo"></a>
   </a>
 
@@ -184,36 +192,61 @@ margin-top: -3px;
 color: #ee5c72;
   }
 
+    .modal-dialog {
+      pointer-events: auto;
+    }
   </style>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="open navbar-toggler-icon"></span>
     <span class="close oi oi-x" title="icon name" aria-hidden="true"></span>
   </button>
+  <hr class="pink-border" />
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-            <button data-dismiss="modal" data-target="#choose_city_modal">
-                <span class="oi oi-chevron-left" title="icon name" aria-hidden="true">Регион: <span class="city_name">...</span></span>
+      <ul class="navbar-nav mr-auto"
+        style="width:100%"
+      >
+        <li class="nav-item row">
+            <span class="col-10">Регион: <span class="city_name">...</span></span>
+            <button class="col-2" data-dismiss="modal" data-target="#choose_city_modal" onclick="$('#choose_city_modal').modal('show');" >
+                <span class="oi oi-chevron-right" title="icon name" aria-hidden="true"></span>
             </button>
         </li>
 
+        <li class="nav-item row">
+            <span class="col-10">Оформить заказ с доставкой</span>
+            <button class="col-2" data-dismiss="modal" data-target="#order-form-mobile" onclick="$('#order-form-mobile').modal('show');">
+                <span class="oi oi-chevron-right" title="icon name" aria-hidden="true"></span>
+            </button>
+        </li>
 
+        <li class="nav-item row">
+            <span class="col-10">Найти аптеку</span>
+            <button class="col-2" data-dismiss="modal" data-target="#">
+                <span onclick="return;" class="oi oi-chevron-right" title="icon name" aria-hidden="true"></span>
+            </button>
+        </li>
                     {% for page in pages|dictsort:"order" %}
                         {% if page.menu_title %}
-      <li class="nav-item">
-        <a class="nav-link" href="#{{page.slug}}">{{page.menu_title|title}}</a>
-      </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#{{page.slug}}">{{page.menu_title|title}}</a>
+                          </li>
                         {% endif %}
                     {% endfor %}
 
       <li class="nav-item">
-        8 800 222-42-72
        <br />
-       <small>
+       <span style="font-size:24px"> 8 800 222-42-72</span>
+       <br />
+       <small style="font-size:10px;">
          Горячая линия препарата. Звонок по РФ - бесплатно
        </small>
+      </li>
+
+      <li class="nav-item">
+       <br />
+       <span style="font-size:24px"> Открыть полную версию сайта</span>
       </li>
     </ul>
   </div>
@@ -281,6 +314,7 @@ choose_city_modal
                 window.lc.setItem("ChosenName", city);
 
                $('.city_name').html(city);
+               $('input.city_name').val(city);
                 /*
                $('input.input.city').val(city);
                 var x = cities[city].x;
@@ -758,7 +792,7 @@ $('.order-done.bg').click(function() {
     var carousels = $('.carousel');
     carousels.each(function(i,carousel) {
       if ($(carousel).hasClass('ignore-fit')) {
-        continue;
+        return;
       }
       var max = 0;
       var items = $(carousel).find('.carousel-item');

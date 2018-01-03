@@ -11,12 +11,15 @@
   </script>
 
 <div id="page-docs-mobile">
+    <br/>
+    <br/>
   <div class="container">
     <div class="row">
       <div class="col-6">
                             <img  src="{{page.logo.url}}" />
       </div>
     </div>
+    <br/>
     <div class="row">
                     {% for item in page.items.all %}
                     <div class="col-4">
@@ -39,7 +42,7 @@
             </button>
           </div>
           <div class="modal-body" style="clear:both;">
-          <div id="docs-carrousel ignore-fit" class="carousel slide" data-ride="carousel">
+          <div id="docs-carrousel" class="ignore-fit carousel slide" data-ride="carousel">
             <div class="carousel-inner" role="listbox">
               {% for item in page.items.all %}
               <div class="carousel-item docs-carousel-item docs-carousel-item-{{forloop.counter0}} {% if forloop.counter0 == 0 %} active {% endif %}" >
@@ -57,6 +60,8 @@
       </div>
     </div>
   </div>
+    <br/>
+    <br/>
 <!--
 
         <div id="page-docs"  >

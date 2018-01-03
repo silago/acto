@@ -233,14 +233,28 @@
     </div>
   </div>
 </div>
+<style>
+  .ask-btn {
+              background-color: #2c4f8a;
+              color:#fff;
+              border:0px;
+              border-radius: 0px;
+              padding: 20px;
+              padding-top: 40px;
+              vertical-align: middle;
+
+    color:#fff;
+    text-transform: uppercase;
+  }
+</style>
 
     <div class="row header">
       <div class="col-6">
         <img src="{{page.logo.url}}" />
       </div>
         <div class="col-6">
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Задать вопрос
+
+            <a class="ask-btn" href="#ask-form">Задать вопрос</a>
           </button>
       </div>
     </div>
@@ -322,10 +336,30 @@ width: 90%;
         #ask-form .title {
             text-align: center;
         }
+        .ask_form .error {
+          border-radius: 5px;
+          border:1px solid red;
+        }
 
+              .ask-form-done {
+                text-transform: uppercase;
+                text-align: center;
+                padding: 50px;
+                display: none;
+              }
     </style>
 
-              <div class="container ask-form" id="ask-form">
+              <a name="ask-form"></a>
+              <div class="ask-form-done">
+                <div class="container">
+                    <div class="row">
+                          <div class="col-12">
+                                  Спасибо, мы получили ваш вопрос и ответим на него в ближайшее время.
+                          </div>
+                    </div>
+                </div>
+              </div>
+              <div class="container ask_form" id="ask-form">
 
                 <div class="row">
                   <div class="col-12">
@@ -335,29 +369,35 @@ width: 90%;
 
                 <div class="row">
                   <div class="col-12">
-                    <input type="text" class="form-control" placeholder="Ваше имя*" aria-label="Username" aria-describedby="basic-addon1"></div>
+                    <input type="text" class="name form-control" placeholder="Ваше имя*" aria-label="Username" aria-describedby="basic-addon1"></div>
                 </div>
 
                 <div class="row">
                   <div class="col-12">
-                      <input type="text" class="form-control" placeholder="Электронный адрес" aria-label="E-mail" aria-describedby="basic-addon1"></div>
+                      <input type="text" class="mail form-control" placeholder="Электронный адрес" aria-label="E-mail" aria-describedby="basic-addon1"></div>
                 </div>
 
                 <div class="row">
                   <div class="col-12">
-                      <input type="text" class="form-control" placeholder="Телефон*" aria-label="Phone" aria-describedby="basic-addon1"></div>
+                      <input type="text" class="phone form-control" placeholder="Телефон*" aria-label="Phone" aria-describedby="basic-addon1"></div>
               </div>
 
                 <div class="row">
                   <div class="col-12">
-                      <input type="text" class="form-control" placeholder="Ваш вопрос*" aria-label="Question" aria-describedby="basic-addon1"></div>
+                      <input type="text" class="question form-control" placeholder="Ваш вопрос*" aria-label="Question" aria-describedby="basic-addon1"></div>
                 </div>
 
                 <div class="row">
                   <div class="col-12">
-                      <input type="text" class="form-control" placeholder="Анти-спам код" aria-label="Anti-spam code" aria-describedby="basic-addon1"></div>
+
+                      <img class="capcha" src="/capcha" />
+                      <input type="text" class="capcha form-control" placeholder="Анти-спам код" aria-label="Anti-spam code" aria-describedby="basic-addon1"></div>
                 </div>
 
+                <div class="row">
+                  <div class="col-12 form-error">
+                  </div>
+                </div>
                 <div class="row">
 
                   <div class="col-1"></div>
@@ -372,9 +412,9 @@ width: 90%;
                       <br/>
                       <br/>
                 </div>
-                  <button type="button" class="" data-toggle="modal" data-target="#exampleModal">
-                  <img src="static/mobile/faq/send.png" />
-                </button>
+                  <button type="button" class="" onclick="ask()">
+                    <img src="static/mobile/faq/send.png" />
+                  </button>
 
               </div>
 
@@ -388,3 +428,48 @@ width: 90%;
                 </div>
                 </div>
     </div>
+
+
+  <script>
+                    function ask() {
+
+                            $('.ask_form input').removeClass('error');
+                            $('.ask_form textarea').removeClass('error');
+                            var name = $('.ask_form .name').val();
+                            if (!name) $('.ask_form .name').addClass('error');
+                            var capcha = $('.ask_form input.capcha').val();
+                            if (!capcha) $('.ask_form input.capcha').addClass('error');
+                            var mail = $('.ask_form .mail').val();
+                        if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(mail) || !mail) {
+                            $('.ask_form .mail').addClass('error');
+                        }
+
+                            var phone = $('.ask_form .phone').val();
+                            phone = phone.replace(/[^0-9()\- ]/g,'');
+                            if (!phone || phone.length<6) $('.ask_form .phone').addClass('error');
+                            var question = $('.ask_form .question').val();
+                            if (!question) $('.ask_form .question').addClass('error');
+
+
+                            if (!capcha || !name || !mail || !phone || !question) {
+                                return;
+                            }
+                        $.post('/ask/',{
+                            name:name,
+                            mail:mail,
+                            capcha:capcha,
+                            phone:phone,
+                            question:question
+                        }).done(function(d){
+                            if (d=="OK") {
+                                $('.ask_form .form-error').html('');
+                                $('.ask-form-done').show();
+                                $('.ask_form').hide();
+                            } else {
+                                $('.ask_form img.capcha').attr('src','/capcha?q='+(new Date()));
+                                $('.ask_form .form-error').html(d);
+                                console.log(d);
+                            }
+                        });
+                    }
+                    </script>

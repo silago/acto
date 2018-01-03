@@ -44,20 +44,23 @@
                 </div>
             </div>
             <div class="container">
+                <div class="">
+                  <br />
+                </div>
                 <div class="row">
                     <div class="col-6">
                           <img src="static/mobile/bottom/590.png" />
                     </div>
-                    <div class="col-6">
+                    <div class="col-6" style="text-align:center;">
                           <br />
                           <a href="#">
                               <img src="static/mobile/bottom/order-pink.png" />
                           </a>
                           <br/>
-                          <p class="info delivery-non-free">
+                          <p class="info delivery non-free">
                               Доставка оплачивается отдельно
                           </p>
-                          <p class="info delivery-free">
+                          <p class="info delivery free">
                               Бесплатная доставка
                           </p>
                     </div>
@@ -77,6 +80,7 @@
 
  #find-shop-mobile hr {
    border-top: 1px solid gray;
+   margin: 2px;
  }
 
  #find-shop-mobile .small-padding {
@@ -106,9 +110,11 @@
 <div id="find-shop-mobile">
   <div class="container">
     <div class="row">
-      <div class="5">
-        <img src="{{ page.logo.url }}" />
-      </div>
+                    <div class="col-11">
+                        <img
+                          style="margin-left:12px;"
+                        class="" src="static/mobile/find/logo.png">
+                    </div>
     </div>
 
     <div class="row">
@@ -119,14 +125,16 @@
                 <div class="typeahead__container">
                     <div class="typeahead__field">
                         <span class="typeahead__query">
-                                  <input placeholder="Регион" class="js-typeahead-bottom-cities"
+                                  <input placeholder="Регион" class="city_name x-js-typeahead-bottom-cities"
                                    name="q"
                                    type="search"
+                                   value=""
+
                                    autofocus
                                    autocomplete="off">
                                  </span>
                                 <span class="typeahead__button">
-                                    <button type="submit">
+                                    <button type="submit"  onclick="$('#choose_city_modal').modal('show');">
                                         <span class="oi oi-chevron-right" title="icon name" aria-hidden="true"></span>
                                     </button>
                                 </span>
@@ -148,8 +156,8 @@
                                    autocomplete="off">
                                  </span>
                                 <span class="typeahead__button">
-                                    <button type="submit">
-                                        <span class="oi oi-chevron-right" title="icon name" aria-hidden="true"></span>
+                                    <button type="submit" onclick="typeaheadTowns.showLayout();">
+                                        <span class="oi oi-chevron-bottom" title="icon name" aria-hidden="true"></span>
                                     </button>
                                 </span>
                                </div>
@@ -167,9 +175,11 @@
                                    autocomplete="off">
                                  </span>
                                 <span class="typeahead__button">
+                                    <!--
                                     <button type="submit">
                                         <span class="oi oi-chevron-right" title="icon name" aria-hidden="true"></span>
                                     </button>
+                                  -->
                                 </span>
                                </div>
                              </div>
@@ -177,7 +187,7 @@
       </div>
 
       <div class="small-padding col-12 result">
-          <ul class="shop-search-result">
+          <ul class="shop-search-result" style="padding-left:10px;">
           </ul>
       <div>
     </div>
@@ -193,7 +203,7 @@
 //      };
 
 
-
+/*
  $.typeahead({
             input: ".js-typeahead-bottom-cities",
             minLength: 0,
@@ -211,8 +221,8 @@
                onClick : function() { $(".js-typeahead-bottom-towns").val(null); }
             },
           });
-
- $.typeahead({
+*/
+var typeaheadTowns = $.typeahead({
             input: ".js-typeahead-bottom-towns",
             minLength: 0,
 
@@ -261,7 +271,7 @@
 
         findShops = function(q) {
           //var result = [];
-          var city = $('.js-typeahead-bottom-cities').val();
+          var city = $('.x-js-typeahead-bottom-cities').val();
           var town = $('.js-typeahead-bottom-towns').val();
           var shops = [];
           for (var i in cities[city].towns) {

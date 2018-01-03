@@ -1,4 +1,12 @@
  <style>
+
+
+  #order-form-mobile       .pink-border{
+          border-bottom: 5px solid #ee5c72;
+          width: 100%;
+          margin-bottom:-8px;
+        }
+
 #order-form-mobile input.has-danger {
   border: 1px solid rosybrown;
 width: 100%;
@@ -10,13 +18,14 @@ padding: 5px;
  }
  #order-form-mobile {
    overflow-y: auto;
+   /* margin-top:30px; */
+   z-index: 1080;
  }
  #order-form-mobile {
    background-color: #fff;
  }
  #order-form-mobile {
    border-top:5px solid black;
-   padding-top:15px;
  }
 
  #order-form-mobile hr {
@@ -27,6 +36,9 @@ padding: 5px;
    margin-top:15px;
  }
 
+ #order-form-mobile .modal-dialog {
+   margin: 0px;
+ }
 
  #order-form-mobile button.wide {
    width:100%;
@@ -58,7 +70,6 @@ padding: 5px;
  }
 
  #order-form-mobile > div {
-   width: 100%;
  }
 
  #order-form-mobile .top-container .right {
@@ -67,8 +78,8 @@ padding: 5px;
  </style>
 
 
-  <div id="order-form-mobile" class="modal x-fade">
-    <div class="x-modal-dialog">
+  <div id="order-form-mobile" class="modal">
+    <div class="modal-dialog">
     <div class="x-modal-content">
     <div class="modal-body">
     <div class="container-fluid">
@@ -77,10 +88,11 @@ padding: 5px;
               <img src="static/./logo.png" id="logo"></a>
        </div>
        <div class="col-2 right">
-              <button >
+              <button onclick="$('.modal').modal('hide');">
                 <span class="oi oi-x" title="icon name" aria-hidden="true"></span>
               </button>
        </div>
+        <hr class="pink-border" />
        <br />
        <br />
      </div>
@@ -88,10 +100,10 @@ padding: 5px;
 
     <form method="post" action="#">
       <div class="row top-container">
-        <label class="col-10" >Регион: Москва</label>
+        <label class="col-10" >Регион: <span class="city_name">Москва</span></label>
        <div class="col-2 right">
-        <button data-toggle="modal" data-target="#choose_city_modal">
-            <span class="oi oi-chevron-right" title="icon name" aria-hidden="true"          ></span>
+        <button type="button" data-toggle="modal" data-target="#choose_city_modal">
+            <span class="oi oi-chevron-right" title="icon name" aria-hidden="true"></span>
         </button>
       </div>
       </div>
@@ -145,7 +157,7 @@ padding: 5px;
         <div class="row small-padding ">
           <hr />
           <div  class='col-12'>
-          <input type="text" class="" name="phone" placeholder="Номер телефона*">
+          <input type="tel" class="" name="phone" placeholder="Номер телефона*">
         </div>
         </div>
         <div class="row small-padding ">
@@ -270,10 +282,15 @@ padding: 5px;
                         					$('#order-done .error').show();
                         					$.notify("При выполнении запроса произошла ошибка","error");
                         		}).done(function(d){
-                        					$.notify("Запрос успешно отправлен","success");
+                        					//$.notify("Запрос успешно отправлен","success");
                                   window.order_form_mobile.init();
                                   $("#order-form-mobile .success").show();
                                   $("#order-form-mobile form").hide();
+                                  setTimeout(function(){
+                                    $("#order-form-mobile").modal('hide');
+                                    $("#order-form-mobile .success").hide();
+                                    $("#order-form-mobile form").show();
+                                  },3000);
                     				});
                         },
                         update: function(){
@@ -313,5 +330,6 @@ padding: 5px;
                       $('#order-form-mobile .plus').click(()=>window.order_form_mobile.plus());
                       $('#order-form-mobile .minus').click(()=>window.order_form_mobile.minus());
                       $('#order-form-mobile .submit').click(()=>window.order_form_mobile.submit());
+                      $("#order-form-mobile input[name=phone]").mask("+7(999) 999-9999");
 
                       </script>
