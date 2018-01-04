@@ -1,0 +1,248 @@
+<style>
+
+            div#delivery-top .triangle-down {
+                border-left: 1600px solid #fff;
+                border-top: 94px solid transparent;
+                z-index: 2;
+            }
+
+  #delivery-top .delivery button {
+    background: transparent;
+  }
+
+  #delivery-top .delivery-free button {
+    background: transparent;
+  }
+
+  #delivery-top .container .row img {
+    max-width: 100%;
+  }
+
+
+  #delivery-top img.logo {
+        margin-top: -34px;
+    margin-left: -8px;
+    width: 164px;
+  }
+
+  #delivery-top > .container {
+  }
+
+  #delivery-top {
+    background: url('static/mobile/top/yellow_bg.png');
+    background-repeat:no-repeat;
+    background-size: 100%;
+    padding-bottom: 0px;
+  }
+
+  #delivery-top .title {
+
+    text-align: right;
+text-transform: uppercase;
+color: white;
+font-weight: bolder;
+font-size: 35px;
+padding-top: 16px;
+line-height: 36px;
+transform: scale(0.8,1);
+letter-spacing: 1px;
+margin-left: 26px;
+  }
+
+
+  #delivery-top .bubble{
+    position: relative;
+    left:0px; top:0px;
+    height: 0px;
+    z-index: 9;
+    top:151px;
+
+
+  }
+
+  #delivery-top .bubble input[type=button],
+  #delivery-top .bubble button {
+      text-transform: uppercase;
+      width: 100%;
+      background-color: #babcbe;
+      color: #fff;
+      height: 33px;
+      border-radius: 15px;
+      text-align: center;
+      padding: 5px 0px;
+      font-weight: bold;
+  }
+
+
+
+  #delivery-top .bubble input[type=button].active,
+  #delivery-top .bubble button.active {
+    background-color: orange;
+  }
+
+  #delivery-top .bubble .bubble-holder {
+    background: url('static/mobile/top/bubble.png');
+    background-size: 85% 100%;
+    position: relative;
+    height: 191px;
+    z-index: 10;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+
+  }
+
+  #delivery-top .bubble .bubble-holder .q {
+height: 40px;
+margin-top: 54px;
+text-align: center;
+font-size: 21px;
+padding: 0px 50px;
+font-weight: bold;
+margin-bottom: 20px;
+}
+  #delivery-top .bubble-holder
+  input[type=button].active,
+  #delivery-top .bubble-holder button {
+    text-align: center;
+    font-size: 12px;
+  }
+
+  #city_confirmation  {
+    display: none;
+  }
+
+  #delivery-top .delivery {
+text-transform: uppercase;
+font-weight: bold;
+font-size: 11px;
+text-align: center;
+    }
+
+</style>
+
+
+
+<div id="delivery-top">
+  <div class="bubble container">
+    <div class="row bubble-holder" id="city_confirmation">
+        <div class="col-12 q"   >
+        Ваш регион <span class="city_name"></span>?
+        <br/>
+        </div>
+        <div class="col-1">
+        </div>
+
+        <div class="col-5">
+          <button class="btn active" data-toggle="collapse" data-target="#city_confirmation" aria-controls="collapseExample">
+            Да
+          </button>
+        </div>
+        <div class="col-5">
+          <button class="btn" data-toggle="modal" data-target="#choose_city_modal">
+            Нет, выбрать
+          </button>
+        </div>
+
+        <div class="col-1">
+        </div>
+        </div>
+  </div>
+
+
+  <div class="container">
+    <div class="row">
+        <div class="col-12 title">
+                Жидкая
+                <br />
+                Аэрозольная
+                </br>
+                повязка
+                <!--
+                {{page.title.mobile|safe}}
+                -->
+        </div>
+      </div>
+    <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-10">
+            <img class="logo" src="{{page.logo.url}}" />
+        </div>
+        <div class="col-1">
+        </div>
+      </div>
+    <div class="row" class="delivery">
+        <div class="col-12">
+          <br/>
+          <br/>
+        </div>
+      </div>
+      <div class="delivery free">
+      <div class="row">
+        <div class="col-6">
+            <img class="" src="static/mobile/top/590.png" />
+        </div>
+        <div class="col-6 delivery free">
+                <button data-toggle="modal" data-target="#order-form-mobile">
+                  <img class="" src="static/mobile/top/offer_pink.png" />
+                </button>
+                <br/>
+                Доставка бесплатно
+                <br/>
+                <br/>
+                <a href="#find-shop">
+                  <img class="" src="static/mobile/top/buy_green.png" />
+                </a>
+        </div>
+      </div>
+      </div>
+
+
+      <div class="delivery non-free"  style="display:none;">
+      <div class="row delivery ">
+        <div class="col-6">
+            <img class="" src="static/mobile/top/590.png" />
+        </div>
+        <div class="col-6">
+                <button data-toggle="modal" data-target="#order-form-mobile">
+                  <img class="" src="static/mobile/top/offer_pink.png" />
+                </button>
+                <br/>
+                Доставка оплачивается отдельно
+                <br/>
+                <br/>
+                <a href="#find-shop">
+                  <img class="" src="static/mobile/top/buy_green.png" />
+                </a>
+        </div>
+      </div>
+      </div>
+    </div>
+  <br/>
+  <br/>
+    <div class="triangle-down">
+    </div>
+  </div>
+
+
+<!---
+<div id="delivery-top">
+    <div class="left"
+        style="background-image:url('{{page.image.url}}');">
+        <div class="text-info">
+            <img src="{{page.logo.url}}" />
+            <span>
+                {{page.title|safe}}
+            </span>
+        </div>
+    </div>
+    <div class="right">
+        <img class="delivery free" src="{{page.free_delivery_button.url}}" />
+        <img class="delivery non-free" src="{{page.banner.url}}" />
+        <br/>
+        <button class="button form-button" style="cursor:pointer;" onclick="showForm(); {{settings.yandex_counter_id}}.reachGoal('order');"></button>
+    </div>
+</div>
+-->
+<div class="clear"></div>

@@ -1,0 +1,91 @@
+<!--
+<div id="page-for">
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner" role="listbox">
+  {% for item in page.items.all|dictsort:"order" %}
+      {% if  not forloop.counter|divisibleby:2 %}
+      <div class="carousel-item active">
+        <div class="container">
+          <div class="row">
+      {% endif %}
+            <div class="col">
+                <img alt="{{item.alt}}" src="{{item.image.url}}" />
+            </div>
+    {% if forloop.counter|divisibleby:2 %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endfor %}
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<script>
+  $('.carousel').carousel();
+</script>
+</div>
+-->
+
+<style>
+  .carousel .carousel-item .col-6 img {
+    max-width:100%;
+  }
+  #page-for {
+    padding-bottom: 50px;
+  }
+</style>
+
+<div class="container" id="page-for">
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+  {% for item in page.items.all|dictsort:"order" %}
+    {% if  not forloop.counter|divisibleby:2 %}
+    <div class="carousel-item {% if forloop.first %} active {% endif %}">
+      <div class="row">
+    {% endif %}
+        <div class="col-6">
+          <img alt="{{item.alt}}" src="{{item.image.url}}" />
+        </div>
+    {% if  forloop.counter|divisibleby:2 %}
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+
+<!--
+<script>
+$(".carousel").on("touchstart", function(event){
+        var xClick = event.originalEvent.touches[0].pageX;
+    $(this).one("touchmove", function(event){
+        var xMove = event.originalEvent.touches[0].pageX;
+        if( Math.floor(xClick - xMove) > 5 ){
+            $(this).carousel('next');
+        }
+        else if( Math.floor(xClick - xMove) < -5 ){
+            $(this).carousel('prev');
+        }
+    });
+    $(".carousel").on("touchend", function(){
+            $(this).off("touchmove");
+    });
+});
+-->
+</script>

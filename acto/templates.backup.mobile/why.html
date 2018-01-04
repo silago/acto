@@ -1,0 +1,41 @@
+<style>
+  #page-for  .grid img {
+    width: 100%;
+  }
+
+  #page-for  .grid .row {
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 0.8em;
+  }
+</style>
+
+          <div class="container-fluid" id="page-for">
+              <div class="row">
+              <div class="col-12">
+                <img class="logo" src="{{page.logo.url}}" />
+              </div>
+
+              <div class="col-12">
+                <br/>
+              </div>
+              </div>
+              <div class="grid">
+
+              {% for item in page.items.all %}
+                  {% if  forloop.counter0|divisibleby:3 %}
+                    <div class="row">
+                  {% endif %}
+                    <div class="col-4">
+                            <img alt="{{item.alt}}" src="{{item.image.url}}" />
+                            <div>
+                              {{item.text|safe}}
+                            </div>
+                    </div>
+                    {% if  forloop.counter|divisibleby:3 %}
+                      </div>
+                    {% endif %}
+              {% endfor %}
+        </div>
+        </div>
+                </div>

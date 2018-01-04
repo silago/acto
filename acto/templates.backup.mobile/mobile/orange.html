@@ -1,3 +1,5 @@
+<!--
+
         <div class="bg oranggal" onclick="$('.oranggal').hide()">
         </div>
         <div
@@ -36,7 +38,7 @@
             overflow:hidden;
         }
         #oranggal .cross {
-            position:absolute; 
+            position:absolute;
             cursor:pointer;
             right:20px; top:20px;
         }
@@ -90,7 +92,7 @@
             z-index:36;
             position:fixed;
             background-color:#2c4f8a;mix-blend-mode:multiply;
-            width:100%; height:100%; 
+            width:100%; height:100%;
             left:0; top:0;
         }
 
@@ -121,32 +123,32 @@
                     {},
                     {
                         image: '{{items.0.image.url}}',
-                        text:  '{{items.0.text|safe|linebreaksbr|escapejs}}' 
+                        text:  '{{items.0.text|safe|linebreaksbr|escapejs}}'
                     },
                     {
                         image: '{{items.1.image.url}}',
-                        text:  '{{items.1.text|safe|linebreaksbr|escapejs}}' 
+                        text:  '{{items.1.text|safe|linebreaksbr|escapejs}}'
                     },
 
                     {
                         image: '{{items.2.image.url}}',
-                        text:  '{{items.2.text|safe|linebreaksbr|escapejs}}' 
+                        text:  '{{items.2.text|safe|linebreaksbr|escapejs}}'
                     },
                     {
                         image: '{{items.3.image.url}}',
-                        text:  '{{items.3.text|safe|linebreaksbr|escapejs}}' 
+                        text:  '{{items.3.text|safe|linebreaksbr|escapejs}}'
                     },
                     {
                         image: '{{items.4.image.url}}',
-                        text:  '{{items.4.text|safe|linebreaksbr|escapejs}}' 
+                        text:  '{{items.4.text|safe|linebreaksbr|escapejs}}'
                     },
                     {
                         image: '{{items.5.image.url}}',
-                        text:  '{{items.5.text|safe|linebreaksbr|escapejs}}' 
+                        text:  '{{items.5.text|safe|linebreaksbr|escapejs}}'
                     },
                     {
                         image: '{{items.6.image.url}}',
-                        text:  '{{items.6.text|safe|linebreaksbr|escapejs}}' 
+                        text:  '{{items.6.text|safe|linebreaksbr|escapejs}}'
                     }
             ];
 
@@ -159,7 +161,7 @@
           var _ = orange_images[ORANGE_GALLERY_INDEX];
           $('#oranggal .oimage img.image').attr('src',_.image);
           $('#oranggal .oimage .text').html(_.text);
-          
+
         }
         orangenext = function() {
           if (ORANGE_GALLERY_INDEX>ORANGE_COUNT) {
@@ -200,10 +202,119 @@
                     </tr>
                 </table>
                 {% endwith %}
-                <!--
-                    <img class="delivery"  src="static/orange/photo.png" />
-                -->
                 <div class="clear"> </div>
             </div>
             <div class="triangle-down"> </div>
         </div>
+
+      -->
+<style>
+
+#page-orange img.logo {
+  max-width:100%;
+}
+#page-orange .triangle-up {
+  margin-bottom:-50px;
+}
+#page-orange .container {
+  background-color: orange;
+}
+#orange-gal-ajax .row > div  {
+  padding: 0px;
+}
+
+#orange-gal-ajax img {
+
+  border:3px solid orange;
+  width:100%;
+}
+</style>
+<script>
+
+$.ajax({ // первый ajax запрос возвратит нам ID пользователя
+	url: '/instagram',
+	dataType: 'json',
+	type: 'GET',
+	success: function(data){
+    var i = 0;
+    var k = 0;
+    var limit = 3;
+    var result = "";
+
+    for (x in data.data) {
+      console.log(data.data[x].images.thumbnail.url);
+      if (i == 0) {
+        result+="<div class='row'>";
+      }
+      result+="<div class='col-4'>";
+      result+="<img data-toggle='modal' data-target='#orange-modal-"+k+"' src='"+data.data[x].images.thumbnail.url+"' />";
+      result+="</div>";
+
+      result+='<div class="modal fade" id="orange-modal-'+k+'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">';
+      result+='  <div class="modal-dialog" role="document">';
+      result+='    <div class="modal-content">';
+      result+='      <div class="modal-body">';
+      result+='      <img src="'+data.data[x].images.standard_resolution.url+'">';
+      result+='      </div>';
+      result+='      <div class="modal-footer">';
+      result+='        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>';
+      result+='    </div>';
+      result+='  </div>';
+      result+='</div>';
+      result+='</div>';
+
+
+      if (i == 2) {
+        result+="</div>";
+        i=0;
+      } else {
+        i++;
+      }
+      if (k>=5) {
+        break;
+      }
+      k++;
+    }
+    console.log(result);
+    $('#orange-gal-ajax').html(result);
+	},
+	error: function(result){
+		console.log(result);
+	}
+});
+</script>
+
+        <div class="page-orange" id="page-orange">
+            <div class="triangle-up"> </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-8">
+                  <img class="logo" alt="{{page.title|striptags}}" src="{{page.logo.url}}" />
+                  <br/>
+                  <br/>
+                </div>
+              </div>
+            </div>
+            <div class="container" id="orange-gal-ajax">
+              <div class="row">
+                <div class="col-4">
+                </div>
+              </div>
+            </div>
+            <div class="container">
+              <br />
+              <div class="row">
+                <div class="col-2">
+                    <img
+                    style="margin-top:-25%;"
+                    src="static/mobile/gallery/instagramm.png" />
+                </div>
+                <div class="col-10">@actoviderm - наш инстаграм</div>
+              </div>
+              <br />
+              </div>
+
+
+
+            <div class="triangle-down"> </div>
+          </div>

@@ -1,0 +1,123 @@
+
+<style>
+    #page-blue .container .logo img{
+      max-width:100%;
+    }
+    #page-blue .container, #page-blue-carousel{
+      background-color: #8dd6f7;
+    }
+
+    #page-blue .container .center {
+text-align: center;
+    }
+
+    #page-blue .container .caption {
+      text-transform: uppercase;
+      font-weight: bolder;
+      font-size: 18px;
+    }
+    #page-blue .container .carousel-item .img {
+        text-align:center;
+    }
+
+    #page-blue .container .item-bg {
+                        background-repeat:no-repeat;
+                        background-position: 25px 20px;
+                        min-height: 150px;
+                      }
+</style>
+        <div id="page-blue">
+            <div class="triangle-up"> </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-8 logo">
+                  <img class="logo" src="{{page.logo.url}}" />
+                  <br/>
+                  <br/>
+                </div>
+              </div>
+            </div>
+
+
+<div id="page-blue-carousel" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner container" role="listbox">
+                   {% for item in page.items.all %}
+                    <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
+                     <div class="row">
+                       <div class="col-1"></div>
+                       <div class="col-10 img">
+                          <img alt="{{item.alt}}" src="{{ item.image.url}}" />
+                      </div>
+                       <div class="col-1"></div>
+                     </div>
+                    <div class="row item-bg" style="background-image:url('{{item.subimage.url}}');">
+                        <div class="col-1"></div>
+                        <div class="col-2"></div>
+                        <div class="col-8">
+                          <br/>
+                          <br/>
+                          <!-- <img src="{{item.subimage.url}}" />-->
+                          <div class="caption"> {{item.caption|safe}} </div>
+                          <p>
+                            {{item.text|safe}}
+                          </p>
+                        </div>
+                    </div>
+  </div>
+                    {% endfor %}
+  </div>
+  <a class="carousel-control-prev" href="#page-blue-carousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#page-blue-carousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<div class="container">
+  <br/>
+  <br/>
+</div>
+
+
+
+
+
+
+
+              <!--
+            <div class="content">
+                <div class="text-info">
+                    {{page.caption|safe}}
+                </div>
+                <img class="logo" src="{{page.logo.url}}" />
+           <ul>
+               {% for item in page.items.all %}
+               <li>
+                    <span>
+                        <img alt="{{item.alt}}" src="{{ item.image.url}}" />
+                    </span>
+                    <div>
+                        <span>
+                            <img src="{{item.subimage.url}}" />
+                       </span>
+                       <div>
+                           <h4>
+                               {{item.caption|safe}}
+                           </h4>
+                           <p>
+                           {{item.text|safe}}
+                           </p>
+                       </div>
+
+                    </div>
+               </li>
+               {% endfor %}
+           </uL>
+            </div>
+            -->
+
+            <div class="triangle-down">
+			</div>
+        </div>

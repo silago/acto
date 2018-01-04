@@ -1,0 +1,474 @@
+
+
+<!--
+        <div id="page-faq">
+            <div class="logo">
+                <img src="{{page.logo.url}}" />
+            </div>
+            <div>
+            <ul class="list">
+                {% for item in page.items.all|dictsort:"order" %}
+                <li class="final">
+                <h5>{{item.caption|safe}}
+                </h5>
+                    <span class="answer">
+                        {{item.text|safe}}
+                    </span>
+                </li>
+                {% endfor %}
+            </ul>
+            <ul class="faq-nav">
+                    {% for item in page.items.all|dictsort:"order" %}
+                        {% if forloop.counter0|divisibleby:4 %}<li><a href="javascript:ask_index({{forloop.counter0}});"></a></li>{% endif %}
+                    {% endfor %}
+            </ul>
+<style>
+#page-faq div a.arrow {
+    display:none;
+    border: 3px solid black;
+    border-radius: 110px;
+    color: black;
+    font-size: 15px;
+    padding: 6px 10px 10px;
+    position: absolute;
+    text-decoration:none;
+}
+#page-faq div a.down.arrow {
+    left: 67%;
+    top: 100px;
+    display:none;
+}
+#page-faq div a.up.arrow {
+    left: 67%;
+    bottom: 360px;
+}
+#page-faq div a.arrow:hover {
+    color:#47bae8;
+    border-color:#47bae8;
+}
+#page-faq div ul.list li:nth-child(n+5) {
+    display:none;
+}
+</style>
+            <a
+                class="ask_prev arrow down"
+                onclick="return ask_prev();"
+                href="javascript:void(0);">▲</a>
+            <a
+                class="ask_next arrow up"
+                onclick="return ask_next();"
+                href="javascript:void(0);">▼</a>
+            </div>
+            <div style="display:none;" class="side done">
+                <h4    class="done"  >СПАСИБО, мы получили Ваш вопрос и ответим на него в ближайшее время!</h4>
+
+                <br/>
+                <button onclick="$('.side.active textarea').val(''); $('.side.active').show(); $(this).parent().hide();">
+                    ЗАКРЫТЬ
+                </button>
+            </div>
+            <div class="side active" style="x-display:none;">
+                <h4> Не нашли ответ? </h4>
+                <h5> Задайте вопрос! </h5>
+                <div class="error" style="color:red; font-weight:bold;"> </div>
+                <form class="ask_form" action="#ask_form" name="ask_form">
+                    <input type=text class="name" name="name" placeholder="{{page.name_caption}}" />
+                    <input type=text class="mail" name="mail" placeholder="{{page.mail_caption}}" />
+                    <input type=text class="phone" name="phone" placeholder="{{page.phone_caption}}" />
+                    <textarea class="question"  name="question" placeholder="{{page.question_caption}}"></textarea>
+                    <img class="capcha" src="/capcha" />
+                        <input class="capcha" name="capcha" type=text placeholder="АНТИ СПАМ КОД" />
+                <button style="cursor:pointer;"  onclick="ask(); return false;">
+                </button>
+                </form>
+            </div>
+<style>
+</style>
+
+                <script>
+                    $(document).ready(function() {
+                        $('#page-faq .faq-nav li').first().addClass('active');
+
+                    });
+
+                    function ask_index(i) {
+                        var k = i/4;
+                        var i = i + 1;
+                        $('#page-faq ul.list li').hide();
+                        $('#page-faq ul.list li:nth-child(n+'+i+'):nth-child(-n+'+(i+3)+')').show();
+                        $('#page-faq ul.list li').removeClass('active');
+                        $('#page-faq ul.list li:visible').first().addClass('active');
+                        $('#page-faq ul.faq-nav li.active').removeClass('active');
+                        $($('#page-faq ul.faq-nav li')[k]).addClass('active');
+                        $('#page-faq ul.list li:visible').first().addClass('active');
+                    }
+
+
+                    ASK_FORM_COUNTER = 1;
+                    ASK_FORM_COUNTER_MAX = $('#page-faq ul.list li').length;
+                    function ask_next() {
+                        ASK_FORM_COUNTER+=4;
+                        $('.ask_prev').show();
+                        $('#page-faq ul.list li').hide();
+                        $('#page-faq ul.list li:nth-child(n+'+ASK_FORM_COUNTER+'):nth-child(-n+'+(ASK_FORM_COUNTER+3)+')').show();
+
+                        $('#page-faq ul.list li').removeClass('active');
+                        //$('#page-faq ul.list').prepend($('#page-faq ul.list li:last-child'));
+                        $('#page-faq ul.list li:visible').first().addClass('active');
+
+                        if (ASK_FORM_COUNTER+4>ASK_FORM_COUNTER_MAX ) {
+                            $('.ask_next').hide();
+                        }
+                    }
+
+                    function ask_prev() {
+                        $('.ask_next').show();
+                        ASK_FORM_COUNTER-=4;
+                        $('#page-faq ul.list li').hide();
+                        $('#page-faq ul.list li:nth-child(n+'+ASK_FORM_COUNTER+'):nth-child(-n+'+(ASK_FORM_COUNTER+3)+')').show();
+                        $('#page-faq ul.list li').removeClass('active');
+                        //$('#page-faq ul.list').append($('#page-faq ul.list li:first-child'));
+                        $('#page-faq ul.list li:visible').first().addClass('active');
+
+                        if (ASK_FORM_COUNTER-4<1) {
+                            $('.ask_prev').hide();
+                        }
+                    }
+                    function ask() {
+
+                            $('.ask_form input').removeClass('error');
+                            $('.ask_form textarea').removeClass('error');
+                            var name = $('.ask_form .name').val();
+                            if (!name) $('.ask_form .name').addClass('error');
+                            var capcha = $('.ask_form input.capcha').val();
+                            if (!capcha) $('.ask_form input.capcha').addClass('error');
+                            var mail = $('.ask_form .mail').val();
+                        if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(mail) || !mail) {
+                            $('.ask_form .mail').addClass('error');
+                        }
+
+                            var phone = $('.ask_form .phone').val();
+                            phone = phone.replace(/[^0-9()\- ]/g,'');
+                            if (!phone || phone.length<6) $('.ask_form .phone').addClass('error');
+                            var question = $('.ask_form .question').val();
+                            if (!question) $('.ask_form .question').addClass('error');
+
+
+                            if (!capcha || !name || !mail || !phone || !question) {
+                                return;
+                            }
+                        $.post('/ask/',{
+                           name:name,
+                            mail:mail,
+                            capcha:capcha,
+                            phone:phone,
+                            question:question
+                        }).done(function(d){
+                            if (d=="OK") {
+                                $('.ask_form .error').html('');
+                            $('#page-faq .side').hide();
+                            $('#page-faq .side.done').show();
+                            } else {
+                                $('.ask_form img.capcha').attr('src','/capcha?q='+(new Date()));
+                                $('#page-faq .error').html(d);
+                                console.log(d);
+                            }
+                        });
+                    }
+
+                </script>
+        </div>
+-->
+<style type="text/css">
+  #page-faq-mobile .header img {
+    max-width: 100%;
+  }
+
+  #page-faq-mobile .faq-header {
+
+  }
+
+  #page-faq-mobile .faq-header hr {
+    padding: 0px;
+  }
+
+  #page-faq-mobile .carousel-indicators li {
+    bottom: -15px;
+  }
+  #page-faq-mobile .carousel-indicators li {
+    max-width: 10px;
+    width:10px;
+    height:10px;
+    border-radius:10px;
+    border:2px solid gray;
+  }
+
+  #page-faq-mobile .carousel-indicators li.active {
+    background-color: gray;
+
+
+  }
+
+</style>
+
+<div id="page-faq-mobile">
+  <div class="container">
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .ask-btn {
+              background-color: #2c4f8a;
+              color:#fff;
+              border:0px;
+              border-radius: 0px;
+              padding: 20px;
+              vertical-align: middle;
+
+    color:#fff;
+    text-transform: uppercase;
+  }
+</style>
+
+    <div class="row header">
+      <div class="col-6">
+        <img src="{{page.logo.url}}" />
+      </div>
+        <div class="col-6">
+
+            <a class="ask-btn" href="#ask-form">Задать вопрос</a>
+          </button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <br />
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div id="page-faq-carousel" class="carousel slide" data-ride="carousel">
+
+              <ol class="carousel-indicators">
+
+                    {% for item in page.items.all|dictsort:"order" %}
+                      <li data-target="#page-faq-carousel" data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.counter0 == 0 %} active {% endif %}"></li>
+                    {% endfor %}
+              </ol>
+              <div class="carousel-inner" role="listbox">
+                    {% for item in page.items.all|dictsort:"order" %}
+                      <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
+                          <div class="faq-header">
+                              <hr class="" style="background-color:lightgray;">
+                            {{item.caption|safe}}
+                              <hr class="" style="background-color:lightgray;">
+                          </div>
+                          <div>
+                            {{item.text|safe}}
+                          </div>
+                        </div>
+                    {% endfor %}
+              </div>
+
+
+<!--Alt3r code-->
+
+<!--Alt3r code-->
+
+              <!--
+              <a class="carousel-control-prev" href="#" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            -->
+            </div>
+            <br/>
+            <br/>
+        </div>
+    </div>
+    </div>
+    <style>
+        #ask-form {
+            background-image: url('static/mobile/faq/bg.png');
+            background-size: 100% 100%;
+            padding-top:40px;
+        }
+        #ask-form input {
+          border:0px;
+          background-color: transparent!important;
+          box-shadow: unset!important;
+          border: 0px;
+    border-bottom-width: 0px;
+    border-bottom-style: none;
+    border-bottom-color: currentcolor;
+background-color: transparent !important;
+box-shadow: unset !important;
+margin: 10px auto;
+border-bottom: 1px solid gray;
+border-radius: 0px;
+width: 90%;
+        }
+
+        #ask-form .title {
+            text-align: center;
+        }
+        .ask_form .error {
+          border-radius: 5px;
+          border:1px solid red;
+        }
+
+              .ask-form-done {
+                text-transform: uppercase;
+                text-align: center;
+                padding: 50px;
+                display: none;
+              }
+    </style>
+
+              <a name="ask-form"></a>
+              <div class="ask-form-done">
+                <div class="container">
+                    <div class="row">
+                          <div class="col-12">
+                                  Спасибо, мы получили ваш вопрос и ответим на него в ближайшее время.
+                          </div>
+                    </div>
+                </div>
+              </div>
+              <div class="container ask_form" id="ask-form">
+
+                <div class="row">
+                  <div class="col-12">
+                  <div class="title"> НЕ НАШЛИ ОТВЕТ?<br>ЗАДАЙТЕ СВОЙ ВОПРОС! </div>
+                </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12">
+                    <input type="text" class="name form-control" placeholder="Ваше имя*" aria-label="Username" aria-describedby="basic-addon1"></div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12">
+                      <input type="text" class="mail form-control" placeholder="Электронный адрес" aria-label="E-mail" aria-describedby="basic-addon1"></div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12">
+                      <input type="text" class="phone form-control" placeholder="Телефон*" aria-label="Phone" aria-describedby="basic-addon1"></div>
+              </div>
+
+                <div class="row">
+                  <div class="col-12">
+                      <input type="text" class="question form-control" placeholder="Ваш вопрос*" aria-label="Question" aria-describedby="basic-addon1"></div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12">
+
+                      <img class="capcha" src="/capcha" />
+                      <input type="text" class="capcha form-control" placeholder="Анти-спам код" aria-label="Anti-spam code" aria-describedby="basic-addon1"></div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12 form-error">
+                  </div>
+                </div>
+                <div class="row">
+
+                  <div class="col-1"></div>
+                  <div class="col-10">
+                  * - поля, обязательные для заполнения</div>
+              </div>
+
+                <div class="row">
+
+                  <div class="col-7">
+                      <br/>
+                      <br/>
+                      <br/>
+                </div>
+                  <button type="button" class="" onclick="ask()">
+                    <img src="static/mobile/faq/send.png" />
+                  </button>
+
+              </div>
+
+              </div>
+
+                  <div class="container">
+                  <div class="row">
+                  <div class="col-12">
+                      <br/>
+                </div>
+                </div>
+                </div>
+    </div>
+
+
+  <script>
+                    function ask() {
+
+                            $('.ask_form input').removeClass('error');
+                            $('.ask_form textarea').removeClass('error');
+                            var name = $('.ask_form .name').val();
+                            if (!name) $('.ask_form .name').addClass('error');
+                            var capcha = $('.ask_form input.capcha').val();
+                            if (!capcha) $('.ask_form input.capcha').addClass('error');
+                            var mail = $('.ask_form .mail').val();
+                        if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(mail) || !mail) {
+                            $('.ask_form .mail').addClass('error');
+                        }
+
+                            var phone = $('.ask_form .phone').val();
+                            phone = phone.replace(/[^0-9()\- ]/g,'');
+                            if (!phone || phone.length<6) $('.ask_form .phone').addClass('error');
+                            var question = $('.ask_form .question').val();
+                            if (!question) $('.ask_form .question').addClass('error');
+
+
+                            if (!capcha || !name || !mail || !phone || !question) {
+                                return;
+                            }
+                        $.post('/ask/',{
+                            name:name,
+                            mail:mail,
+                            capcha:capcha,
+                            phone:phone,
+                            question:question
+                        }).done(function(d){
+                            if (d=="OK") {
+                                $('.ask_form .form-error').html('');
+                                $('.ask-form-done').show();
+                                $('.ask_form').hide();
+                            } else {
+                                $('.ask_form img.capcha').attr('src','/capcha?q='+(new Date()));
+                                $('.ask_form .form-error').html(d);
+                                console.log(d);
+                            }
+                        });
+                    }
+                    </script>
