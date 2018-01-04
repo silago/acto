@@ -9,6 +9,8 @@ from django.http import HttpResponse
 from .models import TopPage, ForPage, OrangePage, Town, YellowPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, FaqPage, DocsPage, BottomPage, FooterPage, City, Orders, Questions, SiteSettings#, Shop
 from xml.etree.ElementTree import Element, SubElement,  tostring
 from django.views.decorators.csrf import csrf_exempt
+from django.conf import settings as project_settings
+from django.shortcuts import redirect
 
 PRODUCT_CODE = "000079216"
 PRODUCT_NAME = "Актовидерм"
@@ -20,6 +22,15 @@ API_URL   = "http://Aktoviderm:oki89ijn@ex.lab-krasoty.ru/Apteka/hs/exchange/s1/
 
 
 def main(request):
+    settings = SiteSettings.objects.first()
+
+    if (project_settings.IS_MOBILE == False):
+        if ("PREFER_FULL" not in request.COOKIE):
+            if (request.user_agent.is_mobile):
+                return redirect(settings.mobile_site_url)
+
+
+
     #pages = (TopPage, ForPage, OrangePage, YellowPage, MintPage, FactsPage, GreenPage, WhyPage, HowPage, FaqPage, DocsPage, BottomPage, FooterPage)
     pages = (TopPage, ForPage, MintPage, GreenPage, OrangePage, YellowPage, WhyPage, HowPage, FaqPage, DocsPage, BottomPage, FooterPage,)
     _result = ()
@@ -29,7 +40,6 @@ def main(request):
             _result += page_object,
     cities = City.objects.order_by('order','name').all()
     towns  = Town.objects.all()
-    settings = SiteSettings.objects.first()
     return render(request, 'index.html', {'pages':_result,'cities':cities,'towns':towns, 'settings':settings})
 
 def instagram(request):

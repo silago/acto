@@ -16,27 +16,40 @@
 
 	<meta name="yandex-verification" content="54883a35452f8514" />
         <script>
+
+          function goFull() {
+            setCookie("PREFER_FULL", true);
+            document.Location = window.BASE_URL;
+          }
+
+          function goMobile() {
+            deleteCookie("PREFER_FULL");
+            document.Location = window.MOBILE_URL;
+          }
+
 function isTouchDevice(){
     return true == ("ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch);
 }
 
-            window.BASE_COST={{settings.cost}};
+            window.BASE_URL="{{settings.site_url}}";
+            window.MOBILE_URL="{{settings.mobile_site_url}}";
+            window.BASE_COST="{{settings.cost}}";
            function formDate(day) {
                 if (!day) day = 0;
                 var date = new Date(new Date().getTime() + 24*60*60*1000*day);
                 return((date.getDate()) + '.' +(date.getMonth() + 1))+ '.' +  date.getFullYear()
             }
 
-	
 
-        $(document).ready(function() {  
+
+        $(document).ready(function() {
 		if (false && !isTouchDevice()) {
 		$("#shops-list").niceScroll({
 			'autohidemode':false,
 			'touchbehaviour':true
 		});
 		$('#float-city-selector .right').niceScroll({
-			'autohidemode':false,	
+			'autohidemode':false,
 			'touchbehaviour':true
 });
 } else {
@@ -48,7 +61,7 @@ function isTouchDevice(){
         </script>
         <script>
         window.cities = {
-        {% for c in cities %} 
+        {% for c in cities %}
             '{{c.name}}':{
                 'x':'{{c.x}}',
                 'y':'{{c.y}}',
@@ -62,7 +75,7 @@ function isTouchDevice(){
                        'y':'{{s.y}}',
                        'title':'{{s.title}}',
                        'phone':'{{s.phone}}'
-                   }, 
+                   },
                 {% endfor %}
                 ]
         },
@@ -132,7 +145,7 @@ a.anchor.when_apply {
 
             #page-faq .side form button {
                 background-color:transparent;
-                cursor:pointer; 
+                cursor:pointer;
                 width:185px;
                 height:60px;
                 background-image: url('static/faq/button.png');
@@ -149,7 +162,7 @@ a.anchor.when_apply {
             }
 .form-button {
     background-color:transparent;
-    cursor:pointer; 
+    cursor:pointer;
     width:206px;
     height:67px;
     background-image: url('static/regular_button.png');
@@ -166,7 +179,7 @@ a.anchor.when_apply {
     background-image: url('static/active_button.png?zz');
 }
 
-.docs-show  { 
+.docs-show  {
     display:none;
     text-align:center;
 }
@@ -285,7 +298,7 @@ position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; opacity:0.9; w
                 text-decoration:inherit;
                 font-size:inherit;
                 margin:0px;
-            }       
+            }
             #head #menu li a:hover {
                 color:#47bae8;
             }
@@ -312,7 +325,7 @@ position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; opacity:0.9; w
                 position: relative;
                 x-top: -3px;
             }
-            #head #menu li:nth-last-child(2) { 
+            #head #menu li:nth-last-child(2) {
                 x-float:left;
                 display:inline-block;
                 font-weight:bold;
@@ -390,7 +403,7 @@ position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; opacity:0.9; w
                 width: 18px;
                 height: 100%;
                 right: 0px;
-            
+
                 z-index: 99;
                 background-color: #fff;
             }
@@ -485,7 +498,7 @@ position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; opacity:0.9; w
                 margin-right: 10px;
                 content:"▼";
                 color:#a7a9ac;
-            
+
                 float:left;
                 font-size:26px;
             }
@@ -496,7 +509,7 @@ position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; opacity:0.9; w
                 padding:18px;
                 list-style:none;
             }
-            
+
             #page-faq ul.list > li  * {
                 list-style:initial;
                 margin-left:inherit;
@@ -562,7 +575,7 @@ position:fixed; background-color:#2c4f8a;mix-blend-mode:multiply; opacity:0.9; w
                 margin-bottom:2px;
             }
             #page-faq ul.faq-nav li.active a:after{
-                content:"\25CF"; 
+                content:"\25CF";
                 font-size:24px;
             }
             #page-faq ul.faq-nav a:after {
@@ -814,7 +827,7 @@ left: 27%;
                 width:27px;
                 margin-right:75px;
             }
-                
+
             div#page-green ul {
                 width:80%;
                 margin-left:100px;
@@ -829,7 +842,7 @@ left: 27%;
                 text-align:center;
                 right:0%;
                 width:30%;
-            
+
             }
             div#page-green ul li.active:after {
                 content: "";
@@ -890,7 +903,7 @@ left: 27%;
                 x-padding-left:-10px;
                 box-sizing:border-box;
                 overflow:hidden;
-                
+
             }
             div#page-why ul li {
                 display:inline-block;
@@ -1068,7 +1081,7 @@ left: 27%;
                 border-color: rgba(0, 0, 0, 0.0);
                 border-style: solid;
                 border-width: 8px 11px;
-                
+
             }
 
 
@@ -1240,7 +1253,7 @@ left: 27%;
                 position:absolute;
                 top:35px;
                 left:102px;
-                
+
             }
             div#page-docs .content .larrow {
                 position: absolute;
@@ -1275,7 +1288,7 @@ left: 27%;
                         width:100%;
                             min-width:239px;
                                 max-width:60%;
-                            
+
 
             }
             div#page-docs .content ul li {
@@ -1485,7 +1498,7 @@ width: 0;
             padding-bottom:20px;
         }
         div#float-city-selector {
-            
+
             x-position:absolute;
             position:fixed;
             x-width:100%;
@@ -1503,7 +1516,7 @@ width: 0;
         }
 
         div#float-city-selector .holder .right {
-            x-display:inline-block;	
+            x-display:inline-block;
             x-position:absolute;
             position:relative;
 	    box-sizing:border-box;
@@ -1572,7 +1585,7 @@ width: 0;
         }
         div#order-done input{
             border:0;
-            
+
             padding:8px;
             margin-bottom:8px;
             margin-top:8px;
@@ -1637,7 +1650,7 @@ width: 0;
             font-size:18px;
             font-weight:bolder;
             display:block;
-            
+
         }
         div#order-done div.holder .left .cost {
             color:black;
@@ -1664,7 +1677,7 @@ color: inherit;
             color:#2c4f8b;
             padding:10px;
             text-align:center;
-        
+
         }
         div#order-done div.holder .left .count > span {
             margin:auto 8px;
@@ -1686,7 +1699,7 @@ color: inherit;
                 width:200px;
                     display:block;
         }
-        
+
         div#order-done .right h4 {
                 x-text-transform:uppercase;
                 font-weight:normal;
@@ -1719,7 +1732,7 @@ color: inherit;
         }
         div#order-done .right  .step2 {
             margin-bottom:5px;
-        
+
         }
         div#order-done .right  .step1 .form a {
             width:49.5%;
@@ -1728,7 +1741,7 @@ color: inherit;
             text-transform:uppercase;
             color:#2c4f8b;
                 margin-bottom:2px;
-                    
+
         }
         div#order-done .right .form .date{
             border-bottom:2px solid gray;
@@ -1789,7 +1802,7 @@ color: inherit;
                 if (window.map_marker !=null) {
 
                 }
-                var position = {lat:x,lng:y}; 
+                var position = {lat:x,lng:y};
                 map.panTo(position);
                 map.setZoom(17);
 
@@ -1838,14 +1851,14 @@ color: inherit;
                         return -1;
                     } else if (a.name>b.name) {
                         return 1;
-                    } 
+                    }
                     return 0;
                 } );
                 $('#shops-list').html('');
                 for (var i =0; i<shops.length; i++) {
 
                     let shop = shops[i];
-                    let position = {lat:toDot(shop.x),lng:toDot(shop.y)}; 
+                    let position = {lat:toDot(shop.x),lng:toDot(shop.y)};
                     //map.panTo(position);
                     map_marker.push(new google.maps.Marker({
                         position: position,
@@ -1867,7 +1880,7 @@ color: inherit;
                         map.panTo(mpos);
                     });
 
-        
+
                     var item=$('<li style="cursor:pointer;" onclick="{{settings.yandex_counter_id}}.reachGoal(\''+cities[city].target+'\');  choose_shop(cities[\''+city+'\'].shops['+i+'],'+i+')">'+shops[i].name+'</li>');
                     item.click(function() {
                         infowindow.open(map, map_marker[index]);
@@ -1877,7 +1890,7 @@ color: inherit;
                     items+=item;
                     $('#shops-list').append(item);
                 }
-           } 
+           }
         </script>
         <div  class="bg order-done" style=""> </div>
         <div class="order-done" id="order-done">
@@ -1907,8 +1920,8 @@ color: inherit;
                             this.phone='';
                             this.email='';
                             this.count=1;
-                            $('#order-done input:not(.city)').val(''); 
-                            $('#order-done textarea:not(.city)').html(''); 
+                            $('#order-done input:not(.city)').val('');
+                            $('#order-done textarea:not(.city)').html('');
                             this.update();
                         },
                         step1:function(next) {
@@ -2019,7 +2032,7 @@ color: inherit;
                                 $('.order-done .step2').show();
                                 $('.order-done .step3').hide();
                                 return;
-                            } 
+                            }
 
                             $('#order-done .error').hide();
 
@@ -2068,7 +2081,7 @@ color: inherit;
                             <span class="count">
                                 <a onclick="order_form.minus();" class="minus">
                                     -
-                                </a>   
+                                </a>
                                 <span>
                                     <span class="quantity">1</span> уп.
                                 </span>
@@ -2078,7 +2091,7 @@ color: inherit;
                             </span>
                             <br/>
                             <span class="total">
-                                Итого: <span class="cost"><span class="q"><script>document.write(BASE_COST);</script></span> руб.</span> 
+                                Итого: <span class="cost"><span class="q"><script>document.write(BASE_COST);</script></span> руб.</span>
                             </span>
                             <span class="info">
                                 {{settings.const_info}}
@@ -2094,7 +2107,7 @@ color: inherit;
                             <hr />
                             <br/>
                             <br/>
-                            <script type="text/javascript"> 
+                            <script type="text/javascript">
                                 function appendClear(val) {
                                     $('.city_list_holder').html('');
                                     $('#order-done input.city').val(val);
@@ -2111,12 +2124,12 @@ function ahead(val) {
         if (cities[i].toLowerCase().indexOf(val.toLowerCase())!=-1) {
             result+="<li onclick='appendClear($(this).html())'>"+cities[i]+"</li>";
         }
-    }       
+    }
     result="<ul>"+result+"</ul>"
     $('.city_list_holder').html(result);
     return result;
 }
-                            </script> 
+                            </script>
                             <input  class="input city" name="city" onkeyup="ahead($(this).val())" type="text" placeholder="Населенный пункт" />
                             <div class="city_list_holder">
                             </div>
@@ -2146,7 +2159,7 @@ function ahead(val) {
                             <br/>
                             <input  class="email" name="email" type="text" placeholder="{{settings.mail_caption}}" />
                             <div>
-                            * - Поля, обязательные для заполнения 
+                            * - Поля, обязательные для заполнения
                             </div>
                             <br/>
                             <br/>
@@ -2168,13 +2181,13 @@ function ahead(val) {
                             <span style="
                             display:block;
                             padding-right:40px;
-    x-max-width: 600px; 
+    x-max-width: 600px;
     x-position: relative;
-    x-height: 200px; 
+    x-height: 200px;
     x-padding-top: 10px!important;
     x-display: inline-block;
     ">
-                                {{settings.order_complete|linebreaksbr}}                              
+                                {{settings.order_complete|linebreaksbr}}
     <!--
     -->
 
@@ -2285,39 +2298,72 @@ try {
 */
          function showForm() {
              $('.order-done').show();
-            
          }
+function deleteCookie(name) {
+  setCookie(name, "", {
+    expires: -1
+  })
+}
+
+         function setCookie(name, value, options) {
+  options = options || {};
+
+  var expires = options.expires;
+
+  if (typeof expires == "number" && expires) {
+    var d = new Date();
+    d.setTime(d.getTime() + expires * 1000);
+    expires = options.expires = d;
+  }
+  if (expires && expires.toUTCString) {
+    options.expires = expires.toUTCString();
+  }
+
+  value = encodeURIComponent(value);
+
+  var updatedCookie = name + "=" + value;
+
+  for (var propName in options) {
+    updatedCookie += "; " + propName;
+    var propValue = options[propName];
+    if (propValue !== true) {
+      updatedCookie += "=" + propValue;
+    }
+  }
+
+  document.cookie = updatedCookie;
+}
 
         function getCookie(name) {
-    var cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-        var cookies = document.cookie.split(';');
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie = jQuery.trim(cookies[i]);
-            // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
-    }
-    return cookieValue;
-}
-var csrftoken = getCookie('csrftoken');
-function csrfSafeMethod(method) {
-    // these HTTP methods do not require CSRF protection
-    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-}
-$.ajaxSetup({
-    beforeSend: function(xhr, settings) {
-        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-            xhr.setRequestHeader("X-CSRFToken", csrftoken);
-        }
-    }
-});
+              var cookieValue = null;
+              if (document.cookie && document.cookie !== '') {
+                  var cookies = document.cookie.split(';');
+                  for (var i = 0; i < cookies.length; i++) {
+                      var cookie = jQuery.trim(cookies[i]);
+                      // Does this cookie string begin with the name we want?
+                      if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                          break;
+                      }
+                  }
+              }
+              return cookieValue;
+          }
+          var csrftoken = getCookie('csrftoken');
+          function csrfSafeMethod(method) {
+              // these HTTP methods do not require CSRF protection
+              return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+          }
+          $.ajaxSetup({
+              beforeSend: function(xhr, settings) {
+                  if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                      xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                  }
+              }
+          });
 
-        </script>
-    <script>
+                  </script>
+              <script>
 $('.float-city-selector.bg').click(function() {
     $('.float-city-selector').hide();
 });
@@ -2341,7 +2387,7 @@ $('.order-done.bg').click(function() {
 
     </script>
     <script>
-        
+
     </script>
     {{settings.counters|safe}}
     </body>

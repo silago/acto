@@ -30,7 +30,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 ALLOWED_HOSTS = ['www.m.aktoviderm.ru','m.aktoviderm.ru','m.www.actoviderm.ru','m.actoviderm.ru','m.silag-acto-back-server3.herokuapp.com','m.localhost']
 SITE_ID = 1
-
+IS_MOBILE = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -45,8 +45,9 @@ INSTALLED_APPS = [
     'base',
     'solo',
     #'sorl.thumbnail',
-    'tinymce'
-]
+    'tinymce',
+    'django_user_agents',
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -56,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_user_agents.middleware.UserAgentMiddleware',
 ]
 
 ROOT_URLCONF = 'acto.urls'
