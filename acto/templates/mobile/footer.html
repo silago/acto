@@ -1,0 +1,85 @@
+<style>
+  #page-footer-mobile img {
+    max-width:100%;
+  }
+  #page-footer{
+    background-color: #000;
+    padding-top:20px!importatnt;
+    color:white;
+  }
+
+  #page-footer .icon {
+    padding: 0;
+    margin-top: 11px;
+  }
+
+  #page-footer-mobile .micons {
+  }
+
+
+  #page-footer-mobile .micons a {
+  }
+
+  #page-footer .micons a img {
+
+    max-width: 100%;
+  }
+
+  #page-footer .micons a {
+    width:33%;
+  }
+  div div#page-footer .info {
+    font-size: 20px;
+    margin-top:20px;
+  }
+
+</style>
+
+        <div id="page-footer" class="container">
+            <div class="row">
+              <div class="logo col-12">
+                <br />
+              </div>
+            </div>
+            <div class="row">
+                  <div class="logo col-6">
+                      <a href="http://millor-pharma.ru/">
+                      <img src="{{page.logo.url}}" />
+                      </a>
+                  </div>
+<!--             <div class="title">
+                {{page.caption}}
+            </div> -->
+                  {% for item in page.items.all %}
+                    {% if forloop.counter < 4 %}
+              <div class="micons col-2 icon">
+                      <a href="{{item.link}}"><img alt="{{item.alt}}" src="{{item.image.url}}" /></a>
+              </div>
+                    {% endif %}
+                  {% endfor %}
+            </div>
+
+            <div class="info">
+                {{page.info}}
+            </div>
+            <br/>
+            <div class="copy">
+                {{ page.copy }}
+            </div>
+            <div class="reg">
+            	<a class="footer-link-btn" href="#">сменить регион</a>
+            </div>
+            <div class="ver">
+            	<a class="footer-link-btn" href="#">полная версия сайта</a>
+            </div>
+            <div class="call">
+            	<a class="footer-link-btn" href="#">8 (800) 222-42-72<br/> Звонок по РФ – бесплатно</a>
+        	</div>
+            <div class="warring">
+                <img src="{{ page.image.url }}" />
+            </div>
+            <div class="agreement">
+                <a class="footer-link-btn" href="{{ page.link }}">Соглашение об обработке персональных данных</a>
+            </div>
+        </div>
+      </div>

@@ -151,6 +151,12 @@ class SiteSettings(SingletonModel):
 
     counters      = models.TextField(blank=True, null=True, default="", verbose_name="Код Счетчиков")
     yandex_counter_id= models.TextField(blank=True, null=True, verbose_name="", default='yaCounter44908690')
+
+    site_url    = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Описание")
+    modile_site_url    = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Описание")
+
+
+
     class Meta:
         verbose_name = "Настройка сайта"
         verbose_name_plural = "Настройки сайта"
@@ -160,6 +166,7 @@ class BaseSingletonModel(SingletonModel):
         tdir = settings.TEMPLATES[0]['DIRS'][0]
         result =  ((i,i) for i in os.listdir(tdir))
         return result
+
     logo   = models.ImageField(blank=True, null=True,default='', verbose_name="Изображение")
     active = models.BooleanField(default=True, verbose_name="Активно" )
     title  = models.CharField(max_length=255,blank=True, null=True, default="", verbose_name="Заголовок")

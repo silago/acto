@@ -1,0 +1,290 @@
+
+<style>
+  #page-green-mobile img {
+      max-width: 100%;
+  }
+
+  #page-green-mobile .container {
+    background-color: #bed73a;
+  }
+
+  #page-green-mobile .slider-container {
+    width: 247px;
+
+    /* height: 200px; */
+    margin: 0 auto;
+
+    margin-bottom: 30px;
+
+    margin-top:30px;
+  }
+
+  #page-green-mobile .slider-container img {
+    width:217px;
+    margin:0 15px;
+  }
+
+  #page-green-mobile .slider {
+    width:200%;
+    margin-left:-100%;
+  }
+
+            div#page-green-mobile .triangle-down {
+                width: 0;
+                height: 0;
+                border-left: 1600px solid transparent;
+                border-top: 64px solid #bed73a;
+            }
+
+            div#page-green-mobile .triangle-up {
+                width: 0;
+                height: 0;
+                border-right: 1600px solid transparent;
+                border-bottom: 64px solid #bed73a;
+            }
+
+            .green-slider {
+              display: none;
+              padding: 0px 30px;
+              width: 100%;
+            }
+
+                  button.green-slider-content > span.show {
+                    display: inline;
+                  }
+                  button.green-slider-content > span.hide {
+                    display: none;
+                  }
+
+                  button.green-slider-content.hide > span.hide {
+                    display: inline;
+                  }
+                  button.green-slider-content.hide > span.show {
+                    display: none;
+                  }
+
+
+                  div.green-slider-content.block {
+                    display: none;
+                  }
+
+                  div.green-slider-content.hide {
+                    display: none;
+                  }
+
+  </style>
+
+  <script>
+  greenSlider = {
+    index:1,
+    slide: function(i) {
+      this.index = i;
+        $('#page-green-mobile .slider').animate({
+          marginLeft: (-this.index*100)+'%'
+        });
+        $('.green-slider').hide();
+        $('.green-slider-'+i).show();
+    }
+  }
+  </script>
+
+
+</div>
+
+
+<div id="page-green-mobile">
+            <div class="triangle-up"> </div>
+
+  <div class="container">
+    <div class="row">
+        <div class="col-6">
+                <img alt="{{page.caption|striptags}}" class="logo" src="{{page.logo.url}}" />
+        </div>
+          </div>
+    <div class="row">
+        <div class="slider-container">
+          <table class="slider" style="width: {{page.items.all|length}}00%; ">
+
+              <tr>
+                  {% for item in page.items.all %}
+              <td>
+                <a onclick="greenSlider.slide({{forloop.counter0}});">
+                    <img alt="{{item.alt}}"  src="{{ item.image.url }}" />
+                </a>
+                <!--
+                <li>
+                    <img alt="{{item.alt}}"  src="{{ item.image.url }}" />
+                    <span>
+                        {{item.text|safe}}
+                    </span>
+                </li>
+              -->
+            </td>
+              {% endfor %}
+            </tr>
+
+          </table>
+          </div>
+          </div>
+
+          <div class="row">
+              {% for item in page.items.all %}
+              <div class="center green-slider green-slider-{{forloop.counter0}}">
+                  <h4> На детской площадке
+                      <div style="float:right">
+
+                          <button style="background-color:transparent;"
+                                  onClick="$('.green-slider-content-{{forloop.counter0}}').toggleClass('hide');"
+                                  class="green-slider-content green-slider-content-{{forloop.counter0}}">
+                              <span class="oi oi-chevron-top hide" title="icon name" aria-hidden="true"          ></span>
+                              <span class="oi oi-chevron-bottom show" title="icon name" aria-hidden="true"          ></span>
+                          </button>
+                      </div>
+                  </h4>
+                  <hr />
+                  <div class="green-slider-content green-slider-content-{{forloop.counter0}}">
+                    {{item.text|safe}}
+                  </div>
+              </div>
+              {% endfor %}
+            </div>
+
+
+      <div class="delivery non-free">
+      <div class="row">
+        <div class="col-6">
+            <img class="" src="static/mobile/green/590.png" />
+        </div>
+        <div class="col-6">
+                <button data-toggle="modal" data-target="#order-form-mobile" style="background-color:transparent;">
+                  <img class="" src="static/mobile/top/offer_pink.png" />
+                </button>
+                <br/>
+
+               Доставка оплачивается отдельно
+                <br/>
+                <a href="#find-shop">
+                  <img class="" src="static/mobile/top/buy_green.png" />
+                </a>
+        </div>
+      </div>
+      </div>
+
+      <div class="delivery free">
+      <div class="row">
+        <div class="col-6">
+            <img class="" src="static/mobile/top/590.png" />
+        </div>
+        <div class="col-6">
+                <button data-toggle="modal" data-target="#order-form-mobile" style="background-color:transparent;">
+                  <img class="" src="static/mobile/top/offer_pink.png" />
+                </button>
+                <br/>
+                Бесплатная доставка
+                <br/>
+                <a href="#find-shop">
+                  <img class="" src="static/mobile/top/buy_green.png" />
+                </a>
+        </div>
+      </div>
+      </div>
+
+      <br/>
+      <br/>
+      <br/>
+    </div>
+            <div class="triangle-down"> </div>
+  </div>
+  <script>
+  $('document').ready(function(){
+      greenSlider.slide(1);
+    });
+  </script>
+
+<!--
+        <div id="page-green">
+            <div class="triangle-up"> </div>
+            <div class="content">
+                <div class="text-info">
+                    {{page.title|striptags}}
+                </div>
+                <img class="logo" src="{{page.logo.url}}" />
+            <span class="starts"> </span>
+            <span class="arrow-left">
+                <img src="static/green/arrow-left.png" />
+            </span>
+
+            <ul id="">
+              {% for item in page.items.all %}
+                <li>
+                    <img alt="{{item.alt}}"  src="{{ item.image.url }}" />
+                    <span>
+                        {{item.text|safe}}
+                    </span>
+                </li>
+              {% endfor %}
+            </uL>
+
+            <span class="arrow-right">
+				<img src="static/green/arrow-right.png" />
+			</span>
+
+            <script type="text/javascript">
+                var pageGreenLimit = 3;
+                var pageGreenGalleryIndex = 0;
+                var pageGreenGalleryIndexMax = $('#page-green ul li').length-1;
+
+                function FitGreenGallery() {
+		    var index = pageGreenGalleryIndex+1;
+                    $('#page-green ul li').hide();
+                    if (pageGreenGalleryIndex == 0) {
+                        $('#page-green ul li:nth-child(-n+3)').show();
+                    } else if (pageGreenGalleryIndex == pageGreenGalleryIndexMax) {
+                        $('#page-green ul li:nth-last-child(-n+3)').show();
+                    } else {
+                        $('#page-green ul li:nth-child('+ (index-1) +')').show();
+                        $('#page-green ul li:nth-child('+index+')').show();
+                        $('#page-green ul li:nth-child('+(index+1) +')').show();
+                    }
+                }
+
+
+                $('#page-green ul li').first().addClass('active');
+                $('#page-green ul li').hide();
+                $('#page-green ul li:nth-child(-n+3)').show();
+                $('#page-green .arrow-left').click(function() {
+                    if (pageGreenGalleryIndex==0) {
+                       pageGreenGalleryIndex = pageGreenGalleryIndexMax+1;
+                    }
+                    $('#page-green ul li').removeClass('active');
+                    $($('#page-green ul li')[--pageGreenGalleryIndex]).addClass('active');
+		    FitGreenGallery();
+
+                });
+                $('#page-green .arrow-right').click(function() {
+                    if (pageGreenGalleryIndex==pageGreenGalleryIndexMax) {
+                        pageGreenGalleryIndex = -1;
+                    }
+                    $('#page-green ul li').removeClass('active');
+                    $($('#page-green ul li')[++pageGreenGalleryIndex]).addClass('active');
+		    FitGreenGallery();
+		});
+
+                $('#page-green ul li').click(function() {
+                    //$('#page-green ul li').removeClass('active');
+                    //$(this).addClass('active');
+                    //FitGreenGallery();
+		});
+            </script>
+            <div class="delivery">
+               <img class="delivery free" src="{{page.free_delivery_button.url}}" />
+               <img class="delivery non-free"  src="{{page.no_delivery_button.url}}" />
+
+               <br />
+               <br />
+               <button class="button form-button" style="cursor:pointer;" onclick="showForm();"></button>
+            </div>
+            </div>
+            <div class="triangle-down"></div>
+        </div>
+      -->

@@ -1,0 +1,355 @@
+<style>
+#page-bottom-mobile {
+  background-color: #8dd6f7;
+}
+  #page-bottom-mobile .logo {
+    text-align: center;
+  }
+
+  #page-bottom-mobile img{
+    max-width: 100%;
+  }
+
+  #page-bottom-mobile p.info {
+    text-align: center;
+    font-size:10px;
+    text-transform: uppercase;
+  }
+  #page-bottom-mobile .logo img{
+    max-width: 100%;
+
+  }
+            div#page-bottom-mobile .triangle-up {
+                border-left: 1600px solid transparent;
+                border-top: 94px solid #fff;
+                z-index: 2;
+            }
+
+            div#page-bottom-mobile .triangle-down {
+                border-left: 1600px solid #fff;
+                border-top: 94px solid transparent;
+                z-index: 2;
+            }
+</style>
+<br/>
+<a name="page-bottom-mobile"/></a>
+<div class="" id="page-bottom-mobile">
+            <div class="triangle-up">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 logo">
+                        <img class="" src="{{page.image.url}}">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="">
+                  <br />
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                          <img src="static/mobile/bottom/590.png" />
+                    </div>
+                    <div class="col-6" style="text-align:center;">
+                          <br />
+                          <button data-toggle="modal" data-target="#order-form-mobile" style="background-color:transparent;">
+                              <img src="static/mobile/bottom/order-pink.png" />
+                          </a>
+                          <br/>
+                          <p class="info delivery non-free">
+                              Доставка оплачивается отдельно
+                          </p>
+                          <p class="info delivery free">
+                              Бесплатная доставка
+                          </p>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="triangle-down">
+            </div>
+</div>
+
+
+<style>
+  #find-shop-mobile img {
+    max-width: 100%;
+
+  }
+
+ #find-shop-mobile hr {
+   border-top: 1px solid gray;
+   margin: 2px;
+ }
+
+ #find-shop-mobile .small-padding {
+   margin-top:15px;
+ }
+
+
+ #find-shop-mobile button.wide {
+   width:100%;
+ }
+
+ #find-shop-mobile   .typeahead__field input {
+   border-radius: 0px;
+   border:0px;
+ }
+
+ #find-shop-mobile .bottom-border {
+
+   x-border-bottom: 1px solid gray;
+ }
+   #find-shop-mobile .typeahead__container button {
+    border:0px;
+   }
+</style>
+
+<a name="find-shop"></a>
+<div id="find-shop-mobile">
+  <div class="container">
+    <div class="row">
+                    <div class="col-11">
+                        <img
+                          style="margin-left:12px;"
+                        class="" src="static/mobile/find/logo.png">
+                    </div>
+    </div>
+
+    <div class="row">
+      <div class="small-padding col-12">
+        <!--
+        <input type="text" placeholder="Москва" />
+      -->
+                <div class="typeahead__container">
+                    <div class="typeahead__field">
+                        <span class="typeahead__query">
+                                  <input placeholder="Регион" class="city_name x-js-typeahead-bottom-cities"
+                                   name="q"
+                                   type="search"
+                                   value=""
+
+                                   autofocus
+                                   autocomplete="off">
+                                 </span>
+                                <span class="typeahead__button">
+                                    <button type="submit"  onclick="$('#choose_city_modal').modal('show');">
+                                        <span class="oi oi-chevron-right" title="icon name" aria-hidden="true"></span>
+                                    </button>
+                                </span>
+                               </div>
+                             </div>
+        <hr />
+      </div>
+      <div class="small-padding col-12">
+        <!--
+        <input type="text" placeholder="Москва" />
+      -->
+                <div class="typeahead__container">
+                    <div class="typeahead__field">
+                        <span class="typeahead__query">
+                                  <input placeholder="Город" class="js-typeahead-bottom-towns"
+                                   name="q"
+                                   type="search"
+                                   autofocus
+                                   autocomplete="off">
+                                 </span>
+                                <span class="typeahead__button">
+                                    <button type="submit" onclick="typeaheadTowns.showLayout();">
+                                        <span class="oi oi-chevron-bottom" title="icon name" aria-hidden="true"></span>
+                                    </button>
+                                </span>
+                               </div>
+                             </div>
+        <hr />
+      </div>
+      <div class="small-padding col-12">
+                <div class="typeahead__container">
+                    <div class="typeahead__field">
+                        <span class="typeahead__query">
+                                  <input placeholder="Поиск по улице или метро" class="js-typeahead-bottom-shops find-shops-input"
+                                   name="q"
+                                   type="search"
+                                   autofocus
+                                   autocomplete="off">
+                                 </span>
+                                <span class="typeahead__button">
+                                    <!--
+                                    <button type="submit">
+                                        <span class="oi oi-chevron-right" title="icon name" aria-hidden="true"></span>
+                                    </button>
+                                  -->
+                                </span>
+                               </div>
+                             </div>
+        <hr />
+      </div>
+
+      <div class="small-padding col-12 result">
+          <ul class="shop-search-result" style="padding-left:10px;">
+          </ul>
+      <div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+  <script>
+// var initTAShops =
+//    function() {
+//        cities[lc.ChosenName].shops
+//      };
+
+
+/*
+ $.typeahead({
+            input: ".js-typeahead-bottom-cities",
+            minLength: 0,
+
+            order: "asc",
+            searchOnFocus: true,
+            source: {
+                group: {
+                    display: ["name"],
+                    template: "{{name}}",
+                    data: Object.values(cities)
+                }
+            },
+             callback: {
+               onClick : function() { $(".js-typeahead-bottom-towns").val(null); }
+            },
+          });
+*/
+var typeaheadTowns = $.typeahead({
+            input: ".js-typeahead-bottom-towns",
+            minLength: 0,
+
+            order: "asc",
+            searchOnFocus: true,
+            source: {
+                group: {
+                    display: ["name"],
+                    template: "{{name}}",
+                    data: towns
+                }
+            },
+             callback: {
+               onClick: function() { $(".find-shops-input").val(null); }
+            },
+
+          });
+
+
+     /*
+
+
+     $.typeahead({
+                input: ".js-typeahead-bottom-shops",
+                minLength: 0,
+                order: "asc",
+            blurOnTab: true,
+            emptyTemplate: 'no result for {{query}}',
+                searchOnFocus: true,
+                source: {
+                        display: ["name"],
+                        template: "{{name}}",
+                        data: cities[lc.ChosenName].shops
+                },
+                // callback: {
+                //    onClickAfter: function (node, a, item, event) {
+                //      choose_city(item.name);
+                //      $('#choose_city_modal').modal('hide');
+                //    }
+                //},
+
+              });
+        };
+        */
+
+
+        findShops = function(q) {
+          //var result = [];
+          var city = $('.x-js-typeahead-bottom-cities').val();
+          var town = $('.js-typeahead-bottom-towns').val();
+          var shops = [];
+          for (var i in cities[city].towns) {
+            if (cities[city].towns[i].name==town) {
+              shops = cities[city].towns[i].shops;
+            }
+          }
+
+
+          var result = '';
+          if (q.length < 2) {
+            return;
+          }
+          for (var i in shops ) {
+            var shop = shops[i];
+            if (shop.address.indexOf(q)!=-1  || shop.name.indexOf(q)!=-1 ||  shop.title.indexOf(q)!=-1 || shop.metro.indexOf(q)!=-1)  {
+              var str = "<li><a onclick='openYandex(\""+shops[i].address+"\");'>" + shops[i].name + " " +shops[i].address + "</a></li>";
+              result+=str;
+              //.push(
+              //  str
+              //);
+            }
+          }
+
+          if (result == "") {
+            result = "Извините, по вашему запросу ничего не найдено.";
+          }
+
+          var item  = $('.shop-search-result').first();
+          item.html(result);
+        }
+
+        $( ".find-shops-input" ).change(function() {
+
+              console.log($( this ).val());
+          findShops(
+              $( this ).val()
+          );
+          //  alert( "Handler for .change() called." );
+        });
+
+        //initTAShops();
+        //onCityChosen.push(initTAShops);
+
+  </script>
+
+
+<!--
+        <div id="page-bottom">
+                        <div class="delivery-triangle-up"></div>
+            <div class="triangle-up">
+            </div>
+            <div class="content">
+                <div class="delivery-left">
+                    <img
+                        style="padding-bottom:40px;"
+                        class="delivery-logo" src="{{ page.logo.url }}" />
+                    <a
+                        href="javascript:void(0);"
+                        onclick="$('.float-city-selector').show();"
+                        class="city-selector"><span class="select-city"><span class="selector"></span></span></a>
+                    <br/>
+                    <br/>
+                    <ul id="shops-list">
+                    </ul>
+                </div>
+                <div class="center">
+                  <div style="width:100%; height:746px;" id="map"></div>
+
+                </div>
+                <div class="delivery-right">
+                    <img class="delivery free" src="{{page.free_delivery_button.url}}">
+                    <img class="delivery non-free" src="{{page.no_delivery_button.url}}">
+                        <br/>
+                       <button class="button form-button" style="cursor:pointer;" onclick="showForm();  {{settings.yandex_counter_id}}.reachGoal('order'); "></button>
+                        <br/>
+                        <img src="{{page.image.url}}">
+                </div>
+            </div>
+        </div>
+      -->

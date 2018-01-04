@@ -1,0 +1,320 @@
+<!--
+
+        <div class="bg oranggal" onclick="$('.oranggal').hide()">
+        </div>
+        <div
+                                                       class="oranggal"  id="oranggal"
+            style="
+            "
+            >
+            <div onclick="$('.oranggal').hide();"  style="position:fixed; width:100%; height:100%; left:0px; top:0px; cursor:pointer;">
+            </div>
+
+            <div class="oimage">
+                <div class="dimage"><img class="image" src="{{items.0.image.url}}" /></div>
+                <div class="dtext">
+                    <div onclick="$('.oranggal').hide();" class="cross"><img src="/static/orange/x.png" /></div>
+                    <div class="text">{{items.0.text|safe}}</div>
+                    <div class="nav">
+                        <div style="float:left;" onclick="orangeprev();">  <img src="/static/orange/<.png" /> </div>
+                        <div style="float:right;" onclick="orangenext();"> <img src="/static/orange/>.png" /> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-orange" id="page-orange">
+            <div class="triangle-up"> </div>
+            <div class="content">
+                <div class="text-info">
+                    {{ page.title|striptags}}
+                </div>
+                <img class="logo" alt="{{page.title|striptags}}" src="{{page.logo.url}}" />
+                {% with items=page.items.all|dictsort:"order" %}
+    <style>
+        #oranggal .oimage {
+            display:none;
+            height:100%;
+            text-align:left;
+            overflow:hidden;
+        }
+        #oranggal .cross {
+            position:absolute;
+            cursor:pointer;
+            right:20px; top:20px;
+        }
+        #oranggal .nav div {
+            cursor:pointer;
+        }
+        #oranggal .nav {
+            position:absolute;
+                bottom:20px;
+                    left:3%;
+                        width:94%;
+        }
+        #oranggal .dtext .text {
+            padding-bottom:60px;
+        }
+        #oranggal .dtext {
+
+            box-sizing:border-box;
+                min-height:100%;
+            font-size:16px;
+            x-width:35%;
+            x-float:right;
+            padding:20px;
+            padding-top:75px;
+            max-width:563px;
+            vertical-align:top;
+            display:inline-block;
+                position:relative;
+                    width:30%;
+        }
+        #oranggal .dimage {
+            display:inline-block;
+            x-width:60%;
+            x-float:left;
+            height:100%;
+            box-sizing:content-box;
+        }
+        #oranggal .image {
+            x-width:100%;
+            margin:20px;
+            height:90%;
+        }
+        #page-orange .content table td {
+            cursor:pointer;
+        }
+        .oranggal {
+            display:none;
+        }
+        .oranggal.bg {
+            cursor:pointer;
+            z-index:36;
+            position:fixed;
+            background-color:#2c4f8a;mix-blend-mode:multiply;
+            width:100%; height:100%;
+            left:0; top:0;
+        }
+
+        #oranggal > div > * {
+            background-color:white;
+        }
+        #oranggal {
+            min-width:1152px;
+            top:0px;
+            position:fixed;
+            z-index:100;
+            height:80%;
+            padding:20px;
+            box-sizing:content-box;
+            margin:40px -20px;
+            left:0;
+            right:0;
+            min-width875px;
+        }
+
+        table.border.shadow td {
+            padding:5px;
+        }
+    </style>
+    <script>
+
+        var orange_images = [
+                    {},
+                    {
+                        image: '{{items.0.image.url}}',
+                        text:  '{{items.0.text|safe|linebreaksbr|escapejs}}'
+                    },
+                    {
+                        image: '{{items.1.image.url}}',
+                        text:  '{{items.1.text|safe|linebreaksbr|escapejs}}'
+                    },
+
+                    {
+                        image: '{{items.2.image.url}}',
+                        text:  '{{items.2.text|safe|linebreaksbr|escapejs}}'
+                    },
+                    {
+                        image: '{{items.3.image.url}}',
+                        text:  '{{items.3.text|safe|linebreaksbr|escapejs}}'
+                    },
+                    {
+                        image: '{{items.4.image.url}}',
+                        text:  '{{items.4.text|safe|linebreaksbr|escapejs}}'
+                    },
+                    {
+                        image: '{{items.5.image.url}}',
+                        text:  '{{items.5.text|safe|linebreaksbr|escapejs}}'
+                    },
+                    {
+                        image: '{{items.6.image.url}}',
+                        text:  '{{items.6.text|safe|linebreaksbr|escapejs}}'
+                    }
+            ];
+
+        orangeprev = function() {
+          if (ORANGE_GALLERY_INDEX<=1) {
+            ORANGE_GALLERY_INDEX=ORANGE_COUNT;
+          } else {
+            ORANGE_GALLERY_INDEX--;
+          }
+          var _ = orange_images[ORANGE_GALLERY_INDEX];
+          $('#oranggal .oimage img.image').attr('src',_.image);
+          $('#oranggal .oimage .text').html(_.text);
+
+        }
+        orangenext = function() {
+          if (ORANGE_GALLERY_INDEX>ORANGE_COUNT) {
+            ORANGE_GALLERY_INDEX=1;
+          } else {
+            ORANGE_GALLERY_INDEX++;
+          }
+          var _ = orange_images[ORANGE_GALLERY_INDEX];
+          $('#oranggal .oimage img.image').attr('src',_.image);
+          $('#oranggal .oimage .text').html(_.text);
+        }
+        ORANGE_COUNT = orange_images.length-2;
+        ORANGE_GALLERY_INDEX=1;
+        gallery_orange_show = function(obj) {
+          $("#oranggal .oimage").hide();
+            $('.oranggal').show();
+            ORANGE_GALLERY_INDEX=parseInt(obj);
+            var _ = orange_images[ORANGE_GALLERY_INDEX];
+            $('#oranggal .oimage img.image').attr('src',_.image);
+            $('#oranggal .oimage .text').html(_.text);
+            $('#oranggal .oimage').show();
+        }
+    </script>
+                <table class="border shadow">
+                    <tr>
+                        <td onclick="gallery_orange_show('1');"   class="image1" ><img alt="{{item.0.text}}" src="{{items.0.image.url}}" /></td>
+                        <td onclick="gallery_orange_show('2');"   class="image2"  style="width:50%;" colspan=3 rowspan=3><img alt="{{item.1.alt}}" src="{{items.1.image.url}}" /> </td>
+                        <td onclick="gallery_orange_show('3');"   class="image3"  colspan=2 rowspan=2><img alt="{{item.2.text}}" src="{{items.2.image.url}}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td onclick="gallery_orange_show('4');"  class="image4" ><img alt="{{item.3.alt}}" src="{{items.3.image.url}}" /></td>
+                    </tr>
+                    <tr>
+                        <td onclick="gallery_orange_show('5');"  class="image5" > <img alt="{{item.4.alt}}" src="{{items.4.image.url}}" /></td>
+                        <td onclick="gallery_orange_show('6');"  class="image6" > <img alt="{{item.5.alt}}" src="{{items.5.image.url}}" /></td>
+                        <td onclick="gallery_orange_show('7');"  class="image7" > <img alt="{{item.6.alt}}" src="{{items.6.image.url}}" /></td>
+                    </tr>
+                </table>
+                {% endwith %}
+                <div class="clear"> </div>
+            </div>
+            <div class="triangle-down"> </div>
+        </div>
+
+      -->
+<style>
+
+#page-orange img.logo {
+  max-width:100%;
+}
+#page-orange .triangle-up {
+  margin-bottom:-50px;
+}
+#page-orange .container {
+  background-color: orange;
+}
+#orange-gal-ajax .row > div  {
+  padding: 0px;
+}
+
+#orange-gal-ajax img {
+
+  border:3px solid orange;
+  width:100%;
+}
+</style>
+<script>
+
+$.ajax({ // первый ajax запрос возвратит нам ID пользователя
+	url: '/instagram',
+	dataType: 'json',
+	type: 'GET',
+	success: function(data){
+    var i = 0;
+    var k = 0;
+    var limit = 3;
+    var result = "";
+
+    for (x in data.data) {
+      console.log(data.data[x].images.thumbnail.url);
+      if (i == 0) {
+        result+="<div class='row'>";
+      }
+      result+="<div class='col-4'>";
+      result+="<img data-toggle='modal' data-target='#orange-modal-"+k+"' src='"+data.data[x].images.thumbnail.url+"' />";
+      result+="</div>";
+
+      result+='<div class="modal fade" id="orange-modal-'+k+'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">';
+      result+='  <div class="modal-dialog" role="document">';
+      result+='    <div class="modal-content">';
+      result+='      <div class="modal-body">';
+      result+='      <img src="'+data.data[x].images.standard_resolution.url+'">';
+      result+='      </div>';
+      result+='      <div class="modal-footer">';
+      result+='        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>';
+      result+='    </div>';
+      result+='  </div>';
+      result+='</div>';
+      result+='</div>';
+
+
+      if (i == 2) {
+        result+="</div>";
+        i=0;
+      } else {
+        i++;
+      }
+      if (k>=5) {
+        break;
+      }
+      k++;
+    }
+    console.log(result);
+    $('#orange-gal-ajax').html(result);
+	},
+	error: function(result){
+		console.log(result);
+	}
+});
+</script>
+
+        <div class="page-orange" id="page-orange">
+            <div class="triangle-up"> </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-8">
+                  <img class="logo" alt="{{page.title|striptags}}" src="{{page.logo.url}}" />
+                  <br/>
+                  <br/>
+                </div>
+              </div>
+            </div>
+            <div class="container" id="orange-gal-ajax">
+              <div class="row">
+                <div class="col-4">
+                </div>
+              </div>
+            </div>
+            <div class="container">
+              <br />
+              <div class="row">
+                <div class="col-2">
+                    <img
+                    style="margin-top:-25%;"
+                    src="static/mobile/gallery/instagramm.png" />
+                </div>
+                <div class="col-10">@actoviderm - наш инстаграм</div>
+              </div>
+              <br />
+              </div>
+
+
+
+            <div class="triangle-down"> </div>
+          </div>

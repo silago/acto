@@ -1,0 +1,48 @@
+
+<meta name="yandex-verification" content="54883a35452f8514" />
+<script type="text/javascript">
+  function getAdress() {
+    var c = $('#id_city [selected]').html()
+    var a = $('#id_name').val();
+    return c+ ', ' + a;
+  }
+  function detectMetro() {
+    var address = getAdress();
+    var geocoder = new YMaps.Geocoder(address, { prefLang : "ru" } );
+    YMaps.Events.observe(geocoder, geocoder.Events.Load, function () {
+      if (this.length()) {
+        var point = this.get(0).getGeoPoint();
+        var metro = new YMaps.Metro.Closest(point, { results : 1 } );
+        YMaps.Events.observe(metro, metro.Events.Load, function (metro) {
+            if (metro.length()) {
+                window.metro = this.get(0);
+                var result = this.get(0).AddressDetails.Country.AdministrativeArea.Locality.Thoroughfare.Premise.PremiseName;
+                $('#id_metro').val(result);
+            }
+        });
+      }
+    });
+
+    /*
+
+    // Обработчик успешного завершения
+    YMaps.Events.observe(metro, metro.Events.Load, function (metro) {
+        if (metro.length()) {
+            console.log(metro);
+            //metro.setStyle("default#greenSmallPoint");
+
+            //map.addOverlay(metro);
+        } else {
+            alert("Поблизости не найдено станций метро");
+        }
+    });
+
+    YMaps.Events.observe(metro, metro.Events.Fault, function (metro, error) {
+        alert("При выполнении запроса произошла ошибка: " + error);
+    });
+    */
+  }
+</script>
+<a onclick="detectMetro();">
+  Определить метро
+</a>
