@@ -9,7 +9,9 @@
 
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
           <script src="//code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script>
+          <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <link rel="icon" type="image/png" href="/static/favicon.png" />
         <title>{{settings.title}}</title>
@@ -44,6 +46,18 @@
 
 	<meta name="yandex-verification" content="54883a35452f8514" />
         <script>
+
+          function goFull() {
+            setCookie("PREFER_FULL", true);
+            document.Location = window.BASE_URL;
+          }
+
+          function goMobile() {
+            deleteCookie("PREFER_FULL");
+            document.Location = window.MOBILE_URL;
+          }
+
+
 function isTouchDevice(){
     return true == ("ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch);
 }
@@ -154,10 +168,16 @@ function isTouchDevice(){
         .mobile .navbar {
           z-index: 1060;
         }
+        #mobile > .navbar >  .SupportedContent {
+          margin-top: 10px;
+        }
         .mobile .navbar .pink-border{
           border-bottom: 5px solid #ee5c72;
-          width: 100%;
-          margin-bottom:-8px;
+width: 100%;
+top: 40px;
+position: absolute;
+right: 0px;
+left: 0px;
         }
 
         .mobile .navbar .nav-item.row {
@@ -172,6 +192,7 @@ function isTouchDevice(){
         }
       </style>
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+  <hr class="pink-border" />
   <a class="navbar-brand" href="#" onclick="$('.modal').modal('hide');">
                     <img src="static/./logo.png" id="logo"></a>
   </a>
@@ -202,7 +223,6 @@ color: #ee5c72;
     <span class="open navbar-toggler-icon"></span>
     <span class="close oi oi-x" title="icon name" aria-hidden="true"></span>
   </button>
-  <hr class="pink-border" />
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto"
@@ -247,7 +267,8 @@ color: #ee5c72;
 
       <li class="nav-item">
        <br />
-       <span style="font-size:24px"> Открыть полную версию сайта</span>
+       <span style="font-size:24px"> <a href="#" onclick="goFull();"> Открыть полную версию сайта</a></span>
+
       </li>
     </ul>
   </div>
@@ -731,6 +752,40 @@ try {
 
          }
 
+function deleteCookie(name) {
+  setCookie(name, "", {
+    expires: -1
+  })
+}
+
+         function setCookie(name, value, options) {
+  options = options || {};
+
+  var expires = options.expires;
+
+  if (typeof expires == "number" && expires) {
+    var d = new Date();
+    d.setTime(d.getTime() + expires * 1000);
+    expires = options.expires = d;
+  }
+  if (expires && expires.toUTCString) {
+    options.expires = expires.toUTCString();
+  }
+
+  value = encodeURIComponent(value);
+
+  var updatedCookie = name + "=" + value;
+
+  for (var propName in options) {
+    updatedCookie += "; " + propName;
+    var propValue = options[propName];
+    if (propValue !== true) {
+      updatedCookie += "=" + propValue;
+    }
+  }
+
+  document.cookie = updatedCookie;
+}
         function getCookie(name) {
     var cookieValue = null;
     if (document.cookie && document.cookie !== '') {

@@ -25,7 +25,7 @@ def main(request):
     settings = SiteSettings.objects.first()
 
     if (project_settings.IS_MOBILE == False):
-        if ("PREFER_FULL" not in request.COOKIE):
+        if ("PREFER_FULL" not in request.COOKIES):
             if (request.user_agent.is_mobile):
                 return redirect(settings.mobile_site_url)
 
