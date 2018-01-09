@@ -270,6 +270,7 @@ var typeaheadTowns = $.typeahead({
 
 
         findShops = function(q) {
+		q = q.toLowerCase();
           //var result = [];
           var city = $('.x-js-typeahead-bottom-cities').val();
           var town = $('.js-typeahead-bottom-towns').val();
@@ -287,7 +288,7 @@ var typeaheadTowns = $.typeahead({
           }
           for (var i in shops ) {
             var shop = shops[i];
-            if (shop.address.indexOf(q)!=-1  || shop.name.indexOf(q)!=-1 ||  shop.title.indexOf(q)!=-1 || shop.metro.indexOf(q)!=-1)  {
+            if (shop.address.toLowerCase().indexOf(q)!=-1  || shop.name.toLowerCase().indexOf(q)!=-1 ||  shop.title.toLowerCase().indexOf(q)!=-1 || shop.metro.toLowerCase().indexOf(q)!=-1)  {
               var str = "<li><a onclick='openYandex(\""+shops[i].address+"\");'>" + shops[i].name + " " +shops[i].address + "</a></li>";
               result+=str;
               //.push(

@@ -867,12 +867,13 @@ $('.order-done.bg').click(function() {
   });
 
  openYandex = function(q) {
+	 q = encodeURI(q);
    //url = https://yandex.ru/maps/213/moscow/?mode=search&text=%D1%84%D1%8B&sll=37.620393%2C55.753960&sspn=2.018738%2C0.738072
    var web_url = "https://yandex.ru/maps/?mode=search&text="; //%D1%84%D1%8B
    setTimeout(function () {
-     window.location = "https://www.facebook.com";
+     window.location = web_url + q;
    }, 25);
-   window.location = "yandexmaps://maps.yandex.ru/?";
+   window.location = "yandexmaps://maps.yandex.ru/?mode=search&text=";
  }
 
    $(".carousel").each(function(index) {
