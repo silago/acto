@@ -28,7 +28,7 @@ DEBUG = True
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
-ALLOWED_HOSTS = ['www.m.aktoviderm.ru','m.aktoviderm.ru','m.www.actoviderm.ru','m.actoviderm.ru','m.silag-acto-back-server3.herokuapp.com','localhost']
+ALLOWED_HOSTS = ['www.m.actoviderm.ru','m.actoviderm.ru','m.www.actoviderm.ru','m.actoviderm.ru','m.silag-acto-back-server3.herokuapp.com','localhost']
 SITE_ID = 1
 IS_MOBILE = True
 # Application definition
