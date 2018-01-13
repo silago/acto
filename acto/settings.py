@@ -101,12 +101,12 @@ WSGI_APPLICATION = 'acto.wsgi.application'
 #    heroku pg:psql postgresql-curly-64135 --app silag-acto-back-server3
 DATABASES = {
     'default': {
-         #   'ENGINE': 'django.db.backends.mysql',
-         #   "NAME":"certa_acto",
-         #   "USER":"certa_acto",
-         #"PASSWORD":"Wxru676yQ",
-            'ENGINE': 'django.db.backends.sqlite3',
-            "NAME":"db.sqlite3",
+            'ENGINE': 'django.db.backends.mysql',
+            "NAME":"certa_acto",
+            "USER":"certa_acto",
+         "PASSWORD":"Wxru676yQ",
+         #   'ENGINE': 'django.db.backends.sqlite3',
+         #   "NAME":"db.sqlite3",
             #"USER":"certa_acto",
             # "PASSWORD":"Wxru676yQ",
     }
