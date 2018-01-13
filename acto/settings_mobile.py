@@ -46,8 +46,9 @@ INSTALLED_APPS = [
     'base_mobile',
     'solo',
     #'sorl.thumbnail',
-    'tinymce',
+    #'tinymce',
     'django_user_agents',
+    'ckeditor'
     ]
 
 

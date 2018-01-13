@@ -3,7 +3,8 @@
 
 from django.db import models
 from solo.models import SingletonModel
-from tinymce.models import HTMLField
+#from tinymce.models import HTMLField
+from ckeditor.fields import RichTextField
 from django.conf import settings
 from sorl.thumbnail import ImageField as ThumbImageField
 import os
@@ -21,7 +22,7 @@ class TemplateItem(models.Model):
         return self.name
 #base blocks
 class TripleTextItem(models.Model):
-    text     = HTMLField(verbose_name="Текст")
+    text     = RichTextField(verbose_name="Текст")
     name     = models.CharField(verbose_name="Имя",max_length=255,blank=True, null=True, default="")
     subtext  = models.CharField(verbose_name="Город",max_length=255,blank=True, null=True, default="")
     page     = models.ForeignKey('YellowPage', related_name="items")
@@ -35,8 +36,8 @@ class TripleTextItem(models.Model):
 
 class TextItem(models.Model):
     order   = models.IntegerField(verbose_name="Порядок")
-    caption = HTMLField(verbose_name="Заголовок")
-    text    = HTMLField(verbose_name="Текст")
+    caption = RichTextField(verbose_name="Заголовок")
+    text    = RichTextField(verbose_name="Текст")
     page   = models.ForeignKey('FaqPage', related_name="items")
     def __unicode__(self):
        return u'%s' % (self.caption)
@@ -87,7 +88,7 @@ class DoubleTextDoubleImageItem(models.Model):
 class GalleryImageItem(models.Model):
     image  = ThumbImageField()
     alt     = models.CharField(verbose_name="alt",max_length=255,blank=True, null=True, default="")
-    text     = HTMLField()
+    text     = RichTextField()
     order = models.IntegerField()
     page   = models.ForeignKey('OrangePage', related_name="items")
     def __unicode__(self):
@@ -102,7 +103,7 @@ class GalleryImageItem(models.Model):
 #    image  = models.ImageField()
 #    alt     = models.CharField(verbose_name="Имя",max_length=255,blank=True, null=True, default="")
 #    subimage  = models.ImageField()
-#    text     = HTMLField()
+#    text     = RichTextField()
 #    order = models.IntegerField()
 #    def __unicode__(self):
 #       return u'%s' % (self.image.url)
@@ -117,7 +118,7 @@ class GalleryImageItem(models.Model):
 class TextImageItem(models.Model):
     image  = models.ImageField(verbose_name="Изображение")
     alt     = models.CharField(verbose_name="Имя",max_length=255,blank=True, null=True, default="")
-    text     = HTMLField(verbose_name="Текст")
+    text     = RichTextField(verbose_name="Текст")
     order  = models.IntegerField(verbose_name="Порядок отображения")
     def __unicode__(self):
        return u'%s' % (self.image.url)
@@ -182,7 +183,7 @@ class BaseSingletonModel(SingletonModel):
 class TopPage(BaseSingletonModel):
     backgound = models.ImageField(blank=True, null=True,default='', verbose_name="Фон")
     image = models.ImageField(blank=True, null=True,default='', verbose_name="Изображение")
-    title  = HTMLField(blank=True, null=True,default='', verbose_name="текст")
+    title  = RichTextField(blank=True, null=True,default='', verbose_name="текст")
     banner= models.ImageField(blank=True, null=True,default='', verbose_name="Баннер")
     free_delivery_button =  models.ImageField(blank=True, null=True,default='', verbose_name="Баннер бесплатной доставки")
     no_delivery_button   =  models.ImageField(blank=True, null=True,default='', verbose_name="Баннер без доставки")
@@ -201,7 +202,7 @@ class OrangePage(BaseSingletonModel):
         verbose_name = "Галерея"
 
 class YellowPage(BaseSingletonModel):
-    #text  = HTMLField(blank=True, null=True,default='')
+    #text  = RichTextField(blank=True, null=True,default='')
     class Meta:
         verbose_name = "Отзывы покупателей"
 
@@ -209,7 +210,7 @@ class YellowPage(BaseSingletonModel):
 class MintPage(BaseSingletonModel):
     left_image = models.ImageField(verbose_name="Изображение слева")
     right_image = models.ImageField(verbose_name="Изображение справа")
-    caption = HTMLField()
+    caption = RichTextField()
     class Meta:
         verbose_name = "Как работает"
 
@@ -234,7 +235,7 @@ class WhyPage(BaseSingletonModel):
 
 
 class HowPage(BaseSingletonModel):
-    caption = HTMLField()
+    caption = RichTextField()
     items = models.ManyToManyField(DoubleTextDoubleImageItem)
     class Meta:
         verbose_name = "Как применять"
