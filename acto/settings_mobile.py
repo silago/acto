@@ -28,7 +28,7 @@ DEBUG = True
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
-ALLOWED_HOSTS = ['192.168.1.67','www.192.168.1.67','www.m.actoviderm.ru','m.actoviderm.ru','m.www.actoviderm.ru','m.actoviderm.ru','m.silag-acto-back-server3.herokuapp.com','localhost']
+ALLOWED_HOSTS = ['192.168.1.67','www.192.168.1.67','www.m.actoviderm.ru','m.actoviderm.ru','m.silag-acto-back-server3.herokuapp.com','localhost']
 SITE_ID = 1
 IS_MOBILE = True
 # Application definition
@@ -103,12 +103,12 @@ WSGI_APPLICATION = 'acto.wsgi.application'
 #    heroku pg:psql postgresql-curly-64135 --app silag-acto-back-server3
 DATABASES = {
     'default': {
-         #   'ENGINE': 'django.db.backends.mysql',
-         #   "NAME":"certa_acto",
-         #   "USER":"certa_acto",
-         #"PASSWORD":"Wxru676yQ",
-            'ENGINE': 'django.db.backends.sqlite3',
-            "NAME":"db.sqlite3",
+             'ENGINE': 'django.db.backends.mysql',
+             "NAME":"certa_acto",
+             "USER":"certa_acto",
+             "PASSWORD":"Wxru676yQ",
+         #   'ENGINE': 'django.db.backends.sqlite3',
+         #   "NAME":"db.sqlite3",
             #"USER":"certa_acto",
             # "PASSWORD":"Wxru676yQ",
     }
