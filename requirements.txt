@@ -5,9 +5,11 @@ Django==1.10.5
 django-grappelli==2.9.1
 django-solo==1.1.2
 django-tinymce==2.6.0
+django-tinymce4-lite==1.7.0
 django-user-agents==0.3.2
 gunicorn==19.6.0
 idna==2.6
+jsmin==2.2.2
 olefile==0.44
 packaging==16.8
 Pillow==4.0.0
