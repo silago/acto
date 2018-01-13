@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'base',
+    'base_mobile',
     'solo',
     #'sorl.thumbnail',
     'tinymce',
