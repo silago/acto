@@ -10,8 +10,10 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-          <script src="//code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script>
+          <script src="http://code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script>
+          <!--
           <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <link rel="icon" type="image/png" href="/static/favicon.png" />
         <title>{{settings.title}}</title>
@@ -46,7 +48,8 @@
 
 	<meta name="yandex-verification" content="54883a35452f8514" />
         <script>
-
+          window.BASE_URL = "{{settings.site_url}}";
+          window.MOBILE_URL = "{{settings.mobile_site_url}}";
           function goFull() {
             setCookie("PREFER_FULL", true);
             document.Location = window.BASE_URL;
@@ -165,9 +168,28 @@ function isTouchDevice(){
 
       <style>
 
+      #mobile {
+          position:relative;
+          margin-top:61px;
+      }
+
+        .mobile .navbar .go-to-full {
+        }
         .mobile .navbar {
           z-index: 1060;
         }
+
+        .mobile .navbar .show ul {
+          min-height: 100%;
+          width: 100%;
+          position: fixed;
+          top: 61px;
+          background-color: #fff;
+          left: 0px;
+          min-height: 100%;
+          padding: 10px;
+        }
+
         #mobile > .navbar >  .navbar-collapse {
           margin-top: 10px;
         }
@@ -189,6 +211,9 @@ left: 0px;
         }
         .mobile .navbar-light .navbar-toggler {
           border-color:transparent;
+        }
+
+        body {
         }
       </style>
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
@@ -216,6 +241,11 @@ color: #ee5c72;
 
     .modal-dialog {
       pointer-events: auto;
+    }
+
+    .delivery {
+      text-align: center;
+      font-size: 11px;
     }
   </style>
 
@@ -256,18 +286,18 @@ color: #ee5c72;
                         {% endif %}
                     {% endfor %}
 
-      <li class="nav-item">
+      <li class="nav-item" style="position:absolute; bottom:140px;">
        <br />
-       <span style="font-size:24px"> 8 800 222-42-72</span>
+       <span style="font-size:24px"><a href="callto:88002224272" style="color:rgba(0,0,0,.5);">8 800 222-42-72</a></span>
        <br />
        <small style="font-size:10px;">
          Горячая линия препарата. Звонок по РФ - бесплатно
        </small>
       </li>
 
-      <li class="nav-item">
-       <br />
-       <span style="color:#000; font-size:24px"> <a href="#" onclick="goFull();"> Открыть полную версию сайта</a></span>
+      <li class="nav-item go-to-full" style="position:absolute; bottom:66px;">
+       <hr />
+       <span style="color:#000; font-size:24px"> <a style="color:rgba(0,0,0,.5);" href="#" onclick="goFull();"> Открыть полную версию сайта</a></span>
 
       </li>
     </ul>
@@ -323,6 +353,7 @@ choose_city_modal
 
 
            function choose_city(city, show_confirmation) {
+             $('#choose_city_modal').modal('hide');
 
                //if (typeof {{settings.yandex_counter_id}} != 'undefined') {
                //     {{settings.yandex_counter_id}}.reachGoal(cities[city].target);
@@ -893,6 +924,9 @@ $('.order-done.bg').click(function() {
 <style>
 .ui-textinput-clear-button {
   display: none;
+}
+.nopadding {
+  padding:0;
 }
 </style>
 

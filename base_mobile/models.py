@@ -263,6 +263,9 @@ class FooterPage(BaseSingletonModel):
     copy  = models.CharField(max_length=255)
     link = models.CharField(max_length=255)
     image = models.ImageField(verbose_name="Изображение")
+    text     = RichTextField(verbose_name="Текст")
+
+
     class Meta:
         verbose_name = "Подвал"
 
@@ -287,6 +290,7 @@ class BottomPage(BaseSingletonModel):
     free_delivery_button = models.ImageField(verbose_name="Баннер бесплатной доставки")
     no_delivery_button   = models.ImageField(verbose_name="Банер  без доставки")
     image   = models.ImageField(verbose_name="Изображение")
+
     class Meta:
         verbose_name = "Карта"
     #def getCities():

@@ -77,6 +77,12 @@
   <script>
   greenSlider = {
     index:1,
+    next: function() {
+      this.slide(this.index+1);
+    },
+    prev: function() {
+      this.slide(this.index-1);
+    },
     slide: function(i) {
       this.index = i;
         $('#page-green-mobile .slider').animate({
@@ -86,6 +92,16 @@
         $('.green-slider-'+i).show();
     }
   }
+
+
+      $('#page-green-mobile .slider-container').on("swipeleft", function() {
+        greenSlider.next();
+      });
+
+
+      $('#page-green-mobile .slider-container').on("swiperight", function() {
+        greenSlider.prev();
+      });
   </script>
 
 
@@ -129,10 +145,9 @@
 
           <div class="row">
               {% for item in page.items.all %}
-              <div class="center green-slider green-slider-{{forloop.counter0}}">
-                  <h4> На детской площадке
+              <div class="center green-slider green-slider-{{forloop.counter0}} hide">
+                  <h4> {{item.name}}
                       <div style="float:right">
-
                           <button style="background-color:transparent;"
                                   onClick="$('.green-slider-content-{{forloop.counter0}}').toggleClass('hide');"
                                   class="green-slider-content green-slider-content-{{forloop.counter0}}">
@@ -155,7 +170,7 @@
         <div class="col-6">
             <img class="" src="static/mobile/green/590.png" />
         </div>
-        <div class="col-6">
+        <div class="col-6 nopadding">
                 <button data-toggle="modal" data-target="#order-form-mobile" style="background-color:transparent;">
                   <img class="" src="static/mobile/top/offer_pink.png" />
                 </button>
@@ -173,9 +188,9 @@
       <div class="delivery free">
       <div class="row">
         <div class="col-6">
-            <img class="" src="static/mobile/top/590.png" />
+            <img class="" src="static/mobile/green/590.png" />
         </div>
-        <div class="col-6">
+        <div class="col-6 nopadding">
                 <button data-toggle="modal" data-target="#order-form-mobile" style="background-color:transparent;">
                   <img class="" src="static/mobile/top/offer_pink.png" />
                 </button>

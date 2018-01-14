@@ -13,6 +13,17 @@ admin.site.register(TopPage, SingletonModelAdmin)
 admin.site.register(MintPage, SingletonModelAdmin)
 admin.site.register(SiteSettings, SingletonModelAdmin)
 
+from .forms import ShopsForm
+
+class ShopsAdmin(admin.ModelAdmin):
+    form = ShopsForm
+    class Media:
+        js = (
+            "//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js",
+            "//api-maps.yandex.ru/1.1/index.xml",
+            "//api-maps.yandex.ru/2.1/?lang=ru_RU"
+        )
+
 class GreenPageItems(admin.TabularInline):
     verbose_name = "Элемент"
     verbose_name_plural  = "Элементы"
@@ -162,6 +173,6 @@ admin.site.register(TripleTextItem)
 
 admin.site.register(Town, admin.ModelAdmin)
 admin.site.register(City, admin.ModelAdmin)
-admin.site.register(Shop, admin.ModelAdmin)
+admin.site.register(Shop, ShopsAdmin)
 admin.site.register(Orders, admin.ModelAdmin)
 admin.site.register(Questions, admin.ModelAdmin)

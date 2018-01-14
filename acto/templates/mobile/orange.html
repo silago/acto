@@ -228,6 +228,9 @@
   border:3px solid orange;
   width:100%;
 }
+#orange-gal-ajax .modal {
+  top:60px;
+}
 </style>
 <script>
 
@@ -257,7 +260,7 @@ $.ajax({ // первый ajax запрос возвратит нам ID поль
       result+='      <img src="'+data.data[x].images.standard_resolution.url+'">';
       result+='      </div>';
       result+='      <div class="modal-footer">';
-      result+='        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>';
+      result+='        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>';
       result+='    </div>';
       result+='  </div>';
       result+='</div>';

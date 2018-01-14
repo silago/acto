@@ -281,31 +281,34 @@ var typeaheadTowns = $.typeahead({
             }
           }
 
-
           var result = '';
-          if (q.length < 2) {
-            return;
-          }
-          for (var i in shops ) {
-            var shop = shops[i];
-            if (shop.address.toLowerCase().indexOf(q)!=-1  || shop.name.toLowerCase().indexOf(q)!=-1 ||  shop.title.toLowerCase().indexOf(q)!=-1 || shop.metro.toLowerCase().indexOf(q)!=-1)  {
-              var str = "<li><a onclick='openYandex(\""+shops[i].address+"\");'>" + shops[i].name + " " +shops[i].address + "</a></li>";
-              result+=str;
-              //.push(
-              //  str
-              //);
+          if (shops.length == 0 ) {
+            result = "К сожалению АКТОВИДЕРМ отсутствует в аптеках вашего региона";
+          } else {
+            if (q.length < 2) {
+              return;
             }
-          }
+            for (var i in shops ) {
+              var shop = shops[i];
+              if (shop.address.toLowerCase().indexOf(q)!=-1  || shop.name.toLowerCase().indexOf(q)!=-1 ||  shop.title.toLowerCase().indexOf(q)!=-1 || shop.metro.toLowerCase().indexOf(q)!=-1)  {
+                var str = "<li><a onclick='openYandex(\""+shops[i].address+"\");'>" + shops[i].name + " " +shops[i].address + "</a></li>";
+                result+=str;
+                //.push(
+                //  str
+                //);
+              }
+            }
 
-          if (result == "") {
-            result = "Извините, по вашему запросу ничего не найдено.";
+            if (result == "") {
+              result = "Извините, по вашему запросу ничего не найдено.";
+            }
           }
 
           var item  = $('.shop-search-result').first();
           item.html(result);
         }
 
-        $( ".find-shops-input" ).change(function() {
+        $( ".find-shops-input" ).keydown(function() {
 
               console.log($( this ).val());
           findShops(
