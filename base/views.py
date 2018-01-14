@@ -43,8 +43,8 @@ def main(request):
     return render(request, 'index.html', {'pages':_result,'cities':cities,'towns':towns, 'settings':settings})
 
 def instagram(request):
-        token="1201565014.1bf0eec.6f326a5ff2db413c9c76a1671519fd41"
-        user_id = "1201565014"
+        token="5732994897.e4a3156.e15a706c10eb46d8bca34662bdd71715"
+        user_id = "5732994897"
         url=  "https://api.instagram.com/v1/users/" + user_id + "/media/recent?access_token=" + token
         r = requests.get(url)
         return HttpResponse(r.text)

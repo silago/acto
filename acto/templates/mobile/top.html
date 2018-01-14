@@ -75,8 +75,8 @@ margin-left: 26px;
 
 
 
-  #delivery-top .bubble input[type=button].active,
-  #delivery-top .bubble button.active {
+  #delivery-top .bubble input[type=button]:hover,
+  #delivery-top .bubble button:hover{
     background-color: orange;
   }
 
@@ -134,7 +134,7 @@ text-align: center;
         </div>
 
         <div class="col-5">
-          <button class="btn active" data-toggle="collapse" data-target="#city_confirmation" aria-controls="collapseExample">
+          <button class="btn" data-toggle="collapse" data-target="#city_confirmation" aria-controls="collapseExample">
             Да
           </button>
         </div>
@@ -175,7 +175,6 @@ text-align: center;
     <div class="row" class="delivery">
         <div class="col-12">
           <br/>
-          <br/>
         </div>
       </div>
       <div class="delivery free">
@@ -183,9 +182,9 @@ text-align: center;
         <div class="col-6">
             <img class="" src="static/mobile/top/590.png" />
         </div>
-        <div class="col-6 delivery free">
-                <button data-toggle="modal" data-target="#order-form-mobile">
-                  <img class="" src="static/mobile/top/offer_pink.png" />
+        <div class="col-6 delivery free" style="padding:0;">
+                <button class="hovering" data-toggle="modal" data-target="#order-form-mobile">
+                  <img class="hover" src="static/mobile/top/offer_pink.png" />
                 </button>
                 <br/>
                 Доставка бесплатно
@@ -204,7 +203,7 @@ text-align: center;
         <div class="col-6">
             <img class="" src="static/mobile/top/590.png" />
         </div>
-        <div class="col-6">
+        <div class="col-6" style="padding:0;">
                 <button data-toggle="modal" data-target="#order-form-mobile">
                   <img class="" src="static/mobile/top/offer_pink.png" />
                 </button>
@@ -219,8 +218,6 @@ text-align: center;
       </div>
       </div>
     </div>
-  <br/>
-  <br/>
     <div class="triangle-down">
     </div>
   </div>
