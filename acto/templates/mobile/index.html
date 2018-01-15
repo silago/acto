@@ -2,7 +2,6 @@
 {% load static %}
 <html>
     <head>
-
 <meta name="viewport" content="width=device-width" />
 
 
@@ -11,9 +10,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
           <script src="http://code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script>
-          <!--
           <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-        -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <link rel="icon" type="image/png" href="/static/favicon.png" />
         <title>{{settings.title}}</title>
@@ -92,6 +89,11 @@ function isTouchDevice(){
         });
         </script>
         <script>
+      /*
+        {% for c in cities %}
+          {{c.name}}
+        {% endfor %}
+        */
         window.cities = {
         {% for c in cities %}
             '{{c.name}}':{
@@ -170,7 +172,7 @@ function isTouchDevice(){
 
       #mobile {
           position:relative;
-          margin-top:61px;
+          margin-top:0px;
       }
 
         .mobile .navbar .go-to-full {
@@ -247,6 +249,14 @@ color: #ee5c72;
       text-align: center;
       font-size: 11px;
     }
+    body  {
+      max-width: 540px;
+    }
+
+    #ask-form div {
+      box-shadow: initial!important ;
+      background-color: transparent;
+    }
   </style>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -281,7 +291,7 @@ color: #ee5c72;
                     {% for page in pages|dictsort:"order" %}
                         {% if page.menu_title %}
                           <li class="nav-item">
-                            <a class="nav-link" href="#{{page.slug}}">{{page.menu_title|title}}</a>
+                            <a class="nav-link" href="#anchor-{{page.slug}}">{{page.menu_title|title}}</a>
                           </li>
                         {% endif %}
                     {% endfor %}
@@ -446,7 +456,7 @@ choose_city_modal
 
 
 
-                    for (var i =0; i<window.onCityChosen.length; i++) { onCityChosen[i](); }
+                    for (var i =0; i<window.onCityChosen.length; i++) { onCityChosen[i](city); }
 
 
            }
@@ -633,7 +643,7 @@ function ahead(val) {
 
 
         {% for page in pages|dictsort:"order" %}
-        <a name="{{page.slug}}" class="{{page.slug}} anchor"> <!--{{page.template}}--> </a>
+        <a name="anchor-{{page.slug}}" class="{{page.slug}} anchor"> <!--{{page.template}}--> </a>
             {% include page.template %}
         {% endfor %}
 
@@ -919,6 +929,10 @@ $('.order-done.bg').click(function() {
       });
    });
 
+    $('a[href^="#"]').bind('click vclick', function (ev) {
+        location.hash = $(this).attr('href');
+        return false;
+    });
 
 </script>
 <style>

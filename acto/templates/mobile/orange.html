@@ -245,7 +245,7 @@ $.ajax({ // первый ajax запрос возвратит нам ID поль
     var result = "";
 
     for (x in data.data) {
-      console.log(data.data[x].images.thumbnail.url);
+      //console.log(data.data[x].images.thumbnail.url);
       if (i == 0) {
         result+="<div class='row'>";
       }
@@ -278,11 +278,11 @@ $.ajax({ // первый ajax запрос возвратит нам ID поль
       }
       k++;
     }
-    console.log(result);
+    //console.log(result);
     $('#orange-gal-ajax').html(result);
 	},
 	error: function(result){
-		console.log(result);
+		//console.log(result);
 	}
 });
 </script>

@@ -37,6 +37,12 @@ z-index: 1080;
 </style>
 
 
+      <!--
+        {% for c in cities %}
+          {{c.name}}
+        {% endfor %}
+      -->
+
 <div id="choose_city_modal" class="modal fade">
   <div class="choose-region modal-dialog">
     <div class="container">
@@ -91,6 +97,13 @@ z-index: 1080;
         <p>
         <br/>
       </p>
+
+
+      <!--
+        {% for c in cities %}
+          {{c.name}}
+        {% endfor %}
+      -->
     {% for city in cities %}
     <div class="col-12">
         <a href="#" data-name="{{city.name}}" onclick="choose_city('{{city.name}}');">{{ city.name }}</a>

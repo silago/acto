@@ -134,7 +134,7 @@
                                    autocomplete="off">
                                  </span>
                                 <span class="typeahead__button">
-                                    <button type="submit"  onclick="$('#choose_city_modal').modal('show');">
+                                    <button type=""  onclick="$('#choose_city_modal').modal('show');">
                                         <span class="oi oi-chevron-right" title="icon name" aria-hidden="true"></span>
                                     </button>
                                 </span>
@@ -268,6 +268,20 @@ var typeaheadTowns = $.typeahead({
         };
         */
 
+        checkShops = function(name) {
+          var item  = $('.shop-search-result').first();
+          var result="";
+          var city = name;
+           var len = 0;
+          for (var i in cities[city].towns) {
+              len+=cities[city].towns[i].shops.length;
+          }
+          if (len == 0) {
+            result = "К сожалению АКТОВИДЕРМ отсутствует в аптеках вашего региона";
+          }
+          item.html(result);
+        }
+        window.onCityChosen.push(checkShops);
 
         findShops = function(q) {
 		q = q.toLowerCase();
@@ -283,7 +297,7 @@ var typeaheadTowns = $.typeahead({
 
           var result = '';
           if (shops.length == 0 ) {
-            result = "К сожалению АКТОВИДЕРМ отсутствует в аптеках вашего региона";
+            result = "К сожалению АКТОВИДЕРМ отсутствует в аптеках вашего города";
           } else {
             if (q.length < 2) {
               return;
@@ -293,9 +307,6 @@ var typeaheadTowns = $.typeahead({
               if (shop.address.toLowerCase().indexOf(q)!=-1  || shop.name.toLowerCase().indexOf(q)!=-1 ||  shop.title.toLowerCase().indexOf(q)!=-1 || shop.metro.toLowerCase().indexOf(q)!=-1)  {
                 var str = "<li><a onclick='openYandex(\""+shops[i].address+"\");'>" + shops[i].name + " " +shops[i].address + "</a></li>";
                 result+=str;
-                //.push(
-                //  str
-                //);
               }
             }
 
