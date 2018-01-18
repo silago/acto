@@ -90,6 +90,8 @@
         });
         $('.green-slider').hide();
         $('.green-slider-'+i).show();
+
+              //="center green-slider green-slider-{{forloop.counter0}} hide">
     }
   }
 
@@ -146,7 +148,8 @@
           <div class="row">
               {% for item in page.items.all %}
               <div class="center green-slider green-slider-{{forloop.counter0}} hide">
-                  <h4> {{item.name}}
+                  <h4>
+                  {{item.alt}}
                       <div style="float:right">
                           <button style="background-color:transparent;"
                                   onClick="$('.green-slider-content-{{forloop.counter0}}').toggleClass('hide');"
@@ -202,7 +205,7 @@
                 </a>
         </div>
       </div>
-      </div>
+    </div>
 
       <br/>
       <br/>

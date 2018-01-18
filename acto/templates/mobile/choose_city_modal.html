@@ -105,7 +105,7 @@ z-index: 1080;
         {% endfor %}
       -->
     {% for city in cities %}
-    <div class="col-12">
+    <div class="col-12 city-list-modal" >
         <a href="#" data-name="{{city.name}}" onclick="choose_city('{{city.name}}');">{{ city.name }}</a>
       <hr />
     </div>
@@ -118,6 +118,24 @@ z-index: 1080;
 
 
   <script>
+
+     function prepareRegions(q) {
+        var result =[];
+        for (i in cities) {
+          var city = cities[i];
+          result.push(city);
+          //item = '<a href="#" data-name="'+city.name+'" onclick="choose_city(\''+city.name+'\');">'+city.name+'</a>';
+        }
+        result.sort(function(a,b) {
+          var _ =  a.indexOf(q);
+          if (_>0) return _; return a.order - b.order;
+        });
+
+
+
+     }
+
+
 
      highlightBlue = function() {
         var name = window.lc.getItem('ChosenName');
@@ -141,11 +159,7 @@ z-index: 1080;
             },
              callback: {
                 onSubmit : function(node, form, item, event) {
-                  console.log(node);
-                  console.log(form);
-                  console.log(item);
                   choose_city(item.name);
-                  console.log(event);
                   event.preventDefault();
                   $('#choose_city_modal').modal('hide');
                   $('#city_confirmation').hide();
