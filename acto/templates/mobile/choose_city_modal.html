@@ -119,24 +119,6 @@ z-index: 1080;
 
   <script>
 
-     function prepareRegions(q) {
-        var result =[];
-        for (i in cities) {
-          var city = cities[i];
-          result.push(city);
-          //item = '<a href="#" data-name="'+city.name+'" onclick="choose_city(\''+city.name+'\');">'+city.name+'</a>';
-        }
-        result.sort(function(a,b) {
-          var _ =  a.indexOf(q);
-          if (_>0) return _; return a.order - b.order;
-        });
-
-
-
-     }
-
-
-
      highlightBlue = function() {
         var name = window.lc.getItem('ChosenName');
         $('.city-list a.active').removeClass('active');
@@ -157,7 +139,22 @@ z-index: 1080;
                     data: Object.values(cities)
                 }
             },
-             callback: {
+            callback: {
+                onResult: function(node, query) {
+                  var chosen = window.lc.getItem('ChosenName');
+                  var result = prepareRegions(query);
+                  var template = "";
+                  for(var i in result) {
+                    var city = result[i];
+                    template+='<div class="col-12 city-list-modal" >';
+                    template+='<a class="'+(city.name == chosen ? 'active' :'')+'" href="#" data-name="'+city.name+'" onclick="choose_city(\''+city.name+'\');">'+city.name+'</a>';
+                    template+='<hr />';
+                    template+='</div>';
+                  }
+                  $('.city-list').html(template);
+                },
+                onSearch: function() {
+                },
                 onSubmit : function(node, form, item, event) {
                   choose_city(item.name);
                   event.preventDefault();

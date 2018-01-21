@@ -106,7 +106,10 @@
    }
 </style>
 
-<a name="find-shop"></a>
+<div style="position: absolute;">
+  <a style="position: relative; top:-60px;" name="find-shop">
+  </a>
+</div>
 <div id="find-shop-mobile">
   <div class="container">
     <div class="row">
@@ -169,6 +172,7 @@
                     <div class="typeahead__field">
                         <span class="typeahead__query">
                                   <input placeholder="Поиск по улице или метро" class="js-typeahead-bottom-shops find-shops-input"
+                                  onclick="$.mobile.silentScroll($(this).offset().top-65);"
                                    name="q"
                                    type="search"
                                    autofocus
@@ -321,7 +325,7 @@ var typeaheadTowns = $.typeahead({
 
         $( ".find-shops-input" ).keydown(function() {
 
-              console.log($( this ).val());
+              //console.log($( this ).val());
           findShops(
               $( this ).val()
           );

@@ -10,6 +10,7 @@
   }
   </script>
 
+
 <div id="page-docs-mobile">
     <br/>
     <br/>
@@ -33,7 +34,18 @@
                     {% endfor %}
     </div>
     </div>
-    <div class="modal fade" id="modal-docs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" style="z-index:1070;" id="modal-docs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<nav class="navbar fixed-top x-navbar-expand-lg navbar-light bg-light" style="z-index:1070;">
+  <hr class="pink-border" />
+  <a class="navbar-brand" href="#" onclick="$('.modal').modal('hide');">
+                    <img src="static/./logo.png" id="logo"></a>
+  </a>
+
+  <button class="navbar-toggler" onclick="$('.modal').modal('hide');">
+    <span class="close oi oi-x" title="icon name" ></span>
+  </button>
+</nav>
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">

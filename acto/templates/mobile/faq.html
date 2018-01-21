@@ -269,7 +269,7 @@ float: right;
 
     <div class="row">
         <div class="col-12">
-            <div id="page-faq-carousel" class="carousel slide" data-ride="carousel">
+            <div id="page-faq-carousel" class="carousel slide" data-ride="false">
 
               <ol class="carousel-indicators">
 
@@ -290,6 +290,107 @@ float: right;
                           </div>
                         </div>
                     {% endfor %}
+
+                    <div class="carousel-item ignore-fit-item">
+
+
+              <div class="ask-form-done">
+                <div class="container">
+                    <div class="row">
+                          <div class="col-12">
+                                  Спасибо, мы получили ваш вопрос и ответим на него в ближайшее время.
+                          </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                  <button type="button" class="" onclick="ask_back()"
+style="
+position: relative;
+top: 229px;
+left: -61px;
+width: 39%;
+"
+                  >
+                    <img src="static/mobile/faq/thankyou.png" />
+                  </button>
+              </div>
+              </div>
+              </div>
+              <div class="container ask_form" id="ask-form">
+
+                <div class="row">
+                  <div class="col-12">
+                  <div class="title"> НЕ НАШЛИ ОТВЕТ?<br>ЗАДАЙТЕ СВОЙ ВОПРОС! </div>
+                </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12">
+                    <input type="text" class="name form-control" placeholder="Ваше имя*" aria-label="Username" aria-describedby="basic-addon0"></div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12">
+                      <input type="text" class="mail form-control" placeholder="Электронный адрес" aria-label="E-mail" aria-describedby="basic-addon0"></div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12">
+                      <input type="text" class="phone form-control" placeholder="Телефон*" aria-label="Phone" aria-describedby="basic-addon0"></div>
+              </div>
+
+                <div class="row">
+                  <div class="col-12">
+                      <input type="text" class="question form-control" placeholder="Ваш вопрос*" aria-label="Question" aria-describedby="basic-addon0"></div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12">
+
+                      <img class="capcha" src="/capcha" />
+                      <input type="text" class="capcha form-control" placeholder="Анти-спам код" aria-label="Anti-spam code" aria-describedby="basic-addon0"></div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12 form-error">
+                  </div>
+                </div>
+                <div class="row">
+
+                  <div class="col-1"></div>
+                  <div class="col-11">
+                  * - поля, обязательные для заполнения</div>
+              </div>
+
+                <div class="row">
+
+                  <div class="col-8">
+                      <br/>
+                      <br/>
+                      <br/>
+
+                  <button type="button" class="" onclick="ask()">
+                    <img src="static/mobile/faq/send.png" />
+                  </button>
+                </div>
+
+              </div>
+
+              </div>
+
+                  <div class="container">
+                  <div class="row">
+                  <div class="col-12">
+                      <br/>
+                </div>
+                </div>
+                </div>
+    </div>
+                    </div>
+
+
               </div>
 
 
@@ -360,100 +461,6 @@ width: 90%;
     </style>
 
               <a id="anchor-ask-form"></a>
-              <div class="ask-form-done">
-                <div class="container">
-                    <div class="row">
-                          <div class="col-12">
-                                  Спасибо, мы получили ваш вопрос и ответим на него в ближайшее время.
-                          </div>
-                    </div>
-                </div>
-
-                <div class="container">
-                    <div class="row">
-                  <button type="button" class="" onclick="ask_back()"
-style="
-position: relative;
-top: 230px;
-left: -60px;
-width: 40%;
-"
-                  >
-                    <img src="static/mobile/faq/thankyou.png" />
-                  </button>
-              </div>
-              </div>
-              </div>
-              <div class="container ask_form" id="ask-form">
-
-                <div class="row">
-                  <div class="col-12">
-                  <div class="title"> НЕ НАШЛИ ОТВЕТ?<br>ЗАДАЙТЕ СВОЙ ВОПРОС! </div>
-                </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-12">
-                    <input type="text" class="name form-control" placeholder="Ваше имя*" aria-label="Username" aria-describedby="basic-addon1"></div>
-                </div>
-
-                <div class="row">
-                  <div class="col-12">
-                      <input type="text" class="mail form-control" placeholder="Электронный адрес" aria-label="E-mail" aria-describedby="basic-addon1"></div>
-                </div>
-
-                <div class="row">
-                  <div class="col-12">
-                      <input type="text" class="phone form-control" placeholder="Телефон*" aria-label="Phone" aria-describedby="basic-addon1"></div>
-              </div>
-
-                <div class="row">
-                  <div class="col-12">
-                      <input type="text" class="question form-control" placeholder="Ваш вопрос*" aria-label="Question" aria-describedby="basic-addon1"></div>
-                </div>
-
-                <div class="row">
-                  <div class="col-12">
-
-                      <img class="capcha" src="/capcha" />
-                      <input type="text" class="capcha form-control" placeholder="Анти-спам код" aria-label="Anti-spam code" aria-describedby="basic-addon1"></div>
-                </div>
-
-                <div class="row">
-                  <div class="col-12 form-error">
-                  </div>
-                </div>
-                <div class="row">
-
-                  <div class="col-1"></div>
-                  <div class="col-10">
-                  * - поля, обязательные для заполнения</div>
-              </div>
-
-                <div class="row">
-
-                  <div class="col-7">
-                      <br/>
-                      <br/>
-                      <br/>
-
-                  <button type="button" class="" onclick="ask()">
-                    <img src="static/mobile/faq/send.png" />
-                  </button>
-                </div>
-
-              </div>
-
-              </div>
-
-                  <div class="container">
-                  <div class="row">
-                  <div class="col-12">
-                      <br/>
-                </div>
-                </div>
-                </div>
-    </div>
 
 
   <script>

@@ -334,6 +334,7 @@ class Town(models.Model):
     region = models.ForeignKey('City', related_name='towns', null=True)
     x    = models.FloatField(null=True, blank=True)
     y    = models.FloatField(null=True, blank=True)
+    order   = models.IntegerField(verbose_name="Порядок")
     def __unicode__(self):
        return u'%s' % (self.name)
 

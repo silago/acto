@@ -95,14 +95,16 @@ function isTouchDevice(){
         {% endfor %}
         */
         window.cities = {
-        {% for c in cities %}
+
+        {% for c in cities.all|dictsort:"order" %}
             '{{c.name}}':{
                 'x':'{{c.x}}',
                 'y':'{{c.y}}',
                 'target':'{{c.target}}',
                 'name':'{{c.name}}',
+                'order':'{{c.order}}',
                 'delivery':'{{c.has_delivery}}',
-                'towns':[{% for s in c.towns.all %}
+                'towns':[{% for s in c.towns.all|dictsort:"order" %}
                    {
                        'name':'{{s.name}}',
                        'x':'{{s.x}}',
@@ -141,7 +143,7 @@ function isTouchDevice(){
 
 
         window.towns = [
-        {% for c in towns %} {
+        {% for c in towns.all|dictsort:"order" %} {
                 'x':'{{c.x}}',
                 'y':'{{c.y}}',
                 'name':'{{c.name}}',
@@ -168,7 +170,23 @@ function isTouchDevice(){
         <div id="left-border">
         </div>
 
-      <style>
+      <style type="text/css">
+
+      .hovering:hover *:not(.hover) {
+          display: none;
+      }
+
+      .hovering:hover *.hover {
+          display: inline-block;
+      }
+
+      .hovering *:not(.hover) {
+          display: inline-block;
+      }
+
+      .hovering *.hover {
+          display: none;
+      }
 
       #mobile {
           position:relative;
@@ -179,6 +197,7 @@ function isTouchDevice(){
         }
         .mobile .navbar {
           z-index: 1060;
+          min-width: 306px;
         }
 
         .mobile .navbar .show ul {
@@ -218,11 +237,6 @@ left: 0px;
         body {
         }
       </style>
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-  <hr class="pink-border" />
-  <a class="navbar-brand" href="#" onclick="$('.modal').modal('hide');">
-                    <img src="static/./logo.png" id="logo"></a>
-  </a>
 
 <style>
   button.navbar-toggler[aria-expanded=false] > .open {
@@ -251,6 +265,8 @@ color: #ee5c72;
     }
     body  {
       max-width: 540px;
+      margin: 0 auto;
+      min-width: 306px;
     }
 
     #ask-form div {
@@ -258,6 +274,12 @@ color: #ee5c72;
       background-color: transparent;
     }
   </style>
+
+<nav class="navbar fixed-top x-navbar-expand-lg navbar-light bg-light">
+  <hr class="pink-border" />
+  <a class="navbar-brand" href="#" onclick="$('.modal').modal('hide');">
+                    <img src="static/./logo.png" id="logo"></a>
+  </a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="open navbar-toggler-icon"></span>
@@ -640,10 +662,22 @@ function ahead(val) {
         </div>
         <div class="clear"></div>
 
+        <style>
+          .anchor-holder {
+            position: relative;
+          }
+          .anchor-holder .anchor {
+            position: absolute;
+            x-top:60px;
+          }
+
+        </style>
 
 
         {% for page in pages|dictsort:"order" %}
-        <a name="anchor-{{page.slug}}" class="{{page.slug}} anchor"> <!--{{page.template}}--> </a>
+        <div class="anchor-holder">
+          <a name="anchor-{{page.slug}}" class="{{page.slug}} anchor"> <!--{{page.template}}--> </a>
+        </div>
             {% include page.template %}
         {% endfor %}
 
@@ -659,6 +693,22 @@ function ahead(val) {
       -->
 
     <script type="text/javascript">
+
+     function prepareRegions(q) {
+        var result =[];
+        for (i in cities) {
+          var city = cities[i];
+          result.push(city);
+          //item = '<a href="#" data-name="'+city.name+'" onclick="choose_city(\''+city.name+'\');">'+city.name+'</a>';
+        }
+        result = result.sort(function(a,b) {
+          if (a.name.indexOf(q) !=-1) return -1;
+          if (b.name.indexOf(q) !=-1) return 1;
+          return b.order - a.order;
+        });
+        return result;
+     }
+
     function toSemi(s) {
         return Number(s);
         //return Number(s.replace('.',','));
@@ -894,15 +944,18 @@ $('.order-done.bg').click(function() {
       var max = 0;
       var items = $(carousel).find('.carousel-item');
       items.each(function(k,item) {
+            if ($(item).hasClass('ignore-fit-item')) {
+              return;
+            }
            if ($(item).height() > max) {
               max = $(item).height();
         }
       });
       max+=10;
-      $(carousel).first('.adjust').height(max);
+      $(carousel).first('.adjust').css('min-height',max);
 
       items.each(function(k,item) {
-           $(item).height(max);
+           $(item).css('min-height',max);
       });
     });
   });
