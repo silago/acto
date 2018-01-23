@@ -256,7 +256,11 @@ float: right;
       </div>
         <div class="col-6">
 
-            <a class="ask-btn" href="#anchor-ask-form">Задать вопрос</a>
+            <a class="ask-btn"
+              onclick="
+                $('#page-faq-carousel').carousel($('#page-faq-carousel .carousel-item').length-1);
+              "
+            >Задать вопрос</a>
           </button>
       </div>
     </div>
@@ -269,7 +273,7 @@ float: right;
 
     <div class="row">
         <div class="col-12">
-            <div id="page-faq-carousel" class="carousel slide" data-ride="false">
+            <div id="page-faq-carousel" data-interval="99999" class="carousel slide" data-ride=false>
 
               <ol class="carousel-indicators">
 
@@ -471,10 +475,18 @@ width: 90%;
 
                     function ask() {
 
+
+                      $(".ask_form .name").mask("+7(999) 999-9999");
+
                             $('.ask_form input').removeClass('error');
                             $('.ask_form textarea').removeClass('error');
                             var name = $('.ask_form .name').val();
+
+
                             if (!name) $('.ask_form .name').addClass('error');
+                            if (name.match(/[0-9]/) != null) {
+                              $('.ask_form .name').addClass('error');
+                            }
                             var capcha = $('.ask_form input.capcha').val();
                             if (!capcha) $('.ask_form input.capcha').addClass('error');
                             var mail = $('.ask_form .mail').val();
