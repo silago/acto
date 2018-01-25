@@ -12,9 +12,10 @@
 
 
   #delivery-top img.logo {
-        margin-top: -34px;
+        margin-top: -23px;
     margin-left: -8px;
-    width: 164px;
+    x-width: 164px;
+    width: 100%;
   }
 
   #delivery-top > .container {
@@ -26,9 +27,13 @@
     background-size: 100%;
     padding-bottom: 0px;
   }
-
+#delivery-top .title span {
+  background-color: #ffa730;
+padding-left: 20px;
+}
   #delivery-top .title {
 
+    /*
     text-align: right;
 text-transform: uppercase;
 color: white;
@@ -39,6 +44,21 @@ line-height: 36px;
 transform: scale(0.8,1);
 letter-spacing: 1px;
 margin-left: 26px;
+*/
+
+text-align: right;
+text-transform: uppercase;
+color: white;
+font-weight: bolder;
+font-size: 30px;
+padding-top: 10px;
+line-height: 28px;
+transform: scale(0.8,1);
+letter-spacing: 5px;
+margin-left: 26px;
+
+
+
   }
 
 
@@ -139,11 +159,17 @@ margin-bottom: 20px;
   <div class="container">
     <div class="row">
         <div class="col-12 title">
+          <span>
                 Жидкая
+              </span>
                 <br />
+          <span>
                 Аэрозольная
+              </span>
                 </br>
+          <span>
                 повязка
+              </span>
                 <!--
                 {{page.title.mobile|safe}}
                 -->

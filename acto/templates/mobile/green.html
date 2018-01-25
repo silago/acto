@@ -5,7 +5,7 @@
   }
 
   #page-green-mobile .container {
-    background-color: #bed73a;
+    x-background-color: #bed73a;
   }
 
   #page-green-mobile .slider-container {
@@ -32,15 +32,18 @@
             div#page-green-mobile .triangle-down {
                 width: 0;
                 height: 0;
-                border-left: 1600px solid transparent;
+
+                border-left: : 1600px solid transparent;
                 border-top: 64px solid #bed73a;
+                margin-left: -100px;
             }
 
             div#page-green-mobile .triangle-up {
                 width: 0;
                 height: 0;
-                border-right: 1600px solid transparent;
-                border-bottom: 64px solid #bed73a;
+
+                border-right: 500px solid transparent;
+                border-bottom: 44px solid #bed73a;
             }
 
             .green-slider {
@@ -96,30 +99,39 @@
   }
 
 
-      $('#page-green-mobile .slider-area').on("swipeleft", function() {
-        greenSlider.next();
-      });
-
-
-      $('#page-green-mobile .slider-area').on("swiperight", function() {
-        greenSlider.prev();
-      });
   </script>
 
 
 </div>
 
 
-<div id="page-green-mobile">
+<div id="page-green-mobile"
+style="
+"
+>
             <div class="triangle-up"> </div>
 
-  <div class="container">
+  <div class="container"
+                    style="
+                    background-image: url(/static/mobile/green/stars.png);
+                    background-repeat: no-repeat;
+                    background-color: #bed73a;
+                    background-position: 94% top;
+                    "
+  >
     <div class="row">
-        <div class="col-6">
+        <div class="col-7"
+          style="
+            margin-top:-18px;
+            width:100%;
+          "
+        >
                 <img alt="{{page.caption|striptags}}" class="logo" src="{{page.logo.url}}" />
         </div>
           </div>
-    <div class="row .slider-area">
+    <div class="row slider-area"
+style="margin-top:20px;"
+    >
         <div class="slider-container">
           <table class="slider" style="width: {{page.items.all|length}}00%; ">
 
@@ -208,9 +220,6 @@
         </div>
       </div>
     </div>
-
-      <br/>
-      <br/>
       <br/>
     </div>
             <div class="triangle-down"> </div>
@@ -308,3 +317,15 @@
             <div class="triangle-down"></div>
         </div>
       -->
+
+      <script type="text/javascript">
+
+      $('#page-green-mobile .slider-area').on("swipeleft", function() {
+        greenSlider.next();
+      });
+
+
+      $('#page-green-mobile .slider-area').on("swiperight", function() {
+        greenSlider.prev();
+      });
+      </script>

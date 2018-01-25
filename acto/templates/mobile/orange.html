@@ -250,21 +250,21 @@ $.ajax({ // первый ajax запрос возвратит нам ID поль
         result+="<div class='row'>";
       }
       result+="<div class='col-4'>";
-      result+="<img data-toggle='modal' data-target='#orange-modal-"+k+"' src='"+data.data[x].images.thumbnail.url+"' />";
+      result+="<img data-toggle='modal' no-any-data-target='#orange-modal-"+k+"' src='"+data.data[x].images.thumbnail.url+"' />";
       result+="</div>";
 
-      result+='<div class="modal fade" id="orange-modal-'+k+'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">';
-      result+='  <div class="modal-dialog" role="document">';
-      result+='    <div class="modal-content">';
-      result+='      <div class="modal-body">';
-      result+='      <img src="'+data.data[x].images.standard_resolution.url+'">';
-      result+='      </div>';
-      result+='      <div class="modal-footer">';
-      result+='        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>';
-      result+='    </div>';
-      result+='  </div>';
-      result+='</div>';
-      result+='</div>';
+      //result+='<div class="modal fade" id="orange-modal-'+k+'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">';
+      //result+='  <div class="modal-dialog" role="document">';
+      //result+='    <div class="modal-content">';
+      //result+='      <div class="modal-body">';
+      //result+='      <img src="'+data.data[x].images.standard_resolution.url+'">';
+      //result+='      </div>';
+      //result+='      <div class="modal-footer">';
+      //result+='        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>';
+      //result+='    </div>';
+      //result+='  </div>';
+      //result+='</div>';
+      //result+='</div>';
 
 
       if (i == 2) {

@@ -18,6 +18,7 @@ text-align: center;
     }
     #page-blue .container .carousel-item .img {
         text-align:center;
+        width: 259px;
     }
 
     #page-blue .container .item-bg {
@@ -25,7 +26,7 @@ text-align: center;
                         background-position: 25px 20px;
                         min-height: 150px;
                       }
-                      
+
     div#page-blue {
       margin-top:0px!important;
     }
@@ -43,7 +44,7 @@ text-align: center;
             </div>
 
 
-<div id="page-blue-carousel" class="carousel slide" data-ride="carousel">
+<div id="page-blue-carousel" class="carousel slide" data-ride="false">
   <div class="carousel-inner container" role="listbox">
                    {% for item in page.items.all %}
                     <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
@@ -70,14 +71,6 @@ text-align: center;
   </div>
                     {% endfor %}
   </div>
-  <a class="carousel-control-prev" href="#page-blue-carousel" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#page-blue-carousel" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
 </div>
 <div class="container">
   <br/>

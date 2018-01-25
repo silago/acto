@@ -2,13 +2,23 @@
   #page-docs-mobile img {
     max-width: 100%;
   }
+
+  #page-docs-mobile .dots-bg {
+background-image: url(static/mobile/docs/bg.png);
+background-size: 100% 100%;
+padding-top:  0.5em;
+padding-bottom: 0.5em;
+  }
+
 </style>
 <script>
   docsCarouselActivate = function(i) {
     $('.docs-carousel-item').removeClass('active');
     $('.docs-carousel-item-'+i).addClass('active');
   }
-  </script>
+
+
+ </script>
 
 
 <div id="page-docs-mobile">
@@ -16,21 +26,23 @@
     <br/>
   <div class="container">
     <div class="row">
-      <div class="col-6">
+      <div class="col-7">
                             <img  src="{{page.logo.url}}" />
       </div>
     </div>
     <br/>
     <div class="row">
                     {% for item in page.items.all %}
-                    <div class="col-4">
                                                {% if forloop.counter < 4 %}
+                    <div class="col-4 dots-bg">
                             <a data-toggle="modal" data-target="#modal-docs" onclick="docsCarouselActivate({{forloop.counter0}});">
-                              <img alt="{{item.alt}}" src="{{item.image.url}}" />
+                              <img alt="{{item.alt}}" src="{{item.image.url}}"  style="
+                                border:1.5px solid #2c4f8a;
+                              "/>
                             </a>
 
-                                               {% endif %}
                     </div>
+                                               {% endif %}
                     {% endfor %}
     </div>
     </div>
