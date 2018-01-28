@@ -19,6 +19,14 @@
     max-width: 100%;
 
   }
+
+  #page-bottom-mobile .m-form-button.offer:hover a {
+      background-image: url(static/mobile/top/offer_gray.png);
+  }
+
+  #page-bottom-mobile .m-form-button.offer:not(:hover) a {
+      background-image: url(static/mobile/top/offer_pink.png);
+  }
             div#page-bottom-mobile .triangle-up {
                 border-left: 1600px solid transparent;
                 border-top: 94px solid #fff;
@@ -55,18 +63,25 @@ margin-top:-30px;
                     <div class="col-6">
                           <img src="static/mobile/bottom/590.png" />
                     </div>
-                    <div class="col-6" style="text-align:center;">
-                          <br />
-                          <button data-toggle="modal" data-target="#order-form-mobile" style="background-color:transparent;">
-                              <img src="static/mobile/bottom/order-pink.png" />
+                    <div class="col-6 delivery" style="text-align:center; ">
+
+                      <div class="hovering m-form-button offer"
+                      style="
+margin-top: 36px;
+margin-left: -5px;
+                      ">
+                          <a class="upper" data-toggle="modal" data-target="#order-form-mobile"
+                          >
+                          оформить заказ
                           </a>
-                          <br/>
+
                           <p class="info delivery non-free">
                               Доставка оплачивается отдельно
                           </p>
                           <p class="info delivery free">
                               Бесплатная доставка
                           </p>
+                      </div>
                     </div>
                 </div>
             </div>

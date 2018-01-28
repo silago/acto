@@ -9,7 +9,7 @@
   }
 
   #page-green-mobile .slider-container {
-    width: 247px;
+    max-width: 157px;
 
     /* height: 200px; */
     margin: 0 auto;
@@ -20,9 +20,26 @@
   }
 
   #page-green-mobile .slider-container img {
-    width:217px;
-    margin:0 15px;
+    max-width:157px;
+    padding: 0 9px;
   }
+
+  #page-green-mobile  .m-form-button.offer:hover a {
+      background-image: url(static/mobile/top/offer_gray.png);
+  }
+
+  #page-green-mobile  .m-form-button.offer:not(:hover) a {
+      background-image: url(static/mobile/top/offer_pink.png);
+  }
+
+  #page-green-mobile  .m-form-button.buy:hover a {
+      background-image: url(static/mobile/top/buy_gray.png);
+  }
+
+  #page-green-mobile  .m-form-button.buy:not(:hover) a {
+      background-image: url(static/mobile/top/buy_green.png);
+  }
+
 
   #page-green-mobile .slider {
     width:200%;
@@ -186,17 +203,19 @@ style="margin-top:20px;"
             <img class="" src="static/mobile/green/590.png" />
         </div>
         <div class="col-6 nopadding">
-                <a class="hovering" data-toggle="modal" data-target="#order-form-mobile">
-                  <img class="" src="static/mobile/top/offer_pink.png" />
-                  <img class="hover" src="static/mobile/top/offer_gray.png" />
-                </a>
+                <div class="hovering m-form-button offer">
+                    <a class="upper" data-toggle="modal" data-target="#order-form-mobile"
+                    >
+                    оформить заказ
+                    </a>
+                </div>
+                Доставка оплачивается отдельно
                 <br/>
-
-               Доставка оплачивается отдельно
-                <br/>
-                <a href="#find-shop">
-                  <img class="" src="static/mobile/top/buy_green.png" />
-                </a>
+                <div class="hovering m-form-button buy">
+                  <a href="#find-shop" class="lower">
+                    купить в аптеке
+                  </a>
+                </div>
         </div>
       </div>
       </div>
@@ -207,16 +226,19 @@ style="margin-top:20px;"
             <img class="" src="static/mobile/green/590.png" />
         </div>
         <div class="col-6 nopadding">
-                <a class="hovering" data-toggle="modal" data-target="#order-form-mobile">
-                  <img class="" src="static/mobile/top/offer_pink.png" />
-                  <img class="hover" src="static/mobile/top/offer_gray.png" />
-                </a>
-                <br/>
+                <div class="hovering m-form-button offer">
+                    <a class="upper" data-toggle="modal" data-target="#order-form-mobile"
+                    >
+                    оформить заказ
+                    </a>
+                </div>
                 Бесплатная доставка
                 <br/>
-                <a href="#find-shop">
-                  <img class="" src="static/mobile/top/buy_green.png" />
-                </a>
+                <div class="hovering m-form-button buy">
+                  <a href="#find-shop" class="lower">
+                    купить в аптеке
+                  </a>
+                </div>
         </div>
       </div>
     </div>

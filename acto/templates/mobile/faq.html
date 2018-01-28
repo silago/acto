@@ -195,6 +195,13 @@
   #page-faq-mobile .carousel-indicators li {
     bottom: -15px;
   }
+
+  #page-faq-mobile .bg-under {
+  background-image: url(static/mobile/faq/bg2.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
   #page-faq-mobile .carousel-indicators li {
     max-width: 10px;
     width:10px;
@@ -278,10 +285,10 @@ float: right;
             <div id="page-faq-carousel" data-interval="99999" class="carousel slide" data-ride=false>
 
               <ol class="carousel-indicators">
-
                     {% for item in page.items.all|dictsort:"order" %}
                       <li data-target="#page-faq-carousel" data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.counter0 == 0 %} active {% endif %}"></li>
                     {% endfor %}
+                    <li data-target="#page-faq-carousel" data-slide-to="{{ page.items.all|length}}"></li>
               </ol>
               <div class="carousel-inner" role="listbox">
                     {% for item in page.items.all|dictsort:"order" %}
@@ -291,7 +298,7 @@ float: right;
                             {{item.caption|safe}}
                               <hr class="" style="background-color:lightgray;">
                           </div>
-                          <div>
+                          <div class="bg-under">
                             {{item.text|safe}}
                           </div>
                         </div>
