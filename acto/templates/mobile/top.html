@@ -11,6 +11,21 @@
     max-width: 100%;
   }
 
+  #delivery-top .m-form-button.offer:hover a {
+      background-image: url(static/mobile/top/offer_gray.png);
+  }
+
+  #delivery-top .m-form-button.offer:not(:hover) a {
+      background-image: url(static/mobile/top/offer_pink.png);
+  }
+
+  #delivery-top .m-form-button.buy:hover a {
+      background-image: url(static/mobile/top/buy_gray.png);
+  }
+
+  #delivery-top .m-form-button.buy:not(:hover) a {
+      background-image: url(static/mobile/top/buy_green.png);
+  }
 
   #delivery-top img.logo {
         margin-top: -23px;
@@ -19,7 +34,9 @@
     width: 100%;
   }
 
-  #delivery-top > .container {
+  #delivery-top > .container.inner {
+
+  border-bottom: 15px solid #ffd245;
   }
 
   #delivery-top {
@@ -126,6 +143,12 @@ margin-bottom: 20px;
   }
 
 
+
+  #delivery-top .delivery .row{
+    background-color: #ffd245;
+  }
+
+
 </style>
 
 
@@ -133,8 +156,6 @@ margin-bottom: 20px;
 <div id="delivery-top">
   <div class="bubble container"
 style="
-border-bottom:15px solid #ffd245;
-background-color:#ffd245;
 "
   >
     <div class="row bubble-holder" id="city_confirmation">
@@ -162,7 +183,7 @@ background-color:#ffd245;
   </div>
 
 
-  <div class="container">
+  <div class="inner container">
     <div class="row">
         <div class="col-12 title">
           <span>
@@ -194,46 +215,51 @@ background-color:#ffd245;
         <div class="col-12">
           <br/>
         </div>
-      </div>
+    </div>
       <div class="delivery free">
       <div class="row">
         <div class="col-6">
             <img class="" src="static/mobile/top/590.png" />
         </div>
-        <div class="col-6 delivery free" style="padding:0;">
-                <a class="hovering" data-toggle="modal" data-target="#order-form-mobile">
-                  <img class="" src="static/mobile/top/offer_pink.png" />
-                  <img class="hover" src="static/mobile/top/offer_gray.png" />
-                </a>
-                <br/>
+        <div class="col-6 " style="padding:0;">
+                <div class="hovering m-form-button offer">
+                    <a class="upper" data-toggle="modal" data-target="#order-form-mobile"
+                    >
+                    оформить заказ
+                    </a>
+                </div>
                 Доставка бесплатно
                 <br/>
-                <a href="#find-shop" class="hovering">
-                  <img class="" src="static/mobile/top/buy_green.png" />
-                  <img class="hover" src="static/mobile/top/buy_gray.png" />
-                </a>
+                <div class="hovering m-form-button buy">
+                  <a href="#find-shop" class="lower">
+                    купить в аптеке
+                  </a>
+                </div>
         </div>
       </div>
       </div>
 
 
       <div class="delivery non-free"  style="display:none;">
-      <div class="row delivery ">
+      <div class="row">
         <div class="col-6">
             <img class="" src="static/mobile/top/590.png" />
         </div>
-        <div class="col-6" style="padding:0;">
-                <a class="hovering" data-toggle="modal" data-target="#order-form-mobile">
-                  <img class="" src="static/mobile/top/offer_pink.png" />
-                  <img class="hover" src="static/mobile/top/offer_gray.png" />
-                </a>
-                <br/>
+
+        <div class="col-6 " style="padding:0;">
+                <div class="hovering m-form-button offer">
+                    <a class="upper" data-toggle="modal" data-target="#order-form-mobile"
+                    >
+                    оформить заказ
+                    </a>
+                </div>
                 Доставка оплачивается отдельно
                 <br/>
-                <a href="#find-shop" class="hovering">
-                  <img class="" src="static/mobile/top/buy_green.png" />
-                  <img class="hover" src="static/mobile/top/buy_gray.png" />
-                </a>
+                <div class="hovering m-form-button buy">
+                  <a href="#find-shop" class="lower">
+                    купить в аптеке
+                  </a>
+                </div>
         </div>
       </div>
       </div>
@@ -258,7 +284,7 @@ background-color:#ffd245;
         <img class="delivery free" src="{{page.free_delivery_button.url}}" />
         <img class="delivery non-free" src="{{page.banner.url}}" />
         <br/>
-        <button class="button form-button" style="cursor:pointer;" onclick="showForm(); {{settings.yandex_counter_id}}.reachGoal('order');"></button>
+        <button class="button m-form-button" style="cursor:pointer;" onclick="showForm(); {{settings.yandex_counter_id}}.reachGoal('order');"></button>
     </div>
 </div>
 -->

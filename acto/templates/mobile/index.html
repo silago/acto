@@ -171,20 +171,54 @@ function isTouchDevice(){
         </div>
 
       <style type="text/css">
+      a.black {
+        color:rgb(33, 37, 41);
+      }
 
-      .hovering:hover *:not(.hover) {
+      button {
+        outline: none!important;
+      }
+
+      .m-form-button a:hover {
+        text-decoration: none;
+      }
+      .m-form-button {
+        width: 156px;
+        height: 42px;
+        margin: 0 auto;
+        padding-right: 10px;
+      }
+
+      #mobile .m-form-button a.upper {
+        padding-top: 1.1em;
+      }
+
+      #mobile .m-form-button a.lower {
+        padding-top: 0.5em;
+      }
+
+      #mobile .m-form-button a {
+        background-size: 100% 100%;
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        font-size: 1.2em;
+        display: inline-block;
+      }
+
+      .hovering:hover .unhover {
           display: none;
       }
 
-      .hovering:hover *.hover {
+      .hovering:hover .hover {
           display: inline-block;
       }
 
-      .hovering *:not(.hover) {
+      .hovering .unhover {
           display: inline-block;
       }
 
-      .hovering *.hover {
+      .hovering .hover {
           display: none;
       }
 
