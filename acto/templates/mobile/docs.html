@@ -71,7 +71,7 @@ padding-bottom: 0.5em;
               {% for item in page.items.all %}
               <div class="carousel-item docs-carousel-item docs-carousel-item-{{forloop.counter0}} {% if forloop.counter0 == 0 %} active {% endif %}" >
                 <div>
-                    <img alt="{{item.alt}}" src="{{item.image.url}}" />
+                    <img class="doc-fit" alt="{{item.alt}}" src="{{item.image.url}}" />
                 </div>
               </div>
               {% endfor %}
@@ -86,6 +86,14 @@ padding-bottom: 0.5em;
   </div>
     <br/>
     <br/>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        var first = $('.doc-fit').first();
+
+        $('doc-fit').width = first.width;
+        $('doc-fit').height = first.height;
+    });
+    </script>
 <!--
 
         <div id="page-docs"  >

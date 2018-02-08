@@ -1,5 +1,9 @@
 
 <style>
+
+  #page-green-mobile .triangle-holder {
+    overflow: hidden;
+  }
   #page-green-mobile img {
       max-width: 100%;
   }
@@ -8,19 +12,27 @@
     x-background-color: #bed73a;
   }
 
+  #page-green-mobile .green-slider h4 {
+    font-size:1.3em;
+  }
+
+  #page-green-mobile .green-slider-content {
+    text-align: left;
+  }
+
   #page-green-mobile .slider-container {
-    max-width: 157px;
+    x-max-width: 157px;
 
     /* height: 200px; */
     margin: 0 auto;
 
     margin-bottom: 30px;
 
-    margin-top:30px;
+    margin-top:10px;
   }
 
   #page-green-mobile .slider-container img {
-    max-width:157px;
+    x-max-width:157px;
     padding: 0 9px;
   }
 
@@ -43,14 +55,14 @@
 
   #page-green-mobile .slider {
     width:200%;
-    margin-left:-100%;
+    margin-left:25%;
   }
 
             div#page-green-mobile .triangle-down {
                 width: 0;
                 height: 0;
 
-                border-left: : 1600px solid transparent;
+                border-left:  1600px solid transparent;
                 border-top: 64px solid #bed73a;
                 margin-left: -100px;
             }
@@ -59,8 +71,11 @@
                 width: 0;
                 height: 0;
 
-                border-right: 500px solid transparent;
-                border-bottom: 44px solid #bed73a;
+                x-border-right: 500px solid transparent;
+                x-border-bottom: 44px solid #bed73a;
+
+                border-right: 1600px solid transparent;
+                border-bottom: 64px solid #bed73a;
             }
 
             .green-slider {
@@ -106,7 +121,7 @@
     slide: function(i) {
       this.index = i;
         $('#page-green-mobile .slider').animate({
-          marginLeft: (-this.index*100)+'%'
+          marginLeft: (25+(-this.index*50))+'%'
         });
         $('.green-slider').hide();
         $('.green-slider-'+i).show();
@@ -123,10 +138,12 @@
 
 
 <div id="page-green-mobile"
-style="
+style="overflow-x:visible;
 "
 >
-            <div class="triangle-up"> </div>
+            <div class="triangle-holder">
+              <div class="triangle-up"> </div>
+            </div>
 
   <div class="container"
                     style="
@@ -150,7 +167,8 @@ style="
 style="margin-top:20px;"
     >
         <div class="slider-container">
-          <table class="slider" style="width: {{page.items.all|length}}00%; ">
+          <table class="x slider" style="width: {% widthratio page.items.all|length 2 100 %}%; ">
+
 
               <tr>
                   {% for item in page.items.all %}
@@ -245,7 +263,11 @@ style="margin-top:20px;"
     </div>
       <br/>
     </div>
+
+            <div class="triangle-holder">
             <div class="triangle-down"> </div>
+
+  </div>
   </div>
   <script>
   $('document').ready(function(){

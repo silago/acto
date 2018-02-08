@@ -180,6 +180,11 @@
         </div>
 -->
 <style type="text/css">
+
+  #page-faq-mobile {
+    margin-bottom:20px;
+  }
+
   #page-faq-mobile .header img {
     max-width: 100%;
   }
@@ -198,9 +203,9 @@
 
   #page-faq-mobile .bg-under {
   background-image: url(static/mobile/faq/bg2.png);
-  background-position: center center;
+  background-position: center 70%;
   background-repeat: no-repeat;
-  background-size: auto 100%;
+  x-background-size: auto 100%;
 }
   #page-faq-mobile .carousel-indicators li {
     max-width: 10px;
@@ -290,7 +295,7 @@ float: right;
                     {% endfor %}
                     <li data-target="#page-faq-carousel" data-slide-to="{{ page.items.all|length}}"></li>
               </ol>
-              <div class="carousel-inner" role="listbox">
+              <div class="carousel-inner bg-under" role="listbox" style="padding-bottom:20px;">
                     {% for item in page.items.all|dictsort:"order" %}
                       <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
                           <div class="faq-header">
@@ -298,7 +303,7 @@ float: right;
                             {{item.caption|safe}}
                               <hr class="" style="background-color:lightgray;">
                           </div>
-                          <div class="bg-under">
+                          <div class="">
                             {{item.text|safe}}
                           </div>
                         </div>
