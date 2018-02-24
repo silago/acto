@@ -111,6 +111,7 @@
 
   <script>
   greenSlider = {
+    max:0,
     index:1,
     next: function() {
       this.slide(this.index+1);
@@ -119,6 +120,13 @@
       this.slide(this.index-1);
     },
     slide: function(i) {
+      if (i<0) {
+        return;
+      }
+      if (i>=this.max) {
+        return;
+      }
+
       this.index = i;
         $('#page-green-mobile .slider').animate({
           marginLeft: (25+(-this.index*50))+'%'
@@ -373,4 +381,6 @@ style="margin-top:20px;"
       $('#page-green-mobile .slider-area').on("swiperight", function() {
         greenSlider.prev();
       });
+
+      greenSlider.max = {{ page.items.all|length }};
       </script>
