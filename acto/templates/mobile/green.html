@@ -112,29 +112,49 @@
   <script>
   greenSlider = {
     max:0,
-    index:1,
+    index:2,
     next: function() {
-      this.slide(this.index+1);
+              this.slide(1);
     },
     prev: function() {
-      this.slide(this.index-1);
+              this.slide(-1);
     },
-    slide: function(i) {
-      if (i<0) {
-        return;
-      }
-      if (i>=this.max) {
-        return;
-      }
+    init: function() {
+            $('#page-green-mobile .slider').css({
+              marginLeft:'-75%'
+            });
+            $('.green-slider-'+greenSlider.index).show();
+    },
+    slide: function(dir) {
+        this.index +=dir;
+        if (this.index<0) {
+          this.index=this.max-1;
+        }
+        if (this.index==this.max) {
+          this.index=0;
+        }
 
-      this.index = i;
+
         $('#page-green-mobile .slider').animate({
-          marginLeft: (25+(-this.index*50))+'%'
-        });
-        $('.green-slider').hide();
-        $('.green-slider-'+i).show();
+          marginLeft: (-75+(-dir*50))+'%'
+        },400, function() {
+            var td_container = $('.green-slider-tr').first();
+            if (dir == 1) {
+              var first  = $('.green-slider-td').first();
+              td_container.append(first);
+            } else {
+              var last  = $('.green-slider-td').last();
+              td_container.prepend(last);
+            }
 
-              //="center green-slider green-slider-{{forloop.counter0}} hide">
+            $('#page-green-mobile .slider').css({
+              marginLeft:'-75%'
+            });
+        }
+      );
+        $('.green-slider').hide();
+        $('.green-slider-'+greenSlider.index).show();
+        //="center green-slider green-slider-{{forloop.counter0}} hide">
     }
   }
 
@@ -178,10 +198,10 @@ style="margin-top:20px;"
           <table class="x slider" style="width: {% widthratio page.items.all|length 2 100 %}%; ">
 
 
-              <tr>
+              <tr class="green-slider-tr">
                   {% for item in page.items.all %}
-              <td>
-                <a onclick="greenSlider.slide({{forloop.counter0}});">
+              <td class="green-slider-td">
+                <a disabled-onclick="greenSlider.slide({{forloop.counter0}});">
                     <img alt="{{item.alt}}"  src="{{ item.image.url }}" />
                 </a>
                 <!--
@@ -278,8 +298,8 @@ style="margin-top:20px;"
   </div>
   </div>
   <script>
-  $('document').ready(function(){
-      greenSlider.slide(1);
+    $('document').ready(function(){
+      greenSlider.init();
     });
   </script>
 
