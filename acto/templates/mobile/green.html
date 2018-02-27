@@ -227,7 +227,8 @@ style="margin-top:20px;"
                   {{item.alt}}
                       <div style="float:right">
                           <button style="background-color:transparent;"
-                                  onClick="$('.green-slider-content-{{forloop.counter0}}').toggleClass('hide');"
+                                  disabled-onClick="$('.green-slider-content-{{forloop.counter0}}').toggleClass('hide');"
+                                  onClick="$('.green-slider-content').toggleClass('hide');"
                                   class="green-slider-content green-slider-content-{{forloop.counter0}}">
                               <span class="oi oi-chevron-top hide" title="icon name" aria-hidden="true"          ></span>
                               <span class="oi oi-chevron-bottom show" title="icon name" aria-hidden="true"          ></span>
