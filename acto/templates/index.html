@@ -19,12 +19,12 @@
 
           function goFull() {
             setCookie("PREFER_FULL", true);
-            document.Location = window.BASE_URL;
+            document.location = window.BASE_URL;
           }
 
           function goMobile() {
             deleteCookie("PREFER_FULL");
-            document.Location = window.MOBILE_URL;
+            document.location = window.MOBILE_URL;
           }
 
 function isTouchDevice(){
