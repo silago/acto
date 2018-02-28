@@ -39,11 +39,12 @@
   }
   #page-for {
     padding-bottom: 50px;
+    margin-top: -23px;
   }
 </style>
 
 <div class="container" id="page-for">
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleControls" class="ignore-fit carousel slide" data-ride="carousel">
   <div class="carousel-inner">
   {% for item in page.items.all|dictsort:"order" %}
     {% if  not forloop.counter|divisibleby:2 %}
@@ -59,14 +60,6 @@
     {% endif %}
     {% endfor %}
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
 </div>
 </div>
 

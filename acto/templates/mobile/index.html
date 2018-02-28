@@ -2,7 +2,6 @@
 {% load static %}
 <html>
     <head>
-
 <meta name="viewport" content="width=device-width" />
 
 
@@ -10,7 +9,7 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-          <script src="//code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script>
+          <script src="http://code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script>
           <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <link rel="icon" type="image/png" href="/static/favicon.png" />
@@ -46,15 +45,16 @@
 
 	<meta name="yandex-verification" content="54883a35452f8514" />
         <script>
-
+          window.BASE_URL = "{{settings.site_url}}";
+          window.MOBILE_URL = "{{settings.mobile_site_url}}";
           function goFull() {
             setCookie("PREFER_FULL", true);
-            document.Location = window.BASE_URL;
+            document.location = window.BASE_URL;
           }
 
           function goMobile() {
             deleteCookie("PREFER_FULL");
-            document.Location = window.MOBILE_URL;
+            document.location = window.MOBILE_URL;
           }
 
 
@@ -89,15 +89,22 @@ function isTouchDevice(){
         });
         </script>
         <script>
-        window.cities = {
+      /*
         {% for c in cities %}
+          {{c.name}}
+        {% endfor %}
+        */
+        window.cities = {
+
+        {% for c in cities.all|dictsort:"order" %}
             '{{c.name}}':{
                 'x':'{{c.x}}',
                 'y':'{{c.y}}',
                 'target':'{{c.target}}',
                 'name':'{{c.name}}',
+                'order':'{{c.order}}',
                 'delivery':'{{c.has_delivery}}',
-                'towns':[{% for s in c.towns.all %}
+                'towns':[{% for s in c.towns.all|dictsort:"order" %}
                    {
                        'name':'{{s.name}}',
                        'x':'{{s.x}}',
@@ -136,7 +143,7 @@ function isTouchDevice(){
 
 
         window.towns = [
-        {% for c in towns %} {
+        {% for c in towns.all|dictsort:"order" %} {
                 'x':'{{c.x}}',
                 'y':'{{c.y}}',
                 'name':'{{c.name}}',
@@ -157,24 +164,110 @@ function isTouchDevice(){
         ];
         </script>
     </head>
-    <body id="mobile" class="mobile">
+    <body id="mobile" class="mobile"
+style="overflow-x:hidden;"
+    >
         <div id="right-border">
         </div>
         <div id="left-border">
         </div>
 
-      <style>
+      <style type="text/css">
+      a.black {
+        color:rgb(33, 37, 41);
+      }
+      button {
+        background-color: transparent;
+      }
 
+      button {
+        outline: none!important;
+      }
+
+      .m-form-button a:hover {
+        text-decoration: none;
+      }
+      .m-form-button {
+        width: 156px;
+        height: 42px;
+        margin: 0 auto;
+        padding-right: 10px;
+      }
+      button {
+        background-color: transparent;
+      }
+      body#mobile > div {
+        border-left: 15px solid white;
+        border-right: 15px solid white;
+      }
+      body#mobile {
+        x-padding-left: 15px;
+        x-padding-right: 15px;
+      }
+
+      #mobile .m-form-button a.upper {
+        padding-top: 1.1em;
+      }
+
+      #mobile .m-form-button a.lower {
+        padding-top: 0.5em;
+      }
+
+      #mobile .m-form-button a {
+        background-size: 100% 100%;
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        font-size: 1.2em;
+        display: inline-block;
+      }
+
+      .hovering:hover .unhover {
+          display: none;
+      }
+
+      .hovering:hover .hover {
+          display: inline-block;
+      }
+
+      .hovering .unhover {
+          display: inline-block;
+      }
+
+      .hovering .hover {
+          display: none;
+      }
+
+      #mobile {
+          position:relative;
+          margin-top:0px;
+      }
+
+        .mobile .navbar .go-to-full {
+        }
         .mobile .navbar {
           z-index: 1060;
+          min-width: 306px;
         }
+
+        .mobile .navbar .show ul {
+          min-height: 100%;
+          width: 100%;
+          position: fixed;
+          top: 61px;
+          background-color: #fff;
+          left: 0px;
+          min-height: 100%;
+          padding: 10px;
+        }
+
         #mobile > .navbar >  .navbar-collapse {
           margin-top: 10px;
         }
         .mobile .navbar .pink-border{
           border-bottom: 5px solid #ee5c72;
 width: 100%;
-top: 40px;
+top: 39px;
 position: absolute;
 right: 0px;
 left: 0px;
@@ -190,14 +283,30 @@ left: 0px;
         .mobile .navbar-light .navbar-toggler {
           border-color:transparent;
         }
-      </style>
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-  <hr class="pink-border" />
-  <a class="navbar-brand" href="#" onclick="$('.modal').modal('hide');">
-                    <img src="static/./logo.png" id="logo"></a>
-  </a>
 
-<style>
+        body {
+        }
+      </style>
+
+<style type="text/css">
+
+
+  div .delivery {
+text-transform: uppercase;
+font-weight: bold;
+font-size: 10px;
+text-align: center;
+line-height: 200%;
+    }
+
+  .delivery button {
+    background: transparent;
+  }
+
+  .delivery-free button {
+    background: transparent;
+  }
+
   button.navbar-toggler[aria-expanded=false] > .open {
     display: inline-block;
   }
@@ -217,7 +326,28 @@ color: #ee5c72;
     .modal-dialog {
       pointer-events: auto;
     }
+
+    .delivery {
+      text-align: center;
+      font-size: 11px;
+    }
+    body  {
+      max-width: 540px;
+      margin: 0 auto;
+      min-width: 306px;
+    }
+
+    #ask-form div {
+      box-shadow: initial!important ;
+      background-color: transparent;
+    }
   </style>
+
+<nav class="navbar fixed-top x-navbar-expand-lg navbar-light bg-light">
+  <hr class="pink-border" />
+  <a class="navbar-brand" href="#" onclick="$('.modal').modal('hide');">
+                    <img src="static/mobile/logo.png" id="logo"></a>
+  </a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="open navbar-toggler-icon"></span>
@@ -251,23 +381,27 @@ color: #ee5c72;
                     {% for page in pages|dictsort:"order" %}
                         {% if page.menu_title %}
                           <li class="nav-item">
-                            <a class="nav-link" href="#{{page.slug}}">{{page.menu_title|title}}</a>
+                            <a class="nav-link" href="#anchor-{{page.slug}}">{{page.menu_title|title}}</a>
                           </li>
                         {% endif %}
                     {% endfor %}
 
-      <li class="nav-item">
+                          <li class="nav-item">
+                            <a class="nav-link" href="#find-shop">Где купить?</a>
+                          </li>
+
+      <li class="nav-item" style="position:absolute; bottom:140px;">
        <br />
-       <span style="font-size:24px"> 8 800 222-42-72</span>
+       <span style="font-size:24px"><a href="callto:88002224272" style="color:rgba(0,0,0,.5);">8 800 222-42-72</a></span>
        <br />
        <small style="font-size:10px;">
          Горячая линия препарата. Звонок по РФ - бесплатно
        </small>
       </li>
 
-      <li class="nav-item">
-       <br />
-       <span style="color:#000; font-size:24px"> <a href="#" onclick="goFull();"> Открыть полную версию сайта</a></span>
+      <li class="nav-item go-to-full" style="position:absolute; bottom:66px;">
+       <hr />
+       <span style="color:#000; font-size:24px"> <a style="color:rgba(0,0,0,.5);" href="#" onclick="goFull();"> Открыть полную версию сайта</a></span>
 
       </li>
     </ul>
@@ -323,6 +457,7 @@ choose_city_modal
 
 
            function choose_city(city, show_confirmation) {
+             $('#choose_city_modal').modal('hide');
 
                //if (typeof {{settings.yandex_counter_id}} != 'undefined') {
                //     {{settings.yandex_counter_id}}.reachGoal(cities[city].target);
@@ -415,7 +550,7 @@ choose_city_modal
 
 
 
-                    for (var i =0; i<window.onCityChosen.length; i++) { onCityChosen[i](); }
+                    for (var i =0; i<window.onCityChosen.length; i++) { onCityChosen[i](city); }
 
 
            }
@@ -599,10 +734,22 @@ function ahead(val) {
         </div>
         <div class="clear"></div>
 
+        <style>
+          .anchor-holder {
+            position: relative;
+          }
+          .anchor-holder .anchor {
+            position: absolute;
+            x-top:60px;
+          }
+
+        </style>
 
 
         {% for page in pages|dictsort:"order" %}
-        <a name="{{page.slug}}" class="{{page.slug}} anchor"> <!--{{page.template}}--> </a>
+        <div class="anchor-holder">
+          <a name="anchor-{{page.slug}}" class="{{page.slug}} anchor"> <!--{{page.template}}--> </a>
+        </div>
             {% include page.template %}
         {% endfor %}
 
@@ -618,6 +765,22 @@ function ahead(val) {
       -->
 
     <script type="text/javascript">
+
+     function prepareRegions(q) {
+        var result =[];
+        for (i in cities) {
+          var city = cities[i];
+          result.push(city);
+          //item = '<a href="#" data-name="'+city.name+'" onclick="choose_city(\''+city.name+'\');">'+city.name+'</a>';
+        }
+        result = result.sort(function(a,b) {
+          if (a.name.indexOf(q) !=-1) return -1;
+          if (b.name.indexOf(q) !=-1) return 1;
+          return b.order - a.order;
+        });
+        return result;
+     }
+
     function toSemi(s) {
         return Number(s);
         //return Number(s.replace('.',','));
@@ -853,15 +1016,18 @@ $('.order-done.bg').click(function() {
       var max = 0;
       var items = $(carousel).find('.carousel-item');
       items.each(function(k,item) {
+            if ($(item).hasClass('ignore-fit-item')) {
+              return;
+            }
            if ($(item).height() > max) {
               max = $(item).height();
         }
       });
       max+=10;
-      $(carousel).first('.adjust').height(max);
+      $(carousel).first('.adjust').css('min-height',max);
 
       items.each(function(k,item) {
-           $(item).height(max);
+           $(item).css('min-height',max);
       });
     });
   });
@@ -888,11 +1054,18 @@ $('.order-done.bg').click(function() {
       });
    });
 
+    $('a[href^="#"]').bind('click vclick', function (ev) {
+        location.hash = $(this).attr('href');
+        return false;
+    });
 
 </script>
 <style>
 .ui-textinput-clear-button {
   display: none;
+}
+.nopadding {
+  padding:0;
 }
 </style>
 

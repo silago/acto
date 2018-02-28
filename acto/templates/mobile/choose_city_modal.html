@@ -8,7 +8,7 @@
       background-color: #fff;
 border-top: 10px solid black;
 padding-top: 10px;
-z-index: 1070;
+z-index: 1080;
 
     }
     #choose_city_modal     .typeahead__cancel-button {
@@ -26,7 +26,22 @@ z-index: 1070;
     #choose_city_modal .modal-dialog {
       pointer-events: auto;
     }
+    #choose_city_modal .city-list hr {
+      border-bottom:1px solid gray;
+    }
+
+    #choose_city_modal .city-list a:not(.active) {
+      color:#242424;
+  }
+
 </style>
+
+
+      <!--
+        {% for c in cities %}
+          {{c.name}}
+        {% endfor %}
+      -->
 
 <div id="choose_city_modal" class="modal fade">
   <div class="choose-region modal-dialog">
@@ -77,23 +92,40 @@ z-index: 1070;
           </div>
 
         </div>
-      <div class="row">
+      <div class="row city-list">
 
-    <!--
+        <p>
+        <br/>
+      </p>
+
+
+      <!--
+        {% for c in cities %}
+          {{c.name}}
+        {% endfor %}
+      -->
     {% for city in cities %}
-    <div class="col-12">
-        {{ city.name }}
+    <div class="col-12 city-list-modal" >
+        <a href="#" data-name="{{city.name}}" onclick="choose_city('{{city.name}}');">{{ city.name }}</a>
       <hr />
     </div>
     {% endfor %}
-  -->
     </div>
     </div>
   </div>
   </div>
+
 
 
   <script>
+
+     highlightBlue = function() {
+        var name = window.lc.getItem('ChosenName');
+        $('.city-list a.active').removeClass('active');
+        $('.city-list a[data-name="'+name+'"]').addClass('active');
+      }
+     onCityChosen.push(highlightBlue);
+
  $.typeahead({
             input: ".js-typeahead-top-cities",
             minLength: 0,
@@ -107,13 +139,24 @@ z-index: 1070;
                     data: Object.values(cities)
                 }
             },
-             callback: {
+            callback: {
+                onResult: function(node, query) {
+                  var chosen = window.lc.getItem('ChosenName');
+                  var result = prepareRegions(query);
+                  var template = "";
+                  for(var i in result) {
+                    var city = result[i];
+                    template+='<div class="col-12 city-list-modal" >';
+                    template+='<a class="'+(city.name == chosen ? 'active' :'')+'" href="#" data-name="'+city.name+'" onclick="choose_city(\''+city.name+'\');">'+city.name+'</a>';
+                    template+='<hr />';
+                    template+='</div>';
+                  }
+                  $('.city-list').html(template);
+                },
+                onSearch: function() {
+                },
                 onSubmit : function(node, form, item, event) {
-                  console.log(node);
-                  console.log(form);
-                  console.log(item);
                   choose_city(item.name);
-                  console.log(event);
                   event.preventDefault();
                   $('#choose_city_modal').modal('hide');
                   $('#city_confirmation').hide();

@@ -26,7 +26,7 @@ urlpatterns = [
     url(r'^order', views.order),
     url(r'^ask', views.question),
     url(r'^admin/', admin.site.urls),
-    url(r'^tinymce/', include('tinymce.urls')),
+    #url(r'^tinymce/', include('tinymce.urls')),
     url(r'^pages/', include('django.contrib.flatpages.urls')),
     url(r'^$', views.main),
     url(r'', views.main),

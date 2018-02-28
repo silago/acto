@@ -19,12 +19,12 @@
 
           function goFull() {
             setCookie("PREFER_FULL", true);
-            document.Location = window.BASE_URL;
+            document.location = window.BASE_URL;
           }
 
           function goMobile() {
             deleteCookie("PREFER_FULL");
-            document.Location = window.MOBILE_URL;
+            document.location = window.MOBILE_URL;
           }
 
 function isTouchDevice(){
@@ -66,6 +66,7 @@ function isTouchDevice(){
                 'x':'{{c.x}}',
                 'y':'{{c.y}}',
                 'target':'{{c.target}}',
+                'order':'{{c.order}}',
                 'name':'{{c.name}}',
                 'delivery':'{{c.has_delivery}}',
                 'shops':[{% for s in c.shops.all %}

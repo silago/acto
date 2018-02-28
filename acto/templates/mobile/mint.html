@@ -28,14 +28,22 @@
   </div>
   <div class="container">
     <div class="row">
-        <div class="col-6">
-                <img alt="{{page.caption|striptags}}" class="logo" src="{{page.logo.url}}" />
+        <div class="col-12"
+          style="
+            margin-top:-48px;
+            margin-bottom:-20px;
+            width:100%;
+            z-index:2;
+            "
+        >
+                <img
+                alt="{{page.caption|striptags}}" class="logo" src="{{page.logo.url}}" />
         </div>
     </div>
     <div class="row">
       <div class="col-12">
           <center>
-            <img class="hands" src="static/mobile/how/bg.png" />
+            <img class="hands" src="{{page.left_image.url}}" />
           </center>
       </div>
 
@@ -44,16 +52,27 @@
                     {{ page.caption|safe }}
       </div>
 
-      <div class="col-12">
-          <center>
-            <img class="info" src="static/mobile/how/scheme.png" />
-          </center>
-      </div>
     </div>
   </div>
 
   <div class="triangle-down">
   </div>
+<div class="container"
+style="
+    background-color: transparent;
+    margin-top: -90px;
+    padding-bottom: 30px;
+}
+"
+>
+      <div class="col-12">
+          <center>
+            <img
+            style="width:100%;"
+            class="info" src="{{page.right_image.url}}" />
+          </center>
+      </div>
+    </div>
 </div>
 <!--
 

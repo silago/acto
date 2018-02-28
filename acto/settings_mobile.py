@@ -28,7 +28,7 @@ DEBUG = True
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
-ALLOWED_HOSTS = ['www.m.aktoviderm.ru','m.aktoviderm.ru','m.www.actoviderm.ru','m.actoviderm.ru','m.silag-acto-back-server3.herokuapp.com','localhost']
+ALLOWED_HOSTS = ['192.168.1.67','www.192.168.1.67','www.m.actoviderm.ru','m.actoviderm.ru','m.silag-acto-back-server3.herokuapp.com','localhost']
 SITE_ID = 1
 IS_MOBILE = True
 # Application definition
@@ -43,10 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'base',
+    'base_mobile',
     'solo',
     #'sorl.thumbnail',
-    'tinymce',
+    #'tinymce',
     'django_user_agents',
+    'ckeditor'
     ]
 
 
@@ -61,7 +63,7 @@ MIDDLEWARE = [
     'django_user_agents.middleware.UserAgentMiddleware',
 ]
 
-ROOT_URLCONF = 'acto.urls'
+ROOT_URLCONF = 'acto.urls_mobile'
 
 TEMPLATES = [
     {
@@ -102,10 +104,10 @@ WSGI_APPLICATION = 'acto.wsgi.application'
 #    heroku pg:psql postgresql-curly-64135 --app silag-acto-back-server3
 DATABASES = {
     'default': {
-         #   'ENGINE': 'django.db.backends.mysql',
-         #   "NAME":"certa_acto",
-         #   "USER":"certa_acto",
-         #"PASSWORD":"Wxru676yQ",
+#             'ENGINE': 'django.db.backends.mysql',
+#             "NAME":"certa_acto",
+#             "USER":"certa_acto",
+#             "PASSWORD":"Wxru676yQ",
             'ENGINE': 'django.db.backends.sqlite3',
             "NAME":"db.sqlite3",
             #"USER":"certa_acto",

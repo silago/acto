@@ -214,7 +214,7 @@
   max-width:100%;
 }
 #page-orange .triangle-up {
-  margin-bottom:-50px;
+  margin-bottom:-32px;
 }
 #page-orange .container {
   background-color: orange;
@@ -227,6 +227,13 @@
 
   border:3px solid orange;
   width:100%;
+}
+#orange-gal-ajax .modal {
+  top:60px;
+}
+
+.oragne-bg {
+background-color:  #ffa730;
 }
 </style>
 <script>
@@ -242,26 +249,26 @@ $.ajax({ // первый ajax запрос возвратит нам ID поль
     var result = "";
 
     for (x in data.data) {
-      console.log(data.data[x].images.thumbnail.url);
+      //console.log(data.data[x].images.thumbnail.url);
       if (i == 0) {
         result+="<div class='row'>";
       }
       result+="<div class='col-4'>";
-      result+="<img data-toggle='modal' data-target='#orange-modal-"+k+"' src='"+data.data[x].images.thumbnail.url+"' />";
+      result+="<img data-toggle='modal' no-any-data-target='#orange-modal-"+k+"' src='"+data.data[x].images.thumbnail.url+"' />";
       result+="</div>";
 
-      result+='<div class="modal fade" id="orange-modal-'+k+'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">';
-      result+='  <div class="modal-dialog" role="document">';
-      result+='    <div class="modal-content">';
-      result+='      <div class="modal-body">';
-      result+='      <img src="'+data.data[x].images.standard_resolution.url+'">';
-      result+='      </div>';
-      result+='      <div class="modal-footer">';
-      result+='        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>';
-      result+='    </div>';
-      result+='  </div>';
-      result+='</div>';
-      result+='</div>';
+      //result+='<div class="modal fade" id="orange-modal-'+k+'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">';
+      //result+='  <div class="modal-dialog" role="document">';
+      //result+='    <div class="modal-content">';
+      //result+='      <div class="modal-body">';
+      //result+='      <img src="'+data.data[x].images.standard_resolution.url+'">';
+      //result+='      </div>';
+      //result+='      <div class="modal-footer">';
+      //result+='        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>';
+      //result+='    </div>';
+      //result+='  </div>';
+      //result+='</div>';
+      //result+='</div>';
 
 
       if (i == 2) {
@@ -275,26 +282,28 @@ $.ajax({ // первый ajax запрос возвратит нам ID поль
       }
       k++;
     }
-    console.log(result);
+    //console.log(result);
     $('#orange-gal-ajax').html(result);
 	},
 	error: function(result){
-		console.log(result);
+		//console.log(result);
 	}
 });
 </script>
 
         <div class="page-orange" id="page-orange">
             <div class="triangle-up"> </div>
+            <div style="
+            " class="oragne-bg">
             <div class="container">
               <div class="row">
-                <div class="col-8">
+                <div class="col-12">
                   <img class="logo" alt="{{page.title|striptags}}" src="{{page.logo.url}}" />
-                  <br/>
                   <br/>
                 </div>
               </div>
             </div>
+            <br/>
             <div class="container" id="orange-gal-ajax">
               <div class="row">
                 <div class="col-4">
@@ -305,13 +314,21 @@ $.ajax({ // первый ajax запрос возвратит нам ID поль
               <br />
               <div class="row">
                 <div class="col-2">
+                <a href="{{settings.insta_url}}">
                     <img
                     style="margin-top:-25%;"
                     src="static/mobile/gallery/instagramm.png" />
+                  </a>
                 </div>
-                <div class="col-10">@actoviderm - наш инстаграм</div>
+                <div class="col-10">
+
+                <a class="black" href="{{settings.insta_url}}">
+                  @actoviderm - наш инстаграм
+                </a>
+                </div>
               </div>
               <br />
+              </div>
               </div>
 
 

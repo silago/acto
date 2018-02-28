@@ -160,6 +160,8 @@ admin.site.register(TextImageItem, admin.ModelAdmin)
 admin.site.register(TextItem, admin.ModelAdmin)
 admin.site.register(TripleTextItem)
 
+
+
 admin.site.register(Town, admin.ModelAdmin)
 admin.site.register(City, admin.ModelAdmin)
 admin.site.register(Shop, admin.ModelAdmin)

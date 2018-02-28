@@ -10,7 +10,7 @@
 
   #page-footer .icon {
     padding: 0;
-    margin-top: 11px;
+    x-margin-top: 11px;
   }
 
   #page-footer-mobile .micons {
@@ -29,9 +29,20 @@
     width:33%;
   }
   div div#page-footer .info {
-    font-size: 20px;
+    font-size: 16px;
+    font-weight: bold;
     margin-top:20px;
   }
+div  div#page-footer .copy {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+  div#page-footer            .footer-link-btn:hover {
+                background-color: gray;
+                color:#fff;
+
+              }
 
 </style>
 
@@ -64,19 +75,21 @@
             </div>
             <br/>
             <div class="copy">
-                {{ page.copy }}
+                {{ page.text|safe }}
             </div>
             <div class="reg">
-            	<a class="footer-link-btn" href="#">сменить регион</a>
+            	<a
+              onclick="$('#choose_city_modal').modal('show');"
+              class="footer-link-btn" href="#">сменить регион</a>
             </div>
             <div class="ver">
             	<a class="footer-link-btn" onclick="goFull();" href="#">полная версия сайта</a>
             </div>
             <div class="call">
-            	<a class="footer-link-btn" href="#">8 (800) 222-42-72<br/> Звонок по РФ – бесплатно</a>
+            	<a class="footer-link-btn">8 (800) 222-42-72<br/> Звонок по РФ – бесплатно</a>
         	</div>
-            <div class="warring">
-                <img src="{{ page.image.url }}" />
+            <div class="warring" >
+                <img src="static/warring.png" style="width:100%;"/>
             </div>
             <div class="agreement">
                 <a class="footer-link-btn" href="{{ page.link }}">Соглашение об обработке персональных данных</a>
