@@ -180,6 +180,10 @@
         </div>
 -->
 <style type="text/css">
+#page-faq-mobile .ask_form input.error {
+	border: 2px solid #F88 !important;
+	border-radius: 5px !important;
+}
 
   #page-faq-mobile {
     margin-bottom:20px;
@@ -350,12 +354,17 @@ width: 39%;
 
                 <div class="row">
                   <div class="col-12">
-                    <input type="text" class="name form-control" placeholder="Ваше имя*" aria-label="Username" aria-describedby="basic-addon0"></div>
+                    <input type="text" class="name form-control" placeholder="Ваше имя*" 
+			   onkeyup="if (!$(this).val().match(/^\D+$/gm)) $(this).addClass('error'); else $(this).removeClass('error');"
+
+		    aria-label="Username" aria-describedby="basic-addon0"></div>
                 </div>
 
                 <div class="row">
                   <div class="col-12">
-                      <input type="text" class="mail form-control" placeholder="Электронный адрес" aria-label="E-mail" aria-describedby="basic-addon0"></div>
+                      <input 
+			   onfocusout="if (!$(this).val().match(/^[\w\D.]+@[\w\D.]+$/gm)) $(this).addClass('error'); else $(this).removeClass('error');"
+		      type="email" class="mail form-control" placeholder="Электронный адрес" aria-label="E-mail" aria-describedby="basic-addon0"></div>
                 </div>
 
                 <div class="row">
@@ -486,6 +495,9 @@ width: 90%;
 
 
   <script>
+
+
+
                     function ask_back() {
                                 $('.ask-form-done').hide();
                                 $('.ask_form').show();
@@ -494,7 +506,7 @@ width: 90%;
                     function ask() {
 
 
-                      $(".ask_form .name").mask("+7(999) 999-9999");
+			      //$(".ask_form .name").mask("+7(999) 999-9999");
 
                             $('.ask_form input').removeClass('error');
                             $('.ask_form textarea').removeClass('error');
@@ -544,4 +556,9 @@ width: 90%;
 
                         });
                     }
+
+
+			$('document').ready(function() {
+			   $(".ask_form .phone").mask("+7(999) 999-9999");
+			});
                     </script>
