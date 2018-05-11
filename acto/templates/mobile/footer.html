@@ -38,6 +38,11 @@ div  div#page-footer .copy {
   x-font-weight: bold;
 }
 
+  div#page-footer a {
+                color:#fff;
+		text-decoration:none;
+              }
+
   div#page-footer            .footer-link-btn:hover {
                 background-color: gray;
                 color:#fff;
@@ -79,14 +84,14 @@ div  div#page-footer .copy {
             </div>
             <div class="reg">
             	<a
-              onclick="$('#choose_city_modal').modal('show');"
+              ontouchstart="$('#choose_city_modal').modal('show');"
               class="footer-link-btn" href="#">сменить регион</a>
             </div>
             <div class="ver">
-            	<a class="footer-link-btn" onclick="goFull();" href="#">полная версия сайта</a>
+            	<a class="footer-link-btn" ontouchstart="goFull();" href="#">полная версия сайта</a>
             </div>
             <div class="call">
-            	<a class="footer-link-btn">8 (800) 222-42-72<br/> Звонок по РФ – бесплатно</a>
+		    <a class="footer-link-btn" href="tel:+78002224272">8 (800) 222-42-72<br/> Звонок по РФ – бесплатно</a>
         	</div>
             <div class="warring" >
                 <img src="static/warring.png" style="width:100%;"/>
