@@ -108,8 +108,6 @@ DATABASES = {
              "NAME":"certa_acto",
              "USER":"certa_acto",
              "PASSWORD":"Wxru676yQ",
-            'ENGINE': 'django.db.backends.sqlite3',
-            "NAME":"db.sqlite3",
             #"USER":"certa_acto",
             # "PASSWORD":"Wxru676yQ",
     }
