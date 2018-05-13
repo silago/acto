@@ -360,14 +360,14 @@ color: #ee5c72;
       >
         <li class="nav-item row">
             <span class="col-10">Регион: <span class="city_name">...</span></span>
-            <button class="col-2" data-dismiss="modal" data-target="#choose_city_modal" onclick="$('#choose_city_modal').modal('show');" >
+            <button class="col-2" data-dismiss="modal" data-target="#choose_city_modal" ontouchstart="$('#choose_city_modal').modal('show');" >
                 <span class="oi oi-chevron-right" title="icon name" aria-hidden="true"></span>
             </button>
         </li>
 
         <li class="nav-item row">
             <span class="col-10">Оформить заказ с доставкой</span>
-            <button class="col-2" data-dismiss="modal" data-target="#order-form-mobile" onclick="$('#order-form-mobile').modal('show');">
+            <button class="col-2" data-dismiss="modal" data-target="#order-form-mobile" ontouchstart="$('#order-form-mobile').modal('show');">
                 <span class="oi oi-chevron-right" title="icon name" aria-hidden="true"></span>
             </button>
         </li>
@@ -375,19 +375,23 @@ color: #ee5c72;
         <li class="nav-item row">
             <span class="col-10">Найти аптеку</span>
             <button class="col-2" data-dismiss="modal" data-target="#">
-                <span onclick="return;" class="oi oi-chevron-right" title="icon name" aria-hidden="true"></span>
+                <span ontouchstart="return;" class="oi oi-chevron-right" title="icon name" aria-hidden="true"></span>
             </button>
         </li>
                     {% for page in pages|dictsort:"order" %}
                         {% if page.menu_title %}
                           <li class="nav-item">
-                            <a class="nav-link" href="#anchor-{{page.slug}}">{{page.menu_title|title}}</a>
+                            <a 
+				    ontouchstart="$('body > nav > .navbar-toggler:not(.colapsed)').click();"
+				    class="nav-link" href="#anchor-{{page.slug}}">{{page.menu_title}}</a>
                           </li>
                         {% endif %}
                     {% endfor %}
 
                           <li class="nav-item">
-                            <a class="nav-link" href="#find-shop">Где купить?</a>
+                            <a
+				    ontouchstart="$('body > nav > .navbar-toggler:not(.colapsed)').click();"
+				    class="nav-link" href="#find-shop">Где купить?</a>
                           </li>
 
       <li class="nav-item" style="position:absolute; bottom:140px;">
@@ -401,7 +405,7 @@ color: #ee5c72;
 
       <li class="nav-item go-to-full" style="position:absolute; bottom:66px;">
        <hr />
-       <span style="color:#000; font-size:24px"> <a style="color:rgba(0,0,0,.5);" href="#" onclick="goFull();"> Открыть полную версию сайта</a></span>
+       <span style="color:#000; font-size:24px"> <a style="color:rgba(0,0,0,.5);" href="#" ontouchstart="goFull();"> Открыть полную версию сайта</a></span>
 
       </li>
     </ul>
@@ -419,7 +423,7 @@ color: #ee5c72;
                         {% endif %}
                     {% endfor %}
                     <li class="nowrap">
-                        <span onclick="$('.float-city-selector').show();" class="select-city">
+                        <span ontouchstart="$('.float-city-selector').show();" class="select-city">
                            <span style="color:#2c4f8a">▼</span>
                            <a href="#"><span class="selector">Москва</span></a>
                         </span>
@@ -537,7 +541,7 @@ choose_city_modal
                     });
 
 
-                    var item=$('<li style="cursor:pointer;" onclick="{{settings.yandex_counter_id}}.reachGoal(\''+cities[city].target+'\');  choose_shop(cities[\''+city+'\'].shops['+i+'],'+i+')">'+shops[i].name+'</li>');
+                    var item=$('<li style="cursor:pointer;" ontouchstart="{{settings.yandex_counter_id}}.reachGoal(\''+cities[city].target+'\');  choose_shop(cities[\''+city+'\'].shops['+i+'],'+i+')">'+shops[i].name+'</li>');
                     item.click(function() {
                         infowindow.open(map, map_marker[index]);
                         map.panTo(mpos);
@@ -557,7 +561,7 @@ choose_city_modal
         </script>
         <div  class="bg order-done" style=""> </div>
         <div class="order-done" id="order-done">
-        <div onclick="$('.order-done').hide();" style="position:fixed; width:100%; height:100%; z-index:0; left:0px; top:0px; cursor:pointer;"></div>
+        <div ontouchstart="$('.order-done').hide();" style="position:fixed; width:100%; height:100%; z-index:0; left:0px; top:0px; cursor:pointer;"></div>
                 <script>
                 </script>
                 <div class="inner">
@@ -575,13 +579,13 @@ choose_city_modal
                             </span>
                             <br/>
                             <span class="count">
-                                <a onclick="order_form.minus();" class="minus">
+                                <a ontouchstart="order_form.minus();" class="minus">
                                     -
                                 </a>
                                 <span>
                                     <span class="quantity">1</span> уп.
                                 </span>
-                                <a onclick="order_form.plus();" class="plus">
+                                <a ontouchstart="order_form.plus();" class="plus">
                                     +
                                 </a>
                             </span>
@@ -618,7 +622,7 @@ function ahead(val) {
     var cities = Object.keys(window.cities);
     for (var i = 0; i<cities.length; i++) {
         if (cities[i].toLowerCase().indexOf(val.toLowerCase())!=-1) {
-            result+="<li onclick='appendClear($(this).html())'>"+cities[i]+"</li>";
+            result+="<li ontouchstart='appendClear($(this).html())'>"+cities[i]+"</li>";
         }
     }
     result="<ul>"+result+"</ul>"
@@ -637,8 +641,8 @@ function ahead(val) {
                             <br />
                             <div style="color:red; margin:20px; display:none;" class="error"></div>
                             <br/>
-                            <a onclick="order_form.step2(false);" href="javascript:void(0);">Отменить</a>
-                            <a onclick="order_form.step2(true); " href="javascript:void(0);">Отправить</a>
+                            <a ontouchstart="order_form.step2(false);" href="javascript:void(0);">Отменить</a>
+                            <a ontouchstart="order_form.step2(true); " href="javascript:void(0);">Отправить</a>
                             </div>
                         </div>
                         <div class="right step1">
@@ -661,8 +665,8 @@ function ahead(val) {
                             <br/>
                             <br/>
                             <div style="color:red; margin:20px; display:none;" class="error"></div>
-                            <a onclick="order_form.step1(false);" href="javascript:void(0);">Отменить</a>
-                            <a onclick="order_form.step1(true);" href="javascript:void(0);">Далее</a>
+                            <a ontouchstart="order_form.step1(false);" href="javascript:void(0);">Отменить</a>
+                            <a ontouchstart="order_form.step1(true);" href="javascript:void(0);">Далее</a>
                             </div>
 
                         </div>
@@ -688,16 +692,16 @@ function ahead(val) {
 </span>
                             <div class="form">
                                 <div class="when date">
-                                    <a style="width:159px;" alt="0" onclick="$('.form .date a').removeClass('active'); $(this).addClass('active');"
+                                    <a style="width:159px;" alt="0" ontouchstart="$('.form .date a').removeClass('active'); $(this).addClass('active');"
                                      href="javascript:void(0);">Сегодня</a>
-                                    <a  style="width:113px;" alt="1" onclick="$('.form .date a').removeClass('active'); $(this).addClass('active');" href="javascript:void(0);">Завтра</a>
-                                    <a  style="width:174px;" alt="2" onclick="$('.form .date a').removeClass('active'); $(this).addClass('active');" href="javascript:void(0);">Послезавтра</a>
+                                    <a  style="width:113px;" alt="1" ontouchstart="$('.form .date a').removeClass('active'); $(this).addClass('active');" href="javascript:void(0);">Завтра</a>
+                                    <a  style="width:174px;" alt="2" ontouchstart="$('.form .date a').removeClass('active'); $(this).addClass('active');" href="javascript:void(0);">Послезавтра</a>
                                 </div>
                             <input  class="time" name="time" type="text" placeholder="Укажите время" />
                             <div style="color:red; margin:20px; display:none;" class="error"></div>
                             <br/>
-                            <a style="width:225px;" onclick="order_form.step3(false);" href="javascript:void(0);">Назад</a>
-                            <a style="width:225px;" onclick="order_form.step3(true);"  href="javascript:void(0);">Подтвердить</a>
+                            <a style="width:225px;" ontouchstart="order_form.step3(false);" href="javascript:void(0);">Назад</a>
+                            <a style="width:225px;" ontouchstart="order_form.step3(true);"  href="javascript:void(0);">Подтвердить</a>
                             </div>
 
                         </div>
@@ -722,7 +726,7 @@ function ahead(val) {
                         </div>
                         <div class="city-list">
                             {% for city in cities %}
-                                <span onclick="choose_city('{{city.name}}');" >
+                                <span ontouchstart="choose_city('{{city.name}}');" >
                                     {{ city.name }}
                                 </span>
                             {% endfor %}
@@ -771,7 +775,7 @@ function ahead(val) {
         for (i in cities) {
           var city = cities[i];
           result.push(city);
-          //item = '<a href="#" data-name="'+city.name+'" onclick="choose_city(\''+city.name+'\');">'+city.name+'</a>';
+          //item = '<a href="#" data-name="'+city.name+'" ontouchstart="choose_city(\''+city.name+'\');">'+city.name+'</a>';
         }
         result = result.sort(function(a,b) {
           if (a.name.indexOf(q) !=-1) return -1;
