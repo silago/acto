@@ -113,7 +113,7 @@ def capcha(request):
     i = 0
     for c in text:
         i+=2
-        text_pos = (i*10,1+random.randint(0,16)) # top-left position of our text
+        text_pos = (i*10,1+random.randint(-6,6)) # top-left position of our text
         draw.text(text_pos, c, font=font,fill=black)
 
     # Now, we'll do the drawing:
