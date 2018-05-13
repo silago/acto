@@ -156,7 +156,10 @@ padding: 5px;
         <div class="row small-padding ">
           <hr />
           <div  class='col-12'>
-          <input type="text" class="" name="name"  placeholder="Имя и фамилия*">
+          <input type="text" 
+	  
+			   onkeyup="if (!$(this).val().match(/^\D+$/gm)) $(this).addClass('error'); else $(this).removeClass('error');"
+	  class="" name="name"  placeholder="Имя и фамилия*">
         </div>
         </div>
         <div class="row small-padding ">
@@ -168,13 +171,18 @@ padding: 5px;
         <div class="row small-padding ">
           <hr />
           <div  class='col-12'>
-          <input type="text" class="" name="email" placeholder="Электронная почта">
+          <input type="text" 
+			   onfocusout="if (!$(this).val().match(/^[\w\D.]+@[\w\D.]+$/gm)) $(this).addClass('error'); else $(this).removeClass('error');"
+	  class="" name="email" placeholder="Электронная почта">
         </div>
         </div>
         <div class="row small-padding ">
           <hr />
           <div  class='col-12'>
-          <input type="text" class="" name="city"  placeholder="Москва*">
+          <input 
+	  
+		 
+	  type="text" class="" name="city"  placeholder="Москва*">
         </div>
         </div>
         <div class="row small-padding ">
@@ -323,8 +331,6 @@ padding: 5px;
                               console.log(_);
                             }
                           }
-                          console.log(error);
-                          return;
                           if (!error) {
                             this.post();
                           }
