@@ -391,15 +391,15 @@ class Metro:
 
 class Shop(models.Model):
     name = models.CharField(max_length=255,verbose_name="Название")
-    title = models.CharField(max_length=255)
-    phone = models.CharField(max_length=255)
+    title = models.CharField(max_length=255, null=True, blank=True)
+    phone = models.CharField(max_length=255, null=True, blank=True)
     x    = models.FloatField(null=True, blank=True)
     y    = models.FloatField(null=True, blank=True)
     city = models.ForeignKey('City', related_name='shops', verbose_name="Регион")
     town = models.ForeignKey('Town', related_name='shops', verbose_name="Город", null=True)
-    address = models.CharField(max_length=255, null=True)
-    url = models.CharField(max_length=255, null=True) #yandexmap
-    metro = models.CharField(max_length=255, null=True) #yandexmap
+    address = models.CharField(max_length=255, null=True,  blank=True)
+    url = models.CharField(max_length=255, null=True, blank=True) #yandexmap
+    metro = models.CharField(max_length=255, null=True, blank=True) #yandexmap
 
     def __unicode__(self):
        return u'%s' % (self.name)
