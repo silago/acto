@@ -321,26 +321,26 @@ float: right;
 
 
               <div class="ask-form-done">
-                <div class="container">
-                    <div class="row">
-                          <div class="col-12">
-                                  Спасибо, мы получили ваш вопрос и ответим на него в ближайшее время.
-                          </div>
-                    </div>
-                </div>
 
                 <div class="container">
                     <div class="row">
                   <button type="button" class="" onclick="ask_back()"
 style="
-position: relative;
-top: 229px;
-left: -61px;
-width: 39%;
+position: absolute;
+bottom: 30px;
+left: 20px; 
 "
                   >
                     <img src="static/mobile/faq/thankyou.png" />
                   </button>
+                <div class="container">
+                    <div class="row">
+                          <div class="col-12 text">
+				  <br><br>                                  Спасибо, мы получили<br> ваш вопрос и ответим<br> на него в ближайшее время.
+                          </div>
+                    </div>
+                </div>
+
               </div>
               </div>
               </div>
@@ -486,9 +486,17 @@ width: 90%;
               .ask-form-done {
                 text-transform: uppercase;
                 text-align: center;
-                padding: 50px;
+                padding: 50px 0px;
                 display: none;
+	      }
+	   .ask-form-done .text {
+
+			font-size: 20px;
+font-weight: bolder;
+transform: scale(1,1.25);
+
               }
+
     </style>
 
               <a id="anchor-ask-form"></a>
