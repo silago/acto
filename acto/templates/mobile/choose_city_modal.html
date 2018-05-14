@@ -75,17 +75,12 @@ z-index: 1080;
 
                         <span class="typeahead__query">
                             <input class="js-typeahead-top-cities"
+				   onkeydown="sortCityList($(this).val())"
                                    name="q"
                                    type="search"
                                    autofocus
                                    autocomplete="off">
                         </span>
-                        <span class="typeahead__button">
-                            <button type="submit">
-                                <span class="oi oi-circle-check"></span>
-                            </button>
-                        </span>
-
                     </div>
                 </div>
             </form>
@@ -93,7 +88,6 @@ z-index: 1080;
 
         </div>
       <div class="row city-list">
-
         <p>
         <br/>
       </p>
@@ -104,9 +98,10 @@ z-index: 1080;
           {{c.name}}
         {% endfor %}
       -->
+      <div class="inner-city-list">
     {% for city in cities %}
     <div class="col-12 city-list-modal" >
-        <a href="#" data-name="{{city.name}}" onclick="choose_city('{{city.name}}');">{{ city.name }}</a>
+        <a href="#" data-name="{{city.name}}" ontouchstart="choose_city('{{city.name}}');">{{ city.name }}</a>
       <hr />
     </div>
     {% endfor %}
@@ -118,6 +113,19 @@ z-index: 1080;
 
 
   <script>
+	sortCityList = function(query) {
+                  var chosen = window.lc.getItem('ChosenName');
+                  var result = prepareRegions(query);
+                  var template = "";
+                  for(var i in result) {
+                    var city = result[i];
+                    template+='<div class="col-12 city-list-modal" >';
+                    template+='<a class="'+(city.name == chosen ? 'active' :'')+'" href="#" data-name="'+city.name+'" ontouchstart="choose_city(\''+city.name+'\');">'+city.name+'</a>';
+                    template+='<hr />';
+                    template+='</div>';
+                  }
+                  $('.city-list').html(template);
+	}
 
      highlightBlue = function() {
         var name = window.lc.getItem('ChosenName');
@@ -125,43 +133,5 @@ z-index: 1080;
         $('.city-list a[data-name="'+name+'"]').addClass('active');
       }
      onCityChosen.push(highlightBlue);
-
- $.typeahead({
-            input: ".js-typeahead-top-cities",
-            minLength: 0,
-
-            order: "asc",
-            searchOnFocus: true,
-            source: {
-                group: {
-                    display: ["name"],
-                    template: "{{name}}",
-                    data: Object.values(cities)
-                }
-            },
-            callback: {
-                onResult: function(node, query) {
-                  var chosen = window.lc.getItem('ChosenName');
-                  var result = prepareRegions(query);
-                  var template = "";
-                  for(var i in result) {
-                    var city = result[i];
-                    template+='<div class="col-12 city-list-modal" >';
-                    template+='<a class="'+(city.name == chosen ? 'active' :'')+'" href="#" data-name="'+city.name+'" onclick="choose_city(\''+city.name+'\');">'+city.name+'</a>';
-                    template+='<hr />';
-                    template+='</div>';
-                  }
-                  $('.city-list').html(template);
-                },
-                onSearch: function() {
-                },
-                onSubmit : function(node, form, item, event) {
-                  choose_city(item.name);
-                  event.preventDefault();
-                  $('#choose_city_modal').modal('hide');
-                  $('#city_confirmation').hide();
-                }
-            },
-          });
 
   </script>
