@@ -48,7 +48,7 @@
           window.BASE_URL = "{{settings.site_url}}";
           window.MOBILE_URL = "{{settings.mobile_site_url}}";
           function goFull() {
-            setCookie("PREFER_FULL", true);
+		  setCookie("PREFER_FULL", true, {domain:".actoviderm.ru"});
             document.location = window.BASE_URL;
           }
 
