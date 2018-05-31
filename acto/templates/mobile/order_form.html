@@ -158,7 +158,7 @@ padding: 5px;
           <div  class='col-12'>
           <input type="text" 
 	  
-			   onkeyup="if (!$(this).val().match(/^\D+$/gm)) $(this).addClass('error'); else $(this).removeClass('error');"
+			   x-x-onkeyup="if (!$(this).val().match(/^\D+$/gm)) $(this).addClass('error'); else $(this).removeClass('error');"
 	  class="" name="name"  placeholder="Имя и фамилия*">
         </div>
         </div>
@@ -172,7 +172,7 @@ padding: 5px;
           <hr />
           <div  class='col-12'>
           <input type="text" 
-			   onfocusout="if (!$(this).val().match(/^[\w\D.]+@[\w\D.]+$/gm)) $(this).addClass('error'); else $(this).removeClass('error');"
+			   x-x-x-onfocusout="if (!$(this).val().match(/^[\w\D.]+@[\w\D.]+$/gm)) $(this).addClass('error'); else $(this).removeClass('error');"
 	  class="" name="email" placeholder="Электронная почта">
         </div>
         </div>
@@ -330,6 +330,17 @@ padding: 5px;
                               error = true;
                               console.log(_);
                             }
+		           email = $(prefix + "email]");
+				  if (!email.val().match(/^[\w\D.]+@[\w\D.]+$/gm)) {
+					error = true;
+					  email.addClass("has-danger");
+				  }
+		           _name = $("#order-form-mobile input[name=name]");
+				  if (!_name.val().match(/^\D+$/gm)) {
+					  _name.addClass("has-danger");
+					  error = true;
+				  }
+
                           }
                           if (!error) {
                             this.post();
