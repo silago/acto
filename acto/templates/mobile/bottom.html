@@ -248,6 +248,13 @@ margin-left: -5px;
             },
           });
 */
+
+var tMatches = function(_) {
+	return function(q, cb) {
+		return cities[lc.ChosenName].towns;
+	}
+}
+
 var typeaheadTowns = $.typeahead({
             input: ".js-typeahead-bottom-towns",
             minLength: 0,
@@ -258,7 +265,7 @@ var typeaheadTowns = $.typeahead({
                 group: {
                     display: ["name"],
                     template: "{{name}}",
-                    data: towns
+                    data: tMatches() 
                 }
             },
              callback: {
