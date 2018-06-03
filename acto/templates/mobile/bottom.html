@@ -320,6 +320,42 @@ var typeaheadTowns = $.typeahead({
         }
         window.onCityChosen.push(checkShops);
 
+	findNear = function(shops) {
+		result=[];
+		if (YMaps.location.latitude && YMaps.location.longitude) {
+			x = YMaps.location.latitude;
+			y = YMaps.location.longitude;
+			result=shops.sort(function(a,b) {
+				var diffa = a.x-x+a.y-y;
+				var diffb = b.x-x+b.y-y;
+				return diffa - diffa;
+			});
+		} else {
+			result=shops.sort(function(a,b) {
+				return a.title>b.title ? 1 : -1;
+			});
+		}
+
+		    var t = "";
+		    var i = 0;
+		    var links = "";
+		    for (var i in result ) {
+		      var shop = shops[i];
+			    t+=(shop.metro ? "м. " + shop.metro : "") + "<br/>";
+			    t+= (shop.address ? shop.address : shop.name) + "<br/>";
+			    t+= shop.title ?  'Аптека "'+shop.title+'"' : "";
+			    t+= "<br/><br/>";
+                	links+="<li><a onclick='showShopInfo("+JSON.stringify(shop)+");'>" + t  + "</a></li>";
+	  	      if (i>3) {
+		      	break;
+		      }
+			    i++;
+		    }
+		return links;
+			
+	}
+
+
         findShops = function(q) {
 		q = q.toLowerCase();
           //var result = [];
@@ -334,7 +370,7 @@ var typeaheadTowns = $.typeahead({
 
           var result = '';
           if (shops.length == 0 ) {
-            result = "К сожалению АКТОВИДЕРМ отсутствует в аптеках вашего города";
+            result = "К сожалению, сейчас АКТОВИДЕРМ® отсутствует в аптеках вашего региона. Вы можете заказать его онлайн с доставкой на дом.";
           } else {
             if (q.length < 2) {
               return;
@@ -353,7 +389,9 @@ var typeaheadTowns = $.typeahead({
             }
 
             if (result == "") {
-              result = "Извините, по вашему запросу ничего не найдено.";
+		    result = "К сожалению, ничего не найдено. Посмотрите аптеки на других улицах.<br/><br/>";
+		    result+=findNear(shops);
+
             }
           }
 
