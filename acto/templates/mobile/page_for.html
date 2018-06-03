@@ -44,7 +44,7 @@
 </style>
 
 <div class="container" id="page-for">
-<div id="carouselExampleControls" class="ignore-fit carousel slide" data-ride="carousel">
+<div id="carouselExampleControls" class="ignore-fit carousel slide" data-ride="carousel" data-interval="7000">
   <div class="carousel-inner">
   {% for item in page.items.all|dictsort:"order" %}
     {% if  not forloop.counter|divisibleby:2 %}

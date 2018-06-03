@@ -461,7 +461,7 @@ choose_city_modal
 
 
 
-           function choose_city(city, show_confirmation) {
+           function choose_city(city, show_confirmation=false) {
              $('#choose_city_modal').modal('hide');
 
                //if (typeof {{settings.yandex_counter_id}} != 'undefined') {
@@ -829,7 +829,7 @@ function ahead(val) {
 
 
     $('document').ready(function() {
-        window.city_is_just_detected  = false;
+			window.city_is_just_detected  = false;
         //YMaps.ready(function() {
               //window.ymaps = YMaps;
               var c = window.lc.getItem('ChosenName');

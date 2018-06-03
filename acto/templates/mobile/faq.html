@@ -1,4 +1,5 @@
 
+		<a name="faq_anchor_complete"></a>
 
 <!--
         <div id="page-faq">
@@ -135,6 +136,7 @@
                         }
                     }
                     function ask() {
+			    alert(1);
 
                             $('.ask_form input').removeClass('error');
                             $('.ask_form textarea').removeClass('error');
@@ -164,14 +166,15 @@
                             phone:phone,
                             question:question
                         }).done(function(d){
+				alert(00);
                             if (d=="OK") {
+				    alert(1);
                                 $('.ask_form .error').html('');
                             $('#page-faq .side').hide();
                             $('#page-faq .side.done').show();
                             } else {
                                 $('.ask_form img.capcha').attr('src','/capcha?q='+(new Date()));
                                 $('#page-faq .error').html(d);
-                                console.log(d);
                             }
                         });
                     }
@@ -555,6 +558,7 @@ transform: scale(1,1.25);
                                 $('.ask_form .form-error').html('');
                                 $('.ask-form-done').show();
                                 $('.ask_form').hide();
+				    document.location.href="/#faq_anchor_complete";
                                 setTimeout(function() {
                                   ask_back();
                                 },3000);
