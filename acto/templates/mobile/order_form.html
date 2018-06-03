@@ -343,6 +343,13 @@ padding: 5px;
 					  error = true;
 				  }
 
+		           _city = $("#order-form-mobile input[name=city]");
+				  if (!_city.val().match(/^\D+$/gm)) {
+					  _city.addClass("has-danger");
+					  error = true;
+				  }
+
+
                           }
                           if (!error) {
                             this.post();
