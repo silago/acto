@@ -345,7 +345,7 @@ color: #ee5c72;
 
 <nav class="navbar fixed-top x-navbar-expand-lg navbar-light bg-light">
   <hr class="pink-border" />
-  <a class="navbar-brand" href="#" ontouchstart="scroll(0,0); $('.modal').modal('hide');">
+  <a class="navbar-brand" href="/#" onclick="scroll(0,0); $('.modal').modal('hide');">
                     <img src="static/mobile/logo.png" id="logo"></a>
   </a>
 
@@ -750,7 +750,6 @@ function ahead(val) {
           }
 
         </style>
-
 
         {% for page in pages|dictsort:"order" %}
         <div class="anchor-holder">
