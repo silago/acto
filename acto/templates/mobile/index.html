@@ -48,7 +48,7 @@
           window.BASE_URL = "{{settings.site_url}}";
           window.MOBILE_URL = "{{settings.mobile_site_url}}";
           function goFull() {
-            setCookie("PREFER_FULL", true);
+		  setCookie("PREFER_FULL", true, {domain:".actoviderm.ru"});
             document.location = window.BASE_URL;
           }
 
@@ -345,7 +345,7 @@ color: #ee5c72;
 
 <nav class="navbar fixed-top x-navbar-expand-lg navbar-light bg-light">
   <hr class="pink-border" />
-  <a class="navbar-brand" href="#" ontouchstart="scroll(0,0); $('.modal').modal('hide');">
+  <a class="navbar-brand" href="/#" onclick="scroll(0,0); $('.modal').modal('hide');">
                     <img src="static/mobile/logo.png" id="logo"></a>
   </a>
 
@@ -372,8 +372,10 @@ color: #ee5c72;
             </button>
         </li>
 
-        <li class="nav-item row">
-            <span class="col-10">Найти аптеку</span>
+        <li class="nav-item row" style="padding-left:15px;">
+            <span
+   		    href="#find-shop"
+		    class="nav-link col-10">Найти аптеку</span>
             <button class="col-2" data-dismiss="modal" data-target="#">
                 <span ontouchstart="return;" class="oi oi-chevron-right" title="icon name" aria-hidden="true"></span>
             </button>
@@ -748,7 +750,6 @@ function ahead(val) {
           }
 
         </style>
-
 
         {% for page in pages|dictsort:"order" %}
         <div class="anchor-holder">
