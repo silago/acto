@@ -363,24 +363,25 @@ color: #ee5c72;
       >
         <li class="nav-item row">
             <span class="col-10">Регион: <span class="city_name">...</span></span>
-            <button class="col-2" data-dismiss="modal" data-target="#choose_city_modal" ontouchstart="$('#choose_city_modal').modal('show');" >
+            <button class="col-2" data-dismiss="modal" data-target="#choose_city_modal" onclick="$('.navbar-collapse').collapse('hide'); $('#choose_city_modal').modal('show');" >
                 <span class="oi oi-chevron-right" title="icon name" aria-hidden="true"></span>
             </button>
         </li>
 
         <li class="nav-item row">
             <span class="col-10">Оформить заказ с доставкой</span>
-            <button class="col-2" data-dismiss="modal" data-target="#order-form-mobile" ontouchstart="$('#order-form-mobile').modal('show');">
+            <button class="col-2" data-dismiss="modal" x-x-x-data-target="#order-form-mobile" onclick="$('.navbar-collapse').collapse('hide'); $('#order-form-mobile').modal('show');">
                 <span class="oi oi-chevron-right" title="icon name" aria-hidden="true"></span>
             </button>
         </li>
 
         <li class="nav-item row" style="padding-left:15px;">
             <span
-   		    href="#find-shop"
+   		    href="/#find-shop"
 		    class="nav-link col-10">Найти аптеку</span>
-            <button class="col-2" data-dismiss="modal" data-target="#">
-                <span ontouchstart="return;" class="oi oi-chevron-right" title="icon name" aria-hidden="true"></span>
+            <button onclick="location.hash='#find-shop';$('.navbar-collapse').collapse('hide'); " class="col-2" data-dismiss="modal" x-x-x-data-target="#" href="/#find-shop">
+		    
+                <span class="oi oi-chevron-right" title="icon name" aria-hidden="true"></span>
             </button>
         </li>
                     {% for page in pages|dictsort:"order" %}
