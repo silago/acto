@@ -254,6 +254,10 @@ var tMatches = function(_) {
 		return cities[lc.ChosenName].towns;
 	}
 }
+var matcher = function(q) {
+	return function findMatches(q,cb) {
+	}
+}
 
 var typeaheadTowns = $.typeahead({
             input: ".js-typeahead-bottom-towns",
@@ -337,8 +341,13 @@ var typeaheadTowns = $.typeahead({
             }
             for (var i in shops ) {
               var shop = shops[i];
+
+		    var t =(shop.metro ? "м. " + shop.metro : "") + "<br/>";
+		    t+= (shop.address ? shop.address : shop.name) + "<br/>";
+		    t+= shop.title ?  'Аптека "'+shop.title+'"' : "";
+		    t+= "<br/><br/>";
               if (shop.address.toLowerCase().indexOf(q)!=-1  || shop.name.toLowerCase().indexOf(q)!=-1 ||  shop.title.toLowerCase().indexOf(q)!=-1 || shop.metro.toLowerCase().indexOf(q)!=-1)  {
-                var str = "<li><a onclick='openYandex(\""+shops[i].address+"\");'>" + shops[i].name + " " +shops[i].address + "</a></li>";
+                var str = "<li><a onclick='showShopInfo("+JSON.stringify(shop)+");'>" + t  + "</a></li>";
                 result+=str;
               }
             }
@@ -363,6 +372,19 @@ var typeaheadTowns = $.typeahead({
 
         //initTAShops();
         //onCityChosen.push(initTAShops);
+
+	function showShopInfo(item) {
+                //var str = "<li><a onclick='openYandex(\""+shops[i].address+"\");'>" + shops[i].name + " " +shops[i].address + "</a></li>";
+	      data = item; 
+	      var addr = data.address ? data.address : data.name;
+	      result="<li>"+data.metro+"</a>";
+		result+="<li><a onclick='openYandex(\""+addr+"\")'>"+addr+"</a></li>";
+	      result+="<li>"+data.title+"</a>";
+
+
+          var item  = $('.shop-search-result').first();
+          item.html(result);
+	      }
 
   </script>
 
