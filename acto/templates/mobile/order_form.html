@@ -333,7 +333,7 @@ padding: 5px;
                               console.log(_);
                             }
 		           email = $(prefix + "email]");
-				  if (email!="")
+				  if (email.val()!="")
 				  if (!email.val().match(/^[\w\D.]+@[\w\D.]+$/gm)) {
 					error = true;
 					  email.addClass("has-danger");
