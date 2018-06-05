@@ -358,7 +358,6 @@ var typeaheadTowns = $.typeahead({
 
         findShops = function(q) {
 		q = q.toLowerCase();
-          //var result = [];
           var city = $('.x-js-typeahead-bottom-cities').val();
           var town = $('.js-typeahead-bottom-towns').val();
           var shops = [];
@@ -372,20 +371,36 @@ var typeaheadTowns = $.typeahead({
           if (shops.length == 0 ) {
             result = "К сожалению, сейчас АКТОВИДЕРМ® отсутствует в аптеках вашего региона. Вы можете заказать его онлайн с доставкой на дом.";
           } else {
-            if (q.length < 1) {
+            if (q.length == 0) {
               return;
             }
+	    var filtered = [];
             for (var i in shops ) {
               var shop = shops[i];
+	      var index = -1;
+	      var indexes = [ shop.address.toLowerCase().indexOf(q),  shop.name.toLowerCase().indexOf(q) ,  shop.title.toLowerCase().indexOf(q) ,  shop.metro.toLowerCase().indexOf(q)];
+	      for (c in indexes) { 
+	        var x = indexes[c];
+	      	if (x!=-1) {
+	      		if (x<index || index==-1) {
+	      		  index = x;
+	      		}
+	      	}
+	      }
+	      if (index!=-1) {
+	      	filtered.push({i:index,d:shop});
+	      }
+	    }
 
+	    filtered = filtered.sort(function(a,b) { return a.i-b.i});
+            for (var i in filtered ) {
+              var shop = filtered[i].d;
 		    var t =(shop.metro ? "м. " + shop.metro : "") + "<br/>";
-		      t+= (shop.address ? shop.address : shop.name) ;
+		    t+= (shop.address ? shop.address : shop.name) ;
 		    t+= shop.title ?  'Аптека "'+shop.title+'"' : "";
 		    t+= "<br/><br/>";
-              if (shop.address.toLowerCase().indexOf(q)!=-1  || shop.name.toLowerCase().indexOf(q)!=-1 ||  shop.title.toLowerCase().indexOf(q)!=-1 || shop.metro.toLowerCase().indexOf(q)!=-1)  {
-                var str = "<li><a onclick='showShopInfo("+JSON.stringify(shop)+");'>" + t  + "</a></li>";
-                result+=str;
-              }
+			var str = "<li><a onclick='showShopInfo("+JSON.stringify(shop)+");'>" + t  + "</a></li>";
+			result+=str;
             }
 
             if (result == "") {
@@ -399,13 +414,10 @@ var typeaheadTowns = $.typeahead({
           item.html(result);
         }
 
-        $( ".find-shops-input" ).keydown(function() {
-
-              //console.log($( this ).val());
+        $( ".find-shops-input" ).keyup(function() {
           findShops(
               $( this ).val()
           );
-          //  alert( "Handler for .change() called." ) ;
         });
 
         //initTAShops();
