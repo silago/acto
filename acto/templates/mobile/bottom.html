@@ -378,9 +378,14 @@ var typeaheadTowns = $.typeahead({
             for (var i in shops ) {
               var shop = shops[i];
 	      var index = -1;
-	      var indexes = [ shop.address.toLowerCase().indexOf(q),  shop.name.toLowerCase().indexOf(q) ,  shop.title.toLowerCase().indexOf(q) ,  shop.metro.toLowerCase().indexOf(q)];
+	      var indexes = [
+		     	 shop.metro.toLowerCase().indexOf(q),
+		     	 shop.address.toLowerCase().indexOf(q),
+		     	 shop.name.toLowerCase().indexOf(q) ,
+		     	 shop.title.toLowerCase().indexOf(q) ,
+	      ];
 	      for (c in indexes) { 
-	        var x = indexes[c];
+	        var x = indexes[c]+c;
 	      	if (x!=-1) {
 	      		if (x<index || index==-1) {
 	      		  index = x;
