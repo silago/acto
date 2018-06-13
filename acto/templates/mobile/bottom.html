@@ -279,7 +279,6 @@ function initta() {
 		    },
 
 		  });
-	console.log(__);
 	window.typeaheadTowns = __;
 	
 }
@@ -384,21 +383,29 @@ window.onCityChosen.push(initta);
             for (var i in shops ) {
               var shop = shops[i];
 	      var index = -1;
+	      var m = shop.metro.toLowerCase();
+	      m = m.replace(/^м. /,"");
+	      m = m.replace(/^метро /,"");
+	      mindex = m.indexOf(q);
 	      var indexes = [
-		     	 shop.metro.toLowerCase().indexOf(q),
+		      	 mindex,
 		     	 shop.address.toLowerCase().indexOf(q),
 		     	 shop.name.toLowerCase().indexOf(q) ,
 		     	 shop.title.toLowerCase().indexOf(q) ,
 	      ];
+		    
 	      for (c in indexes) { 
-	        var x = indexes[c]+c;
-	      	if (x!=-1) {
+	        var x = indexes[c]
+		    if (x>-1) {
+			    x+=parseInt(c);
+		    }
+		      if (x>-1) {
 	      		if (x<index || index==-1) {
 	      		  index = x;
 	      		}
 	      	}
 	      }
-	      if (index!=-1) {
+	      if (index>-1) {
 	      	filtered.push({i:index,d:shop});
 	      }
 	    }
