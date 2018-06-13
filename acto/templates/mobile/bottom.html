@@ -250,7 +250,7 @@ margin-left: -5px;
 */
 
 var tMatches = function(_) {
-	return function(q, cb) {
+	return function findMatches(q, cb) {
 		return cities[lc.ChosenName].towns;
 	}
 }
@@ -259,26 +259,32 @@ var matcher = function(q) {
 	}
 }
 
-var typeaheadTowns = $.typeahead({
-            input: ".js-typeahead-bottom-towns",
-            minLength: 0,
+function initta() {
+	var __ = $.typeahead({
+		    input: ".js-typeahead-bottom-towns",
+		    minLength: 0,
 
-            order: "asc",
-            searchOnFocus: true,
-            source: {
-                group: {
-                    display: ["name"],
-                    template: "{{name}}",
-                    data: tMatches() 
-                }
-            },
-             callback: {
-               onClick: function() { $(".find-shops-input").val(null); }
-            },
+		    order: "asc",
+		    searchOnFocus: true,
+		    //source: window.tMatches(), 
+		    source: {
+		        group: {
+		            display: ["name"],
+		            template: "{{name}}",
+		            data: tMatches() 
+		        }
+		    },
+		     callback: {
+		       onClick: function() { $(".find-shops-input").val(null); }
+		    },
 
-          });
-
-
+		  });
+	console.log(__);
+	window.typeaheadTowns = __;
+	
+}
+//initta();
+window.onCityChosen.push(initta);
      /*
 
 

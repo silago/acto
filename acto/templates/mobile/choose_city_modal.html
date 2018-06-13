@@ -101,7 +101,7 @@ z-index: 1080;
       <div class="inner-city-list">
     {% for city in cities %}
     <div class="col-12 city-list-modal" >
-        <a href="#" data-name="{{city.name}}" ontouchstart="choose_city('{{city.name}}');">{{ city.name }}</a>
+        <a data-name="{{city.name}}" ontouchstart="choose_city('{{city.name}}');">{{ city.name }}</a>
       <hr />
     </div>
     {% endfor %}
@@ -120,7 +120,7 @@ z-index: 1080;
                   for(var i in result) {
                     var city = result[i];
                     template+='<div class="col-12 city-list-modal" >';
-                    template+='<a class="'+(city.name == chosen ? 'active' :'')+'" href="#" data-name="'+city.name+'" ontouchstart="choose_city(\''+city.name+'\');">'+city.name+'</a>';
+                    template+='<a class="'+(city.name == chosen ? 'active' :'')+'"  data-name="'+city.name+'" ontouchstart="choose_city(\''+city.name+'\');">'+city.name+'</a>';
                     template+='<hr />';
                     template+='</div>';
                   }
